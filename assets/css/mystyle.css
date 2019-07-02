@@ -1,0 +1,444 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+@import url('https://fonts.googleapis.com/css?family=Rubik');
+
+
+body {
+  font-family: 'Rubik', sans-serif;
+}
+
+/* Navabr */
+
+.navbar {
+  position: relative;
+  z-index: 1;
+  font-weight: 500;
+}
+
+.navbar .fa {
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+.navbar-brand {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 23px;
+
+}
+
+.navbar-brand img {
+  width: 30px;
+  margin-right: 10px;
+}
+
+/* Jumbotron */
+
+.jumbotron {
+  background-image: url(../img/bg.jpg);
+  background-size: cover;
+  height: 640px;
+  position: relative;
+
+}
+
+.jumbotron::after {
+  content: '';
+  display: block;
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  width: 100%;
+  height: 70%;
+  position: absolute;
+  bottom: 0;
+}
+
+.jumbotron .container {
+  position: relative;
+  z-index: 1;
+}
+
+.jumbotron .display-4 {
+  color: white;
+  text-align: center;
+  margin-top: 350px;
+  font-weight: 300;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.9);
+
+}
+
+.jumbotron .display-4 span {
+  font-weight: 500;
+
+}
+
+.jumbotron p {
+  text-align: center;
+  color: white;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.9);
+}
+
+
+/* Utility */
+
+.tombol {
+  text-transform: uppercase;
+  border-radius: 50px;
+}
+
+/* Profile */
+
+#profile {
+  padding-top: 50px;
+  padding-bottom: 100px;
+  color: #555;
+}
+
+#profile .btn {
+  position: relative;
+  left: 40%;
+}
+
+#profile .fa {
+  position: relative;
+  top: 1px;
+  font-size: 20px;
+  transform: rotate(270deg);
+
+}
+
+.judul-head {
+  text-transform: uppercase;
+  margin-bottom: 50px;
+  color: #555;
+  font-size: 30px;
+
+}
+
+.judul-head::after {
+  content: '';
+  display: block;
+  border-bottom: 3px solid #555;
+  width: 170px;
+  margin: 20px auto 20px;
+}
+
+#ori-logo {
+  width: 500px;
+  border-radius: 10px;
+}
+
+#profile p {
+  font-size: 20px;
+  padding-top: 20px;
+}
+
+#profile span {
+  font-style: italic;
+  font-weight: bold;
+}
+
+/* Price Plan */
+
+#price-Plan {
+  background: #bebebe;
+  padding: 50px 0;
+}
+
+
+.card-header {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.card-title {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+#price-Plan p {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+#price-Plan .btn {
+  width: 150px;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+/* .card:hover {
+  box-shadow: 0 2px 20px black;
+} */
+
+
+#Galery {
+  background-image: url(../assets/img/bg-kontak.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+}
+
+
+#Galery img {
+  margin: 20px auto;
+}
+
+
+/* Testimonial */
+
+#Testimonial {
+  padding-top: 50px;
+  background-color: #373d41;
+  padding-bottom: 50px;
+
+}
+
+
+#Testimonial h1 {
+  color: white !important;
+
+}
+
+#Testimonial #Res-info {
+  font-size: 30px;
+  color: tomato !important;
+}
+
+#Testimonial #p1 {
+  margin-bottom: 40px;
+  color: white !important;
+  font-size: 18px;
+}
+
+#Testimonial #p2 {
+  color: whitesmoke;
+  font-size: 18px;
+}
+
+#Testimonial #p2 span {
+  margin-top: 20px;
+  font-size: 18px;
+  color: rgb(74, 212, 194);
+  font-weight: bold;
+  display: block;
+
+}
+
+#Testimonial #p2 span .fa {
+  font-size: 29px;
+}
+
+#Testimonial .col-md-4 img {
+  width: 100%;
+  height: 520px;
+  margin-top: -70px;
+}
+
+
+
+#Testimonial .col-md-4 {
+  margin: 60px auto;
+}
+
+
+#Testimonial #p4 {
+  color: white;
+}
+
+#Testimonial #dis-img img {
+  height: 800px;
+  padding-top: 90px;
+}
+
+#Testimonial #Dis-info {
+  font-size: 30px;
+  padding-top: 30px;
+
+}
+
+
+
+#Testimonial #p4 span {
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 20px;
+  color: cornflowerblue !important;
+
+}
+
+#Testimonial #p4 .fa {
+  font-size: 29px;
+}
+
+
+
+#contactPerson {
+  background-color: #fff;
+  padding-top: 50px;
+  padding-bottom: 150px;
+
+}
+
+#sosmed {
+  background: #555;
+}
+
+
+#sosmed ul {
+  display: flex;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+}
+
+#sosmed ul li {
+  list-style: none;
+}
+
+#sosmed ul li a {
+  width: 60px;
+  height: 60px;
+  background: rgb(228, 230, 233);
+  text-align: center;
+  line-height: 77px;
+  font-size: 50px;
+  margin: 0 10px;
+  display: block;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  border: 3px solid rgb(255, 255, 255);
+  z-index: 1;
+
+}
+
+#sosmed ul li:nth-child(1) a {
+  font-size: 35px;
+  line-height: 55px;
+}
+
+#sosmed ul li:nth-child(2) a {
+  width: 80px;
+  height: 80px;
+}
+
+#sosmed ul li:nth-child(3) a {
+  font-size: 35px;
+  line-height: 50px;
+}
+
+#sosmed ul li a .fa {
+  position: relative;
+  color: #262626;
+  transition: .5s;
+
+}
+
+#sosmed ul li a:hover .fa {
+  color: #fff;
+  transform: rotateY(360deg);
+  z-index: 3;
+}
+
+#sosmed ul li a::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #f00;
+  transition: .5s;
+  z-index: 2;
+}
+
+#sosmed ul li a:hover::before {
+  top: 0;
+}
+
+#sosmed ul li:nth-child(1) a::before {
+  background: #3b5999;
+}
+
+#sosmed ul li:nth-child(2) a::before {
+  background: #e4405f;
+
+}
+
+#sosmed ul li:nth-child(3) a::before {
+  background: #25D366;
+}
+
+
+#footer {
+  padding-top: 80px;
+
+}
+
+#footer a {
+  text-decoration: none;
+  color: tomato;
+}
+
+
+
+/* Desktop version */
+@media (min-width: 992px) {
+
+  .navbar-brand,
+  .nav-link {
+    color: white !important;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+  }
+
+  .nav-link {
+    text-transform: uppercase;
+    margin-right: 5px;
+  }
+
+  .nav-link:hover::after {
+    content: '';
+    display: block;
+    border-bottom: 3px solid rgb(255, 230, 0);
+    width: 70%;
+    margin: auto;
+    padding-bottom: 5px;
+    margin-bottom: -8px;
+    ;
+  }
+
+  .jumbotron {
+    margin-top: -75px;
+  }
+
+
+  .judul-head {
+    font-weight: bold;
+  }
+
+  /* Price */
+  #price-Plan .card {
+    height: 500px;
+  }
+
+  #price-Plan p {
+    margin-bottom: -15px;
+  }
+
+  /* Galery */
+
+  #Galery img:hover {
+    transform: scale(1.2);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.6);
+    transition: .5s;
+  }
+
+  #contactPerson .btn {
+    margin-left: 192px;
+  }
+
+
+
+}
