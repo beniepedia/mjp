@@ -148,7 +148,7 @@ $photos[] = $photo['images']['standard_resolution']['url'];
 							<p class="card-text">10% fee kami berikan untuk setiap dropship yang sukses, dan akumulasi 5% kami
 							berikan dalam bentuk 1 lusin parfum jika sudah 120 botol dropship yang sukses</p>
 						</div>
-						<a href="#" class="btn btn-primary tombol">Go somewhere</a>
+						<a href="#" class="btn btn-primary tombol">Selengkapnya</a>
 					</div>
 				</div>
 				<div class="col-lg">
@@ -238,7 +238,7 @@ $photos[] = $photo['images']['standard_resolution']['url'];
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-lg-4 text-center mt-3">
-					<div class="card text-white bg-primary">
+					<div class="card text-white bg-primary shadow">
 						<div class="card-body">
 							<h5 class="card-title">Hubungi Kami</h5>
 							<small class="card-text">Silahkan hubungi kami jika ada pertanyaan menyangkut dengan produk kami dengan

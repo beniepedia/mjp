@@ -48,7 +48,7 @@ class Home extends CI_Controller {
 		$this->email->from($this->input->post('email'));
 		$this->email->to('admin@id-mjp.com', 'Admin MJP');
 		$this->email->subject('Pesan Dari '.$this->input->post('nama'));
-		$this->email->message('Nama : '. $this->input->post('nama') . '<br>' . 'No. Telpon : ' . $this->input->post('telp') . '<br>' . 'Pesan : ' . $this->input->post('pesan')
+		$this->email->message('NAMA : '. $this->input->post('nama') . '<br>' . 'HP : ' . $this->input->post('telp') . '<br>' . 'PESAN : ' . $this->input->post('pesan')
 		);
 		
 		if($this->email->send())
