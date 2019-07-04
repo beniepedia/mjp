@@ -13,6 +13,7 @@ class Home extends CI_Controller {
 		$data['title'] = 'ID MJ PARFUME - BERANDA';
 		$data['photos'] = $this->Igphoto_model->getPhotoIg();
 		$this->load->view('template/header.php',$data);
+		$this->load->view('template/navbar_primary');
 		$this->load->view('home.php', $data);
 		$this->load->view('template/footer.php');
 	}

@@ -24,7 +24,7 @@
   <!-- The slideshow -->
   <div class="carousel-inner" role="listbox">
     <div class="carousel-item active">
-      <img src="<?= base_url('assets/img/bg.jpg'); ?>" alt="Gambar - 1" width="1280" height="700">
+      <img src="<?= base_url('assets/img/bg.jpg'); ?>" class="d-block w-100" alt="Gambar - 1" width="1280" height="700">
       <div class="carousel-caption">
         <h3>Selamat Datang Di<br>ID MJ PARFUME</h3>
         <p>Selamat datang di website ID MJ-Parfume</p>
@@ -32,7 +32,7 @@
       </div>
     </div>
     <div class="carousel-item">
-      <img src="<?= base_url('assets/img/bg-2.jpg'); ?>" alt="Gambar - 2" width="1280" height="700">
+      <img src="<?= base_url('assets/img/bg-2.jpg'); ?>" class="d-block w-100" alt="Gambar - 2" width="1280" height="700">
       <div class="carousel-caption">
         <h3>Selamat Datang Di<br>ID MJ PARFUME</h3>
         <p>Selamat datang di website ID MJ-Parfume</p>
@@ -40,7 +40,7 @@
       </div>
     </div>
     <div class="carousel-item">
-      <img src="https://drive.google.com/uc?export=download&id=1NSeFxs2MXhLfCU14qtqnRWce8LPJC6bR" alt="Gambar - 3" width="1280" height="700">
+      <img src="https://drive.google.com/uc?export=download&id=1NSeFxs2MXhLfCU14qtqnRWce8LPJC6bR" class="d-block w-100" alt="Gambar - 3" width="1280" height="700">
       <div class="carousel-caption">
         <h3>Selamat Datang Di<br>ID MJ PARFUME</h3>
         <p>Selamat datang di website ID MJ-Parfume</p>

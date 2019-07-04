@@ -17,6 +17,7 @@ class Kontak extends CI_Controller {
 		if ($this->form_validation->run() == FALSE)
 		{
 			$this->load->view('template/header.php', $data);
+			$this->load->view('template/navbar_secondary');
 			$this->load->view('kontak.php');
 			$this->load->view('template/footer.php');
 		}

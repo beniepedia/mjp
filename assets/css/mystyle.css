@@ -3,7 +3,6 @@
 
 
 body {
-  overflow-x: hidden; 
   font-family: 'Rubik', sans-serif;
 }
 
@@ -403,7 +402,7 @@ body {
   }
 
   .carousel-inner img {
-    width: 100%;
+    
   }
 
   .carousel-caption h3
