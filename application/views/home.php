@@ -1,4 +1,3 @@
-
 <!-- Jumbotron -->
 <div class="jumbotron jumbotron-fluid">
 	<div class="container">
@@ -91,7 +90,6 @@
 	</div>
 </div>
 </section>
-
 <!-- Galery -->
 <section id="Galery">
 <div class="container">
@@ -106,7 +104,6 @@
 	</div>
 </div>
 </section>
-
 <section id="Testimonial">
 <div class="container">
 	<h1 class="judul-head text-center wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.5s">Peluang Usaha</h1>
@@ -149,55 +146,44 @@
 </div>
 </section>
 <section id="contactPerson">
-<h1 class="judul-head text-center">Kontak</h1>
+<h1 class="judul-head text-center">Informasi Kontak</h1>
 <div class="container">
 	<div class="row justify-content-center">
 		<div class="col-lg-4 text-center mt-3">
 			<div class="card text-white bg-primary shadow">
 				<div class="card-body">
-					<h5 class="card-title">Hubungi Kami</h5>
-					<small class="card-text">Silahkan hubungi kami jika ada pertanyaan menyangkut dengan produk kami dengan
-					mengisi
-					form dibawah ini</small>
+					<h5 class="card-title">Detail Kontak</h5>
 				</div>
 			</div>
-			<div class="errorNotif" data-error="<?= validation_errors(); ?>"></div>
-			<div class="card">
-				<div class="card-body">
-					<form method="post" action="<?= base_url('home/kontak'); ?>" autocomplete="off">
-						<div class="form-group row">
-							<label for="nama" class="col-sm-3 col-form-label">Nama</label>
-							<div class="col-sm-9">
-								<input type="text" class="form-control" name="nama">
-							</div>
-						</div>
-						<div class="form-group row">
-							<label for="email" class="col-sm-3 col-form-label">Email</label>
-							<div class="col-sm-9">
-								<input type="text" class="form-control" name="email">
-							</div>
-						</div>
-						<div class="form-group row">
-							<label for="telp" class="col-sm-3 col-form-label">No. Hp</label>
-							<div class="col-sm-9">
-								<input type="number" class="form-control" name="telp">
-							</div>
-						</div>
-						<div class="form-group row">
-							<label for="pesan" class="col-sm-3 col-form-label">Pesan</label>
-							<div class="col-sm-9">
-								<textarea name="pesan" id="pesan" class="form-control"></textarea>
-							</div>
-						</div>
-						<div class="form-group">
-							<button class="btn btn-primary" type="submit" name="submit">Kirim Pesan</button>
-						</div>
-					</form>
-				</div>
+			<div class="list-group shadow text-left">
+				<a href="#" class="list-group-item list-group-item-action">
+					<i class="fa fa-map-marker"></i>
+					Gg. Keluarga, Tj. Sari, Kec. Medan Selayang, Kota Medan, Sumatera Utara 20135
+				</a>
+				<a href="mailto:admin@id-mjp.com" class="list-group-item list-group-item-action">
+					<i class="fa fa-envelope-o"></i>
+					admin@gmail.com
+				</a>
+				<a href="#" class="list-group-item list-group-item-action">
+					<i class="fa fa-phone"></i>
+					+62822-8866-9090
+				</a>
+				<a href="https://api.whatsapp.com/send?phone=6282288669090&text=Hallo%20*admin*,%20saya%20mau%20tanya." target="_blank" class="list-group-item list-group-item-action">
+					<i class="fa fa-whatsapp"></i>
+					admin 1 (+62822-8866-9090)
+				</a>
+				<a href="https://api.whatsapp.com/send?phone=6287772360300&text=Hallo%20*admin*,%20saya%20mau%20tanya." target="_blank" class="list-group-item list-group-item-action">
+					<i class="fa fa-whatsapp"></i>
+					admin 2 (+62877-7236-0300)
+				</a>
+				<a href="https://api.whatsapp.com/send?phone=6287772360300&text=Hallo%20*admin*,%20saya%20mau%20tanya." target="_blank" class="list-group-item list-group-item-action">
+					<i class="fa fa-edge"></i>
+					www.id-mjp.com
+				</a>
 			</div>
 		</div>
 		<div class="col-lg-6 mt-3">
-			<div class="card bg-dark">
+			<div class="card bg-dark shadow">
 				<div class="card-body text-white text-center">
 					<h5 class="card-title">Lokasi</h5>
 					<!-- <p>Berikut ini lokasi tempat usaha kami.</p> -->
