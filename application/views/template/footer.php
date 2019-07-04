@@ -40,6 +40,7 @@ crossorigin="anonymous"></script>
 <script src="<?= base_url('assets/') ?>js/toast/toastr.min.js" type="text/javascript"></script>
 <script id="intergram" type="text/javascript" src="https://www.intergram.xyz/js/widget.js"></script>
 <script  type="text/javascript" src="<?= base_url('assets/') ?>js/chat.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 <script>
 	$(document).ready(function(){
 		var wow = new WOW({

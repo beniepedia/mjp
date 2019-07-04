@@ -1,3 +1,5 @@
+<div class="pesanNotif" data-title="<?= $this->session->flashdata('title'); ?>" data-pesan="<?= $this->session->flashdata('pesan'); ?>" data-error="<?= $this->session->flashdata('type'); ?>"></div>
+
 <div class="container">
 	<div class="row mt-5 mb-5">
 		<div class="col-md-4">

@@ -23,8 +23,9 @@ class Kontak extends CI_Controller {
 		else
 		{
 			$this->_sendEmail();
-			echo "<script>alert('Pesan berhasil dikirim. terima kasih');</script>";
-			redirect('home','refresh');
+			fMessage('Pesan anda berhasil terkirim !',
+					'success', 'Sukses...!');
+			redirect('kontak');
 			}
 		}
 		private function _sendEmail()

@@ -10,4 +10,16 @@ $(document).ready(function(){
         mainColor: "#E91E63", // Can be any css supported color 'red', 'rgb(255,87,34)', etc
         alwaysUseFloatingButton: true // Use the mobile floating button also on large screens
     };
+
+    const pesan = $('.pesanNotif').data('pesan');     
+        const error = $('.pesanNotif').data('error');    
+        const title = $('.pesanNotif').data('title');     
+        if(pesan)
+        {   
+            Swal.fire({ 
+              type: error,  
+              title: title, 
+              html: pesan   
+            }); 
+        }   
 });
