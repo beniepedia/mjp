@@ -17,7 +17,7 @@
 					class="fa fa-picture-o" aria-hidden="true"></i>Galeri</a>
 					<a class="nav-item nav-link wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.5s" href="#Testimonial"><i
 					class="fa fa-comments" aria-hidden="true"></i>Peluang Usaha</a>
-					<a class="nav-item nav-link wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.6s" href="#"><i
+					<a class="nav-item nav-link wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.6s" href="<?= base_url('kontak'); ?>"><i
 					class="fa fa-address-book-o" aria-hidden="true"></i>Kontak</a>
 					
 					<!-- <a class="nav-item btn btn-primary tombol" href="#">Join Reseller</a> -->
