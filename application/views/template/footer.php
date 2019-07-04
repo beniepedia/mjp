@@ -39,34 +39,36 @@ crossorigin="anonymous"></script>
 <!-- Wow JS -->
 <script src="<?= base_url('assets/') ?>js/wow.min.js"></script>
 <script src="<?= base_url('assets/') ?>js/toast/toastr.min.js" type="text/javascript"></script>
+<script id="intergram" type="text/javascript" src="https://www.intergram.xyz/js/widget.js"></script>
+<script  type="text/javascript" src="<?= base_url('assets/') ?>js/chat.js"></script>
 <script>
 	$(document).ready(function(){
 		var wow = new WOW({
-		boxClass: 'wow', // animated element css class (default is wow)
-		animateClass: 'animated', // animation css class (default is animated)
-		offset: 0, // distance to the element when triggering the animation (default is 0)
-		mobile: true, // trigger animations on mobile devices (default is true)
-		live: true, // act on asynchronously loaded content (default is true)
-		callback: function (box) {
-		// the callback is fired every time an animation is started
-		// the argument that is passed in is the DOM node being animated
-		},
-		scrollContainer: null, // optional scroll container selector, otherwise use window,
-		resetAnimation: true, // reset animation on end (default is true)
-		});
-		wow.init();
-		const notif = $('.errorNotif').data('error');
-if(notif)
-{
-	toastr['error'](notif, 'Semua field wajib diisi, Pesan gagal terkirim !</br>',{
-		"closeButton": true,
-		"hideDuration": "1000",
-		"showEasing": "swing",
-		"hideEasing": "linear",
-					"showMethod": "fadeIn",
-					"hideMethod": "fadeOut"
-	})
-}
+				boxClass: 'wow', // animated element css class (default is wow)
+				animateClass: 'animated', // animation css class (default is animated)
+				offset: 0, // distance to the element when triggering the animation (default is 0)
+				mobile: true, // trigger animations on mobile devices (default is true)
+				live: true, // act on asynchronously loaded content (default is true)
+				callback: function (box) {
+				// the callback is fired every time an animation is started
+				// the argument that is passed in is the DOM node being animated
+				},
+				scrollContainer: null, // optional scroll container selector, otherwise use window,
+				resetAnimation: true, // reset animation on end (default is true)
+				});
+				wow.init();
+				const notif = $('.errorNotif').data('error');
+		if(notif)
+		{
+			toastr['error'](notif, 'Semua field wajib diisi, Pesan gagal terkirim !</br>',{
+				"closeButton": true,
+				"hideDuration": "1000",
+				"showEasing": "swing",
+				"hideEasing": "linear",
+							"showMethod": "fadeIn",
+							"hideMethod": "fadeOut"
+			})
+		}
 	});
 </script>
 </body>

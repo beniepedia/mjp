@@ -17,7 +17,7 @@
 		<!-- Animate CSS -->
 		<link rel="stylesheet" href="<?= base_url('assets/');?>css/animate.css">
 		<link href="<?= base_url('assets/');?>/js/toast/toastr.min.css" rel="stylesheet" />
-		<title>ID - MJ Parfume</title>
+		<title><?= $title; ?></title>
 	</head>
 	<body>
 		<!-- Navbar Primary -->

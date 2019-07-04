@@ -11,6 +11,7 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
+		$data['title'] = 'ID MJ PARFUME - BERANDA';
 		$data['photos'] = $this->Igphoto_model->getPhotoIg();
 		$this->load->view('template/header.php');
 		$this->load->view('home.php', $data);
@@ -26,7 +27,9 @@ class Home extends CI_Controller {
 
 		if ($this->form_validation->run() == FALSE) 
 		{
-			$this->load->view('home');
+			$this->load->view('template/header.php');
+			$this->load->view('kontak.php');
+			$this->load->view('template/footer.php');
 		} 
 		else
 		{
