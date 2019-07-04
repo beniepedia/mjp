@@ -31,12 +31,24 @@ class Kontak extends CI_Controller {
 		}
 		private function _sendEmail()
 		{
+			// Config emial lokal
+			// $config = [
+			// 'protocol' => 'smtp',
+			// 'smtp_host' => 'ssl://smtp.googlemail.com',
+			// 'smtp_user' => 'printcloud91@gmail.com',
+			// 'smtp_pass' => 'medan2018',
+			// 'smtp_port' => 465,
+			// 'mailtype' => 'html',
+			// 'charset' => 'utf-8',
+			// 'newline' => "\r\n"
+			// ];
+			// config email server
 			$config = [
 			'protocol' => 'smtp',
-			'smtp_host' => 'ssl://smtp.googlemail.com',
-			'smtp_user' => 'printcloud91@gmail.com',
-			'smtp_pass' => 'medan2018',
-			'smtp_port' => 465,
+			'smtp_host' => 'mail.id-mjp.com',
+			'smtp_user' => 'admin@id-mjp.com',
+			'smtp_pass' => 'Medan2019',
+			'smtp_port' => 587,
 			'mailtype' => 'html',
 			'charset' => 'utf-8',
 			'newline' => "\r\n"
