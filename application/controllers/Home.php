@@ -6,11 +6,15 @@ class Home extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->library('form_validation');
+		$this->load->model('Igphoto_model');
 	}
 
 	public function index()
 	{
-		$this->load->view('home.php');
+		$data['photos'] = $this->Igphoto_model->getPhotoIg();
+		$this->load->view('template/header.php');
+		$this->load->view('home.php', $data);
+		$this->load->view('template/footer.php');
 	}
 
 	public function kontak()
@@ -60,7 +64,7 @@ class Home extends CI_Controller {
 			echo $this->email->print_debugger();
 			die;
 		}
-	
 	}
+
 }
 
