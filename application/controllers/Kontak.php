@@ -11,7 +11,7 @@ class Kontak extends CI_Controller {
 		$data['title'] = 'ID MJ PARFUME - KONTAK';
 		$this->form_validation->set_rules('nama', 'Nama', 'trim|required');
 		$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
-		$this->form_validation->set_rules('telp', 'No. Telpon', 'trim|required');
+		$this->form_validation->set_rules('telp', 'Telpon/HP', 'trim|required');
 		$this->form_validation->set_rules('pesan', 'Pesan', 'trim|required');
 
 		if ($this->form_validation->run() == FALSE)

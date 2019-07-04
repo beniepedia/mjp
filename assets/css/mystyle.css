@@ -3,6 +3,7 @@
 
 
 body {
+  overflow-x: hidden; 
   font-family: 'Rubik', sans-serif;
 }
 
@@ -32,15 +33,22 @@ body {
 
 /* Jumbotron */
 
-.jumbotron {
-  background-image: url(../img/bg.jpg);
+
+.carousel-inner {
+
   background-size: cover;
-  height: 640px;
+  height: 100vh;
   position: relative;
 
 }
 
-.jumbotron::after {
+.carousel-inner img {
+  
+}
+
+
+
+.carousel-inner::after {
   content: '';
   display: block;
   background-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
@@ -53,26 +61,6 @@ body {
 .jumbotron .container {
   position: relative;
   z-index: 1;
-}
-
-.jumbotron .display-4 {
-  color: white;
-  text-align: center;
-  margin-top: 350px;
-  font-weight: 300;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.9);
-
-}
-
-.jumbotron .display-4 span {
-  font-weight: 500;
-
-}
-
-.jumbotron p {
-  text-align: center;
-  color: white;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.9);
 }
 
 
@@ -409,8 +397,32 @@ body {
     ;
   }
 
-  .jumbotron {
+  .carousel-inner {
     margin-top: -75px;
+    height: 100%;
+  }
+
+  .carousel-inner img {
+    width: 100%;
+  }
+
+  .carousel-caption h3
+  {
+    position: relative;
+    font-size: 5rem;
+    top: -50px;
+  }
+
+  .carousel-caption p
+  {
+    position: relative;
+    font-size: 1.2rem;
+    top: -50px;
+  }
+
+  .carousel-caption .btn{
+    position: relative;
+    top:-50px;
   }
 
 

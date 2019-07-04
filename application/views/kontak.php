@@ -31,7 +31,7 @@
 
 						</div>
 						<div class="form-group row">
-							<label for="telp" class="col-sm-3 col-form-label">No. Hp</label>
+							<label for="telp" class="col-sm-3 col-form-label">Telp</label>
 							<div class="col-sm-9">
 								<input type="number" class="form-control" name="telp" value="<?= set_value('telp'); ?>">
 								<?= form_error('telp', '<small class="text-danger form-error">','</small>'); ?>

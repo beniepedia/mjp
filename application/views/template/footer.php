@@ -26,6 +26,7 @@
 </div>
 </footer>
 </section>
+
 <!-- Optional JavaScript -->
 <script src="<?= base_url('assets/') ?>js/jquery-3.3.1.js"></script>
 <!-- lightbox Js -->
