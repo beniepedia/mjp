@@ -275,7 +275,7 @@ body {
 #sosmed ul {
   display: flex;
   position: absolute;
-  left: 50%;
+  left: 46%;
   transform: translate(-50%, -50%);
 
 }
@@ -358,6 +358,11 @@ body {
   background: #25D366;
 }
 
+#btn-share h3 {
+  font-size: 20px;
+  margin-top: 30px;
+  margin-bottom: -30px;
+}
 
 #footer {
   padding-top: 80px;
@@ -448,6 +453,10 @@ body {
 
   #contactPerson .btn {
     margin-left: 192px;
+  }
+
+  #sosmed ul {
+    left: 48%;
   }
 
 
