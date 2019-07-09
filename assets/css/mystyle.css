@@ -36,16 +36,9 @@ body {
 .carousel-inner {
 
   background-size: cover;
-  height: 100vh;
   position: relative;
 
 }
-
-.carousel-inner img {
-  
-}
-
-
 
 .carousel-inner::after {
   content: '';
@@ -55,6 +48,10 @@ body {
   height: 70%;
   position: absolute;
   bottom: 0;
+}
+
+.carousel-caption p {
+  display: none;
 }
 
 .jumbotron .container {
@@ -275,7 +272,7 @@ body {
 #sosmed ul {
   display: flex;
   position: absolute;
-  left: 46%;
+  left: 45%;
   transform: translate(-50%, -50%);
 
 }
@@ -358,11 +355,6 @@ body {
   background: #25D366;
 }
 
-#btn-share h3 {
-  font-size: 20px;
-  margin-top: 30px;
-  margin-bottom: -30px;
-}
 
 #footer {
   padding-top: 80px;
@@ -413,8 +405,9 @@ body {
   .carousel-caption h3
   {
     position: relative;
-    font-size: 5rem;
-    top: -50px;
+    font-size: 4rem;
+    top: -70px;
+    margin-bottom: 30px;
   }
 
   .carousel-caption p
@@ -422,6 +415,7 @@ body {
     position: relative;
     font-size: 1.2rem;
     top: -50px;
+    display: none;
   }
 
   .carousel-caption .btn{
@@ -456,9 +450,7 @@ body {
   }
 
   #sosmed ul {
-    left: 48%;
+    left: 47%;
   }
-
-
 
 }

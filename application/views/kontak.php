@@ -2,7 +2,7 @@
 
 <div class="container">
 	<div class="row mt-5 mb-5">
-		<div class="col-md-4">
+		<div class="col-lg-4 col-md-6 col-sm-12">
 			<h2 class="text-center">Kontak</h2>
 			<div class="card text-white bg-primary shadow">
 				<div class="card-body text-center">
