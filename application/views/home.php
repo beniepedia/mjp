@@ -207,7 +207,7 @@
 				</a>
 				<a href="mailto:admin@id-mjp.com" class="list-group-item list-group-item-action">
 					<i class="fa fa-envelope-o"></i>
-					admin@gmail.com
+					admin@id-mjp.com
 				</a>
 				<a href="#" class="list-group-item list-group-item-action">
 					<i class="fa fa-phone"></i>

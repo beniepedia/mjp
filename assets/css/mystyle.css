@@ -355,6 +355,11 @@ body {
   background: #25D366;
 }
 
+#btn-share h3 {
+  margin: 20px 0 -40px;
+  font-size: 20px;
+
+}
 
 #footer {
   padding-top: 80px;
@@ -450,7 +455,7 @@ body {
   }
 
   #sosmed ul {
-    left: 47%;
+    left: 48%;
   }
 
 }
