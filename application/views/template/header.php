@@ -14,6 +14,7 @@
 		<!-- Animate CSS -->
 		<link rel="stylesheet" href="<?= base_url('assets/');?>css/animate.css">
 		<link href="<?= base_url('assets/');?>/js/toast/toastr.min.css" rel="stylesheet" />
+		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 		<title><?= $title; ?></title>
 	</head>
 	<body>

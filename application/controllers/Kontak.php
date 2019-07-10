@@ -13,6 +13,8 @@ class Kontak extends CI_Controller {
 		$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
 		$this->form_validation->set_rules('telp', 'Telpon/HP', 'trim|required');
 		$this->form_validation->set_rules('pesan', 'Pesan', 'trim|required');
+		$this->form_validation->set_rules('g-recaptcha-response', 'Recapcha Validasi', 'trim|callback_validate_captcha');
+		$this->form_validation->set_message('validate_captcha', 'Please check the captcha form');
 
 		if ($this->form_validation->run() == FALSE)
 		{
@@ -69,5 +71,24 @@ class Kontak extends CI_Controller {
 				echo $this->email->print_debugger();
 				die;
 			}
-	}
+		}
+
+		public function validate_captcha()
+		{
+			$captcha = $this->input->post('g-recaptcha-response');
+			$url = 'https://www.google.com/recaptcha/api/siteverify';
+			$secret = '6Ld966wUAAAAAN97ttYHRlTYTMpgANXwxj_A-p7g';
+
+			$respon = file_get_contents($url.'?secret='.$secret.'&response='.$captcha.'&remoteip='.$_SERVER['REMOTE_ADDR']);
+			$data = json_decode($respon);
+
+			if($data->success == false)
+			{
+				return FALSE;
+			}
+			else
+			{
+				return TRUE;
+			}
+		}
 }

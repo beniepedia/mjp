@@ -44,7 +44,10 @@
 								<?= form_error('pesan', '<small class="text-danger form-error">','</small>'); ?>
 							</div>
 						</div>
+						<div class="g-recaptcha" name="g-recaptcha-response" data-sitekey="6Ld966wUAAAAAJMMCiRiOsU6chxi0S6bIbIes1Pc"></div>
 						<div class="form-group">
+						<?= form_error('g-recaptcha-response', '<small class="text-danger form-error">','</small>'); ?>
+							<br>	
 							<button class="btn btn-primary float-right" type="submit" name="submit">Kirim Pesan</button>
 						</div>
 					</form>
