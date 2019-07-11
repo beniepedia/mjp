@@ -16,11 +16,12 @@
                   <form class="user" action="<?= base_url('auth/login'); ?>" method="post">
                     <div class="form-group">
                       <input type="email" class="form-control form-control-user"placeholder="Enter Email Address..." name="email">
-                      ><?= form_error('email'); ?>
+                      <?= form_error('email','<small class="text-danger pl-3">','</small'); ?>
                     </div>
                     
                     <div class="form-group">
                       <input type="password" class="form-control form-control-user" placeholder="Password" name="password">
+                      <?= form_error('password','<small class="text-danger pl-3">','</small'); ?>
                     </div>
                     <div class="form-group">
                       <div class="custom-control custom-checkbox small">
@@ -32,17 +33,20 @@
                       Login
                     </button>
                     <hr>
-                   <!--  <a href="index.html" class="btn btn-google btn-user btn-block">
-                      <i class="fab fa-google fa-fw"></i> Login with Google
-                    </a>
-                    <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                      <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
-                    </a> -->
+                    <div class="row justify-content-center">
+                      <a href="index.html" class="btn btn-google btn-user btn-lg btn-circle">
+                        <i class="fab fa-google fa-fw" style="font-size: 20px;"></i>
+                      </a>
+                      <a href="index.html" class="btn btn-facebook btn-user btn-lg btn-circle">
+                        <i class="fab fa-facebook-f fa-fw" style="font-size: 20px;"></i>
+                      </a>
+                    </div>
                   </form>
-                  <div class="text-center">
+                  <hr>
+                  <div class="text-center" >
                     <a class="small" href="forgot-password.html">Forgot Password?</a>
                   </div>
-                  <div class="text-center">
+                  <div class="text-center" style="margin-bottom: -40px;">
                     <a class="small" href="register.html">Create an Account!</a>
                   </div>
                 </div>

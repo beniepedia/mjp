@@ -13,6 +13,7 @@ class Auth extends CI_Controller
     {
 
 			$this->form_validation->set_rules('email', 'Email', 'trim|required');
+			$this->form_validation->set_rules('password', 'Password', 'trim|required');
 			if ($this->form_validation->run() == FALSE) {
 				$data['title'] = 'Halaman Login';
 	    	$this->load->view('template/auth_header', $data);
