@@ -10,6 +10,7 @@
 					class="fa fa-home" aria-hidden="true"></i>Beranda</a>
 					<a class="nav-item nav-link wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.6s" href="<?= base_url('kontak'); ?>"><i
 					class="fa fa-address-book-o" aria-hidden="true"></i>Kontak</a>
+					<a class="nav-item btn btn-warning" href="<?= base_url('auth/login') ?>">Masuk</a>
 				</div>
 			</div>
 		</nav>

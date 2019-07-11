@@ -20,7 +20,7 @@
 					<a class="nav-item nav-link wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.6s" href="<?= base_url('kontak'); ?>"><i
 					class="fa fa-address-book-o" aria-hidden="true"></i>Kontak</a>
 					
-					<!-- <a class="nav-item btn btn-primary tombol" href="#">Join Reseller</a> -->
+					<a class="nav-item btn btn-success shadow" href="<?= base_url('auth/login') ?>">Masuk</a>
 				</div>
 			</div>
 		</nav>
@@ -41,7 +41,7 @@
 							<a class="nav-item nav-link" href="#Galery"><i class="fa fa-picture-o" aria-hidden="true"></i>Galeri</a>
 							<a class="nav-item nav-link" href="#Testimonial"><i class="fa fa-comments" aria-hidden="true"></i>Peluang Usaha</a>
 							<a class="nav-item nav-link" href="<?= base_url('kontak'); ?>"><i class="fa fa-address-book-o" aria-hidden="true"></i>Kontak</a>
-							<!-- <a class="nav-item btn btn-primary tombol" href="#">Join Reseller</a> -->
+							<a class="nav-item btn btn-danger shadow" href="<?= base_url('auth/login') ?>">Masuk</a>
 						</div>
 					</div>
 				</div>
