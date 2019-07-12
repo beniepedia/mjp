@@ -28,7 +28,7 @@
       <div class="carousel-caption d-none d-lg-block">
         <h3>Selamat Datang Di<br><?= $photos[0]['user']['full_name']; ?></h3>
         <p>Selamat datang di website ID MJ-Parfume</p>
-        <a href="#" class="btn btn-warning rounded-pill">Gabung</a>
+        <a href="<?= base_url('auth/registrasi'); ?>" class="btn btn-warning rounded-pill">DAFTAR SEKARANG</a>
       </div>
     </div>
     <div class="carousel-item">
@@ -36,7 +36,7 @@
       <div class="carousel-caption d-none d-lg-block">
         <h3>Selamat Datang Di<br><?= $photos[0]['user']['full_name']; ?></h3>
         <p>Selamat datang di website ID MJ-Parfume</p>
-        <a href="#" class="btn btn-warning rounded-pill">Gabung</a>
+        <a href="<?= base_url('auth/registrasi'); ?>" class="btn btn-warning rounded-pill">DAFTAR SEKARANG</a>
       </div>
     </div>
     <div class="carousel-item">
@@ -44,7 +44,7 @@
       <div class="carousel-caption d-none d-lg-block">
         <h3>Selamat Datang Di<br><?= $photos[0]['user']['full_name']; ?></h3>
         <p>Selamat datang di website ID MJ-Parfume</p>
-        <a href="#" class="btn btn-warning rounded-pill">Gabung</a>
+        <a href="<?= base_url('auth/registrasi'); ?>" class="btn btn-warning rounded-pill">DAFTAR SEKARANG</a>
       </div>
     </div>
   </div>

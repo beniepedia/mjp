@@ -2,10 +2,10 @@
 -- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jul 11, 2019 at 02:40 PM
--- Server version: 10.1.40-MariaDB
--- PHP Version: 7.3.5
+-- Host: localhost
+-- Generation Time: Jul 12, 2019 at 06:03 AM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -47,7 +47,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id_user`, `ipaddr`, `name`, `email`, `password`, `gender`, `address`, `image`, `role_id`, `is_active`, `date_created`) VALUES
-(20, '::1', 'Ahmad Qomaini', 'ahmadqomaini1991@gmail.com', '$2y$10$c33PKlbms3wI6BzpH6aWxufrpeQM8fgxZOSP0i6PWujsj.FnmpXBS', 'L', NULL, 'default.jpg', 2, 1, 1562848291);
+(21, '::1', 'Ahmad Qomaini', 'ahmadqomaini@yahoo.com', '$2y$10$vi0DkAr4MwDtv0Q5kapZB.0D8oCOM4GZ2q0PDay.MoMRzALdEEaz.', NULL, NULL, 'default.jpg', 2, 1, 1562853373);
 
 -- --------------------------------------------------------
 
@@ -111,7 +111,7 @@ ALTER TABLE `user_token`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `user_role`
@@ -123,7 +123,7 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT for table `user_token`
 --
 ALTER TABLE `user_token`
-  MODIFY `id_token` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_token` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
