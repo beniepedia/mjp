@@ -4,42 +4,57 @@
 	{
 		$CI =& get_instance();
 		$config = [
-			'protocol' => 'smtp',
-			'smtp_host' => 'ssl://smtp.googlemail.com',
-			'smtp_user' => 'printcloud91@gmail.com',
-			'smtp_pass' => 'medan2018',
-			'smtp_port' => 465,
-			'mailtype' => 'html',
-			'charset' => 'utf-8',
-			'newline' => "\r\n"
+			'protocol' => $CI->config->item('protocol'),
+			'smtp_host' => $CI->config->item('smtp_host'),
+			'smtp_user' => $CI->config->item('smtp_user'),
+			'smtp_pass' => $CI->config->item('smtp_pass'),
+			'smtp_port' => $CI->config->item('smtp_port'),
+			'mailtype' => $CI->config->item('mailtype'),
+			'charset' => $CI->config->item('charset'),
+			'newline' => $CI->config->item('newline')
 		];
+		
+		$CI->email->initialize($config);
+		$CI->email->from($CI->config->item('email_gmail'), 'ID-MJP.COM');
+		$CI->email->to($CI->input->post('email'));
 		$nama = $CI->input->post('nama');
 		$email = $CI->input->post('email');
-		$content1 = 'Terima kasih telah melakukan pendaftaran di ID-MJPARFUME, silahkan klik tombol aktivasi dibawah ini untuk mengaktifkan akun anda.';
-		$content2 = 'Jika terjadi masalah pada saat aktivasi, silahkan hubungi kami. Terima Kasih';
-
-		$CI->email->initialize($config);
-		$CI->email->from('beniepedia@gmail.com', 'ID MJ PARFUME');
-		$CI->email->to($CI->input->post('email'));
 		
-		$data = [
-			'nama' 		=> $nama,
-			'email' 	=> $email,
-			'content1' 	=> $content1,
-			'content2' 	=> $content2,
-			'token'		=> $token
-
-		];
-
 		if($type == 'verify')
 		{	
+			$content1 = 'Terima kasih telah melakukan pendaftaran di <a href="'.base_url().'">'.$CI->config->item('site_alias').'</a>, silahkan klik tombol aktivasi dibawah ini untuk mengaktifkan akun anda.';
+			$content2 = 'Link aktivasi akan expired dalam waktu 2 jam kedepan, segera lakukan aktivasi sebelum expired. Jika terjadi masalah pada saat aktivasi, silahkan hubungi kami. Terima Kasih';
+			$data = [
+				'nama' 			=> $nama,
+				'email' 		=> $email,
+				'content1' 	=> $content1,
+				'content2' 	=> $content2,
+				'token'			=> $token,
+				'control' 	=> 'auth/verify?email=',
+				'btn'				=> 'Aktifkan Sekarang'
+			];
+
 			$CI->email->subject('Aktivasi Akun');
 			$CI->email->message($CI->load->view('email/email.tpl.php', $data, TRUE));
 		}
 		elseif ($type == 'forgotpassword') 
 		{
-			$CI->email->subject('Reset Password');
-			$CI->email->message('Klik link berikut ini untuk reset password akun anda : <a href="'.base_url().'auth/resetpassword?email='. $CI->input->post('email') .'&token='.urlencode($token).'">Reset Password</a> ' );
+			$query = $CI->Auth_model->forgotPassword($email);
+			$nama = $query['name'];
+			$content1 = 'Kami telah menerima permintaan anda untuk me-reset password <a href="'.base_url().'">'.$CI->config->item('site_alias').'</a>. Silahkan klik tombol <b>Reset Password</b> untuk me-reset password anda.';
+			$content2 = 'Abaikan e-mail ini jika anda tidak pernah meminta untuk me-reset password. Terima Kasih';
+			$data = [
+				'nama' 			=> $nama,
+				'email' 		=> $email,
+				'content1' 	=> $content1,
+				'content2' 	=> $content2,
+				'token'			=> $token,
+				'control' 	=> 'auth/resetpass?email=',
+				'btn'				=> 'Reset Password'
+			];
+
+			$CI->email->subject('konfirmasi Reset Password');
+			$CI->email->message($CI->load->view('email/email.tpl.php', $data, TRUE));
 		}
 		if($CI->email->send())
 		{

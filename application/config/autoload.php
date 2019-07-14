@@ -89,7 +89,7 @@ $autoload['drivers'] = array();
 |
 |	$autoload['helper'] = array('url', 'file');
 */
-$autoload['helper'] = array('url', 'flashm', 'sendemail');
+$autoload['helper'] = array('url', 'flashm', 'sendemail','benie');
 
 /*
 | -------------------------------------------------------------------
@@ -103,7 +103,7 @@ $autoload['helper'] = array('url', 'flashm', 'sendemail');
 | config files.  Otherwise, leave it blank.
 |
 */
-$autoload['config'] = array();
+$autoload['config'] = array('webconfig');
 
 /*
 | -------------------------------------------------------------------

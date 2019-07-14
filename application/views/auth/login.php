@@ -1,3 +1,4 @@
+    <div class="pesanNotif" data-title="<?= $this->session->flashdata('title'); ?>" data-pesan="<?= $this->session->flashdata('pesan'); ?>" data-error="<?= $this->session->flashdata('type'); ?>"></div>
     <!-- Outer Row -->
     <div class="row justify-content-center mt-5">
 
@@ -5,15 +6,21 @@
 
         <div class="card o-hidden border-0 shadow-lg my-5 ">
           <div class="card-body p-0">
+
             <!-- Nested Row within Card Body -->
             <div class="row">
               <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
               <div class="col-lg-6">
+
                 <div class="p-5">
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Silahkan Login!</h1>
                   </div>
-                  <?= $this->session->flashdata('message'); ?>
+                  <?php if( $this->session->flashdata('msg')) : ?>
+                    <div class="alert alert-<?= $this->session->flashdata('type'); ?> alert-dismissible fade show text-center" role="alert"><?= $this->session->flashdata('msg'); ?>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                  <?php endif; ?>
                   <form class="user" action="<?= base_url('auth/login'); ?>" method="post">
                     <div class="form-group">
                       <input type="email" class="form-control form-control-user"placeholder="Enter Email Address..." name="email" value="<?= set_value('email'); ?>">
@@ -35,29 +42,21 @@
                     </button>
                     <hr>
                     <div class="row justify-content-center">
-                      <a href="index.html" class="btn btn-google btn-user btn-lg btn-circle">
+                      <a href="index.html" class="btn btn-google btn-user btn-md btn-circle">
                         <i class="fab fa-google fa-fw" style="font-size: 20px;"></i>
                       </a>
-                      <a href="index.html" class="btn btn-facebook btn-user btn-lg btn-circle">
+                      <a href="index.html" class="btn btn-facebook btn-user btn-md btn-circle">
                         <i class="fab fa-facebook-f fa-fw" style="font-size: 20px;"></i>
                       </a>
                     </div>
                   </form>
                   <hr>
-                  <div class="row">
-                    <div class="col-6">
-                        <div class="" >
-                          <a class="small" href="forgot-password.html">Forgot Password?</a>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="float-right">
-                          <a class="small" href="<?= base_url('auth/registrasi'); ?>">Buat Akun Baru!</a>
-                        </div>
-                    </div>
-
+                  <div class="text-center">
+                  <small>Lupa Password ?</small><a class="small" href="<?= base_url('auth/forgotpass'); ?>"> Reset Password</a>
                   </div>
-                  
+                  <div class="text-center">
+                  <small>Belum Punya Akun ?</small><a class="small" href="<?= base_url('auth/registrasi'); ?>"> Registrasi</a>
+                  </div>
                   <div class="text-center mt-3">
                     <a class="small" href="<?= base_url('home'); ?>">Kembali</a>
                   </div>

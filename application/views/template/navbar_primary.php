@@ -1,6 +1,6 @@
 <!-- Navbar Primary -->
 		<nav class="navbar navbar-expand-lg navbar-light">
-			<a class="navbar-brand" href="#"><img src="<?= base_url('assets/') ?>img/logo.jpg">ID MJ-PARFUME</a>
+			<a class="navbar-brand" href="#"><img src="<?= base_url('assets/') ?>img/logo.jpg"><?= $this->config->item('site_name'); ?></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
 			aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -19,8 +19,11 @@
 					class="fa fa-comments" aria-hidden="true"></i>Peluang Usaha</a>
 					<a class="nav-item nav-link wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.6s" href="<?= base_url('kontak'); ?>"><i
 					class="fa fa-address-book-o" aria-hidden="true"></i>Kontak</a>
-					
-					<a class="nav-item btn btn-success shadow" href="<?= base_url('auth/login') ?>">Masuk</a>
+					<?php if( $this->session->userdata('email') ) : ?>
+						<a class="nav-item btn btn-success shadow" href="<?= base_url('auth/logout'); ?>">Logout</a>
+					<?php else : ?>
+					<a class="nav-item btn btn-success shadow" href="<?= base_url('auth/login'); ?>">Masuk</a>
+				<?php endif; ?>
 				</div>
 			</div>
 		</nav>
@@ -28,7 +31,7 @@
 		<div class="d-none d-lg-block">
 			<div class="Scrolling fixed-top">
 				<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-					<a class="navbar-brand" href="#home"><img src="<?= base_url('assets/') ?>img/logo.jpg">ID MJ-PARFUME</a>
+					<a class="navbar-brand" href="#home"><img src="<?= base_url('assets/') ?>img/logo.jpg"><?= $this->config->item('site_name'); ?></a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
 					aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>

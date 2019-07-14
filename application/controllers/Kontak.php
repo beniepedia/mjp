@@ -8,12 +8,12 @@ class Kontak extends CI_Controller {
 	}
 	public function index()
 	{
-		$data['title'] = 'ID MJ PARFUME - KONTAK';
+		$data['title'] = $this->config->item('site_name') . ' - KONTAK';
 		$this->form_validation->set_rules('nama', 'Nama', 'trim|required');
 		$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
 		$this->form_validation->set_rules('telp', 'Telpon/HP', 'trim|required');
 		$this->form_validation->set_rules('pesan', 'Pesan', 'trim|required');
-		$this->form_validation->set_rules('g-recaptcha-response', 'Recapcha Validasi', 'trim|callback_validate_captcha');
+		$this->form_validation->set_rules('g-recaptcha-response', 'Recaptcha Validasi', 'trim|callback_validate_captcha');
 		$this->form_validation->set_message('validate_captcha', 'Please check the captcha form');
 
 		if ($this->form_validation->run() == FALSE)
@@ -73,7 +73,7 @@ class Kontak extends CI_Controller {
 			}
 		}
 
-		public function validate_captcha()
+		private function _validate_captcha()
 		{
 			$captcha = $this->input->post('g-recaptcha-response');
 			$url = 'https://www.google.com/recaptcha/api/siteverify';

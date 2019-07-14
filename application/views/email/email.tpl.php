@@ -10,8 +10,9 @@
 			margin:0;
     	}
 		#head {
-			margin-top: 0;
-			background-color: #565656;
+			background: #00c6ff; /* fallback for old browsers */
+		  background: -webkit-linear-gradient(to right, #00c6ff, #0072ff); /* Chrome 10-25, Safari 5.1-6 */
+		  background: linear-gradient(to right, #00c6ff, #0072ff);
 			text-align: center; 
 			margin-bottom: 3rem;
 			padding-top: 5px;
@@ -22,15 +23,25 @@
 		#head img{
 			width: 50px;
 			border-radius: 5px;
+			display: inline-block;
+		  padding-top: 0.3125rem;
+		  padding-bottom: 0.3125rem;
+		  margin-right: 1rem;
+		  font-size: 1.25rem;
+		  white-space: nowrap;
 		}
-		#head span{
+		#judul {
 			font-size: 25px;
 			font-weight: bold;
 			color: white;
-			position: relative;
-			left: 20px;
-			top: -13px;
+			padding-bottom: 5px;
 		}
+
+		span {
+			font-weight: bold;
+			font-style: italic;
+		}
+
 		p, #content {
 			color: #565656;
 			font-size: 16px;
@@ -38,7 +49,9 @@
 			margin: 20px;
 		}
 		#link {
-			background-color: #008CBA;
+			background: #1e3c72; /* fallback for old browsers */
+		  background: -webkit-linear-gradient(to right, #1e3c72, #2a5298); /* Chrome 10-25, Safari 5.1-6 */
+		  background: linear-gradient(to right, #1e3c72, #2a5298);
 			border: none;
 			color:white;
 			font-size: 15px;
@@ -51,7 +64,9 @@
 		}
 
 		footer {
-			background-color: #565656;
+			background: #00c6ff; /* fallback for old browsers */
+		  background: -webkit-linear-gradient(to right, #00c6ff, #0072ff); /* Chrome 10-25, Safari 5.1-6 */
+		  background: linear-gradient(to right, #00c6ff, #0072ff);
 			padding: 10px;
 		}
 		#not {
@@ -80,20 +95,21 @@
 
 		#addr li a {
 			padding-left: 15px;
+			color: tomato;
 
 		}
 
 	</style>
 </head>
 <body>
-	<div id="head"><img src="https://id-mjp.com/assets/img/logo.jpg" alt=""><span>id mj parfume</span></div>
-    <p>Hai, <?= $nama; ?></p>
+	<div id="head"><img src="https://id-mjp.com/assets/img/logo.jpg" alt=""><div id="judul">id mj parfume</div></div>
+    <p>Hai, <span><?= $nama; ?></span></p>
     <p id="content"><?= $content1; ?></p>
-    <center><a href="<?= base_url() . 'auth/verify?email=' . $email .'&token='. urlencode($token) ?>" id="link">Aktivasi Sekarang</a></center>
+    <center><a href="<?= base_url() . $control . $email .'&token='. urlencode($token) ?>" id="link"><?= $btn ?></a></center>
     <p id="content"><?= $content2; ?></p>
     </div>
     <footer>
-    	<div id="not">Terima kasih atas kepercayaan anda kepada kami.</div>
+    	<div id="not">Terima kasih atas perhatian dan kepercayaan anda.</div>
     	<hr>
     	<div id="addr">
     		<ul>
