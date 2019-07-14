@@ -45,7 +45,7 @@
                       <a href="index.html" class="btn btn-google btn-user btn-md btn-circle">
                         <i class="fab fa-google fa-fw" style="font-size: 20px;"></i>
                       </a>
-                      <a href="index.html" class="btn btn-facebook btn-user btn-md btn-circle">
+                      <a href="<?= $authURL; ?>" class="btn btn-facebook btn-user btn-md btn-circle">
                         <i class="fab fa-facebook-f fa-fw" style="font-size: 20px;"></i>
                       </a>
                     </div>
