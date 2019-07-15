@@ -1,6 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+
 // web config
 $config['site_name'] = 'ID-MJ PARFUME';
 $config['site_alias'] = 'ID-MJP.COM';
