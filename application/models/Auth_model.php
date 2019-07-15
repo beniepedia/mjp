@@ -1,12 +1,20 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Auth_model extends CI_Model {
+class Auth_model extends CI_Model 
+{
+
+  public function __construct() 
+  {
+    parent::__construct();
+    $this->tableName = 'users';
+    $this->primaryKey = 'id_user';
+  }
 
 	public function registrasi()
 	{
 		$data = [
-			'ipaddr'         => $_SERVER['REMOTE_ADDR'],
+      'ipaddr'         => $_SERVER['REMOTE_ADDR'],
 			'name'           => htmlspecialchars($this->input->post('nama'), true),
 			'email'          => htmlspecialchars($this->input->post('email'), true),
 			'password'       => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
@@ -44,7 +52,8 @@ class Auth_model extends CI_Model {
   		if( $query['is_active'] == 1 )
   		{
   			if (password_verify($pass, $query['password'])) {
-  				$data = [
+  				$data = 
+          [
             'name'    => $query['name'],
             'email'   => $query['email'],
             'role_id' => $query['role_id']
@@ -52,8 +61,8 @@ class Auth_model extends CI_Model {
           if( $query['role_id'] == 1 )
           {
     				$this->session->set_userdata($data);
-    				redirect('dashboard','refresh');
-          }else{
+    				redirect('admin/dashboard','refresh');
+          } else {
             $this->session->set_userdata($data);
             redirect('home','refresh');
           }
@@ -63,12 +72,11 @@ class Auth_model extends CI_Model {
   				redirect('auth/login','refresh');
   			}
 
-  		}else{
+  		} else {
         $this->session->set_flashdata('msg', 'Email anda belum diverifikasi, silahkan cek inbox email anda untuk verifikasi email anda!');
         $this->session->set_flashdata('type', 'danger');
         redirect('auth/login','refresh');
   		}
-
   	}else{
       $this->session->set_flashdata('msg', 'Email tidak terdaftar!');
       $this->session->set_flashdata('type', 'danger');
@@ -165,6 +173,43 @@ class Auth_model extends CI_Model {
       return false;
     }
   }
+
+  public function checkUser($userData = array())
+  {
+    if(!empty($userData))
+    {
+        //check whether user data already exists in database with same oauth info
+        $this->db->select($this->primaryKey);
+        $this->db->from($this->tableName);
+        $this->db->where(array('oauth_provider'=>$userData['oauth_provider'], 'oauth_uid'=>$userData['oauth_uid']));
+        $prevQuery = $this->db->get();
+        $prevCheck = $prevQuery->num_rows();
+        
+        if($prevCheck > 0)
+        {
+            $prevResult = $prevQuery->row_array();
+            
+            //update user data
+            $userData['last_login'] = time();
+            $update = $this->db->update($this->tableName, $userData, array('id_user' => $prevResult['id_user']));
+            
+            //get user ID
+            $userID = $prevResult['id_user'];
+        }else{
+            //insert user data
+            $userData['date_created']  = time();
+            $userData['last_login'] = time();
+            $insert = $this->db->insert($this->tableName, $userData);
+            
+            //get user ID
+            $userID = $this->db->insert_id();
+        }
+    }
+    
+    //return user ID
+    return $userID?$userID:FALSE;
+    // ?$userID:FALSE
+    }
 
 }
 

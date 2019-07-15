@@ -17,6 +17,7 @@
 
   <!-- Custom styles for this template-->
   <link href="<?= base_url('assets/backend/') ?>css/sb-admin-2.css" rel="stylesheet">
+  <link href="<?= base_url('assets/backend/') ?>vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
 </head>
 

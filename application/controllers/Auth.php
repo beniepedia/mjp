@@ -48,28 +48,47 @@ class Auth extends CI_Controller
         if($this->facebook->is_authenticated())
         {
             // Get user facebook profile details
-            $fbUser = $this->facebook->request('get', '/me?fields=id,first_name,last_name,email,link,gender,picture');
+            $fbUser = $this->facebook->request('get', '/me?fields=id,first_name,last_name,email,link,gender,picture.width(512).height(512),location');
 
+            // first name and last name
+            $firstname = !empty($fbUser['first_name'])?$fbUser['first_name']:'';
+            $lastname   = !empty($fbUser['last_name'])?$fbUser['last_name']:'';
             // Preparing data for database insertion
             $userData['oauth_provider'] = 'facebook';
-            $userData['oauth_uid']    = !empty($fbUser['id'])?$fbUser['id']:'';;
-            $userData['first_name']    = !empty($fbUser['first_name'])?$fbUser['first_name']:'';
-            $userData['last_name']    = !empty($fbUser['last_name'])?$fbUser['last_name']:'';
-            $userData['email']        = !empty($fbUser['email'])?$fbUser['email']:'';
-            $userData['gender']        = !empty($fbUser['gender'])?$fbUser['gender']:'';
-            $userData['picture']    = !empty($fbUser['picture']['data']['url'])?$fbUser['picture']['data']['url']:'';
-            $userData['link']        = !empty($fbUser['link'])?$fbUser['link']:'';
+            $userData['oauth_uid']      = !empty($fbUser['id'])?$fbUser['id']:'';
+            $userData['ipaddr']         = $_SERVER['REMOTE_ADDR'];
+            $userData['name']           = $firstname.' '.$lastname;
+            $userData['email']          = !empty($fbUser['email'])?$fbUser['email']:'';
+            $userData['gender']         = !empty($fbUser['gender'])?$fbUser['gender']:'';
+            $userData['address']        = !empty($fbUser['location']['name'])?$fbUser['location']['name']:'';
+            $userData['image']          = !empty($fbUser['picture']['data']['url'])?$fbUser['picture']['data']['url']:'';
+            $userData['role_id']        = 2;
+            $userData['is_active']        = 1;
+            // $userData['link']        = !empty($fbUser['link'])?$fbUser['link']:'';
             
             // Insert or update user data
-            $userID = $this->Fbuser_model->checkUser($userData);
+            $userID = $this->Auth_model->checkUser($userData);
             
             // Check user data insert or update status
-            if(!empty($userID)){
-                $data['userData'] = $userData;
-                $this->session->set_userdata('userData', $userData);
-            }else{
-               $data['userData'] = array();
-            }
+            // if(!empty($userID))
+            // {
+            //     $data = [
+            //         'name'  => $userData['first_name'] .' '. $userData['last_name'], 
+            //         'email' => $userData['email']
+            //     ];
+            //     $this->session->set_userdata($data);
+            // }else{
+            //    $data['userData'] = array();
+            //    $this->session->set_flashdata('msg', 'Terjadi kesalahan pada sistem kami, silahkn coba lagi / hubungi kami.');
+            //    $this->session->set_flashdata('type', 'danger');
+            //    redirect('auth/login','refresh');
+            // }
+            $data = [
+                    'name'  => $userData['name'], 
+                    'email' => $userData['email'],
+                    'role_id' => $userData['role_id']
+                ];
+                $this->session->set_userdata($data);
 
             redirect('home','refresh');
         }

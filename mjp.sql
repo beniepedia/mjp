@@ -2,10 +2,10 @@
 -- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jul 14, 2019 at 12:42 PM
--- Server version: 10.1.40-MariaDB
--- PHP Version: 7.3.5
+-- Host: localhost
+-- Generation Time: Jul 15, 2019 at 02:49 AM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,56 +25,35 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `fb_users`
---
-
-CREATE TABLE `fb_users` (
-  `id` int(11) NOT NULL,
-  `oauth_provider` enum('','facebook','google','twitter') COLLATE utf8_unicode_ci NOT NULL,
-  `oauth_uid` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `first_name` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
-  `last_name` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
-  `email` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
-  `gender` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `picture` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
-  `link` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `fb_users`
---
-
-INSERT INTO `fb_users` (`id`, `oauth_provider`, `oauth_uid`, `first_name`, `last_name`, `email`, `gender`, `picture`, `link`, `created`, `modified`) VALUES
-(1, 'facebook', '3177025138974616', 'Ahmad', 'Qomaini', 'ahmadqomaini@yahoo.com', '', 'https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=3177025138974616&height=50&width=50&ext=1565691777&hash=AeTQyXUHOAgO5c0m', '', '2019-07-14 09:26:53', '2019-07-14 17:22:55');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
   `id_user` int(11) NOT NULL,
+  `oauth_provider` enum('facebook','google','twitter','local') NOT NULL DEFAULT 'local',
+  `oauth_uid` varchar(50) DEFAULT NULL,
   `ipaddr` varchar(100) NOT NULL,
   `name` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `password` varchar(200) NOT NULL,
-  `gender` enum('L','P') DEFAULT NULL,
+  `password` varchar(200) DEFAULT NULL,
+  `gender` varchar(10) DEFAULT NULL,
   `address` text,
   `image` varchar(150) NOT NULL,
   `role_id` int(11) NOT NULL,
   `is_active` int(1) NOT NULL,
-  `date_created` int(11) NOT NULL
+  `date_created` int(11) NOT NULL,
+  `last_login` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id_user`, `ipaddr`, `name`, `email`, `password`, `gender`, `address`, `image`, `role_id`, `is_active`, `date_created`) VALUES
-(20, '::1', 'Ahmad Qomaini', 'ahmadqomaini1991@gmail.com', '$2y$10$c33PKlbms3wI6BzpH6aWxufrpeQM8fgxZOSP0i6PWujsj.FnmpXBS', 'L', NULL, 'default.jpg', 2, 1, 1562848291);
+INSERT INTO `users` (`id_user`, `oauth_provider`, `oauth_uid`, `ipaddr`, `name`, `email`, `password`, `gender`, `address`, `image`, `role_id`, `is_active`, `date_created`, `last_login`) VALUES
+(21, 'local', '0', '::1', 'Ahmad Qomaini', 'ahmadqomaini@yahoo.com', '$2y$10$vi0DkAr4MwDtv0Q5kapZB.0D8oCOM4GZ2q0PDay.MoMRzALdEEaz.', NULL, NULL, 'default.jpg', 1, 1, 1562853373, 0),
+(33, 'local', '0', '192.168.88.252', 'beniepedia', 'beniepay@gmail.com', '$2y$10$JNLckeaXTdoub/ARA5yweODArjBGvKWK30pRinth3M4h/pTANHtcW', NULL, NULL, 'default.jpg', 2, 1, 1562965770, 0),
+(34, 'local', '0', '192.168.88.252', 'Benjoooooo', 'beni.syaputra@gmail.com', '$2y$10$VYGqTVdkTPwOvzkL7Isq1.FEp47gUUTAIh3UUvq.SXxINuj6ZGvk6', NULL, NULL, 'default.jpg', 2, 1, 1562995207, 0),
+(39, 'facebook', '3177025138974616', '::1', 'Ahmad Qomaini', 'ahmadqomaini@yahoo.com', NULL, 'laki-laki', 'Kota Medan', 'https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=3177025138974616&height=512&width=512&ext=1565721321&hash=AeSQsScZMb4v-7b0', 2, 1, 1563129321, 1563129321);
 
 -- --------------------------------------------------------
 
@@ -113,12 +92,6 @@ CREATE TABLE `user_token` (
 --
 
 --
--- Indexes for table `fb_users`
---
-ALTER TABLE `fb_users`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -141,16 +114,10 @@ ALTER TABLE `user_token`
 --
 
 --
--- AUTO_INCREMENT for table `fb_users`
---
-ALTER TABLE `fb_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `user_role`

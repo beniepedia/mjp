@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta name="description" content="">
 		<meta name="author" content="">
-		<title>SB Admin 2 - Blank</title>
+		<title><?= $title; ?></title>
 		<!-- Custom fonts for this template-->
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css" rel="stylesheet" type="text/css">
 		<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -29,12 +29,20 @@
 				<!-- Divider -->
 				<hr class="sidebar-divider my-0">
 				<!-- Nav Item - Dashboard -->
-				<li class="nav-item">
-					<a class="nav-link" href="index.html">
+					<li class="nav-item">
+						<a class="nav-link" href="index.html">
 						<i class="fas fa-fw fa-tachometer-alt"></i>
 						<span>Dashboard</span></a>
 					</li>
 					<!-- Divider -->
+					<hr class="sidebar-divider my-0">
+
+					<li class="nav-item">
+						<a class="nav-link" href="<?= base_url('admin/user'); ?>">
+						<i class="fas fa-fw fa-users"></i>
+						<span>Data User</span></a>
+					</li>
+
 					<hr class="sidebar-divider my-0">
 					<!-- Nav Item - Pages Collapse Menu -->
 					<li class="nav-item">
@@ -51,6 +59,7 @@
 					</li>
 					<!-- Divider -->
 					<hr class="sidebar-divider my-0">
+
 					<!-- Heading -->
 					<!-- Nav Item - Pages Collapse Menu -->
 					<li class="nav-item">
