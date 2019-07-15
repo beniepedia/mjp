@@ -64,7 +64,7 @@ class Auth_model extends CI_Model
     				redirect('admin/dashboard','refresh');
           } else {
             $this->session->set_userdata($data);
-            redirect('home','refresh');
+            redirect('/','refresh');
           }
   			} else {
   				$this->session->set_flashdata('msg', 'Password yang anda masukan sa lah, silahkan coba lagi!');

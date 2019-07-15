@@ -90,7 +90,7 @@ class Auth extends CI_Controller
                 ];
                 $this->session->set_userdata($data);
 
-            redirect('home','refresh');
+            redirect('/','refresh');
         }
     }
 
@@ -194,7 +194,7 @@ class Auth extends CI_Controller
     {
         if ( ! $this->session->userdata('email_reset')) 
         {
-            redirect('home','refresh');
+            redirect('/','refresh');
         }
         $this->form_validation->set_rules('password', 'Password baru', 'trim|required|min_length[6]');
         $this->form_validation->set_rules('passconf', 'Konfirmasi password baru', 'trim|required|matches[password]');
@@ -226,6 +226,6 @@ class Auth extends CI_Controller
         // Remove user data from session
         $this->session->unset_userdata('userData');
         // Redirect to login page
-  		redirect('home'); 
+  		redirect('/'); 
     }
 }
