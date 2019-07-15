@@ -35,7 +35,7 @@
 				<hr class="sidebar-divider my-0">
 				<!-- Nav Item - Dashboard -->
 					<li class="nav-item <?php if($this->uri->segment(2)=='dashboard'){echo 'active';} ?>">
-						<a class="nav-link" href="index.html">
+						<a class="nav-link" href="<?= base_url('admin/dashboard'); ?>">
 						<i class="fas fa-fw fa-tachometer-alt"></i>
 						<span>Dashboard</span></a>
 					</li>

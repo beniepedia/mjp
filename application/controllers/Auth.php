@@ -32,7 +32,7 @@ class Auth extends CI_Controller
 
     private function _login()
     {
-    	 $this->Auth_model->login();
+    	$this->Auth_model->login();
     }
 
     public function facebook_login()
@@ -51,7 +51,7 @@ class Auth extends CI_Controller
             $fbUser = $this->facebook->request('get', '/me?fields=id,first_name,last_name,email,link,gender,picture.width(512).height(512),location');
 
             // first name and last name
-            $firstname = !empty($fbUser['first_name'])?$fbUser['first_name']:'';
+            $firstname  = !empty($fbUser['first_name'])?$fbUser['first_name']:'';
             $lastname   = !empty($fbUser['last_name'])?$fbUser['last_name']:'';
             // Preparing data for database insertion
             $userData['oauth_provider'] = 'facebook';
@@ -63,7 +63,7 @@ class Auth extends CI_Controller
             $userData['address']        = !empty($fbUser['location']['name'])?$fbUser['location']['name']:'';
             $userData['image']          = !empty($fbUser['picture']['data']['url'])?$fbUser['picture']['data']['url']:'';
             $userData['role_id']        = 2;
-            $userData['is_active']        = 1;
+            $userData['is_active']      = 1;
             // $userData['link']        = !empty($fbUser['link'])?$fbUser['link']:'';
             
             // Insert or update user data
@@ -84,11 +84,11 @@ class Auth extends CI_Controller
             //    redirect('auth/login','refresh');
             // }
             $data = [
-                    'name'  => $userData['name'], 
-                    'email' => $userData['email'],
-                    'role_id' => $userData['role_id']
-                ];
-                $this->session->set_userdata($data);
+                'name'  => $userData['name'], 
+                'email' => $userData['email'],
+                'role_id' => $userData['role_id']
+            ];
+            $this->session->set_userdata($data);
 
             redirect('/','refresh');
         }
@@ -110,7 +110,8 @@ class Auth extends CI_Controller
 	    	$this->load->view('auth/registrasi');
 	    	$this->load->view('template/auth_footer');
     	}
-    	else {
+    	else 
+        {
     		$insert = $this->Auth_model->registrasi();
     		if($insert)
     		{
