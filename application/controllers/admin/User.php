@@ -44,6 +44,16 @@ class User extends CI_Controller {
 		$this->load->view('template/dashboard_footer');
 	}
 
+	public function edit($id)
+	{
+		$data['userData'] = $this->User_model->getData($id);
+		$data['title'] = 'Halaman edit user - '.$this->config->item('site_name');
+		$this->load->view('template/dashboard_header', $data);
+		$this->load->view('template/dashboard_topbar');
+		$this->load->view('admin/user_edit', $data);
+		$this->load->view('template/dashboard_footer');
+	}
+
 }
 
 /* End of file User.php */
