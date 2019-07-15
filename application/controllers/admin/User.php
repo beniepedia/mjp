@@ -7,6 +7,11 @@ class User extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('User_model');
+		if($this->check->is_admin()->role_id != 1)
+     {
+     	redirect('home','refresh');
+     }
+
 	}
 
 	public function index()

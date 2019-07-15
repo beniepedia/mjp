@@ -43,7 +43,11 @@
 		<li class="nav-item dropdown no-arrow">
 			<a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				<span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $this->session->userdata('name'); ?></span>
-				<img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+				<?php if($this->check->is_admin()->oauth_provider=='local') : ?>
+					<img class="img-profile rounded-circle" src="<?= base_url('assets/img/user_img/').$this->check->is_admin()->image; ?>">
+				<?php else : ?>
+					<img class="img-profile rounded-circle" src="<?= $this->check->is_admin()->image; ?>">
+				<?php endif; ?>
 			</a>
 			<!-- Dropdown - User Information -->
 			<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">

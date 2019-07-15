@@ -33,17 +33,8 @@
 							</div>
 						</div>
 						<button type="submit" class="btn btn-primary btn-user btn-block">
-						Daftar Akun
+						Buat Akun
 						</button>
-						<hr>
-						<div class="row justify-content-center">
-							<a href="index.html" class="btn btn-google btn-user btn-md btn-circle">
-								<i class="fab fa-google fa-fw" style="font-size: 20px;"></i>
-							</a>
-							<a href="index.html" class="btn btn-facebook btn-user btn-md btn-circle">
-								<i class="fab fa-facebook-f fa-fw" style="font-size: 20px;"></i>
-							</a>
-						</div>
 					</form>
 					<hr>
 					<div class="text-center">
@@ -53,7 +44,7 @@
 						<small>Sudah Punya Akun ?</small><a class="small" href="<?= base_url('auth/login'); ?>"> Login</a>
 					</div>
 					<div class="text-center mt-3">
-						<a class="small" href="<?= base_url('home'); ?>">Kembali</a>
+						<a class="small" href="<?= base_url('home'); ?>">Halaman Utama</a>
 					</div>
 				</div>
 			</div>

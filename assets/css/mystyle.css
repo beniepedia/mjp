@@ -383,10 +383,10 @@ body {
   }
 
   .nav-link {
-    text-transform: uppercase;
-    margin-right: 5px;
+/*    text-transform: uppercase;
+*/    margin-right: 3px;
   }
-
+/*
   .nav-link:hover::after {
     content: '';
     display: block;
@@ -395,7 +395,11 @@ body {
     margin: auto;
     padding-bottom: 5px;
     margin-bottom: -8px;
-    ;
+  }*/
+
+  .nav-link:hover{
+    background-color: rgba(233, 12, 166, 0.57);
+    border-radius: 4px;
   }
 
   .carousel-inner {

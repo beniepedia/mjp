@@ -35,6 +35,11 @@ class User_model extends CI_Model {
 		return $this->db->delete($this->tableName, [$this->primaryKey=>$id]);
 	}
 
+	public function IsAdmin($email)
+	{
+		return $this->db->get_where('users',['email'=>$email])->row();
+	}
+
 }
 
 /* End of file User_model.php */

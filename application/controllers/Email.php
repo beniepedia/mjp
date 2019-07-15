@@ -5,7 +5,8 @@ class Email extends CI_Controller {
 
 	public function index()
 	{
-		print_r ($this->generalset->settings()->site_alias);
+		$this->load->library('Check');
+		print_r ($this->check->is_admin());
 		// $this->load->view('email/email.tpl.php');
 	}
 

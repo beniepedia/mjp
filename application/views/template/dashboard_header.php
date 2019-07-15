@@ -67,7 +67,7 @@
 
 					<!-- Heading -->
 					<!-- Nav Item - Pages Collapse Menu -->
-					<li class="nav-item">
+					<li class="nav-item <?php if($this->uri->segment(2)=='setting'){echo 'active';}?>">
 						<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
 							<i class="fas fa-fw fa-cog"></i>
 							<span>Pengaturan</span>
@@ -75,7 +75,7 @@
 						<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
 							<div class="bg-white py-2 collapse-inner rounded">
 								<h6 class="collapse-header">Pengaturan:</h6>
-								<a class="collapse-item active" href="buttons.html">Pengaturan Umum</a>
+								<a class="collapse-item <?php if($this->uri->segment(2)=='setting'){echo 'active';}?>" href="<?= base_url('admin/setting'); ?>">Pengaturan Umum</a>
 								<a class="collapse-item" href="cards.html">Cards</a>
 							</div>
 						</div>
