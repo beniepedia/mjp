@@ -5,7 +5,7 @@ class Webconfig_model extends CI_Model {
 
 	public function getAll()
 	{
-		return $this->db->get('webconfig')->row();
+		return $this->db->get('web_config')->row();
 	}
 
 }

@@ -10,7 +10,7 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
-		$data['title'] = $this->config->item('site_name') . ' - BERANDA';
+		$data['title'] = $this->generalset->web()->site_name . ' - BERANDA';
 		$data['photos'] = $this->Igphoto_model->getPhotoIg();
 		$this->load->view('template/header.php',$data);
 		$this->load->view('template/navbar_primary');

@@ -8,7 +8,7 @@ class Kontak extends CI_Controller {
 	}
 	public function index()
 	{
-		$data['title'] = $this->config->item('site_name') . ' - KONTAK';
+		$data['title'] = $this->generalset->web()->site_name . ' - KONTAK';
 		$this->form_validation->set_rules('nama', 'Nama', 'trim|required');
 		$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
 		$this->form_validation->set_rules('telp', 'Telpon/HP', 'trim|required');

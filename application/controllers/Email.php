@@ -5,8 +5,7 @@ class Email extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->model('Webconfig_model');
-		var_dump($this->Webconfig_model->getAll());
+		print_r ($this->generalset->settings()->site_alias);
 		// $this->load->view('email/email.tpl.php');
 	}
 

@@ -20,7 +20,7 @@ class Auth extends CI_Controller
     	$this->form_validation->set_rules('password', 'Password', 'trim|required');
 
     	if ($this->form_validation->run() == FALSE) {
-    	$data['title'] = 'Login Member - ' . $this->config->item('site_name');
+    	$data['title'] = 'Login Member - ' . $this->generalset->web()->site_name;
     	$this->load->view('template/auth_header', $data);
     	$this->load->view('auth/login', $data);
     	$this->load->view('template/auth_footer');
@@ -105,7 +105,7 @@ class Auth extends CI_Controller
 
     	if ($this->form_validation->run() == FALSE)
     	{
-    		$data['title'] = 'Regitrasi Member - ' . $this->config->item('site_name');
+    		$data['title'] = 'Regitrasi Member - ' . $this->generalset->web()->site_name;
     		$this->load->view('template/auth_header', $data);
 	    	$this->load->view('auth/registrasi');
 	    	$this->load->view('template/auth_footer');
@@ -129,7 +129,7 @@ class Auth extends CI_Controller
     {
         $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
         if ($this->form_validation->run() == FALSE) {
-            $data['title'] = 'Lupa Password - ' . $this->config->item('site_name');
+            $data['title'] = 'Lupa Password - ' . $this->generalset->web()->site_name;
             $this->load->view('template/auth_header', $data);
             $this->load->view('auth/forgot_password');
             $this->load->view('template/auth_footer');
@@ -200,7 +200,7 @@ class Auth extends CI_Controller
         $this->form_validation->set_rules('passconf', 'Konfirmasi password baru', 'trim|required|matches[password]');
         if ( $this->form_validation->run() ==  FALSE ) 
         {
-            $data['title'] = 'Ganti Password - ' . $this->config->item('site_name');
+            $data['title'] = 'Ganti Password - ' . $this->generalset->web()->site_name;
             $this->load->view('template/auth_header', $data);
             $this->load->view('auth/change_password');
             $this->load->view('template/auth_footer');
