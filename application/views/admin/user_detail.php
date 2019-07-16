@@ -1,7 +1,7 @@
 <div class="container-fluid">
 <div class="row justify-content-center">
 	
-<div class="col-lg-6">
+<div class="col-lg-5">
 	<!-- Dropdown Card Example -->
 	<div class="card shadow mb-4">
 		<!-- Card Header - Dropdown -->
@@ -23,25 +23,61 @@
 		<!-- Card Body -->
 		<div class="card-body">
 			<div class="row">
-				<div class="col-lg-12">
-					<ul class="list-group list-group-flush lead">
-					  <li class="list-group-item">Nama Lengkap : <?= $userDtl['name']; ?></li>
-					  <li class="list-group-item">Alamat : <?= $userDtl['address']; ?></li>
-					  <li class="list-group-item">Alamat Email : <?= $userDtl['email']; ?></li>
-					  <li class="list-group-item">Kelamin : <?= $userDtl['gender']; ?></li>
-					  <li class="list-group-item">Level : <?= $userDtl['role']; ?></li>
-					  <li class="list-group-item">Status : <?= $userDtl['is_active']==1?'Aktif':'NonAktif'; ?></li>
-					  <li class="list-group-item">Login Provider : <?= $userDtl['oauth_provider']; ?></li>
-					  <li class="list-group-item">Ip Address : <?= $userDtl['ipaddr']; ?></li>
-					  <li class="list-group-item">Tanggal Daftar : <?= date("D, d-m-Y - H:i:s", $userDtl['date_created']); ?></li>
-					  <li class="list-group-item">Login Terakhir : <?= date("D, d/m/Y - H:i:s", $userDtl['last_login']); ?></li>
-					</ul>
+				<div class="col-lg">
+					<table class="table table-striped table-responsive justify-content-center">
+						<tbody>
+					    <tr>
+					      <td>Nama </td>
+					      <td><?= $userDtl['name']; ?></td>
+					    </tr>
+					    <tr>
+					      <td>Alamat</td>
+					      <td><?= $userDtl['address']; ?></td>
+					    </tr>
+					    <tr>
+					      <td>Email</td>
+					      <td><?= $userDtl['email']; ?></td>
+					    </tr>
+					    <tr>
+					      <td>Kelamin</td>
+					      <td><?= $userDtl['gender']; ?></td>
+					    </tr>
+					    <tr>
+					      <td>Level</td>
+					      <td><?= $userDtl['role']; ?></td>
+					    </tr>
+					    <tr>
+					      <td>Status</td>
+					      <td><?= $userDtl['is_active']==1?'Aktif':'NonAktif'; ?></td>
+					    </tr> 
+					    <tr>
+					      <td>Login Provider</td>
+					      <td><?= $userDtl['oauth_provider']; ?></td>
+					    </tr> 
+					    <tr>
+					      <td>Ip Address</td>
+					      <td><?= $userDtl['ipaddr']; ?></td>
+					    </tr> 
+					    <tr>
+					      <td>Status</td>
+					      <td><?= $userDtl['is_active']==1?'Aktif':'NonAktif'; ?></td>
+					    </tr>
+					    <tr>
+					    	<td>Tanggal Daftar</td>
+					    	<td><?= date("D, d-m-Y - H:i:s", $userDtl['date_created']); ?></td>
+					    </tr>
+					    <tr>
+					    	<td>Login Terakhir</td>
+					    	<td><?= date("D, d/m/Y - H:i:s", $userDtl['last_login']); ?></td>
+					    </tr>
+					  </tbody>
+					</table>
+
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
-
 <div class="col-lg-6">
 	<!-- Dropdown Card Example -->
 	<div class="card shadow mb-4">
