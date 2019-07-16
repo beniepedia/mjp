@@ -6,7 +6,7 @@ class Dashboard extends CI_Controller {
 	public function index()
 	{
 		is_not_login();
-		$data['title'] = 'Halaman Dashboard - '. $this->generalset->web()->site_name;
+		$data['title'] = 'Dashboard - '. $this->generalset->web()->site_name;
 		$this->load->view('template/dashboard_header', $data);
 		$this->load->view('template/dashboard_topbar');
 		$this->load->view('admin/dashboard');

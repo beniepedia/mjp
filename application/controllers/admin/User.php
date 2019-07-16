@@ -16,7 +16,7 @@ class User extends CI_Controller {
 
 	public function index()
 	{
-		$data['title'] = 'Halaman User - '.$this->generalset->web()->site_name;
+		$data['title'] = 'User - '.$this->generalset->web()->site_name;
 		$data['userData'] = $this->User_model->getData();		
 		$this->load->view('template/dashboard_header', $data);
 		$this->load->view('template/dashboard_topbar');
