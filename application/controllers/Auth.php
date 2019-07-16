@@ -220,13 +220,18 @@ class Auth extends CI_Controller
 
     public function logout()
     {
-    	$data = array('name','email','role_id');
-  		$this->session->unset_userdata($data);
-         // Remove local Facebook session
-        $this->facebook->destroy_session();
-        // Remove user data from session
-        $this->session->unset_userdata('userData');
-        // Redirect to login page
-  		redirect('/'); 
+        $email = $this->session->userdata('email');
+        $update = $this->Auth_model->logout($email);
+        if( $update )
+        {
+            $data = array('name','email','role_id','FBRLH_state');
+            $this->session->unset_userdata($data);
+             // Remove local Facebook session
+            $this->facebook->destroy_session();
+            // Remove user data from session
+            $this->session->unset_userdata('userData');
+            // Redirect to login page
+            redirect('/');
+        } 
     }
 }

@@ -33,8 +33,8 @@
 					  <li class="list-group-item">Status : <?= $userDtl['is_active']==1?'Aktif':'NonAktif'; ?></li>
 					  <li class="list-group-item">Login Provider : <?= $userDtl['oauth_provider']; ?></li>
 					  <li class="list-group-item">Ip Address : <?= $userDtl['ipaddr']; ?></li>
-					  <li class="list-group-item">Tanggal Daftar : <?= date("d-m-Y", $userDtl['date_created']); ?></li>
-					  <li class="list-group-item">Login Terakhir : <?= $userDtl['last_login'] ?></li>
+					  <li class="list-group-item">Tanggal Daftar : <?= date("D, d-m-Y - H:i:s", $userDtl['date_created']); ?></li>
+					  <li class="list-group-item">Login Terakhir : <?= date("D, d/m/Y - H:i:s", $userDtl['last_login']); ?></li>
 					</ul>
 				</div>
 			</div>

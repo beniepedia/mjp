@@ -14,21 +14,21 @@ class Auth_model extends CI_Model
 	public function registrasi()
 	{
 		$data = [
-      'ipaddr'         => $_SERVER['REMOTE_ADDR'],
-			'name'           => htmlspecialchars($this->input->post('nama'), true),
-			'email'          => htmlspecialchars($this->input->post('email'), true),
-			'password'       => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
-			'image'          => 'default.jpg',
-			'role_id'        => 2,
-			'is_active'      => 0,
-			'date_created'   => time()
+      'ipaddr'        => $_SERVER['REMOTE_ADDR'],
+			'name'          => htmlspecialchars($this->input->post('nama'), true),
+			'email'         => htmlspecialchars($this->input->post('email'), true),
+			'password'      => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
+			'image'         => 'default.jpg',
+			'role_id'       => 2,
+			'is_active'     => 0,
+			'date_created'  => time()
 		];
     $token = base64_encode(random_bytes(32));
     $user_token = [
-        'email'         => $data['email'],
-        'token'         => $token,
-        'date_created'  => time()
-      ];
+      'email'         => $data['email'],
+      'token'         => $token,
+      'date_created'  => time()
+    ];
     $this->db->insert('users', $data);
     $this->db->insert('user_token', $user_token);
     $send = sendEmail($token, 'verify');
@@ -209,6 +209,12 @@ class Auth_model extends CI_Model
     //return user ID
     return $userID?$userID:FALSE;
     // ?$userID:FALSE
+    }
+
+    public function logout($email)
+    {
+      $data['last_login'] = time();
+      return $this->db->update('users', $data, ['email'=>$email]);
     }
 
 }
