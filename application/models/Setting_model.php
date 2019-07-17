@@ -10,7 +10,9 @@ class Setting_model extends CI_Model {
 
 	public function update($data)
 	{
-		return $this->db->replace('web_config', $data);
+		$this->db->set($data);
+		$this->db->update('web_config');
+		return true;
 	}
 	
 

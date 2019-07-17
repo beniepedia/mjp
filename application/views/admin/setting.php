@@ -1,5 +1,14 @@
 <div class="container-fluid">
 	<div class="row">
+		<div class="col-lg-12">
+			<?php if( $this->session->flashdata('msg')) : ?>
+          <div class="alert alert-<?= $this->session->flashdata('type'); ?> alert-dismissible fade show text-center" role="alert"><?= $this->session->flashdata('msg'); ?>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          </div>
+      <?php endif; ?>
+		</div>
+	</div>
+	<div class="row">
 		<!-- Card setingan umum -->
 		<div class="col-lg-6">
 			<!-- Dropdown Card Example -->
@@ -12,11 +21,6 @@
 				<div class="card-body">
 					<div class="row">
 						<div class="col-lg-12">
-							<?php if( $this->session->flashdata('msg')) : ?>
-			          <div class="alert alert-<?= $this->session->flashdata('type'); ?> alert-dismissible fade show text-center" role="alert"><?= $this->session->flashdata('msg'); ?>
-			          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			          </div>
-			        <?php endif; ?>
 							<form action="<?= base_url('admin/setting/update'); ?>" method="post">
 								<div class="form-group row">
 							    <label for="sitename" class="col-sm-3 col-form-label label-judul">Judul Web</label>
@@ -104,7 +108,7 @@
 							  </div>
 							  <div class="form-group">
 							  		<div class="form-check">
-										  <input class="form-check-input" type="checkbox" value="1" id="checkbox_sosial" <?= $site['is_active']==1?'checked':''; ?>>
+										  <input class="form-check-input" name="is_active" type="checkbox" value="1" id="checkbox_sosial" <?= $site['is_active']==1?'checked':''; ?>>
 										  <label class="form-check-label">
 										    Aktifkan Fitur ini?
 										  </label>
