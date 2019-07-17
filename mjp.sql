@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 15, 2019 at 02:49 AM
+-- Generation Time: Jul 17, 2019 at 02:31 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -51,9 +51,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id_user`, `oauth_provider`, `oauth_uid`, `ipaddr`, `name`, `email`, `password`, `gender`, `address`, `image`, `role_id`, `is_active`, `date_created`, `last_login`) VALUES
 (21, 'local', '0', '::1', 'Ahmad Qomaini', 'ahmadqomaini@yahoo.com', '$2y$10$vi0DkAr4MwDtv0Q5kapZB.0D8oCOM4GZ2q0PDay.MoMRzALdEEaz.', NULL, NULL, 'default.jpg', 1, 1, 1562853373, 0),
-(33, 'local', '0', '192.168.88.252', 'beniepedia', 'beniepay@gmail.com', '$2y$10$JNLckeaXTdoub/ARA5yweODArjBGvKWK30pRinth3M4h/pTANHtcW', NULL, NULL, 'default.jpg', 2, 1, 1562965770, 0),
-(34, 'local', '0', '192.168.88.252', 'Benjoooooo', 'beni.syaputra@gmail.com', '$2y$10$VYGqTVdkTPwOvzkL7Isq1.FEp47gUUTAIh3UUvq.SXxINuj6ZGvk6', NULL, NULL, 'default.jpg', 2, 1, 1562995207, 0),
-(39, 'facebook', '3177025138974616', '::1', 'Ahmad Qomaini', 'ahmadqomaini@yahoo.com', NULL, 'laki-laki', 'Kota Medan', 'https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=3177025138974616&height=512&width=512&ext=1565721321&hash=AeSQsScZMb4v-7b0', 2, 1, 1563129321, 1563129321);
+(40, 'local', NULL, '192.168.88.253', 'BeniePedia', 'beniepay@gmail.com', '$2y$10$Afn4l7a.ySZD0txv9zcBj.kHwZU4FxLfMda52deTKSceGmUlXlZBy', NULL, NULL, 'default.jpg', 2, 1, 1563210561, 1563291917);
 
 -- --------------------------------------------------------
 
@@ -87,6 +85,32 @@ CREATE TABLE `user_token` (
   `date_created` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `web_config`
+--
+
+CREATE TABLE `web_config` (
+  `id` int(11) NOT NULL,
+  `site_name` varchar(100) NOT NULL,
+  `site_alias` varchar(50) NOT NULL,
+  `site_description` text NOT NULL,
+  `site_author` varchar(50) NOT NULL,
+  `fb_id` varchar(100) NOT NULL,
+  `fb_key` varchar(100) NOT NULL,
+  `google_client_id` varchar(100) NOT NULL,
+  `google_client_key` varchar(100) NOT NULL,
+  `is_active` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `web_config`
+--
+
+INSERT INTO `web_config` (`id`, `site_name`, `site_alias`, `site_description`, `site_author`, `fb_id`, `fb_key`, `google_client_id`, `google_client_key`, `is_active`) VALUES
+(0, 'ID-MJPARFUME', 'ID-MJP.com', 'Website resmi yg menjual parfume Merk MJParfume. ', 'BeniePedia', '2430830390480285', '5d85b7fd4a9c041b4b0cfb5c594dc99d', '', '', 1);
+
 --
 -- Indexes for dumped tables
 --
@@ -110,6 +134,12 @@ ALTER TABLE `user_token`
   ADD PRIMARY KEY (`id_token`);
 
 --
+-- Indexes for table `web_config`
+--
+ALTER TABLE `web_config`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -117,7 +147,7 @@ ALTER TABLE `user_token`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `user_role`
