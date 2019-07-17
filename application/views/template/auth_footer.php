@@ -11,7 +11,7 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
   <script>
   	$(document).ready(function(){
-  		const pesan = $('.pesanNotif').data('pesan');     
+  		  const pesan = $('.pesanNotif').data('pesan');     
         const error = $('.pesanNotif').data('error');    
         const title = $('.pesanNotif').data('title');     
         if(pesan)
@@ -21,7 +21,7 @@
               title: title, 
               html: pesan   
             }); 
-        }   
+        }
   	});
   </script>
 

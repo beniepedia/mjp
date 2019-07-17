@@ -17,7 +17,7 @@ class Setting extends CI_Controller {
 	public function index()
 	{
 		$data['site'] = $this->Setting_model->getAll();
-		$data['title'] = 'Halaman Pengaturan - '. $this->generalset->web()->site_name;
+		$data['title'] = 'Pengaturan - '. $this->generalset->web()->site_name;
 		$this->load->view('template/dashboard_header', $data);
 		$this->load->view('template/dashboard_topbar');
 		$this->load->view('admin/setting', $data);
