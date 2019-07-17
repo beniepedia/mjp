@@ -57,5 +57,27 @@
   <!-- Page level custom scripts -->
   <script src="<?= base_url('assets/backend/') ?>js/demo/datatables-demo.js"></script>
 
+  <script>
+    $(document).ready(function(){
+      const sosial_check = $('#checkbox_sosial');
+      const input_id = $('#fbid, #fbkey, #gid, #gkey');
+      if($(sosial_check).is(':checked'))
+      {
+        $(input_id).attr('readonly', false);
+      } else {
+        $(input_id).attr('readonly', true);
+      }
+
+      $(sosial_check).on('click', function(){
+       if($(sosial_check).is(':checked'))
+        {
+          $(input_id).attr('readonly', false);
+        } else {
+          $(input_id).attr('readonly', true);
+        }
+      });
+    });
+  </script>
+
 </body>
 </html>

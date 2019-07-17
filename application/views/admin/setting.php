@@ -48,7 +48,7 @@
 											<i class="fas fa-undo-alt"></i>
 										</span>
 									</a>
-									<button type="submit" class="btn btn-primary btn-icon-split">
+									<button type="submit" name="save_web" class="btn btn-primary btn-icon-split">
 										<span class="icon text-gray-600">
 											<i class="fas fa-save"></i>
 										</span>
@@ -75,7 +75,7 @@
 					<div class="row">
 						<div class="col-lg-12">
 							<small class="text-primary">Facebook login</small>
-							<form action="<?= base_url('admin/setting/update'); ?>" method="post" disabled>
+							<form action="<?= base_url('admin/setting/update'); ?>" method="post" >
 								<div class="form-group row">
 							    <label for="fbid" class="col-sm-3 col-form-label label-judul">App ID</label>
 							    <div class="col-md-9">
@@ -104,7 +104,7 @@
 							  </div>
 							  <div class="form-group">
 							  		<div class="form-check">
-										  <input class="form-check-input" type="checkbox" value="" id="checkbox_sosial" <?= $site['is_active']==1?'checked':''; ?>>
+										  <input class="form-check-input" type="checkbox" value="1" id="checkbox_sosial" <?= $site['is_active']==1?'checked':''; ?>>
 										  <label class="form-check-label">
 										    Aktifkan Fitur ini?
 										  </label>
@@ -112,7 +112,7 @@
 							  </div>
 
 								<div class="form-group float-right">
-									<button type="submit" class="btn btn-primary btn-icon-split">
+									<button type="submit" name="save_sosial" class="btn btn-primary btn-icon-split">
 										<span class="icon text-gray-600">
 											<i class="fas fa-save"></i>
 										</span>
