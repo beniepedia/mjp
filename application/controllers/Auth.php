@@ -37,6 +37,7 @@ class Auth extends CI_Controller
 
     public function facebook_login()
     {
+        is_login();
         $this->_fblogin();
     }
 

@@ -9,7 +9,7 @@ class Setting extends CI_Controller {
      $this->load->model('Setting_model');
      if($this->check->is_admin()->role_id != 1)
      {
-     	redirect('home','refresh');
+     	redirect('/','refresh');
      }
 
 	}

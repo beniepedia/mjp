@@ -24,7 +24,7 @@
 					  <a href="" class="nav-item nav-link dropdown-toggle wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.6s" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="true"><i class="fa fa-cog" aria-hidden="true"></i>Akun</a>
 					  <div class="dropdown-menu dropdown-menu-lg-right">
 					    <?php if( $this->session->userdata('email') ) : ?>
-								<a href="#" class="dropdown-item">Dasboard</a>
+								<a href="<?= base_url('admin/dashboard'); ?>" class="dropdown-item">Dasboard</a>
 								<a href="#" class="dropdown-item">Profil</a>
 								<a href="<?= base_url('auth/logout'); ?>" class="dropdown-item">Logout</a>
 							<?php else : ?>

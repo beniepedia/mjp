@@ -5,7 +5,7 @@
 			$sess = $ci->session->userdata('email');
 			if( $sess )
 			{
-					redirect('dashboard');
+					redirect('admin/dashboard');
 			}
 	}
 
