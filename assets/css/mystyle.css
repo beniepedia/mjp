@@ -319,14 +319,14 @@ body {
   line-height: 50px;
 }
 
-#sosmed ul li a .fa {
+#sosmed ul li a .fab {
   position: relative;
   color: #262626;
   transition: .5s;
 
 }
 
-#sosmed ul li a:hover .fa {
+#sosmed ul li a:hover .fab {
   color: #fff;
   transform: rotateY(360deg);
   z-index: 3;

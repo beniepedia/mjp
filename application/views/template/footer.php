@@ -3,12 +3,12 @@
 		<div class="row">
 			<div class="col">
 				<ul>
-					<li><a href="https://www.facebook.com/profile.php?id=100010250193567"><i 	class="fa fa-facebook" aria-hidden="true"></i></a>
+					<li><a href="https://www.facebook.com/profile.php?id=100010250193567"><i 	class="fab fa-facebook-f" aria-hidden="true"></i></a>
 					</li>
-					<li><a href="https://www.instagram.com/id_mjparfum_official/" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+					<li><a href="https://www.instagram.com/id_mjparfum_official/" target="_blank"><i class="fab fa-instagram" aria-hidden="true"></i></a>
 					</li>
 					<li><a href="https://api.whatsapp.com/send?phone=6287772360300&text=Hi%20*admin*,%20saya%20mau%20pesen%20parfum%20nya."
-			target="_blank"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
+			target="_blank"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
 					</li>
 				</ul>
 			</div>
