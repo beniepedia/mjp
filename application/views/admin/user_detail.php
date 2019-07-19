@@ -16,47 +16,43 @@
 						<tbody>
 					    <tr>
 					      <td>Nama </td>
-					      <td><?= $userDtl['name']; ?></td>
+					      <td><?= $userDtl->name; ?></td>
 					    </tr>
 					    <tr>
 					      <td>Alamat</td>
-					      <td><?= $userDtl['address']; ?></td>
+					      <td><?= $userDtl->address; ?></td>
 					    </tr>
 					    <tr>
 					      <td>Email</td>
-					      <td><?= $userDtl['email']; ?></td>
+					      <td><?= $userDtl->email; ?></td>
 					    </tr>
 					    <tr>
 					      <td>Kelamin</td>
-					      <td><?= $userDtl['gender']; ?></td>
+					      <td><?= $userDtl->gender; ?></td>
 					    </tr>
 					    <tr>
 					      <td>Level</td>
-					      <td><?= $userDtl['role']; ?></td>
+					      <td><?= $userDtl->role; ?></td>
 					    </tr>
 					    <tr>
 					      <td>Status</td>
-					      <td><?= $userDtl['is_active']==1?'Aktif':'NonAktif'; ?></td>
+					      <td><?= $userDtl->is_active==1?'Aktif':'NonAktif'; ?></td>
 					    </tr> 
 					    <tr>
 					      <td>Login Provider</td>
-					      <td><?= $userDtl['oauth_provider']; ?></td>
+					      <td><?= $userDtl->oauth_provider; ?></td>
 					    </tr> 
 					    <tr>
 					      <td>Ip Address</td>
-					      <td><?= $userDtl['ipaddr']; ?></td>
+					      <td><?= $userDtl->ipaddr; ?></td>
 					    </tr> 
 					    <tr>
-					      <td>Status</td>
-					      <td><?= $userDtl['is_active']==1?'Aktif':'NonAktif'; ?></td>
-					    </tr>
-					    <tr>
 					    	<td>Tanggal Daftar</td>
-					    	<td><?= date("D, d-m-Y - H:i:s", $userDtl['date_created']); ?></td>
+					    	<td><?= date("D, d-m-Y - H:i:s", $userDtl->date_created); ?></td>
 					    </tr>
 					    <tr>
 					    	<td>Login Terakhir</td>
-					    	<td><?= date("D, d/m/Y - H:i:s", $userDtl['last_login']); ?></td>
+					    	<td><?= date("D, d/m/Y - H:i:s", $userDtl->last_login); ?></td>
 					    </tr>
 					  </tbody>
 					</table>
@@ -89,10 +85,10 @@
 		<div class="card-body">
 			<div class="row">
 				<div class="col-lg-12">
-					<?php if( $userDtl['oauth_provider'] == 'local' ) : ?>
-						<img src="<?= base_url('assets/img/user_img/'); ?><?= $userDtl['image']; ?>" class="img-fluid img-thumbnail" alt="">
+					<?php if( $userDtl->oauth_provider == 'local' ) : ?>
+						<img src="<?= base_url('assets/img/user_img/'); ?><?= $userDtl->image; ?>" class="img-fluid img-thumbnail" alt="">
 					<?php else : ?>
-						<img src="<?= $userDtl['image']; ?>" class="img-fluid img-thumbnail" alt="">
+						<img src="<?= $userDtl->image; ?>" class="img-fluid img-thumbnail" alt="">
 					<?php endif; ?>
 				</div>
 			</div>

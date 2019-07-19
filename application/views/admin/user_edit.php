@@ -1,5 +1,5 @@
 <div class="container-fluid">
-	<div class="row">
+	<div class="row justify-content-center">
 		
 		<div class="col-lg-6">
 			<!-- Dropdown Card Example -->
@@ -7,75 +7,79 @@
 				<!-- Card Header - Dropdown -->
 				<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
 					<h6 class="m-0 font-weight-bold text-primary">Edit User</h6>
-					<div class="dropdown no-arrow">
-						<a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-						</a>
-						<div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-							<div class="dropdown-header">Dropdown Header:</div>
-							<a class="dropdown-item" href="#">Action</a>
-							<a class="dropdown-item" href="#">Another action</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#">Something else here</a>
-						</div>
-					</div>
 				</div>
 				<!-- Card Body -->
 				<div class="card-body">
 					<div class="row">
 						<div class="col-lg-12">
-							<form action="">
+							<form action="<?= base_url('admin/user/edituser/'); ?>" method="post">
+								<input type="hidden" value="<?= $userData->id_user; ?>">
 								<div class="form-group">
 									<label for="name" class="label-judul">Nama :</label>
-									<input type="text" id="name" class="form-control" value="<?= $userData['name']; ?>">
+									<input type="text" id="name" name="name" class="form-control <?= form_error('name')?'is-invalid':null ?>" value="<?=$this->input->post('name') ?? $userData->name; ?>">
+									<?= form_error('name')?>
 								</div>
 								<div class="form-group">
 									<label for="email" class="label-judul">Email :</label>
-									<input type="text" id="email" class="form-control" value="<?= $userData['email']; ?>">
+									<input type="text" id="email" name="email" class="form-control <?= form_error('email')?'is-invalid':null ?>" value="<?=$this->input->post('email') ?? $userData->email; ?>">
+									<?= form_error('email')?>
+								</div>
+								<div class="form-group">
+									<label for="password" class="label-judul">Password :</label>
+									<input type="password" id="password" name="password" class="form-control <?= form_error('password')?'is-invalid':null ?>" value="">
+									<?= form_error('password')?>
+								</div>
+								<div class="form-group">
+									<label for="passconf" class="label-judul">Konfirmasi Password :</label>
+									<input type="passconf" id="passconf" name="passconf" class="form-control <?= form_error('passconf')?'is-invalid':null ?>" value="">
+									<?= form_error('passconf')?>
 								</div>
 								<div class="form-group">
 									<label for="name" class="label-judul">Alamat :</label>
-									<textarea type="text" id="name" class="form-control"><?= $userData['address']; ?></textarea>
+									<textarea type="text" id="addr" name="addr" class="form-control"><?= $userData->address; ?></textarea>
 								</div>
 								<div class="form-group">
-									<label for="name" class="label-judul">Kelamin :</label>
-									 <select class="custom-select" id="inputGroupSelect02">
+									<label for="gender" class="label-judul">Kelamin :</label>
+									 <select class="custom-select" name="gender" id="gender">
 									    <option selected="true" disabled="disabled">Pilih Kelamin...</option>
-									    <option value="laki-laki" <?php if($userData['gender']=='laki-laki'){echo 'selected';} ?>>Laki - Laki</option>
-									    <option value="perempuan" <?php if($userData['gender']=='perempuan'){echo 'selected';} ?>>Perempuan</option>
+									    <option value="laki-laki" <?= $userData->gender=='laki-laki'?'selected':null ?> >Laki - Laki</option>
+									    <option value="perempuan" <?= $userData->gender=='perempuan'?'selected':null ?> >Perempuan</option>
 									 </select>
 								</div>
 								<div class="form-group">
 									<label for="" class="label-judul">Status : </label>
 									<div class="form-check form-check-inline pl-3">
-										  <input class="form-check-input" type="radio" name="kelamin" id="inlineRadio1" value="aktif" <?php if($userData['is_active']==1){echo 'checked';} ?>>
+										  <input class="form-check-input" type="radio" name="status" id="inlineRadio1" value="aktif" <?php if($userData->is_active==1){echo 'checked';} ?>>
 										  <label class="form-check-label" for="inlineRadio1">Aktif</label>
 									</div>
 									<div class="form-check form-check-inline">
-										  <input class="form-check-input" type="radio" name="kelamin" id="inlineRadio2" value="nonaktif" <?php if($userData['is_active']==0){echo 'checked';} ?>>
+										  <input class="form-check-input" type="radio" name="status" id="inlineRadio2" value="nonaktif" <?php if($userData->is_active==0){echo 'checked';} ?>>
 										  <label class="form-check-label" for="inlineRadio2">Non Aktif</label>
 									</div>
+
 								<div class="form-group mt-2">
-									<label for="name" class="label-judul">Login Via :</label>
-									<input type="text" id="name" class="form-control" value="<?= $userData['oauth_provider']; ?>" readonly>
-								</div>
-								<div class="form-group">
-									<label for="name" class="label-judul">Tgl Daftar :</label>
-									<input type="text" id="name" class="form-control" value="<?= date("d/m/Y H:i:s", $userData['date_created']); ?>" readonly>
+									<label for="name" class="label-judul">Level :</label>
+									<select class="form-control" name="level" id="">
+										<option selected="true" disabled="disabled">Pilih Level</option>
+										<?php foreach ($level as $l) { ?>
+											<option value="<?= $l['id_role']; ?>" <?= $userData->role_id==$l['id_role']?'selected':null ?>><?= $l['role']; ?>
+											</option>
+										<?php } ?>
+									</select>
 								</div>
 								<div class="form-group float-right">
-									<a href="<?= base_url('admin/user'); ?>" class="btn btn-light btn-icon-split">
-					                    <span class="icon text-gray-600">
-					                      <i class="fas fa-undo-alt"></i>
-					                    </span>
-					                    <span class="text">Kembali</span>
-					                 </a>
-									<a href="#" class="btn btn-primary btn-icon-split">
-					                    <span class="icon text-gray-600">
-					                      <i class="fas fa-save"></i>
-					                    </span>
-					                    <span class="text">Update</span>
-					                  </a>
+								<a href="<?= base_url('admin/user'); ?>" class="btn btn-light btn-icon-split">
+                    <span class="icon text-gray-600">
+                      <i class="fas fa-undo-alt"></i>
+                    </span>
+                    <span class="text">Batal</span>
+                 </a>
+									<button type="submit" class="btn btn-primary btn-icon-split">
+                    <span class="icon text-gray-600">
+                      <i class="fas fa-save"></i>
+                    </span>
+                    <span class="text">Update</span>
+                  </button>
 								</div>
 							</form>
 						</div>

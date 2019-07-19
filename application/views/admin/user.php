@@ -40,7 +40,7 @@
                   <a href="<?= base_url('admin/user/detail/'); ?><?=$data['id_user'];?>" class="badge badge-info">
                     Detail
                   </a>
-                  <a href="<?= base_url('admin/user/edit/'); ?><?=$data['id_user'];?>" class="badge badge-warning">
+                  <a href="<?= base_url('admin/user/edituser/'); ?><?=$data['id_user'];?>" class="badge badge-warning">
                     Edit
                   </a>
                   <a href="<?= base_url('admin/user/delete/'); ?><?=$data['id_user'];?>" onclick="return confirm('Yakin ingin menghapus user ini?')" class="badge badge-danger">

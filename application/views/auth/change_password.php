@@ -34,7 +34,7 @@
 								<small>Sudah Punya Akun ?</small><a class="small" href="<?= base_url('auth/login'); ?>"> Login</a>
 							</div>
 							<div class="text-center mt-3">
-								<a class="small" href="<?= base_url('home'); ?>">Halaman Utama</a>
+								<a class="small" href="<?= base_url('/'); ?>">Halaman Utama</a>
 							</div>
 						</div>
 					</div>

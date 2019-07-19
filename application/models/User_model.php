@@ -10,24 +10,27 @@ class User_model extends CI_Model {
 		$this->primaryKey = 'id_user';
 	}
 
-	public function getData($id=null)
+	public function getData($id = null)
 	{
-			if($id==null)
+			$this->db->from($this->tableName);
+			$this->db->where_not_in('role_id', 1);
+			$this->db->join('user_role', 'user_role.id_role = users.role_id');
+
+			if($id != null)
 			{
-				$this->db->select('*');
-				$this->db->from($this->tableName);
-				$this->db->where_not_in('role_id', 1);
-				$this->db->join('user_role', 'user_role.id_role = users.role_id');
-				$query = $this->db->get()->result_array();
-				return $query;
-			}else{
-				$this->db->select('*');
-				$this->db->from($this->tableName);
-				$this->db->where($this->primaryKey, $id);
-				$this->db->join('user_role', 'user_role.id_role = users.role_id');
-				$query = $this->db->get()->row_array();
-				return $query;
+				$this->db->where('id_user', $id);
 			}
+
+			$query = $this->db->get();
+			return $query;
+			// }else{
+			// 	$this->db->select('*');
+			// 	$this->db->from($this->tableName);
+			// 	$this->db->where($this->primaryKey, $id);
+			// 	$this->db->join('user_role', 'user_role.id_role = users.role_id');
+			// 	$query = $this->db->get();
+			// 	return $query;
+			// }
 	}
 
 	public function deleteUser($id)

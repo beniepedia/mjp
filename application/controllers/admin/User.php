@@ -7,6 +7,8 @@ class User extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('User_model');
+		$this->load->library('form_validation');
+		is_not_login();
 		if($this->check->is_admin()->role_id != 1)
      {
      	redirect('/','refresh');
@@ -16,8 +18,8 @@ class User extends CI_Controller {
 
 	public function index()
 	{
-		$data['title'] = 'User - '.$this->generalset->web()->site_name;
-		$data['userData'] = $this->User_model->getData();		
+		$data['title'] = 'User - ' . $this->generalset->web()->site_name;
+		$data['userData'] = $this->User_model->getData()->result_array();		
 		$this->load->view('template/dashboard_header', $data);
 		$this->load->view('template/dashboard_topbar');
 		$this->load->view('admin/user', $data);
@@ -41,22 +43,40 @@ class User extends CI_Controller {
 
 	public function detail($id)
 	{
-		$data['userDtl'] = $this->User_model->getData($id);
-		$data['title'] = 'Halaman Detail User - ' . $this->config->item('site_name');
+		$data['userDtl'] = $this->User_model->getData($id)->row();
+		$data['title'] = 'Detail User - ' . $this->generalset->web()->site_name;
 		$this->load->view('template/dashboard_header', $data);
 		$this->load->view('template/dashboard_topbar');
 		$this->load->view('admin/user_detail', $data);
 		$this->load->view('template/dashboard_footer');
 	}
 
-	public function edit($id)
+	public function edituser($id)
 	{
-		$data['userData'] = $this->User_model->getData($id);
-		$data['title'] = 'Halaman edit user - '.$this->config->item('site_name');
-		$this->load->view('template/dashboard_header', $data);
-		$this->load->view('template/dashboard_topbar');
-		$this->load->view('admin/user_edit', $data);
-		$this->load->view('template/dashboard_footer');
+		$this->form_validation->set_rules('name', 'Nama', 'trim|required');
+		$this->form_validation->set_rules('email', 'Email', 'trim|required|is_unique[users.email]');
+		$this->form_validation->set_error_delimiters('<div class="invalid-feedback">', '</div>');
+
+		if ($this->form_validation->run() == FALSE) {	
+			$query = $this->User_model->getData($id);
+			if( $query->num_rows() > 0 )
+			{
+				$data['title'] 		= 'Edit user - ' . $this->generalset->web()->site_name;
+				$data['userData'] = $query->row();
+				$data['level'] 		= $this->db->get('user_role')->result_array();
+				$this->load->view('template/dashboard_header', $data);
+				$this->load->view('template/dashboard_topbar');
+				$this->load->view('admin/user_edit', $data);
+				$this->load->view('template/dashboard_footer');
+			} else {
+				echo "<script>alert('User Tidak ditemukan');</script>";
+				echo "<script>window.location='".base_url('admin/user')."';</script>";
+			}
+			
+		} else {
+			var_dump($_POST);
+		}
+
 	}
 
 }
