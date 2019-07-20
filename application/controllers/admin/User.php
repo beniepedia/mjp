@@ -51,7 +51,7 @@ class User extends CI_Controller {
 		$this->load->view('template/dashboard_footer');
 	}
 
-	public function edituser($id)
+	public function edituser($id=null)
 	{
 		$this->form_validation->set_rules('name', 'Nama', 'trim|required');
 		$this->form_validation->set_rules('email', 'Email', 'trim|required|is_unique[users.email]');
