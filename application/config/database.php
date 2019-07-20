@@ -76,10 +76,6 @@ $query_builder = TRUE;
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
-	// 'username' => 'root',
-	// 'password' => '',
-	// 'database' => 'mjp',
-
 	'username' => 'idmjpcom_ahmadqomaini',
 	'password' => 'Medan2019',
 	'database' => 'idmjpcom_id_mjp',
