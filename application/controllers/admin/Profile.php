@@ -87,14 +87,7 @@ class Profile extends CI_Controller {
 					}
 					redirect('admin/profile','refresh');
 				}
-
-
-
-
-
-
-
-
+				
 		}
 
 	}

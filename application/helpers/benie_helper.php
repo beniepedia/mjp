@@ -15,6 +15,8 @@
 			$sess = $ci->session->userdata('email');
 			if( ! $sess )
 			{
+					$ci->session->set_flashdata('msg', 'Silahkan login terlebih dahulu!');
+					$ci->session->set_flashdata('type', 'danger');
 					redirect('auth/login');
 			}
 	}
