@@ -22,7 +22,7 @@
 
 					<a class="nav-item nav-link wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.3s" href="#price-Plan"><i class="fas fa-donate"></i>Harga</a>
 					
-					<a class="nav-item nav-link wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.6s" href="<?= base_url('kontak'); ?>"><i class="fas fa-address-book"></i>Kontak</a>
+					<a class="nav-item nav-link wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.6s" href="<?= base_url('kontak'); ?>"><i class="fas fa-address-book"></i>Hubungi Kami</a>
 					<!-- dropdown menu -->
 					<div class="nav-item dropdown">
 					  <a href="" class="nav-item nav-link dropdown-toggle wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.6s" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="true"><i class="fas fa-users-cog"></i>Akun</a>
@@ -64,7 +64,7 @@
 
 							<a class="nav-item nav-link" href="#price-Plan"><i class="fas fa-donate"></i>Harga</a>
 							
-							<a class="nav-item nav-link" href="<?= base_url('kontak'); ?>"><i class="fas fa-address-book"></i>Kontak</a>
+							<a class="nav-item nav-link" href="<?= base_url('kontak'); ?>"><i class="fas fa-address-book"></i>Hubungi Kami</a>
 							<!-- dropdown menu -->
 								<div class="nav-item dropdown">
 								  <a href="" class="nav-item nav-link dropdown-toggle" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="true"><i class="fas fa-users-cog"></i>Akun</a>

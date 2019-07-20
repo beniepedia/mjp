@@ -34,7 +34,7 @@
 					<input type="hidden" value="<?= $user->id_user ?>" name="id_user">
 					<div class="form-group">
 						<label>Nama</label>
-						<input type="text" class="form-control <?= form_error('name')?'is-invalid':null ?>" name="name" style="margin-top: -6px;" value="<?=$this->input->post('name')??$user->name; ?>">
+						<input type="text" class="form-control <?= form_error('name')?'is-invalid':null; ?>" name="name" style="margin-top: -6px;" value="<?=$this->input->post('name')??$user->name; ?>">
 						<?= form_error('name'); ?>
 					</div>
 

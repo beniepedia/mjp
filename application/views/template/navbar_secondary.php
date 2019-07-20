@@ -6,7 +6,7 @@
 		<div class="navbar-nav ml-auto">
 			<a class="nav-item nav-link" href="<?= base_url('/'); ?>"><i
 			class="fas fa-home" aria-hidden="true"></i>Beranda</a>
-			<a class="nav-item nav-link" href="<?= base_url('kontak'); ?>"><i class="fas fa-address-book"></i>Kontak</a>
+			<a class="nav-item nav-link" href="<?= base_url('kontak'); ?>"><i class="fas fa-address-book"></i>Hubungi Kami</a>
 			<!-- dropdown menu -->
 				<div class="nav-item dropdown">
 				  <a href="" class="nav-item nav-link dropdown-toggle" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="true"><i class="fas fa-users-cog"></i>Akun</a>

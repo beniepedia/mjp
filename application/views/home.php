@@ -207,23 +207,23 @@
 					Gg. Keluarga, Tj. Sari, Kec. Medan Selayang, Kota Medan, Sumatera Utara 20135
 				</a>
 				<a href="mailto:admin@id-mjp.com" class="list-group-item list-group-item-action">
-					<i class="fa fa-envelope-o"></i>
+					<i class="fas fa-envelope-open-text"></i>
 					admin@id-mjp.com
 				</a>
 				<a href="#" class="list-group-item list-group-item-action">
-					<i class="fa fa-phone"></i>
+					<i class="fas fa-phone"></i>
 					+62822-8866-9090
 				</a>
 				<a href="https://api.whatsapp.com/send?phone=6282288669090&text=Hallo%20*admin*,%20saya%20mau%20tanya." target="_blank" class="list-group-item list-group-item-action">
-					<i class="fa fa-whatsapp"></i>
+					<i class="fab fa-whatsapp"></i>
 					admin 1 (+62822-8866-9090)
 				</a>
 				<a href="https://api.whatsapp.com/send?phone=6287772360300&text=Hallo%20*admin*,%20saya%20mau%20tanya." target="_blank" class="list-group-item list-group-item-action">
-					<i class="fa fa-whatsapp"></i>
+					<i class="fab fa-whatsapp"></i>
 					admin 2 (+62877-7236-0300)
 				</a>
 				<a href="https://api.whatsapp.com/send?phone=6287772360300&text=Hallo%20*admin*,%20saya%20mau%20tanya." target="_blank" class="list-group-item list-group-item-action">
-					<i class="fa fa-edge"></i>
+					<i class="fab fa-internet-explorer"></i>
 					www.id-mjp.com
 				</a>
 			</div>
