@@ -29,7 +29,7 @@
 					  <div class="dropdown-menu dropdown-menu-lg-right">
 					    <?php if( $this->session->userdata('email') ) : ?>
 								<a href="<?= base_url('admin/dashboard'); ?>" class="dropdown-item"><i class="fas fa-server far"></i>Dasboard</a>
-								<a href="#" class="dropdown-item"><i class="fas fa-user-tag far"></i>Profil</a>
+								<a href="<?= base_url('profile'); ?>" class="dropdown-item"><i class="fas fa-user-tag far"></i>Profil</a>
 								<a href="<?= base_url('auth/logout'); ?>" class="dropdown-item"><i class="fas fa-sign-out-alt far"></i>Logout</a>
 							<?php else : ?>
 								<a href="<?= base_url('auth/login'); ?>" class="dropdown-item"><i class="fas fa-sign-in-alt far"></i>Login</a>
@@ -71,7 +71,7 @@
 									  <div class="dropdown-menu dropdown-menu-lg-right">
 										    <?php if( $this->session->userdata('email') ) : ?>
 													<a href="<?= base_url('admin/dashboard'); ?>" class="dropdown-item"><i class="fas fa-server far"></i>Dasboard</a>
-													<a href="#" class="dropdown-item"><i class="fas fa-user-tag far"></i>Profil</a>
+													<a href="<?= base_url('profile'); ?>" class="dropdown-item"><i class="fas fa-user-tag far"></i>Profil</a>
 													<a href="<?= base_url('auth/logout'); ?>" class="dropdown-item"><i class="fas fa-sign-out-alt far"></i>Logout</a>
 												<?php else : ?>
 													<a href="<?= base_url('auth/login'); ?>" class="dropdown-item"><i class="fas fa-sign-in-alt far"></i>Login</a>

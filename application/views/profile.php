@@ -15,7 +15,7 @@
 			<div class="row justify-content-between">
 				<div class="col-lg-4 col-md-12">
 					<div class="picture-container">
-						<form action="<?= base_url('admin/profile'); ?>" enctype="multipart/form-data" method="post">
+						<form action="<?= base_url('profile'); ?>" enctype="multipart/form-data" method="post">
 						<div class="picture">
 								<?php if( $user->oauth_provider == 'local' ) : ?>
 									<img src="<?= base_url('assets/img/user_img/'); ?><?= $user->image; ?>" class="img-fluid rounded-circle" alt="" id="wizardPicturePreview">

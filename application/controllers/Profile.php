@@ -24,7 +24,7 @@ class Profile extends CI_Controller {
 				$data['user'] = $this->Profile_model->getData($email)->row();
 				$this->load->view('template/dashboard_header');
 				$this->load->view('template/dashboard_topbar');
-				$this->load->view('admin/profile', $data);
+				$this->load->view('profile', $data);
 				$this->load->view('template/dashboard_footer');
 			# code...
 		} else {
@@ -72,7 +72,7 @@ class Profile extends CI_Controller {
 						$this->session->set_flashdata('msg', 'Update gagal' . $error);
 						$this->session->set_flashdata('type', 'danger');
 					}
-				redirect('admin/profile','refresh');
+				redirect('profile','refresh');
 
 				// Jika foto tidak diganti
 				} else {
@@ -85,7 +85,7 @@ class Profile extends CI_Controller {
 						$this->session->set_flashdata('msg', 'Profile gagal diupdate!');
 						$this->session->set_flashdata('type', 'danger');
 					}
-					redirect('admin/profile','refresh');
+					redirect('profile','refresh');
 				}
 				
 		}

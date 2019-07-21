@@ -32,6 +32,7 @@
 					</div>
 					<div class="sidebar-brand-text mx-3">ID MJP</div>
 				</a>
+				<?php if($this->check->is_admin()->role_id == 1 ) : ?>
 				<!-- Divider -->
 				<hr class="sidebar-divider my-0">
 				<!-- Nav Item - Dashboard -->
@@ -47,26 +48,10 @@
 						<a class="nav-link" href="<?= base_url('admin/user'); ?>">
 						<i class="fas fa-fw fa-users"></i>
 						<span>Data User</span></a>
-					</li>
-
-					<hr class="sidebar-divider my-0">
-					<!-- Nav Item - Pages Collapse Menu -->
-					<li class="nav-item">
-						<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#profile" aria-expanded="true" aria-controls="collapseTwo">
-							<i class="fas fa-fw fa-user"></i>
-							<span>My profile</span>
-						</a>
-						<div id="profile" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-							<div class="bg-white py-2 collapse-inner rounded">
-								<a class="collapse-item" href="<?= base_url('admin/profile') ?>">Profile</a>
-								<a class="collapse-item" href="cards.html">Ganti Password</a>
-							</div>
-						</div>
-					</li>
+					</li>	
 					<!-- Divider -->
 					<hr class="sidebar-divider my-0">
 
-					<!-- Heading -->
 					<!-- Nav Item - Pages Collapse Menu -->
 					<li class="nav-item <?php if($this->uri->segment(2)=='setting'){echo 'active';}?>">
 						<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
@@ -78,6 +63,23 @@
 								<h6 class="collapse-header">Pengaturan:</h6>
 								<a class="collapse-item <?php if($this->uri->segment(2)=='setting'){echo 'active';}?>" href="<?= base_url('admin/setting'); ?>">Pengaturan Umum</a>
 								<a class="collapse-item" href="cards.html">Cards</a>
+							</div>
+						</div>
+					</li>
+					<?php endif; ?>
+					<hr class="sidebar-divider my-0">
+				
+					<!-- Nav Item - Pages Collapse Menu -->
+					<li class="nav-item <?php if($this->uri->segment(1)=='profile'){echo 'active';}?>">
+						<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#profile" aria-expanded="true" aria-controls="collapseTwo">
+							<i class="fas fa-fw fa-user"></i>
+							<span>Profil Saya</span>
+						</a>
+						<div id="profile" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+							<div class="bg-white py-2 collapse-inner rounded">
+								<h6 class="collapse-header">Profil Detail:</h6>
+								<a class="collapse-item <?php if($this->uri->segment(1)=='profile'){echo 'active';}?>" href="<?= base_url('profile') ?>">Profile</a>
+								<a class="collapse-item" href="cards.html">Ganti Password</a>
 							</div>
 						</div>
 					</li>
