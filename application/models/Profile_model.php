@@ -7,11 +7,13 @@ class Profile_model extends CI_Model {
 	{
 		return  $this->db->get_where('users', ['email'=>$email]);
 	}
+
 	public function update($data)
 	{
 		$this->db->where('id_user', $data['id_user']);
 		$this->db->update('users', $data);
 	}
+
 
 }
 

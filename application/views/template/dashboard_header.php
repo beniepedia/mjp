@@ -78,8 +78,8 @@
 						<div id="profile" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
 							<div class="bg-white py-2 collapse-inner rounded">
 								<h6 class="collapse-header">Profil Detail:</h6>
-								<a class="collapse-item <?php if($this->uri->segment(1)=='profile'){echo 'active';}?>" href="<?= base_url('profile') ?>">Profile</a>
-								<a class="collapse-item" href="cards.html">Ganti Password</a>
+								<a class="collapse-item" href="<?= base_url('profile') ?>">Profile</a>
+								<a class="collapse-item" href="<?= base_url('profile/changepassword') ?>">Ganti Password</a>
 							</div>
 						</div>
 					</li>

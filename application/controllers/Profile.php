@@ -8,6 +8,7 @@ class Profile extends CI_Controller {
 		parent::__construct();
 		$this->load->library('form_validation');
 		$this->load->model('Profile_model');
+		is_not_login();
 	}
 
 	public function index()
@@ -19,8 +20,8 @@ class Profile extends CI_Controller {
 		$this->form_validation->set_error_delimiters('<div class="invalid-feedback">', '</div>');
 
 		if ($this->form_validation->run() ==  FALSE) {
-				$email 				= $this->session->userdata('email');
 				$this->load->model('Profile_model');
+				$email 						= $this->session->userdata('email');
 				$data['user'] 		= $this->Profile_model->getData($email)->row();
 				$data['title']		= 'Profile - ' . $this->generalset->web()->site_name;
 				$this->load->view('template/dashboard_header', $data);
@@ -103,6 +104,61 @@ class Profile extends CI_Controller {
 			return false;
 		} else {
 			return true;
+		}
+	}
+
+	public function changepassword()
+	{
+			$this->form_validation->set_rules('oldpass', 'Password Lama', 'trim|required|callback_checkOldPass');
+			$this->form_validation->set_rules('newpass', 'Password Baru', 'trim|required|min_length[6]');
+			$this->form_validation->set_rules('passconf', 'Ulang Password Lama', 'trim|required|matches[newpass]');
+			$this->form_validation->set_error_delimiters('<div class="invalid-feedback">', '</div>');
+
+			if ($this->form_validation->run() == FALSE) {
+					$data['title']		= 'Ganti Password - ' . $this->generalset->web()->site_name;
+					$this->load->view('template/dashboard_header', $data);
+					$this->load->view('template/dashboard_topbar');
+					$this->load->view('changepassword', $data);
+					$this->load->view('template/dashboard_footer');
+				# code...
+			} else {
+				$newpass 		= $this->input->post('newpass');
+				$user_email	= $this->session->userdata('email');
+				$pass 			= password_hash($newpass, PASSWORD_DEFAULT);
+				$data 			= [
+					'password'	=> $pass
+				];
+
+				$update 		= $this->db->update('users', $data, ['email'=>$user_email]);
+				if( $update )
+				{
+					$this->session->set_flashdata('msg', 'Password berhasil diganti, silahkan login kembali');
+					$this->session->set_flashdata('type', 'success');
+					$sess 	= ['email', 'role_id', 'name'];
+					$this->session->unset_userdata($sess);
+					redirect('auth/login','refresh');
+
+				} else {
+					$this->session->set_flashdata('msg', 'Password berhasil diganti, silahkan login kembali');
+					$this->session->set_flashdata('type', 'success');
+					redirect('profile/changepassword','refresh');
+				}
+
+			}
+	}
+
+	public function checkOldPass()
+	{
+		$post 				= $this->input->post(null, true);
+		$user_email 	= $this->session->userdata('email');
+		$query 				= $this->db->query("SELECT password FROM users WHERE email = '$user_email'")->row();
+
+		if ( password_verify($post['oldpass'], $query->password) )
+		{
+				return TRUE;
+		}else{
+				$this->form_validation->set_message('checkOldPass', '{field} salah, silahkan coba lagi!');
+				return FALSE;
 		}
 	}
 
