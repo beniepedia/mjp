@@ -30,7 +30,7 @@ class Profile extends CI_Controller {
 		} else {
 				// jika validaton benar
 				$data = [
-					'id_user' => $this->input->post('id_user'),
+					'id_user' 	=> $this->input->post('id_user'),
 					'name'		=> htmlspecialchars($this->input->post('name', true)),
 					'email'		=> htmlspecialchars($this->input->post('email', true)),
 					'gender'	=> htmlspecialchars($this->input->post('gender', true)),
@@ -40,18 +40,19 @@ class Profile extends CI_Controller {
 				$config['upload_path'] 						= './assets/img/user_img/';
 				$config['allowed_types'] 					= 'jpg|png|jpeg';
 				$config['max_size']     					= '2048';
-				$config['file_ext_tolower']     	= TRUE;
+				$config['file_ext_tolower']     			= TRUE;
 				$config['file_name']     					= strtolower($this->session->userdata('name')).'-'.time();
+
 				$this->load->library('upload', $config);
 				// jika foto tidak kosong
 				if($_FILES['foto']['name'] != '' && !empty($_FILES['foto']['name']))
 				{
 					if($this->upload->do_upload('foto'))
 					{
+						$foto_old = $this->input->post('old_foto');
 						// cek nama foto
-						if ( $_FILES['foto']['name'] !== 'default.jpg' )
+						if ( $foto_old != 'default.jpg' )
 						{
-							$foto_old = $this->input->post('old_foto');
 							// cek ada file di folder
 							if ( file_exists(FCPATH . 'assets/img/user_img/' .$foto_old) )
 							{
@@ -75,7 +76,6 @@ class Profile extends CI_Controller {
 
 				// Jika foto tidak diganti
 				} else {
-					$data['image'] = $this->input->post('old_foto');
 					$this->Profile_model->update($data);
 					if ($this->db->affected_rows() > 0 )
 					{
