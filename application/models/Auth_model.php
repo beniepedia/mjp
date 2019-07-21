@@ -52,12 +52,16 @@ class Auth_model extends CI_Model
   		if( $query['is_active'] == 1 )
   		{
   			if (password_verify($pass, $query['password'])) {
-  				$data = 
-          [
+  				$data = array(
+   
             'name'    => $query['name'],
             'email'   => $query['email'],
             'role_id' => $query['role_id']
-          ];
+          );
+          // update waktu login user
+          $data_user['last_login']  = time();
+          $update = $this->db->update('users', $data_user, ['email'=>$data['email']]);
+        
           if( $query['role_id'] == 1 )
           {
     				$this->session->set_userdata($data);
@@ -66,8 +70,10 @@ class Auth_model extends CI_Model
             $this->session->set_userdata($data);
             redirect('/','refresh');
           }
+        
+
   			} else {
-  				$this->session->set_flashdata('msg', 'Password yang anda masukan sa lah, silahkan coba lagi!');
+  				$this->session->set_flashdata('msg', 'Password yang anda masukan salah, silahkan coba lagi!');
           $this->session->set_flashdata('type', 'danger');
   				redirect('auth/login','refresh');
   			}
@@ -209,13 +215,7 @@ class Auth_model extends CI_Model
     //return user ID
     return $userID?$userID:FALSE;
     // ?$userID:FALSE
-    }
-
-    public function logout($email)
-    {
-      $data['last_login'] = time();
-      return $this->db->update('users', $data, ['email'=>$email]);
-    }
+  }
 
 }
 

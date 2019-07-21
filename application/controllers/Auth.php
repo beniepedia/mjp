@@ -52,8 +52,8 @@ class Auth extends CI_Controller
             $fbUser = $this->facebook->request('get', '/me?fields=id,first_name,last_name,email,link,gender,picture.width(512).height(512),location');
 
             // first name and last name
-            $firstname  = !empty($fbUser['first_name'])?$fbUser['first_name']:'';
-            $lastname   = !empty($fbUser['last_name'])?$fbUser['last_name']:'';
+            $firstname                  = !empty($fbUser['first_name'])?$fbUser['first_name']:'';
+            $lastname                   = !empty($fbUser['last_name'])?$fbUser['last_name']:'';
             // Preparing data for database insertion
             $userData['oauth_provider'] = 'facebook';
             $userData['oauth_uid']      = !empty($fbUser['id'])?$fbUser['id']:'';
@@ -67,27 +67,12 @@ class Auth extends CI_Controller
             $userData['is_active']      = 1;
             // $userData['link']        = !empty($fbUser['link'])?$fbUser['link']:'';
             
-            // Insert or update user data
             $userID = $this->Auth_model->checkUser($userData);
             
-            // Check user data insert or update status
-            // if(!empty($userID))
-            // {
-            //     $data = [
-            //         'name'  => $userData['first_name'] .' '. $userData['last_name'], 
-            //         'email' => $userData['email']
-            //     ];
-            //     $this->session->set_userdata($data);
-            // }else{
-            //    $data['userData'] = array();
-            //    $this->session->set_flashdata('msg', 'Terjadi kesalahan pada sistem kami, silahkn coba lagi / hubungi kami.');
-            //    $this->session->set_flashdata('type', 'danger');
-            //    redirect('auth/login','refresh');
-            // }
             $data = [
-                'name'  => $userData['name'], 
-                'email' => $userData['email'],
-                'role_id' => $userData['role_id']
+                'name'                  => $userData['name'], 
+                'email'                 => $userData['email'],
+                'role_id'               => $userData['role_id']
             ];
             $this->session->set_userdata($data);
 
@@ -221,18 +206,12 @@ class Auth extends CI_Controller
 
     public function logout()
     {
-        $email = $this->session->userdata('email');
-        $update = $this->Auth_model->logout($email);
-        if( $update )
-        {
-            $data = array('name','email','role_id','FBRLH_state');
-            $this->session->unset_userdata($data);
-             // Remove local Facebook session
-            $this->facebook->destroy_session();
-            // Remove user data from session
-            $this->session->unset_userdata('userData');
-            // Redirect to login page
-            redirect('/');
-        } 
+
+        $data = array('name','email','role_id','FBRLH_state');
+        $this->session->unset_userdata($data);
+            // Remove local Facebook session
+        $this->facebook->destroy_session();
+        // Redirect to login page
+        redirect('/');
     }
 }
