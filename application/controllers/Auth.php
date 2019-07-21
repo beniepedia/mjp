@@ -193,7 +193,7 @@ class Auth extends CI_Controller
             $this->load->view('template/auth_footer');
         } else {
             $email = $this->session->userdata('email_reset');
-            $password = password_hash($this->input->post('password', TRUE), PASSWORD_DEFAULT);
+            $password = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
             $query = $this->Auth_model->changePass($email, $password);
             if( $query )
             {

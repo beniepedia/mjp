@@ -14,6 +14,10 @@ class Setting_model extends CI_Model {
 		return $update;
 	}
 	
+	public function emailset()
+	{
+		return $this->db->get('email_config');
+	}
 
 }
 

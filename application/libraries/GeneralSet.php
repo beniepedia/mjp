@@ -15,6 +15,12 @@ class GeneralSet
 		$this->ci->load->model('Webconfig_model');
 		return $this->ci->Webconfig_model->getAll();
 	}
+
+	public function email()
+	{
+		$this->ci->load->model('Webconfig_model');
+		return $this->ci->Webconfig_model->emailconfig()->row();
+	}
 	
 
 }

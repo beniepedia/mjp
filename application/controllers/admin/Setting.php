@@ -17,7 +17,7 @@ class Setting extends CI_Controller {
 	public function index()
 	{
 		$data['site'] = $this->Setting_model->getAll();
-		$data['title'] = 'Pengaturan - '. $this->generalset->web()->site_name;
+		$data['title'] = 'Pengaturan Website - '. $this->generalset->web()->site_name;
 		$this->load->view('template/dashboard_header', $data);
 		$this->load->view('template/dashboard_topbar');
 		$this->load->view('admin/setting', $data);
@@ -54,6 +54,16 @@ class Setting extends CI_Controller {
 			$this->session->set_flashdata('type','success');
 			redirect('admin/setting','refresh');
 		}
+	}
+
+	public function email()
+	{
+			$data['email']		=	$this->Setting_model->emailset()->row();
+			$data['title'] 		= 'Pengaturan Email - '. $this->generalset->web()->site_name;
+			$this->load->view('template/dashboard_header', $data);
+			$this->load->view('template/dashboard_topbar');
+			$this->load->view('admin/email', $data);
+			$this->load->view('template/dashboard_footer');
 	}
 
 }

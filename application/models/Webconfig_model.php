@@ -8,6 +8,11 @@ class Webconfig_model extends CI_Model {
 		return $this->db->get('web_config')->row();
 	}
 
+	public function emailConfig()
+	{
+		return $this->db->get('email_config');
+	}
+
 }
 
 /* End of file Webconfig_model.php */
