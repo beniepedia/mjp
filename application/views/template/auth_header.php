@@ -21,6 +21,6 @@
 
 </head>
 
-<body class="<?= validation_errors()?'bg-gradient-danger':'bg-gradient-primary'; ?>">
+<body class="bg-gradient-primary">
 
   <div class="container">

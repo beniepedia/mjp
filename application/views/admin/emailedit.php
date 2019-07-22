@@ -129,7 +129,7 @@
 		</div>
 		
 		<div class="col-lg-4">
-			<h5>Informasi :</h5>
+			<h5>Petunjuk :</h5>
 			<hr>
 			<p>Settingan email ini berfungsi untuk berbagai kebutuhan pada website. Seperti mengirim email konfirmasi pendaftaran, reset password, kontak form, dan untuk email marketing. Jadi sesuaikan settingannya sesuai dengan hosting yang anda gunakan. </p>
 			<hr>
