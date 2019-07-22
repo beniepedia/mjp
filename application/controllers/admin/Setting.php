@@ -5,13 +5,13 @@ class Setting extends CI_Controller {
 
 	public function __construct()
 	{
-     parent::__construct();
-     $this->load->model('Setting_model');
-     is_not_login();
-     if($this->check->is_admin()->role_id != 1)
-     {
-     	redirect('/','refresh');
-     }
+		parent::__construct();
+		$this->load->model('Setting_model');
+		is_not_login();
+		if($this->check->is_admin()->role_id != 1)
+		{
+			redirect('/','refresh');
+		}
 	}
 
 	public function index()
@@ -28,22 +28,22 @@ class Setting extends CI_Controller {
 	{
 		if( isset($_POST['save_web']) )
 		{
-				$data = [
-		    'site_name' 				=> htmlspecialchars($this->input->post('sitename'), true),
-		    'site_alias' 				=> htmlspecialchars($this->input->post('sitealias'), true),
-		    'site_description' 	=> htmlspecialchars($this->input->post('sitedesc'), true),
-		    'site_author' 			=> htmlspecialchars($this->input->post('siteauthor'),true)
-				];
+			$data = [
+				'site_name' 		=> htmlspecialchars($this->input->post('sitename'), true),
+				'site_alias' 		=> htmlspecialchars($this->input->post('sitealias'), true),
+				'site_description' 	=> htmlspecialchars($this->input->post('sitedesc'), true),
+				'site_author' 		=> htmlspecialchars($this->input->post('siteauthor'),true)
+			];
 		}
 
 		else if( isset($_POST['save_sosial']) )
 		{
 			$data = [
-		    'fb_id' 						=> htmlspecialchars($this->input->post('fbid'), true),
-		    'fb_key' 						=> htmlspecialchars($this->input->post('fbkey'), true),
-		    'google_client_id' 	=> htmlspecialchars($this->input->post('gid'), true),
-		    'google_client_key' => htmlspecialchars($this->input->post('gkey'),true),
-		    'is_active'					=> $this->input->post('is_active')
+		    'fb_id' 				=> htmlspecialchars($this->input->post('fbid'), true),
+		    'fb_key' 				=> htmlspecialchars($this->input->post('fbkey'), true),
+		    'google_client_id' 		=> htmlspecialchars($this->input->post('gid'), true),
+		    'google_client_key' 	=> htmlspecialchars($this->input->post('gkey'),true),
+		    'is_active'				=> $this->input->post('is_active')
 			];
 		}
 
