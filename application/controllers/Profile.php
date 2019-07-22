@@ -19,10 +19,11 @@ class Profile extends CI_Controller {
 		$this->form_validation->set_error_delimiters('<div class="invalid-feedback">', '</div>');
 
 		if ($this->form_validation->run() ==  FALSE) {
-				$email = $this->session->userdata('email');
+				$email 				= $this->session->userdata('email');
 				$this->load->model('Profile_model');
-				$data['user'] = $this->Profile_model->getData($email)->row();
-				$this->load->view('template/dashboard_header');
+				$data['user'] 		= $this->Profile_model->getData($email)->row();
+				$data['title']		= 'Profile - ' . $this->generalset->web()->site_name;
+				$this->load->view('template/dashboard_header', $data);
 				$this->load->view('template/dashboard_topbar');
 				$this->load->view('profile', $data);
 				$this->load->view('template/dashboard_footer');
