@@ -21,89 +21,100 @@
 				<div class="card-body">
 					<div class="row">
 						<div class="col-lg-12">
-							<form action="<?= base_url('admin/setting/email'); ?>" method="post">
+							<form action="<?= base_url('admin/setting/editemail'); ?>" method="post">
+
 								<div class="form-group row">
 							    <label for="sitename" class="col-sm-3 col-form-label label-judul">Admin Email</label>
 							    <div class="col-md-9">
-							      <input type="text" name="admin" class="form-control" placeholder="admin@example.com" value="<?= $email->admin_email; ?>">
+							      <input type="text" name="admin" class="form-control <?= form_error('sistem')?'is-invalid':null; ?>" placeholder="admin@example.com" value="<?= $this->input->post('admin') ?? $email->admin_email; ?>">
+							      <?= form_error('admin'); ?>
 							    </div>
 							  </div>
+							 
 
 							  <div class="form-group row">
 							    <label for="sitename" class="col-sm-3 col-form-label label-judul">Sistem Email</label>
 							    <div class="col-md-9">
-							      <input type="text" name="sistem" class="form-control" placeholder="no-reply@example.com" value="<?= $email->sistem_email; ?>">
+							      <input type="text" name="sistem" class="form-control <?= form_error('sistem')?'is-invalid':null; ?>" placeholder="no-reply@example.com" value="<?= $this->input->post('sistem') ?? $email->sistem_email; ?>">
+							    	<?= form_error('sistem'); ?>
 							    </div>
 							  </div>
-
+								
 								<div class="form-group row">
 							    <label for="sitename" class="col-sm-3 col-form-label label-judul">Protokol</label>
 							    <div class="col-md-9">
-							      <input type="text" name="protocol" class="form-control" placeholder="smtp" value="<?= $email->protocol; ?>">
+							      <input type="text" name="protocol" class="form-control <?= form_error('protocol')?'is-invalid':null; ?>" placeholder="smtp" value="<?= $this->input->post('protocol') ?? $email->protocol; ?>">
+							      <?= form_error('protocol'); ?>
 							    </div>
 							  </div>
 
 							  <div class="form-group row">
 							    <label for="sitealias"  class="col-sm-3 col-form-label label-judul">Host</label>
 							    <div class="col-md-9">
-							      <input type="text" name="host" class="form-control" placeholder="ssl://smtp.contoh.com" value="<?= $email->host; ?>">
+							      <input type="text" name="host" class="form-control <?= form_error('host')?'is-invalid':null; ?>" placeholder="ssl://smtp.contoh.com" value="<?= $this->input->post('host') ?? $email->host; ?>">
+							    	<?= form_error('host'); ?>
 							    </div>
 							  </div>
 
 							  <div class="form-group row">
-							    <label for="siteauthor" class="col-sm-3 col-form-label label-judul">Username</label>
+							    <label for="siteauthor" class="col-sm-3 col-form-label label-judul">User Email</label>
 							    <div class="col-md-9">
-							      <input type="text" name="uname" class="form-control" placeholder="example" value="<?= $email->username; ?>">
+							      <input type="text" name="uname" class="form-control <?= form_error('uname')?'is-invalid':null; ?>" placeholder="example" value="<?= $this->input->post('uname') ?? $email->username; ?>">
+							    	<?= form_error('uname'); ?>
 							    </div>
 							  </div>
 
 							  <div class="form-group row">
 							    <label for="siteauthor" class="col-sm-3 col-form-label label-judul">Password</label>
 							    <div class="col-md-9">
-							      <input type="password" name="password" class="form-control" placeholder="example" value="<?= $email->password; ?>">
+							      <input type="password" name="password" class="form-control <?= form_error('password')?'is-invalid':null; ?>" placeholder="" value="<?= $this->input->post('password'); ?>">
+							      <?= form_error('password'); ?>
 							    </div>
 							  </div>
 
 							  <div class="form-group row">
 							    <label for="siteauthor" class="col-sm-3 col-form-label label-judul">Port</label>
 							    <div class="col-md-9">
-							      <input type="text" name="port" class="form-control" placeholder="587" value="<?= $email->port; ?>">
+							      <input type="text" name="port" class="form-control <?= form_error('port')?'is-invalid':null; ?>" placeholder="587" value="<?= $this->input->post('port') ?? $email->port; ?>">
+							      <?= form_error('port'); ?>
 							    </div>
 							  </div>
 
 							  <div class="form-group row">
 							    <label for="siteauthor" class="col-sm-3 col-form-label label-judul">Tipe Email</label>
 							    <div class="col-md-9">
-							      <select name="tipe" class="form-control">
-							      	<?php $type =  ?>
+							      <select name="tipe" class="form-control <?= form_error('tipe')?'is-invalid':null; ?>">
+							      	<?php $tipe = $this->input->post('tipe') ? $this->input->post('tipe') : $email->type; ?>
 							      	<option selected="true" disabled="">Pilih</option>
-							      	<option value="html" <?= $email->; ?>>HTML</option>
-							      	<option value="text">TEXT</option>
+							      	<option value="html" <?= $tipe=='html'?'selected':null; ?> >HTML</option>
+							      	<option value="text" <?= $tipe=='text'?'selected':null; ?>>TEXT</option>
 							      </select>
+							      <?= form_error('tipe'); ?>
 							    </div>
 							  </div>
 
 							  <div class="form-group row">
 							    <label for="siteauthor" class="col-sm-3 col-form-label label-judul">Charset</label>
 							    <div class="col-md-9">
-							      <input type="text" name="chart" class="form-control" placeholder="UTF-8" value="">
+							      <input type="text" name="chart" class="form-control <?= form_error('chart')?'is-invalid':null; ?>" placeholder="UTF-8" value="<?= $this->input->post('chart') ?? $email->charset; ?>">
+							      <?= form_error('chart'); ?>
 							    </div>
 							  </div>
-
+<!-- 
 							  <div class="form-group row">
 							    <label for="siteauthor" class="col-sm-3 col-form-label label-judul">Newline</label>
 							    <div class="col-md-9">
 							      <input type="text" name="line" class="form-control" placeholder="\r\n" value="">
 							    </div>
-							  </div>
+							  </div> -->
 
 								<div class="form-group float-right">
-									<a href="<?= base_url('admin/user'); ?>" class="btn btn-light btn-icon-split">
+									<button type="reset" value="reset" class="btn btn-light btn-icon-split">
 										<span class="icon text-gray-600">
 											<i class="fas fa-undo-alt"></i>
 										</span>
-									</a>
-									<button type="submit" name="save_web" class="btn btn-primary btn-icon-split">
+									</button>
+									<button type="submit" name="save_email" class="btn btn-primary btn-icon-split">
 										<span class="icon text-gray-600">
 											<i class="fas fa-save"></i>
 										</span>

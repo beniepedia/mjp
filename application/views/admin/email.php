@@ -25,42 +25,45 @@
 								<tbody>
 							    <tr>
 							      <td>Admin Email </td>
-							      <td><?= $email->admin_email; ?></td>
+							      <td>: <?= $email->admin_email; ?></td>
 							    </tr>
 							    <tr>
 							      <td>Sistem Email</td>
-							      <td><?= $email->sistem_email; ?></td>
+							      <td>: <?= $email->sistem_email; ?></td>
 							    </tr>
 							    <tr>
 							      <td>Protocol</td>
-							      <td><?= $email->protocol; ?></td>
+							      <td>: <?= $email->protocol; ?></td>
 							    </tr>
 							    <tr>
 							      <td>Host SMTP</td>
-							      <td><?= $email->host; ?></td>
+							      <td>: <?= $email->host; ?></td>
 							    </tr>
 							    <tr>
 							      <td>Username SMTP</td>
-							      <td><?= $email->username; ?></td>
+							      <td>: <?= $email->username; ?></td>
 							    </tr>
 							    <tr>
 							      <td>Port SMTP</td>
-							      <td><?= $email->port; ?></td>
+							      <td>: <?= $email->port; ?></td>
 							    </tr> 
 							    <tr>
 							      <td>Email Tipe</td>
-							      <td><?= $email->type; ?></td>
+							      <td>: <?= $email->type; ?></td>
 							    </tr> 
 							    <tr>
 							      <td>Charset</td>
-							      <td><?= $email->charset; ?></td>
+							      <td>: <?= $email->charset; ?></td>
 							    </tr> 
 							    <tr>
 							    	<td>NewLine</td>
-							    	<td><?= $email->newline; ?></td>
+							    	<td>: <?= $email->newline; ?></td>
 							    </tr>
 							  </tbody>
 							</table>
+							<div class="mt-3 float-right">
+					    		<a href="<?= base_url('admin/setting/editemail'); ?>" class="btn btn-primary">Ubah Setelan</a>
+					    </div>
 						</div>
 					</div>
 				</div>
@@ -70,7 +73,7 @@
 		<div class="col-lg-4 text-justify">
 			<h5>Petunjuk :</h5>
 			<hr>
-			<p>Settingan email ini berfungsi untuk berbagai kebutuhan pada website. Seperti mengirim email konfirmasi pendaftaran, reset password, kontak form, dan untuk email marketing. Jadi sesuaikan settingannya sesuai dengan hosting yang anda gunakan. </p><br>
+			<p>Setelan email ini berfungsi untuk berbagai kebutuhan pada website. Seperti mengirim email konfirmasi pendaftaran, reset password, kontak form, dan untuk email marketing. Jadi sesuaikan Setelannya sesuai dengan hosting yang anda gunakan. </p><br>
 			<strong>Admin Email</strong> digunakan untuk mengirim email promosi, bisa berupa blash email/single email. <br>	<br>
 			<strong>Sistem Email</strong> digunakan untuk mengirimkan pesan berupa konfirmasi pendaftaran, reset password, dan kontak form.
 

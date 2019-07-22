@@ -13,8 +13,8 @@ class Kontak extends CI_Controller {
 		$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
 		$this->form_validation->set_rules('telp', 'Telpon/HP', 'trim|required');
 		$this->form_validation->set_rules('pesan', 'Pesan', 'trim|required');
-		// $this->form_validation->set_rules('g-recaptcha-response', 'Recaptcha Validasi', 'trim|callback_validate_captcha');
-		// $this->form_validation->set_message('validate_captcha', 'Ulangi captcha');
+		$this->form_validation->set_rules('g-recaptcha-response', 'Recaptcha Validasi', 'trim|callback_validate_captcha');
+		$this->form_validation->set_message('validate_captcha', 'Ulangi captcha');
 
 		if ($this->form_validation->run() == FALSE)
 		{
@@ -33,17 +33,7 @@ class Kontak extends CI_Controller {
 		}
 		private function _sendEmail()
 		{
-			// Config emial lokal
-			// $config = [
-			// 'protocol' => 'smtp',
-			// 'smtp_host' => 'ssl://smtp.googlemail.com',
-			// 'smtp_user' => 'printcloud91@gmail.com',
-			// 'smtp_pass' => 'medan2018',
-			// 'smtp_port' => 465,
-			// 'mailtype' => 'html',
-			// 'charset' => 'utf-8',
-			// 'newline' => "\r\n"
-			// ];
+
 			// config email server
 			$config = [
 			'protocol' => 'smtp',
