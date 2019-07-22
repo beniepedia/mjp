@@ -8,6 +8,8 @@ class Setting extends CI_Controller {
 		parent::__construct();
 		$this->load->model('Setting_model');
 		is_not_login();
+		$this->load->library('form_validation');
+		$this->load->library('encryption');
 		if($this->check->is_admin()->role_id != 1)
 		{
 			redirect('/','refresh');
@@ -59,7 +61,7 @@ class Setting extends CI_Controller {
 	public function email()
 	{
 			$data['email']		=	$this->Setting_model->emailset()->row();
-			$data['title'] 		= 'Pengaturan Email - '. $this->generalset->web()->site_name;
+			$data['title'] 		= 	'Pengaturan Email - '. $this->generalset->web()->site_name;
 			$this->load->view('template/dashboard_header', $data);
 			$this->load->view('template/dashboard_topbar');
 			$this->load->view('admin/email', $data);
@@ -74,7 +76,7 @@ class Setting extends CI_Controller {
 			$this->form_validation->set_rules('host', 'Host', 'trim|required');
 			$this->form_validation->set_rules('uname', 'User Email', 'trim|required|valid_email');
 			$this->form_validation->set_rules('password', 'Password', 'trim');
-			$this->form_validation->set_rules('port', 'Port', 'trim|required');
+			$this->form_validation->set_rules('port', 'Port', 'trim|required|numeric');
 			$this->form_validation->set_rules('tipe', 'Type', 'trim|required');
 			$this->form_validation->set_rules('chart', 'Chartset', 'trim|required');
 
@@ -82,7 +84,7 @@ class Setting extends CI_Controller {
 
 			if ($this->form_validation->run() == FALSE) {
 				$data['email']		=	$this->Setting_model->emailset()->row();
-				$data['title'] 		= 'Ubah Pengaturan Email - '. $this->generalset->web()->site_name;
+				$data['title'] 		= 	'Ubah Pengaturan Email - '. $this->generalset->web()->site_name;
 				$this->load->view('template/dashboard_header', $data);
 				$this->load->view('template/dashboard_topbar');
 				$this->load->view('admin/emailedit', $data);
@@ -110,6 +112,7 @@ class Setting extends CI_Controller {
 	// end script update email
 
 }
+
 
 /* End of file Setting.php */
 /* Location: ./application/controllers/admin/Setting.php */

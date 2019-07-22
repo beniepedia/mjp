@@ -40,7 +40,7 @@
 							      <td>: <?= $email->host; ?></td>
 							    </tr>
 							    <tr>
-							      <td>Username SMTP</td>
+							      <td>User Email SMTP</td>
 							      <td>: <?= $email->username; ?></td>
 							    </tr>
 							    <tr>
@@ -70,12 +70,14 @@
 			</div>
 		</div>
 		
-		<div class="col-lg-4 text-justify">
+		<div class="col-lg-4">
 			<h5>Petunjuk :</h5>
 			<hr>
-			<p>Setelan email ini berfungsi untuk berbagai kebutuhan pada website. Seperti mengirim email konfirmasi pendaftaran, reset password, kontak form, dan untuk email marketing. Jadi sesuaikan Setelannya sesuai dengan hosting yang anda gunakan. </p><br>
+			<p>Setelan email ini berfungsi untuk berbagai kebutuhan pada website. Seperti mengirim email konfirmasi pendaftaran, reset password, kontak form, dan untuk email marketing. Jadi sesuaikan Setelannya sesuai dengan hosting yang anda gunakan. </p>
+			<hr>
 			<strong>Admin Email</strong> digunakan untuk mengirim email promosi, bisa berupa blash email/single email. <br>	<br>
-			<strong>Sistem Email</strong> digunakan untuk mengirimkan pesan berupa konfirmasi pendaftaran, reset password, dan kontak form.
+			<strong>Sistem Email</strong> digunakan untuk mengirimkan pesan berupa konfirmasi pendaftaran, reset password, dan kontak form.<br>	<br>
+			<strong>User Email</strong> digunakan untuk proses autentifikasi di server smtp pada hosting anda.
 
 		</div>
 

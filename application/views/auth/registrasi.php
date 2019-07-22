@@ -23,7 +23,7 @@
 							<?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
 						</div>
 						<div class="form-group row">
-							<div class="col-sm-6 mb-3 mb-sm-0">
+							<div class="col-sm-6">
 								<input type="password" class="form-control form-control-user" name="password" placeholder="Password">
 								<?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
 							</div>

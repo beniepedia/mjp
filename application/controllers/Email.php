@@ -5,9 +5,15 @@ class Email extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->library('Check');
-		print_r ($this->check->is_admin());
-		// $this->load->view('email/email.tpl.php');
+		$this->load->library('encryption');
+		$data = '123';
+
+		$data1 = $this->encryption->encrypt($data) ;
+
+		$site = "http://".$_SERVER['HTTP_HOST'];
+		$site .= str_replace(basename($_SERVER['SCRIPT_NAME']),"", $_SERVER['SCRIPT_NAME']);
+
+		print_r($data1);
 	}
 
 }

@@ -11611,10 +11611,12 @@ form.user .custom-checkbox.small label {
 }
 
 form.user .form-control-user {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   border-radius: 10rem;
-  padding: 1.5rem 1rem;
+  padding: 1.3rem 1rem;
+  margin: 1.1rem auto;
 }
+
 
 form.user .btn-user {
   font-size: 0.8rem;

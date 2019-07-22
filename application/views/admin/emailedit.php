@@ -109,11 +109,11 @@
 							  </div> -->
 
 								<div class="form-group float-right">
-									<button type="reset" value="reset" class="btn btn-light btn-icon-split">
+									<a href="<?= base_url('admin/setting/email'); ?>" class="btn btn-light btn-icon-split">
 										<span class="icon text-gray-600">
 											<i class="fas fa-undo-alt"></i>
 										</span>
-									</button>
+									</a>
 									<button type="submit" name="save_email" class="btn btn-primary btn-icon-split">
 										<span class="icon text-gray-600">
 											<i class="fas fa-save"></i>
@@ -128,12 +128,14 @@
 			</div>
 		</div>
 		
-		<div class="col-lg-4 text-justify">
+		<div class="col-lg-4">
 			<h5>Petunjuk :</h5>
 			<hr>
-			<p>Settingan email ini berfungsi untuk berbagai kebutuhan pada website. Seperti mengirim email konfirmasi pendaftaran, reset password, kontak form, dan untuk email marketing. Jadi sesuaikan settingannya sesuai dengan hosting yang anda gunakan. </p><br>
+			<p>Settingan email ini berfungsi untuk berbagai kebutuhan pada website. Seperti mengirim email konfirmasi pendaftaran, reset password, kontak form, dan untuk email marketing. Jadi sesuaikan settingannya sesuai dengan hosting yang anda gunakan. </p>
+			<hr>
 			<strong>Admin Email</strong> digunakan untuk mengirim email promosi, bisa berupa blash email/single email. <br>	<br>
-			<strong>Sistem Email</strong> digunakan untuk mengirimkan pesan berupa konfirmasi pendaftaran, reset password, dan kontak form.
+			<strong>Sistem Email</strong> digunakan untuk mengirimkan pesan berupa konfirmasi pendaftaran, reset password, dan kontak form. <br><br>
+			<strong>User Email</strong> digunakan untuk proses autentifikasi di server smtp pada hosting anda.
 
 		</div>
 
