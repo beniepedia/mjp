@@ -19,11 +19,13 @@ class Auth extends CI_Controller
     	$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
     	$this->form_validation->set_rules('password', 'Password', 'trim|required');
 
+        $this->form_validation->set_error_delimiters('<div class="invalid-feedback pl-3">', '</div>');
+
     	if ($this->form_validation->run() == FALSE) {
-    	$data['title'] = 'Login Member - ' . $this->generalset->web()->site_name;
-    	$this->load->view('template/auth_header', $data);
-    	$this->load->view('auth/login', $data);
-    	$this->load->view('template/auth_footer');
+        	$data['title'] = 'Login Member - ' . $this->generalset->web()->site_name;
+        	$this->load->view('template/auth_header', $data);
+        	$this->load->view('auth/login', $data);
+        	$this->load->view('template/auth_footer');
     	} else {
     		$this->_login();
     	}
@@ -84,16 +86,17 @@ class Auth extends CI_Controller
     {
     	$this->form_validation->set_rules('nama', 'Nama', 'trim|required');
     	$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|is_unique[users.email]');
+        $this->form_validation->set_rules('phone', 'Handphone', 'trim|required|numeric');
     	$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[6]');
-    	$this->form_validation->set_rules('passconf', 'Konfirmasi Password', 'trim|required|matches[password]',[
-    		'matches' => 'Konfirmasi password tidak sama!'
-    	]);
+    	$this->form_validation->set_rules('passconf', 'Konfirmasi Password', 'trim|required|matches[password]');
+
+        $this->form_validation->set_error_delimiters('<div class="invalid-feedback pl-3">', '</div>');
 
     	if ($this->form_validation->run() == FALSE)
     	{
     		$data['title'] = 'Regitrasi Member - ' . $this->generalset->web()->site_name;
     		$this->load->view('template/auth_header', $data);
-	    	$this->load->view('auth/registrasi');
+	    	$this->load->view('auth/registrasi2');
 	    	$this->load->view('template/auth_footer');
     	}
     	else 

@@ -13,7 +13,7 @@
  -->              <div class="col-lg-12">
 
                 <div class="p-5">
-                  <div class="text-center mb-5">
+                  <div class="text-center mb-4">
                     <h1 class="h4 text-gray-900 font-weight-bold ">Silahkan Login!</h1>
                     <small class="font-italic">Gunakan email yang sudah anda daftarkan untuk login.</small>
                   </div>
@@ -24,13 +24,13 @@
                   <?php endif; ?>
                   <form class="user" action="<?= base_url('auth/login'); ?>" method="post">
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user"placeholder="Masukan email..." name="email" value="<?= set_value('email'); ?>">
-                      <?= form_error('email','<small class="text-danger pl-3">','</small'); ?>
+                      <input type="text" class="form-control form-control-user <?= form_error('email')?'is-invalid':null; ?>"placeholder="Masukan email..." name="email" value="<?= set_value('email'); ?>">
+                      <?= form_error('email'); ?>
                     </div>
                     
                     <div class="form-group">
-                      <input type="password" class="form-control form-control-user" placeholder="Password" name="password">
-                      <?= form_error('password','<small class="text-danger pl-3">','</small'); ?>
+                      <input type="password" class="form-control form-control-user <?= form_error('password')?'is-invalid':null; ?>" placeholder="Password" name="password">
+                      <?= form_error('password'); ?>
                     </div>
                     <div class="form-group">
                       <div class="custom-control custom-checkbox small">
@@ -61,7 +61,7 @@
                   <small>Belum Punya Akun ?</small><a class="small" href="<?= base_url('auth/registrasi'); ?>"> Registrasi</a>
                   </div>
                   <div class="text-center mt-3">
-                    <a class="small" href="<?= base_url('/'); ?>">Halaman Utama</a>
+                    <a class="small" href="<?= base_url('/'); ?>" style="font-size: 1.5rem;"><i class="fas fa-home"></i></a>
                   </div>
                 </div>
               </div>

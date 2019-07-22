@@ -21,6 +21,7 @@
 				<div class="card-body">
 					<div class="row">
 						<div class="col-lg-12">
+							<div class="table-responsive">
 							<table class="table table-striped">
 								<tbody>
 							    <tr>
@@ -61,6 +62,7 @@
 							    </tr>
 							  </tbody>
 							</table>
+							</div>
 							<div class="mt-3 float-right">
 					    		<a href="<?= base_url('admin/setting/editemail'); ?>" class="btn btn-primary">Ubah Setelan</a>
 					    </div>
@@ -71,7 +73,7 @@
 		</div>
 		
 		<div class="col-lg-4">
-			<h5>Petunjuk :</h5>
+			<h5>Informasi :</h5>
 			<hr>
 			<p>Setelan email ini berfungsi untuk berbagai kebutuhan pada website. Seperti mengirim email konfirmasi pendaftaran, reset password, kontak form, dan untuk email marketing. Jadi sesuaikan Setelannya sesuai dengan hosting yang anda gunakan. </p>
 			<hr>
