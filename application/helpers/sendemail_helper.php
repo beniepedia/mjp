@@ -4,16 +4,16 @@
 	{
 		$CI =& get_instance();
 		$config = [
-			'protocol' => $CI->config->item('protocol'),
-			'smtp_host' => $CI->config->item('smtp_host'),
-			'smtp_user' => $CI->config->item('smtp_user'),
-			'smtp_pass' => $CI->config->item('smtp_pass'),
-			'smtp_port' => $CI->config->item('smtp_port'),
-			'mailtype' => $CI->config->item('mailtype'),
-			'charset' => $CI->config->item('charset'),
-			'newline' => $CI->config->item('newline')
+			'protocol' 	=> $CI->generalset->email()->protocol,
+			'smtp_host' => $CI->generalset->email()->host,
+			'smtp_user' => $CI->generalset->email()->username,
+			'smtp_pass' => $CI->generalset->email()->password,
+			'smtp_port' => $CI->generalset->email()->port,
+			'mailtype' 	=> $CI->generalset->email()->type,
+			'charset' 	=> $CI->generalset->email()->charset,
+			'newline' 	=> "\r\n"
 		];
-		
+
 		$CI->email->initialize($config);
 		$CI->email->from($CI->config->item('email_gmail'), $CI->generalset->web()->site_alias);
 		$CI->email->to($CI->input->post('email'));

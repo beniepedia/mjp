@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 17, 2019 at 02:31 AM
+-- Generation Time: Jul 22, 2019 at 06:14 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -25,6 +25,33 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `email_config`
+--
+
+CREATE TABLE `email_config` (
+  `id` int(1) NOT NULL,
+  `protocol` varchar(20) NOT NULL,
+  `host` varchar(100) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `port` int(4) NOT NULL,
+  `type` enum('html','text','','') NOT NULL,
+  `charset` varchar(20) NOT NULL,
+  `newline` varchar(20) NOT NULL,
+  `admin_email` varchar(100) NOT NULL,
+  `sistem_email` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `email_config`
+--
+
+INSERT INTO `email_config` (`id`, `protocol`, `host`, `username`, `password`, `port`, `type`, `charset`, `newline`, `admin_email`, `sistem_email`) VALUES
+(1, 'smtp', 'ssl://smtp.googlemail.com', 'printcloud91@gmail.com', '4297f44b13955235245b2497399d7a93', 465, 'html', 'utf-8', '\\r\\n', 'beniepedia@gmail.com', 'no-replay@id-mjp.com');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -34,8 +61,10 @@ CREATE TABLE `users` (
   `oauth_uid` varchar(50) DEFAULT NULL,
   `ipaddr` varchar(100) NOT NULL,
   `name` varchar(100) NOT NULL,
+  `date` date NOT NULL,
+  `phone` varchar(20) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `password` varchar(200) DEFAULT NULL,
+  `password` varchar(200) NOT NULL,
   `gender` varchar(10) DEFAULT NULL,
   `address` text,
   `image` varchar(150) NOT NULL,
@@ -49,9 +78,11 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id_user`, `oauth_provider`, `oauth_uid`, `ipaddr`, `name`, `email`, `password`, `gender`, `address`, `image`, `role_id`, `is_active`, `date_created`, `last_login`) VALUES
-(21, 'local', '0', '::1', 'Ahmad Qomaini', 'ahmadqomaini@yahoo.com', '$2y$10$vi0DkAr4MwDtv0Q5kapZB.0D8oCOM4GZ2q0PDay.MoMRzALdEEaz.', NULL, NULL, 'default.jpg', 1, 1, 1562853373, 0),
-(40, 'local', NULL, '192.168.88.253', 'BeniePedia', 'beniepay@gmail.com', '$2y$10$Afn4l7a.ySZD0txv9zcBj.kHwZU4FxLfMda52deTKSceGmUlXlZBy', NULL, NULL, 'default.jpg', 2, 1, 1563210561, 1563291917);
+INSERT INTO `users` (`id_user`, `oauth_provider`, `oauth_uid`, `ipaddr`, `name`, `date`, `phone`, `email`, `password`, `gender`, `address`, `image`, `role_id`, `is_active`, `date_created`, `last_login`) VALUES
+(21, 'local', '', '::1', 'Ahmad Qomaini', '0000-00-00', '', 'ahmadqomaini@yahoo.com', '$2y$10$vi0DkAr4MwDtv0Q5kapZB.0D8oCOM4GZ2q0PDay.MoMRzALdEEaz.', 'laki-laki', 'Jl. Parit dua 2 ddsdddd', 'ahmad_qomaini-1563718385.png', 1, 1, 1562853373, 1563760242),
+(40, 'local', NULL, '192.168.88.253', 'BeniePedia', '0000-00-00', '', 'beniepay@gmail.com', '$2y$10$cefzhfla0yoGADo1afBfGuox6uAlaAoKHzEi9QOd6N1fYNmwnVlV.', 'laki-laki', 'dfsdfdsf', 'beniepedia-1563706509.jpg', 2, 1, 1563210561, 1563718182),
+(42, 'local', NULL, '::1', 'Ahmad Qomaini', '0000-00-00', '', 'ahmadqomaini1991@gmail.com', '$2y$10$ZAdM61mwq8RYHp1wikRinumBddgyTnSu/rhwsDFb9pQeCEqMsmz0a', NULL, NULL, 'default.jpg', 2, 0, 1563644583, 0),
+(48, 'local', NULL, '::1', 'Ahmad Qomaini', '0000-00-00', '', 'beniepedia@gmail.com', '$2y$10$YdcXpwyZ3WXmKnutqKep7O3mdvbJNb4BL3aAX6E6L4LiRJEor.guG', NULL, NULL, 'default.jpg', 2, 0, 1563727964, 0);
 
 -- --------------------------------------------------------
 
@@ -85,6 +116,19 @@ CREATE TABLE `user_token` (
   `date_created` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `user_token`
+--
+
+INSERT INTO `user_token` (`id_token`, `email`, `token`, `date_created`) VALUES
+(1, 'ahmadqomaini1991@gmail.com', 'GhecnX43trphkpw0H/pNaf47Ng8Oqb7TP5u5aEwr9fU=', 1563644583),
+(6, 'admin@admin.com', '+pLDkvJQ/8Yq4iDjHWhLvsX4Qt3z7nx9CeTZYJQtmO0=', 1563727562),
+(7, 'afat@gmail.com', 'wCTrX4RTZH8lr9VePZ2QJTOxZJl2II3c2OzwAXNR0aY=', 1563727624),
+(8, 'afat@gmail.com', '7/1gctEDBIDB9sunCuVirhzp1wrnXYFrnyz5QmacZ4I=', 1563727671),
+(9, 'beniepedia@gmail.com', 'dkBEqyOpY5RTuqbRn7MXGf+NjxNGnCljmvRyKNeAGSY=', 1563727767),
+(10, 'beniepedia@gmail.com', 'y3cMscKJluAuy/RUFzL+LQLyONmeVodJ63TPAw7xORo=', 1563727857),
+(11, 'beniepedia@gmail.com', 'wH9Du3CDKSlgVLcRk1nYDvdm9ZT08WoqQZfg5aaeULM=', 1563727964);
+
 -- --------------------------------------------------------
 
 --
@@ -92,7 +136,7 @@ CREATE TABLE `user_token` (
 --
 
 CREATE TABLE `web_config` (
-  `id` int(11) NOT NULL,
+  `id` int(1) NOT NULL,
   `site_name` varchar(100) NOT NULL,
   `site_alias` varchar(50) NOT NULL,
   `site_description` text NOT NULL,
@@ -109,11 +153,17 @@ CREATE TABLE `web_config` (
 --
 
 INSERT INTO `web_config` (`id`, `site_name`, `site_alias`, `site_description`, `site_author`, `fb_id`, `fb_key`, `google_client_id`, `google_client_key`, `is_active`) VALUES
-(0, 'ID-MJPARFUME', 'ID-MJP.com', 'Website resmi yg menjual parfume Merk MJParfume. ', 'BeniePedia', '2430830390480285', '5d85b7fd4a9c041b4b0cfb5c594dc99d', '', '', 1);
+(0, 'ID-MJPARFUME', 'ID-MJP.com', 'Situs resmi yang menjual produk original dari MJParfume', 'BeniePedia', '2430830390480285', '5d85b7fd4a9c041b4b0cfb5c594dc99d', '', '', 1);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `email_config`
+--
+ALTER TABLE `email_config`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users`
@@ -147,7 +197,7 @@ ALTER TABLE `web_config`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `user_role`
@@ -159,7 +209,7 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT for table `user_token`
 --
 ALTER TABLE `user_token`
-  MODIFY `id_token` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_token` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

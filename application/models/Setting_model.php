@@ -14,6 +14,28 @@ class Setting_model extends CI_Model {
 		return $update;
 	}
 	
+	public function emailset()
+	{
+		return $this->db->get('email_config');
+	}
+
+	function emailedit($post)
+	{
+			$param['protocol']			= $post['protocol'];
+			$param['host']					= $post['host'];
+			$param['username']			= $post['uname'];
+			if ( !empty($post['password']) )
+			{
+			$param['password']			= md5($post['password']);
+			}	
+			$param['port']					= $post['port'];
+			$param['type']					= $post['tipe'];
+			$param['charset']			= $post['chart'];
+			$param['admin_email']		= $post['admin'];
+			$param['sistem_email']	= $post['sistem'];
+
+			return $this->db->update('email_config', $param);
+	}
 
 }
 

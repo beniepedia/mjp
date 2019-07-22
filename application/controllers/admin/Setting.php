@@ -5,6 +5,7 @@ class Setting extends CI_Controller {
 
 	public function __construct()
 	{
+<<<<<<< HEAD
 		parent::__construct();
 		$this->load->model('Setting_model');
 		is_not_login();
@@ -12,12 +13,22 @@ class Setting extends CI_Controller {
 		{
 			redirect('/','refresh');
 		}
+=======
+     parent::__construct();
+     $this->load->model('Setting_model');
+     is_not_login();
+     $this->load->library('form_validation');
+     if($this->check->is_admin()->role_id != 1)
+     {
+     	redirect('/','refresh');
+     }
+>>>>>>> 9280821ac566b7e63b2e53618e8820f170bb82a5
 	}
 
 	public function index()
 	{
 		$data['site'] = $this->Setting_model->getAll();
-		$data['title'] = 'Pengaturan - '. $this->generalset->web()->site_name;
+		$data['title'] = 'Pengaturan Website - '. $this->generalset->web()->site_name;
 		$this->load->view('template/dashboard_header', $data);
 		$this->load->view('template/dashboard_topbar');
 		$this->load->view('admin/setting', $data);
@@ -55,6 +66,59 @@ class Setting extends CI_Controller {
 			redirect('admin/setting','refresh');
 		}
 	}
+
+	public function email()
+	{
+			$data['email']		=	$this->Setting_model->emailset()->row();
+			$data['title'] 		= 'Pengaturan Email - '. $this->generalset->web()->site_name;
+			$this->load->view('template/dashboard_header', $data);
+			$this->load->view('template/dashboard_topbar');
+			$this->load->view('admin/email', $data);
+			$this->load->view('template/dashboard_footer');
+	}
+
+	public function editemail()
+	{
+			$this->form_validation->set_rules('admin', 'Admin Email', 'trim|required|valid_email');
+			$this->form_validation->set_rules('sistem', 'Sistem Email', 'trim|required|valid_email');
+			$this->form_validation->set_rules('protocol', 'Protokol', 'trim|required');
+			$this->form_validation->set_rules('host', 'Host', 'trim|required');
+			$this->form_validation->set_rules('uname', 'User Email', 'trim|required|valid_email');
+			$this->form_validation->set_rules('password', 'Password', 'trim');
+			$this->form_validation->set_rules('port', 'Port', 'trim|required');
+			$this->form_validation->set_rules('tipe', 'Type', 'trim|required');
+			$this->form_validation->set_rules('chart', 'Chartset', 'trim|required');
+
+			$this->form_validation->set_error_delimiters('<div class="invalid-feedback">', '</div>');
+
+			if ($this->form_validation->run() == FALSE) {
+				$data['email']		=	$this->Setting_model->emailset()->row();
+				$data['title'] 		= 'Ubah Pengaturan Email - '. $this->generalset->web()->site_name;
+				$this->load->view('template/dashboard_header', $data);
+				$this->load->view('template/dashboard_topbar');
+				$this->load->view('admin/emailedit', $data);
+				$this->load->view('template/dashboard_footer');
+				# code...
+			} else {
+
+				$post = $this->input->post(null,true);
+				if( isset($post['save_email']) )
+				{
+					$update	=	$this->Setting_model->emailedit($post);
+					if( $update )
+					{
+							$this->session->set_flashdata('msg', 'Setelan email berhasil di update!');
+							$this->session->set_flashdata('type', 'success');
+							redirect('admin/setting/email','refresh');
+					} else {
+							$this->session->set_flashdata('msg', 'Setelan email gagal di update!');
+							$this->session->set_flashdata('type', 'danger');
+							redirect('admin/setting/email','refresh');
+					}
+				}
+			}
+	} 
+	// end script update email
 
 }
 

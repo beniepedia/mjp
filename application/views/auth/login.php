@@ -23,7 +23,7 @@
                   <?php endif; ?>
                   <form class="user" action="<?= base_url('auth/login'); ?>" method="post">
                     <div class="form-group">
-                      <input type="email" class="form-control form-control-user"placeholder="Enter Email Address..." name="email" value="<?= set_value('email'); ?>">
+                      <input type="text" class="form-control form-control-user"placeholder="Enter Email Address..." name="email" value="<?= set_value('email'); ?>">
                       <?= form_error('email','<small class="text-danger pl-3">','</small'); ?>
                     </div>
                     

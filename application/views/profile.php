@@ -7,11 +7,11 @@
 			<h6 class="m-0 font-weight-bold text-primary">My Profile</h6>
 		</div>
 		<div class="card-body ">
-			<?php if( $this->session->flashdata('msg')) : ?>
-		         <div class="alert alert-<?= $this->session->flashdata('type'); ?> alert-dismissible fade show text-center" role="alert"><?= $this->session->flashdata('msg'); ?>
-		          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	          </div>
-	      	<?php endif; ?>
+		<?php if( $this->session->flashdata('msg')) : ?>
+       <div class="alert alert-<?= $this->session->flashdata('type'); ?> alert-dismissible fade show text-center" role="alert"><?= $this->session->flashdata('msg'); ?>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+  	<?php endif; ?>
 			<div class="row justify-content-between">
 				<div class="col-lg-4 col-md-12">
 					<div class="picture-container">

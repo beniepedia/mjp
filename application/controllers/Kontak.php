@@ -14,7 +14,7 @@ class Kontak extends CI_Controller {
 		$this->form_validation->set_rules('telp', 'Telpon/HP', 'trim|required');
 		$this->form_validation->set_rules('pesan', 'Pesan', 'trim|required');
 		$this->form_validation->set_rules('g-recaptcha-response', 'Recaptcha Validasi', 'trim|callback_validate_captcha');
-		$this->form_validation->set_message('validate_captcha', 'Please check the captcha form');
+		$this->form_validation->set_message('validate_captcha', 'Ulangi captcha');
 
 		if ($this->form_validation->run() == FALSE)
 		{
@@ -33,17 +33,7 @@ class Kontak extends CI_Controller {
 		}
 		private function _sendEmail()
 		{
-			// Config emial lokal
-			// $config = [
-			// 'protocol' => 'smtp',
-			// 'smtp_host' => 'ssl://smtp.googlemail.com',
-			// 'smtp_user' => 'printcloud91@gmail.com',
-			// 'smtp_pass' => 'medan2018',
-			// 'smtp_port' => 465,
-			// 'mailtype' => 'html',
-			// 'charset' => 'utf-8',
-			// 'newline' => "\r\n"
-			// ];
+
 			// config email server
 			$config = [
 			'protocol' => 'smtp',
@@ -77,11 +67,12 @@ class Kontak extends CI_Controller {
 		{
 			$captcha = $this->input->post('g-recaptcha-response');
 			$url = 'https://www.google.com/recaptcha/api/siteverify';
-			$secret = '6Ld966wUAAAAAN97ttYHRlTYTMpgANXwxj_A-p7g';
+			$secret = '6Levq64UAAAAAMyElsjvNWuUPLlk-VCHQOPzdvGZ';
 
 			$respon = file_get_contents($url.'?secret='.$secret.'&response='.$captcha.'&remoteip='.$_SERVER['REMOTE_ADDR']);
 			$data = json_decode($respon);
 
+			var_dump($data);
 			if($data->success == false)
 			{
 				return FALSE;
