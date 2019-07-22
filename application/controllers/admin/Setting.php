@@ -5,7 +5,6 @@ class Setting extends CI_Controller {
 
 	public function __construct()
 	{
-<<<<<<< HEAD
 		parent::__construct();
 		$this->load->model('Setting_model');
 		is_not_login();
@@ -13,16 +12,6 @@ class Setting extends CI_Controller {
 		{
 			redirect('/','refresh');
 		}
-=======
-     parent::__construct();
-     $this->load->model('Setting_model');
-     is_not_login();
-     $this->load->library('form_validation');
-     if($this->check->is_admin()->role_id != 1)
-     {
-     	redirect('/','refresh');
-     }
->>>>>>> 9280821ac566b7e63b2e53618e8820f170bb82a5
 	}
 
 	public function index()
