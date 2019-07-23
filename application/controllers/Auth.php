@@ -118,6 +118,9 @@ class Auth extends CI_Controller
     public function forgotpass()
     {
         $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
+        $this->form_validation->set_error_delimiters('<div class="invalid-feedback pl-3">', '</div');
+
+
         if ($this->form_validation->run() == FALSE) {
             $data['title'] = 'Lupa Password - ' . $this->generalset->web()->site_name;
             $this->load->view('template/auth_header', $data);

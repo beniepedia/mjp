@@ -13,7 +13,7 @@
     <div class="card-body">
       <div class="table-responsive">
         <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
-          <thead class="thead-dark">
+          <thead class="thead-dark text-center">
             <tr>
               <th>No</th>
               <th>Nama</th>

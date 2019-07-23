@@ -1,13 +1,12 @@
 <div class="pesanNotif" data-title="<?= $this->session->flashdata('title'); ?>" data-pesan="<?= $this->session->flashdata('pesan'); ?>" data-error="<?= $this->session->flashdata('type'); ?>"></div>
 
-<div class="container">
-	<div class="row mt-5 mb-5">
+<div class="container" style="margin: 5rem auto;">
+	<div class="row justify-content-center">
 		<div class="col-lg-4 col-md-6 col-sm-12">
-			<h2 class="text-center">Kontak</h2>
 			<div class="card text-white bg-primary shadow">
 				<div class="card-body text-center">
-					<h5 class="card-title">Hubungi Kami</h5>
-					<small class="card-text">Silahkan hubungi kami jika ada pertanyaan menyangkut dengan produk kami dengan
+					<h4 class="font-weight-bold">Hubungi Kami</h4>
+					<small class="card-text font-italic">Silahkan hubungi kami jika ada pertanyaan menyangkut dengan produk kami dengan
 					mengisi
 					form dibawah ini</small>
 				</div>
@@ -52,8 +51,45 @@
 						</div>
 					</form>
 				</div>
+				
+			</div>
+
+		</div>
+		<div class="col-lg-4 offset-lg-1">
+			<div class="card text-white bg-primary shadow">
+				<div class="card-body text-center">
+					<h4 class="font-weight-bold ">Detail Kontak</h4>
+					<small class="card-text font-italic">Hubungi kami melalui salah satu kontak dibawah ini, untuk mendapatkan respon yang rebih cepat. Terimak kasih.</small>
+				</div>
+			</div>
+			<div class="list-group shadow text-left">
+				<a href="#" class="list-group-item list-group-item-action">
+					<i class="fa fa-map-marker"></i>
+					Gg. Keluarga, Tj. Sari, Kec. Medan Selayang, Kota Medan, Sumatera Utara 20135
+				</a>
+				<a href="mailto:admin@id-mjp.com" class="list-group-item list-group-item-action">
+					<i class="fas fa-envelope-open-text"></i>
+					admin@id-mjp.com
+				</a>
+				<a href="#" class="list-group-item list-group-item-action">
+					<i class="fas fa-phone"></i>
+					+62822-8866-9090
+				</a>
+				<a href="https://api.whatsapp.com/send?phone=6282288669090&text=Hallo%20*admin*,%20saya%20mau%20tanya." target="_blank" class="list-group-item list-group-item-action">
+					<i class="fab fa-whatsapp"></i>
+					admin 1 (+62822-8866-9090)
+				</a>
+				<a href="https://api.whatsapp.com/send?phone=6287772360300&text=Hallo%20*admin*,%20saya%20mau%20tanya." target="_blank" class="list-group-item list-group-item-action">
+					<i class="fab fa-whatsapp"></i>
+					admin 2 (+62877-7236-0300)
+				</a>
+				<a href="https://api.whatsapp.com/send?phone=6287772360300&text=Hallo%20*admin*,%20saya%20mau%20tanya." target="_blank" class="list-group-item list-group-item-action">
+					<i class="fab fa-internet-explorer"></i>
+					www.id-mjp.com
+				</a>
 			</div>
 		</div>
-		</div>
+
 	</div>
+
 </div>

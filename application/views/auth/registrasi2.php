@@ -9,7 +9,7 @@
           <div class="col-lg-12">
             <div class="p-5">
               <div class="text-center mb-3">
-                <h1 class="h4 text-gray-900 font-weight-bold ">Daftar Akun Baru!</h1>
+                <h1 class="h4 text-gray-900 font-weight-bold ">Daftar Akun Baru</h1>
                 <small class="font-italic">Gunakan email yang valid, karena kami akan megirmkan link aktivasi ke email anda..</small>
               </div>
               <?php if( $this->session->flashdata('msg')) : ?>

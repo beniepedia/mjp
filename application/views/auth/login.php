@@ -14,7 +14,7 @@
 
                 <div class="p-5">
                   <div class="text-center mb-4">
-                    <h1 class="h4 text-gray-900 font-weight-bold ">Silahkan Login!</h1>
+                    <h1 class="h4 text-gray-900 font-weight-bold ">Silahkan Login</h1>
                     <small class="font-italic">Gunakan email yang sudah anda daftarkan untuk login.</small>
                   </div>
                   <?php if( $this->session->flashdata('msg')) : ?>

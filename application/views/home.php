@@ -141,12 +141,13 @@
 <div class="container">
 	<h1 class="judul-head text-center wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.5s">Galeri</h1>
 	<div class="row">
-		<?php foreach( $photos as $photo ) : ?>
-		<div class="col-md-3 wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.5s">
-			<a href="<?= $photo['images']['standard_resolution']['url']; ?>" data-lightbox="roadtrip" data-title="<?= $photo['user']['full_name']; ?>"><img src="<?= $photo['images']['standard_resolution']['url']; ?>" class="img-thumbnail"></a>
-		</div>
-		<?php endforeach; ?>
-		
+
+			<?php foreach( $photos as $photo ) : ?>
+			<div class="col-md-3 wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.5s">
+				<a href="<?= $photo['images']['standard_resolution']['url']; ?>" data-lightbox="roadtrip" data-title="<?= $photo['user']['full_name']; ?>"><img src="<?= $photo['images']['standard_resolution']['url']; ?>" class="img-thumbnail"></a>
+			</div>
+			<?php endforeach; ?>
+
 	</div>
 </div>
 </section>
