@@ -9,7 +9,7 @@
 			'protocol' 	=> $CI->generalset->email()->protocol,
 			'smtp_host' => $CI->generalset->email()->host,
 			'smtp_user' => $CI->generalset->email()->username,
-			'smtp_pass' => 'medan2018',
+			'smtp_pass' => $CI->encryption->decrypt($CI->generalset->email()->password),
 			'smtp_port' => $CI->generalset->email()->port,
 			'mailtype' 	=> $CI->generalset->email()->type,
 			'charset' 	=> $CI->generalset->email()->charset,
@@ -46,13 +46,13 @@
 			$content1 = 'Kami telah menerima permintaan anda untuk me-reset password <a href="'.base_url().'">'.$CI->generalset->web()->site_name.'</a>. Silahkan klik tombol <b>Reset Password</b> untuk me-reset password anda.';
 			$content2 = 'Abaikan e-mail ini jika anda tidak pernah meminta untuk me-reset password. Terima Kasih';
 			$data = [
-				'nama' 			=> $nama,
-				'email' 		=> $email,
+				'nama' 		=> $nama,
+				'email' 	=> $email,
 				'content1' 	=> $content1,
 				'content2' 	=> $content2,
-				'token'			=> $token,
+				'token'		=> $token,
 				'control' 	=> 'auth/resetpass?email=',
-				'btn'				=> 'Reset Password'
+				'btn' 		=> 'Reset Password'
 			];
 
 			$CI->email->subject('konfirmasi Reset Password');
@@ -64,7 +64,7 @@
 		}
 		else
 		{
-			echo $CI->email->print_debugger();
-			die;
+			// echo $CI->email->print_debugger();
+			return false;
 		}
 	}

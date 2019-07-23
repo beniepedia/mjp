@@ -108,7 +108,7 @@ class Auth extends CI_Controller
                 $this->session->set_flashdata('type', 'success');
     			redirect('auth/login','refresh');
     		}else{
-                $this->session->set_flashdata('msg', 'Terjadi kesalahan saat registrasi, silahkan coba lagi / hubungi admin!');
+                $this->session->set_flashdata('msg', 'Terjadi kesalahan saat registrasi, silahkan coba lagi / hubungi kami!');
                 $this->session->set_flashdata('type', 'danger');
                 redirect('auth/registrasi','refresh');
     		}

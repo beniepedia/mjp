@@ -30,11 +30,12 @@ class Auth_model extends CI_Model
       'token'         => $token,
       'date_created'  => time()
     ];
-    $this->db->insert('users', $data);
-    $this->db->insert('user_token', $user_token);
+    
     $send = sendEmail($token, 'verify');
     if( $send )
     {
+      $this->db->insert('users', $data);
+      $this->db->insert('user_token', $user_token);
       return true;
     }else{
       return false;
@@ -52,7 +53,8 @@ class Auth_model extends CI_Model
   	{
   		if( $query['is_active'] == 1 )
   		{
-  			if (password_verify($pass, $query['password'])) {
+  			if (password_verify($pass, $query['password'])) 
+        {
   				$data = array(
    
             'name'    => $query['name'],
@@ -80,8 +82,21 @@ class Auth_model extends CI_Model
   			}
 
   		} else {
-        $this->session->set_flashdata('msg', 'Email anda belum diverifikasi, silahkan cek inbox email anda untuk verifikasi email anda!');
-        $this->session->set_flashdata('type', 'danger');
+        // cek apakah user sudah berhasil verifikasi akun
+        $user_token = $this->db->get_where('user_token', ['email'=>$email])->row_array();
+        if ( time() - $user_token['date_created'] < 7200 )
+        {
+            $this->session->set_flashdata('msg', 'Email anda belum diverifikasi, silahkan cek inbox email anda untuk verifikasi email!');
+            $this->session->set_flashdata('type', 'info');
+
+        } else {
+            $this->db->delete('users', ['email'=>$email]);
+            $this->db->delete('user_token', ['email'=>$email]);
+            $this->session->set_flashdata('msg', 'Email anda sudah mencapai batas maksimal untuk verifikasi. silahkan daftar ulang!');
+            $this->session->set_flashdata('type', 'danger');
+
+        }
+
         redirect('auth/login','refresh');
   		}
   	}else{
