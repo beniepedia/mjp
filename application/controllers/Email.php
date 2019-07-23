@@ -6,14 +6,12 @@ class Email extends CI_Controller {
 	public function index()
 	{
 		$this->load->library('encryption');
-		$data = '123';
+		$data = $this->generalset->email()->password;
 
 		$data1 = $this->encryption->encrypt($data) ;
+		$res = $this->encryption->decrypt($data) ;
 
-		$site = "http://".$_SERVER['HTTP_HOST'];
-		$site .= str_replace(basename($_SERVER['SCRIPT_NAME']),"", $_SERVER['SCRIPT_NAME']);
-
-		print_r($data1);
+		print_r($res);
 	}
 
 }

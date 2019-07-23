@@ -15,10 +15,13 @@ class Dashboard extends CI_Controller {
 
 	public function index()
 	{
-		$data['title'] = 'Dashboard - '. $this->generalset->web()->site_name;
+		$this->load->model('User_model', 'user');
+		$data['aktif']	= $this->user->getTotal(1)->num_rows();
+		$data['nonaktif']	= $this->user->getTotal(0)->num_rows();
+		$data['title'] 		= 'Dashboard - '. $this->generalset->web()->site_name;
 		$this->load->view('template/dashboard_header', $data);
 		$this->load->view('template/dashboard_topbar');
-		$this->load->view('admin/dashboard');
+		$this->load->view('admin/dashboard', $data);
 		$this->load->view('template/dashboard_footer');
 	}
 

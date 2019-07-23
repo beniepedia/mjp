@@ -9,7 +9,7 @@
 			'protocol' 	=> $CI->generalset->email()->protocol,
 			'smtp_host' => $CI->generalset->email()->host,
 			'smtp_user' => $CI->generalset->email()->username,
-			'smtp_pass' => $CI->encryption->decrypt($CI->generalset->email()->password),
+			'smtp_pass' => 'medan2018',
 			'smtp_port' => $CI->generalset->email()->port,
 			'mailtype' 	=> $CI->generalset->email()->type,
 			'charset' 	=> $CI->generalset->email()->charset,

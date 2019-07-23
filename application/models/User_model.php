@@ -23,14 +23,15 @@ class User_model extends CI_Model {
 
 			$query = $this->db->get();
 			return $query;
-			// }else{
-			// 	$this->db->select('*');
-			// 	$this->db->from($this->tableName);
-			// 	$this->db->where($this->primaryKey, $id);
-			// 	$this->db->join('user_role', 'user_role.id_role = users.role_id');
-			// 	$query = $this->db->get();
-			// 	return $query;
-			// }
+	}
+
+	public function getTotal($status)
+	{
+			$this->db->from($this->tableName);
+			$this->db->where_not_in('role_id', 1 );
+			$this->db->where_in('is_active', $status );
+			$query = $this->db->get();
+			return $query;
 	}
 
 	public function deleteUser($id)

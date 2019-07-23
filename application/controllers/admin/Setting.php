@@ -92,7 +92,7 @@ class Setting extends CI_Controller {
 				# code...
 			} else {
 
-				$post = $this->input->post(null,true);
+				$post = $this->input->post(null);
 				if( isset($post['save_email']) )
 				{
 					$update	=	$this->Setting_model->emailedit($post);
