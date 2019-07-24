@@ -28,7 +28,7 @@
 										<h6 style="font-size: 16px; font-weight: bold; text-transform: uppercase; margin-top: 1.2rem; margin-bottom: 1.4rem;">Ganti Foto</h6>
 									</div>
 									<h6 class="text-center">Tanggal Daftar Member</h6>
-									<h6 class="text-center"><?= date("d M Y", $user->date_created); ?></h6>
+									<h6 class="text-center"><?= longdate_indo(date("Y-m-d",$user->date_created)); ?></h6>
 									<hr>
 									<div class="col">
 										<a href="" style="color:#3b5998;" ><i class="fab fa-facebook fa-2x "></i></a>
@@ -40,7 +40,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-8 col-md-8">
+				<div class="col-lg-8">
 					<div class="card shadow mb-4">
 						<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
 							<h6 class="m-0 font-weight-bold text-primary">Data Profil</h6>

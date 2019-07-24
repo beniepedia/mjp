@@ -13,7 +13,6 @@
 		<!-- Custom styles for this template-->
 		<link href="<?= base_url('assets/backend/') ?>css/sb-admin-2.css" rel="stylesheet">
 		<link href="<?= base_url('assets/backend/vendor/bootstrap-datepicker/') ?>css/bootstrap-datepicker.css" rel="stylesheet">
-		<link href="<?= base_url('assets/') ?>css/dashboard.css" rel="stylesheet">
 		<style>
 			.label-judul{
 				font-weight: bold;
