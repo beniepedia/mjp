@@ -63,6 +63,7 @@
 								<h6 class="collapse-header">Pengaturan:</h6>
 								<a class="collapse-item" href="<?= base_url('admin/setting'); ?>">Website</a>
 								<a class="collapse-item" href="<?= base_url('admin/setting/email'); ?>">Email</a>
+								<a class="collapse-item" href="<?= base_url('admin/backup'); ?>">Backup & Restore</a>
 							</div>
 						</div>
 					</li>

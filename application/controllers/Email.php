@@ -5,13 +5,7 @@ class Email extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->library('encryption');
-		$data = $this->generalset->email()->password;
-
-		$data1 = $this->encryption->encrypt($data) ;
-		$res = $this->encryption->decrypt($data) ;
-
-		print_r($data1);
+		echo $_SERVER['SCRIPT_NAME'];
 	}
 
 }
