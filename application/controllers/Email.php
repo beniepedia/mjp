@@ -11,7 +11,7 @@ class Email extends CI_Controller {
 		$data1 = $this->encryption->encrypt($data) ;
 		$res = $this->encryption->decrypt($data) ;
 
-		print_r($res);
+		print_r($data1);
 	}
 
 }

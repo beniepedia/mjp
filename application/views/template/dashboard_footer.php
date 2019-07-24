@@ -54,45 +54,11 @@
   <script src="<?= base_url('assets/backend/') ?>vendor/datatables/jquery.dataTables.min.js"></script>
   <script src="<?= base_url('assets/backend/') ?>vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
+  <script src="<?= base_url('assets/backend/') ?>vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+
   <!-- Page level custom scripts -->
   <script src="<?= base_url('assets/backend/') ?>js/demo/datatables-demo.js"></script>
-
-  <script>
-    $(document).ready(function(){
-      const sosial_check = $('#checkbox_sosial');
-      const input_id = $('#fbid, #fbkey, #gid, #gkey');
-      if($(sosial_check).is(':checked'))
-      {
-        $(input_id).attr('readonly', false);
-      } else {
-        $(input_id).attr('readonly', true);
-      }
-
-      $(sosial_check).on('click', function(){
-       if($(sosial_check).is(':checked'))
-        {
-          $(input_id).attr('readonly', false);
-        } else {
-          $(input_id).attr('readonly', true);
-        }
-      });
-
-      $("#wizard-picture").change(function(){
-        readURL(this);
-      });
-
-      function readURL(input) {
-          if (input.files && input.files[0]) {
-              var reader = new FileReader();
-
-              reader.onload = function (e) {
-                  $('#wizardPicturePreview').attr('src', e.target.result).fadeIn('slow');
-              }
-              reader.readAsDataURL(input.files[0]);
-          }
-      }
-    });
-  </script>
+  <script src="<?= base_url('assets/backend/') ?>js/myscript.js"></script>
 
 </body>
 </html>

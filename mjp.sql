@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 22, 2019 at 06:14 AM
+-- Generation Time: Jul 24, 2019 at 05:38 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -47,7 +47,7 @@ CREATE TABLE `email_config` (
 --
 
 INSERT INTO `email_config` (`id`, `protocol`, `host`, `username`, `password`, `port`, `type`, `charset`, `newline`, `admin_email`, `sistem_email`) VALUES
-(1, 'smtp', 'ssl://smtp.googlemail.com', 'printcloud91@gmail.com', '4297f44b13955235245b2497399d7a93', 465, 'html', 'utf-8', '\\r\\n', 'beniepedia@gmail.com', 'no-replay@id-mjp.com');
+(1, 'smtp', 'ssl://smtp.googlemail.com', 'printcloud91@gmail.com', '9b728c647d361352c031d6dfb485b85790011ecadfd5c271cb7e1235820e93e5568735687b9af278adcc350e3086517733b8', 465, 'html', 'utf-8', '\\r\\n', 'beniepedia@gmail.com', 'no-replay@id-mjp.com');
 
 -- --------------------------------------------------------
 
@@ -79,10 +79,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id_user`, `oauth_provider`, `oauth_uid`, `ipaddr`, `name`, `date`, `phone`, `email`, `password`, `gender`, `address`, `image`, `role_id`, `is_active`, `date_created`, `last_login`) VALUES
-(21, 'local', '', '::1', 'Ahmad Qomaini', '0000-00-00', '', 'ahmadqomaini@yahoo.com', '$2y$10$vi0DkAr4MwDtv0Q5kapZB.0D8oCOM4GZ2q0PDay.MoMRzALdEEaz.', 'laki-laki', 'Jl. Parit dua 2 ddsdddd', 'ahmad_qomaini-1563718385.png', 1, 1, 1562853373, 1563760242),
-(40, 'local', NULL, '192.168.88.253', 'BeniePedia', '0000-00-00', '', 'beniepay@gmail.com', '$2y$10$cefzhfla0yoGADo1afBfGuox6uAlaAoKHzEi9QOd6N1fYNmwnVlV.', 'laki-laki', 'dfsdfdsf', 'beniepedia-1563706509.jpg', 2, 1, 1563210561, 1563718182),
-(42, 'local', NULL, '::1', 'Ahmad Qomaini', '0000-00-00', '', 'ahmadqomaini1991@gmail.com', '$2y$10$ZAdM61mwq8RYHp1wikRinumBddgyTnSu/rhwsDFb9pQeCEqMsmz0a', NULL, NULL, 'default.jpg', 2, 0, 1563644583, 0),
-(48, 'local', NULL, '::1', 'Ahmad Qomaini', '0000-00-00', '', 'beniepedia@gmail.com', '$2y$10$YdcXpwyZ3WXmKnutqKep7O3mdvbJNb4BL3aAX6E6L4LiRJEor.guG', NULL, NULL, 'default.jpg', 2, 0, 1563727964, 0);
+(21, 'local', '', '::1', 'Ahmad Qomaini', '1991-01-07', '0821744160777', 'ahmadqomaini@yahoo.com', '$2y$10$vi0DkAr4MwDtv0Q5kapZB.0D8oCOM4GZ2q0PDay.MoMRzALdEEaz.', 'laki-laki', 'Jl. Parit dua 2 laut', 'ahmad_qomaini-1563907829.jpg', 1, 1, 1562853373, 1563935378),
+(40, 'local', NULL, '192.168.88.253', '&lt;h1&gt;Beniepay&lt;/h1&gt;', '0000-00-00', '0821744160777', 'beniepay@gmail.com', '$2y$10$iF3jcPFHT/Rer3np7aD3hOu68erXJlN157LajYX7UyVnn5aI8SJTu', 'laki-laki', '&lt;h1&gt;Beniepay&lt;/h1&gt;', 'beniepedia-1563706509.jpg', 2, 0, 1563210561, 1563718182),
+(41, 'local', NULL, '192.168.88.243', 'Ahmad Qomaini', '0000-00-00', '82174416077', 'beniepedia@gmail.com', '$2y$10$8MSlBHsKa/hrO.YzdQ9Y2OBBRDACxl59jyKjG2YMIv1Hm7q4Gs0Mu', 'laki-laki', 'Jl. Sederhana no. 12', 'ahmad_qomaini-1563909462.jpg', 2, 1, 1563896213, 1563908409);
 
 -- --------------------------------------------------------
 
@@ -116,19 +115,6 @@ CREATE TABLE `user_token` (
   `date_created` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `user_token`
---
-
-INSERT INTO `user_token` (`id_token`, `email`, `token`, `date_created`) VALUES
-(1, 'ahmadqomaini1991@gmail.com', 'GhecnX43trphkpw0H/pNaf47Ng8Oqb7TP5u5aEwr9fU=', 1563644583),
-(6, 'admin@admin.com', '+pLDkvJQ/8Yq4iDjHWhLvsX4Qt3z7nx9CeTZYJQtmO0=', 1563727562),
-(7, 'afat@gmail.com', 'wCTrX4RTZH8lr9VePZ2QJTOxZJl2II3c2OzwAXNR0aY=', 1563727624),
-(8, 'afat@gmail.com', '7/1gctEDBIDB9sunCuVirhzp1wrnXYFrnyz5QmacZ4I=', 1563727671),
-(9, 'beniepedia@gmail.com', 'dkBEqyOpY5RTuqbRn7MXGf+NjxNGnCljmvRyKNeAGSY=', 1563727767),
-(10, 'beniepedia@gmail.com', 'y3cMscKJluAuy/RUFzL+LQLyONmeVodJ63TPAw7xORo=', 1563727857),
-(11, 'beniepedia@gmail.com', 'wH9Du3CDKSlgVLcRk1nYDvdm9ZT08WoqQZfg5aaeULM=', 1563727964);
-
 -- --------------------------------------------------------
 
 --
@@ -153,7 +139,7 @@ CREATE TABLE `web_config` (
 --
 
 INSERT INTO `web_config` (`id`, `site_name`, `site_alias`, `site_description`, `site_author`, `fb_id`, `fb_key`, `google_client_id`, `google_client_key`, `is_active`) VALUES
-(0, 'ID-MJPARFUME', 'ID-MJP.com', 'Situs resmi yang menjual produk original dari MJParfume', 'BeniePedia', '2430830390480285', '5d85b7fd4a9c041b4b0cfb5c594dc99d', '', '', 1);
+(0, 'ID-MJPARFUME', 'ID-MJP.com', 'Situs resmi yang menjual produk original dari MJParfume', 'BeniePedia', '2430830390480285', '5d85b7fd4a9c041b4b0cfb5c594dc99d', '', '', 0);
 
 --
 -- Indexes for dumped tables
@@ -197,7 +183,7 @@ ALTER TABLE `web_config`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `user_role`
@@ -209,7 +195,7 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT for table `user_token`
 --
 ALTER TABLE `user_token`
-  MODIFY `id_token` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_token` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

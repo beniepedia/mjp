@@ -51,10 +51,14 @@ class User extends CI_Controller {
 		$this->load->view('template/dashboard_footer');
 	}
 
-	public function edituser($id)
+	public function edituser($id=null)
 	{
 		$this->form_validation->set_rules('name', 'Nama', 'trim|required');
-		$this->form_validation->set_rules('email', 'Email', 'trim|required|is_unique[users.email]');
+		$this->form_validation->set_rules('phone', 'Handphone', 'trim|numeric');
+		$this->form_validation->set_rules('email', 'Email', 'trim|required|callback_emailcheck');
+		$this->form_validation->set_rules('password', 'Password', 'trim|min_length[6]');
+		$this->form_validation->set_rules('passconf', 'Konfirmasi Password', 'trim|matches[password]');
+		$this->form_validation->set_rules('addr', 'Alamat', 'trim');
 		$this->form_validation->set_error_delimiters('<div class="invalid-feedback">', '</div>');
 
 		if ($this->form_validation->run() == FALSE) {	
@@ -74,11 +78,33 @@ class User extends CI_Controller {
 			}
 			
 		} else {
-			var_dump($_POST);
+			$post 	= $this->input->post(null, TRUE);
+			$update = $this->User_model->edituser($post);
+			if( $update )
+			{
+				$this->session->set_flashdata('msg', 'Data user berhasil di update!');
+				$this->session->set_flashdata('type', 'success');
+			} else {
+				$this->session->set_flashdata('msg', 'Data user gagal di update!');
+				$this->session->set_flashdata('type', 'danger');
+			}
+			redirect('admin/user','refresh');
 		}
 
 	}
 
+	public function emailcheck()
+	{
+		$post = $this->input->post(null, TRUE);
+		$query = $this->db->query("SELECT * FROM users WHERE email = '$post[email]' AND id_user != '$post[id_user]'");
+		if( $query->num_rows() > 0 )
+		{
+			$this->form_validation->set_message('emailcheck', '{field} ini sudah terdatar');
+			return false;
+		} else {
+			return true;
+		}
+	}
 }
 
 /* End of file User.php */

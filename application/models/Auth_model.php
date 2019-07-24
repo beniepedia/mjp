@@ -15,9 +15,9 @@ class Auth_model extends CI_Model
 	{
 		$data = [
       'ipaddr'        => $_SERVER['REMOTE_ADDR'],
-			'name'          => htmlspecialchars($this->input->post('nama'), true),
-			'phone'         => htmlspecialchars($this->input->post('phone'), true),
-      'email'         => htmlspecialchars($this->input->post('email'), true),
+			'name'          => htmlspecialchars($this->input->post('nama'), TRUE),
+			'phone'         => htmlspecialchars($this->input->post('phone'), TRUE),
+      'email'         => htmlspecialchars($this->input->post('email'), TRUE),
 			'password'      => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
 			'image'         => 'default.jpg',
 			'role_id'       => 2,

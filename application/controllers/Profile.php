@@ -17,6 +17,7 @@ class Profile extends CI_Controller {
 		$this->form_validation->set_rules('email', 'Email', 'trim|required|callback_emailcheck');
 		$this->form_validation->set_rules('gender', 'Kelamin', 'trim|required');
 		$this->form_validation->set_rules('addr', 'Alamat', 'trim|required');
+		$this->form_validation->set_rules('phone', 'Handphone', 'trim|required');
 		$this->form_validation->set_error_delimiters('<div class="invalid-feedback">', '</div>');
 
 		if ($this->form_validation->run() ==  FALSE) {
@@ -30,14 +31,19 @@ class Profile extends CI_Controller {
 				$this->load->view('template/dashboard_footer');
 			# code...
 		} else {
-				// jika validaton benar
+				
+				$tgl = formatTgl($this->input->post('tgl'));
+
 				$data = [
 					'id_user' 	=> $this->input->post('id_user'),
 					'name'		=> htmlspecialchars($this->input->post('name', true)),
+					'date'		=> formatTgl($this->input->post('tgl')),
+					'phone'		=> htmlspecialchars($this->input->post('phone', true)),
 					'email'		=> htmlspecialchars($this->input->post('email', true)),
 					'gender'	=> htmlspecialchars($this->input->post('gender', true)),
 					'address'	=> htmlspecialchars($this->input->post('addr', true))
 				];
+
 				// config upload foto
 				$config['upload_path'] 						= './assets/img/user_img/';
 				$config['allowed_types'] 					= 'jpg|png|jpeg';

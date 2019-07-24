@@ -20,3 +20,11 @@
 					redirect('auth/login');
 			}
 	}
+
+	function formatTgl($tanggal)
+	{
+		$pisah 	= explode("/", $tanggal);
+		$array 	= array($pisah[2],$pisah[1],$pisah[0]);
+		$gabung = implode("-", $array);
+		return $gabung;
+	}

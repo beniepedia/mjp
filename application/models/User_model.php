@@ -39,9 +39,28 @@ class User_model extends CI_Model {
 		return $this->db->delete($this->tableName, [$this->primaryKey=>$id]);
 	}
 
+	public function edituser($post)
+	{
+		$param['name'] 				= htmlspecialchars($post['name']); 
+		$param['phone'] 			= htmlspecialchars($post['phone']); 
+		$param['email'] 			= htmlspecialchars($post['email']); 
+		if( !empty($post['password']) )
+		{
+			$param['password'] 	= password_hash($post['password'], PASSWORD_DEFAULT);
+		} 
+		$param['address'] 		= htmlspecialchars($post['addr']);
+		$param['gender'] 			= htmlspecialchars($post['gender']);
+		$param['is_active'] 	= htmlspecialchars($post['status']);
+		$param['role_id'] 		= htmlspecialchars($post['level']);
+
+		$this->db->where($this->primaryKey, $post['id_user']);
+		$this->db->update($this->tableName, $param);
+		return $this->db->last_query();
+	}
+
 	public function IsAdmin($email)
 	{
-		return $this->db->get_where('users',['email'=>$email])->row();
+		return $this->db->get_where($this->tableName,['email'=>$email])->row();
 	}
 
 }
