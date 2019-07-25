@@ -13,6 +13,7 @@
 		<!-- Custom styles for this template-->
 		<link href="<?= base_url('assets/backend/') ?>css/sb-admin-2.css" rel="stylesheet">
 		<link href="<?= base_url('assets/backend/vendor/bootstrap-datepicker/') ?>css/bootstrap-datepicker.css" rel="stylesheet">
+		
 		<style>
 			.label-judul{
 				font-weight: bold;
@@ -36,63 +37,69 @@
 				<!-- Divider -->
 				<hr class="sidebar-divider my-0">
 				<!-- Nav Item - Dashboard -->
-					<li class="nav-item <?php if($this->uri->segment(2)=='dashboard'){echo 'active';} ?>">
-						<a class="nav-link" href="<?= base_url('admin/dashboard'); ?>">
+				<li class="nav-item <?php if($this->uri->segment(2)=='dashboard'){echo 'active';} ?>">
+					<a class="nav-link" href="<?= base_url('admin/dashboard'); ?>">
 						<i class="fas fa-fw fa-tachometer-alt"></i>
 						<span>Dashboard</span></a>
 					</li>
 					<!-- Divider -->
 					<hr class="sidebar-divider my-0">
-
 					<li class="nav-item <?php if($this->uri->segment(2)=='user'){echo 'active';} ?>">
 						<a class="nav-link" href="<?= base_url('admin/user'); ?>">
-						<i class="fas fa-fw fa-users"></i>
-						<span>Data User</span></a>
-					</li>	
-					<!-- Divider -->
-					<hr class="sidebar-divider my-0">
+							<i class="fas fa-fw fa-users"></i>
+							<span>Data User</span></a>
+						</li>
 
-					<!-- Nav Item - Pages Collapse Menu -->
-					<li class="nav-item <?php if($this->uri->segment(2)=='setting'){echo 'active';}?>">
-						<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-							<i class="fas fa-fw fa-cog"></i>
-							<span>Pengaturan</span>
-						</a>
-						<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-							<div class="bg-white py-2 collapse-inner rounded">
-								<h6 class="collapse-header">Pengaturan:</h6>
-								<a class="collapse-item" href="<?= base_url('admin/setting'); ?>">Website</a>
-								<a class="collapse-item" href="<?= base_url('admin/setting/email'); ?>">Email</a>
-								<a class="collapse-item" href="<?= base_url('admin/backup'); ?>">Backup & Restore</a>
+						<hr class="sidebar-divider my-0">
+						<li class="nav-item <?php if($this->uri->segment(2)=='blog'){echo 'active';} ?>">
+						<a class="nav-link" href="<?= base_url('admin/blog'); ?>">
+							<i class="fas fa-fw fa-users"></i>
+							<span>Blog</span></a>
+						</li>
+						<!-- Divider -->
+						<hr class="sidebar-divider my-0">
+						<!-- Nav Item - Pages Collapse Menu -->
+						<li class="nav-item <?php if($this->uri->segment(2)=='setting'){echo 'active';}?>">
+							<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+								<i class="fas fa-fw fa-cog"></i>
+								<span>Pengaturan</span>
+							</a>
+							<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+								<div class="bg-white py-2 collapse-inner rounded">
+									<h6 class="collapse-header">Pengaturan:</h6>
+									<a class="collapse-item" href="<?= base_url('admin/setting'); ?>">Website</a>
+									<a class="collapse-item" href="<?= base_url('admin/setting/email'); ?>">Email</a>
+									<a class="collapse-item" href="<?= base_url('admin/backup'); ?>">Backup & Restore</a>
+								</div>
 							</div>
-						</div>
-					</li>
-					<?php endif; ?>
-					<hr class="sidebar-divider my-0">
-				
-					<!-- Nav Item - Pages Collapse Menu -->
-					<li class="nav-item <?php if($this->uri->segment(1)=='profile'){echo 'active';}?>">
-						<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#profile" aria-expanded="true" aria-controls="collapseTwo">
-							<i class="fas fa-fw fa-user"></i>
-							<span>Profil Saya</span>
-						</a>
-						<div id="profile" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-							<div class="bg-white py-2 collapse-inner rounded">
-								<h6 class="collapse-header">Profil Detail:</h6>
-								<a class="collapse-item" href="<?= base_url('profile') ?>">Profile</a>
-								<a class="collapse-item" href="<?= base_url('profile/changepassword') ?>">Ganti Password</a>
+						</li>
+						<?php endif; ?>
+						<hr class="sidebar-divider my-0">
+						
+						<!-- Nav Item - Pages Collapse Menu -->
+						<li class="nav-item <?php if($this->uri->segment(1)=='profile'){echo 'active';}?>">
+							<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#profile" aria-expanded="true" aria-controls="collapseTwo">
+								<i class="fas fa-fw fa-user"></i>
+								<span>Profil Saya</span>
+							</a>
+							<div id="profile" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+								<div class="bg-white py-2 collapse-inner rounded">
+									<h6 class="collapse-header">Profil Detail:</h6>
+									<a class="collapse-item" href="<?= base_url('profile') ?>">Profile</a>
+									<a class="collapse-item" href="<?= base_url('profile/changepassword') ?>">Ganti Password</a>
+								</div>
 							</div>
+						</li>
+						<!-- Divider -->
+						<hr class="sidebar-divider d-none d-md-block">
+						<!-- Sidebar Toggler (Sidebar) -->
+						<div class="text-center d-none d-md-inline">
+							<button class="rounded-circle border-0" id="sidebarToggle"></button>
 						</div>
-					</li>
-					<!-- Divider -->
-					<hr class="sidebar-divider d-none d-md-block">
-					<!-- Sidebar Toggler (Sidebar) -->
-					<div class="text-center d-none d-md-inline">
-						<button class="rounded-circle border-0" id="sidebarToggle"></button>
-					</div>
-				</ul>
-				<!-- End of Sidebar -->
-				<!-- Content Wrapper -->
-				<div id="content-wrapper" class="d-flex flex-column">
-					<!-- Main Content -->
-					<div id="content">
+					</ul>
+					<!-- End of Sidebar -->
+					<!-- Content Wrapper -->
+					<div id="content-wrapper" class="d-flex flex-column">
+						<!-- Main Content -->
+						<div id="content">
+
