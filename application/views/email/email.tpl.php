@@ -9,6 +9,7 @@
 			font-family: Arial;
 			margin:0;
     	}
+
 		#head {
 			background: #00c6ff; /* fallback for old browsers */
 		  background: -webkit-linear-gradient(to right, #00c6ff, #0072ff); /* Chrome 10-25, Safari 5.1-6 */
@@ -18,7 +19,6 @@
 			padding-top: 5px;
 			text-transform: uppercase;
 			box-shadow: 1px 1px 11px 5px rgba(0,0,0,.3);
-
 		}
 		#head img{
 			width: 50px;
@@ -36,12 +36,10 @@
 			color: white;
 			padding-bottom: 5px;
 		}
-
 		span {
 			font-weight: bold;
 			font-style: italic;
 		}
-
 		p, #content {
 			color: #565656;
 			font-size: 16px;
@@ -60,9 +58,7 @@
 			border-radius: 5px;
 			display: inline-block;
 			text-align: center; 
-
 		}
-
 		footer {
 			background: #00c6ff; /* fallback for old browsers */
 		  background: -webkit-linear-gradient(to right, #00c6ff, #0072ff); /* Chrome 10-25, Safari 5.1-6 */
@@ -83,20 +79,16 @@
 			color: white;
 			margin: 0;
 			padding: 0;
-
 		}
-
 		#addr li {
 			margin: 0;
 			padding: 0;
 			line-height: 1.5;
 			text-align: center;
 		}
-
 		#addr li a {
 			padding-left: 15px;
 			color: tomato;
-
 		}
 
 	</style>
@@ -105,8 +97,10 @@
 	<div id="head"><img src="https://id-mjp.com/assets/img/logo.jpg" alt=""><div id="judul">id mj parfume</div></div>
     <p>Hai, <span><?= $nama; ?></span></p>
     <p id="content"><?= $content1; ?></p>
-    <center><a href="<?= base_url() . $control . $email .'&token='. urlencode($token) ?>" id="link"><?= $btn ?></a></center>
+    <?php if( !empty($link) ) : ?>
+    <center><a href="<?= $link; ?>" id="link"><?= $btn ?></a></center>
     <p id="content"><?= $content2; ?></p>
+	<?php endif; ?>
     </div>
     <footer>
     	<div id="not">Terima kasih atas perhatian dan kepercayaan anda.</div>

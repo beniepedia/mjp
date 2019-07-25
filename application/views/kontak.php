@@ -1,8 +1,18 @@
 <div class="pesanNotif" data-title="<?= $this->session->flashdata('title'); ?>" data-pesan="<?= $this->session->flashdata('pesan'); ?>" data-error="<?= $this->session->flashdata('type'); ?>"></div>
 
-<div class="container" style="margin: 5rem auto;">
-	<div class="row justify-content-center">
-		<div class="col-lg-4 col-md-6 col-sm-12">
+<div class="container-fluid" style="margin: 3rem auto;">
+	<div class="row mb-4">
+		<div class="col">
+			<div class="card">
+				<div class="card-body">
+					<iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d497.77373786357606!2d98.61908300803097!3d3.5436230339506873!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sid!4v1564048787002!5m2!1sen!2sid" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row justify-content-center mb-5">
+		<div class="col-lg-6 col-md-6 col-sm-12">
 			<div class="card text-white bg-primary shadow">
 				<div class="card-body text-center">
 					<h4 class="font-weight-bold">Hubungi Kami</h4>
@@ -13,49 +23,56 @@
 			</div>
 			<div class="card mb-5">
 				<div class="card-body shadow-lg">
-					<form method="post" action="<?= base_url('kontak'); ?>" autocomplete="off">
+					<form method="post" action="<?= base_url('kontak'); ?>">
 						<div class="form-group row">
-							<label for="nama" class="col-sm-3 col-form-label">Nama</label>
-							<div class="col-sm-9">
-								<input type="text" class="form-control" name="nama" value="<?= set_value('nama'); ?>">
-								<?= form_error('nama', '<small class="text-danger form-error">','</small>'); ?>
+							<div class="col-lg-6 mb-3 mb-sm-0">
+								<input type="text" class="form-control <?= form_error('nama')?'is-invalid':null; ?>" name="nama" placeholder="Nama Lengkap" value="<?= set_value('nama'); ?>">
+								<?= form_error('nama'); ?>
+							</div>
+							
+					
+							<div class="col-sm-6">
+								<input type="number" class="form-control <?= form_error('telp')?'is-invalid':null; ?>" name="telp" placeholder="handphone" value="<?= set_value('telp'); ?>">
+								<?= form_error('telp'); ?>
 							</div>
 						</div>
+					
 						<div class="form-group row">
-							<label for="email" class="col-sm-3 col-form-label">Email</label>
-							<div class="col-sm-9">
-								<input type="text" class="form-control" name="email" value="<?= set_value('email'); ?>">
-								<?= form_error('email', '<small class="text-danger form-error">','</small>'); ?>
+							<div class="col">
+								<input type="text" class="form-control <?= form_error('email')?'is-invalid':null; ?>" name="email" placeholder="Masukan email... " value="<?= set_value('email'); ?>">
+								<?= form_error('email'); ?>
 							</div>
 
 						</div>
+						
 						<div class="form-group row">
-							<label for="telp" class="col-sm-3 col-form-label">Telp</label>
-							<div class="col-sm-9">
-								<input type="number" class="form-control" name="telp" value="<?= set_value('telp'); ?>">
-								<?= form_error('telp', '<small class="text-danger form-error">','</small>'); ?>
+							<div class="col">
+								<textarea name="pesan" id="pesan" class="form-control <?= form_error('pesan')?'is-invalid':null; ?>" placeholder="Pesan anda disini..... "></textarea>
+								<?= form_error('pesan'); ?>
 							</div>
+
 						</div>
+
 						<div class="form-group row">
-							<label for="pesan" class="col-sm-3 col-form-label">Pesan</label>
-							<div class="col-sm-9">
-								<textarea name="pesan" id="pesan" class="form-control" value="<?= set_value('pesan'); ?>"></textarea>
-								<?= form_error('pesan', '<small class="text-danger form-error">','</small>'); ?>
+							<div class="col">
+								<div class="g-recaptcha float-right" name="g-recaptcha-response" data-sitekey="6Levq64UAAAAACuXFOMsLJZ_1l57h8k5ahlUDpaa"></div>
 							</div>
+							
 						</div>
-						<div class="g-recaptcha" name="g-recaptcha-response" data-sitekey="6Levq64UAAAAACuXFOMsLJZ_1l57h8k5ahlUDpaa"></div>
-						<div class="form-group">
-						<?= form_error('g-recaptcha-response', '<small class="text-danger form-error">','</small>'); ?>
-							<br>	
-							<button class="btn btn-primary float-right" type="submit" name="submit">Kirim Pesan</button>
+						<?= form_error('g-recaptcha-response', '<small class="text-danger">','</small>'); ?>
+
+	
+						<div class="form-group mt-3">
+							<button class="btn btn-primary float-right" type="submit" name="submit">Kirim Pesan  <i class="fas fa-paper-plane"></i></button>
 						</div>
+
 					</form>
 				</div>
 				
 			</div>
 
 		</div>
-		<div class="col-lg-4 offset-lg-1">
+		<div class="col-lg-4 offset-lg-1 mb-5">
 			<div class="card text-white bg-primary shadow">
 				<div class="card-body text-center">
 					<h4 class="font-weight-bold ">Detail Kontak</h4>

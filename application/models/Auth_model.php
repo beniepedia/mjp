@@ -24,14 +24,25 @@ class Auth_model extends CI_Model
 			'is_active'     => 0,
 			'date_created'  => time()
 		];
+    // buat kode token
     $token = base64_encode(random_bytes(32));
     $user_token = [
       'email'         => $data['email'],
       'token'         => $token,
       'date_created'  => time()
     ];
+
+    // buat data yan gakan dikirim melalui email
+    $params['nama']     = $data['name'];
+    $params['content1'] = 'Terima kasih telah melakukan pendaftaran di <a href="'.base_url().'">'.$this->generalset->web()->site_name.'</a>, silahkan klik tombol aktivasi dibawah ini untuk mengaktifkan akun anda.'; 
+    $params['link']     = base_url() . 'auth/verify?email=' . $data['email'] . '&token=' . urlencode($token);
+    $params['content2'] = 'Link aktivasi akan expired dalam waktu 2 jam kedepan, segera lakukan aktivasi sebelum expired. Jika terjadi masalah pada saat aktivasi, silahkan hubungi kami. Terima Kasih'; 
+    $params['btn']      = 'Aktivasi Sekarang';
+    $params['to']       = $data['email'];
+    $params['subject']  = 'Aktivasi Akun '.$this->generalset->web()->site_alias;
+
     
-    $send = sendEmail($token, 'verify');
+    $send = sendEmail('auth', $params);
     if( $send )
     {
       $this->db->insert('users', $data);

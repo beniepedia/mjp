@@ -142,18 +142,36 @@ class Auth extends CI_Controller
                     $email_token = $this->db->get_where('user_token', ['email'=>$email])->row_array();
                     if( !$email_token )
                     {
-                        $insert = $this->db->insert('user_token', $user_token);
-                        if( $insert )
+
+                        // ambil nama user ke db
+                        $uname              = $this->db->get_where('users', ['email'=>$email])->row_array();
+
+                         // buat data yan gakan dikirim melalui email
+                        $params['nama']     = $uname['name'];
+                        $params['content1'] = 'Kami telah menerima permintaan anda untuk me-reset password <a href="'.base_url().'">'.$this->generalset->web()->site_alias.'</a>. Silahkan klik tombol <b>Reset Password</b> untuk me-reset password anda.'; 
+                        $params['link']     = base_url() . 'auth/resetpass?email=' . $email . '&token=' . urlencode($token);
+                        $params['content2'] = 'Abaikan e-mail ini jika anda tidak pernah meminta untuk me-reset password. Terima Kasih'; 
+                        $params['btn']      = 'Reset Password';
+                        $params['to']       = $email;
+                        $params['subject']  = 'Permintaan Reset Password';
+
+                        $send = sendEmail('auth', $params);
+
+                        if ( $send ) 
                         {
-                            sendEmail($token, 'forgotpassword');
-                            $this->session->set_flashdata('msg', 'Reset password berhasil. Kami telah mengirimkan instruksi untuk merubah password ke <strong>'.$email.'</strong>');
+                            // insert data token ke db
+                            $this->db->insert('user_token', $user_token);
+
+                            $this->session->set_flashdata('msg', 'permintaan reset password berhasil. Kami telah mengirimkan instruksi untuk merubah password ke <strong>'.$email.'</strong>');
                             $this->session->set_flashdata('type', 'success');
-                            redirect('auth/forgotpass','refresh');
-                        }else{
-                            $this->session->set_flashdata('msg', 'Terjadi kesalahan pada sistem kami. silahkan ulang kembali / hubungi kami!');
+                            redirect('auth/login','refresh');
+
+                        } else {
+                            $this->session->set_flashdata('msg', 'permintaan reset password gagal. terjadi kesalahan di sistem kami. silahkan coba lagi / hubungi kami!');
                             $this->session->set_flashdata('type', 'danger');
                             redirect('auth/forgotpass','refresh');
                         }
+
                     }else{
                         $this->session->set_flashdata('msg', 'Permintaan reset password sudah pernah dilakukan sebelumnya. Silahkan cek kembali inbox email anda!');
                         $this->session->set_flashdata('type', 'danger');
