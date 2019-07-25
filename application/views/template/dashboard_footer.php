@@ -58,6 +58,7 @@
 
   <!-- Page level custom scripts -->
   <script src="<?= base_url('assets/backend/') ?>js/demo/datatables-demo.js"></script>
+  <script src="<?= base_url('assets/backend/') ?>vendor/ckeditor/ckeditor.js"></script>
   <script src="<?= base_url('assets/backend/') ?>js/myscript.js"></script>
 
 </body>

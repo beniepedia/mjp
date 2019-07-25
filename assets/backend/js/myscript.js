@@ -48,7 +48,8 @@
           autoclose: true
       });
 
+       $('.btn-blog').tooltip();
 
-
+       CKEDITOR.replace( 'contenteditor' );
 
     });
