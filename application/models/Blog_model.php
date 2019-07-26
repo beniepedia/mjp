@@ -28,6 +28,13 @@ class Blog_model extends CI_Model {
 		return	$this->db->get('blog');
 	}
 
+	public function getAllPostAktif()
+	{
+		$this->db->order_by('id_blog', 'DESC');
+		$this->db->where_in('is_active', 1);
+		return	$this->db->get('blog');
+	}
+
 }
 
 /* End of file Blog_model.php */

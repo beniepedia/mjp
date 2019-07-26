@@ -6,7 +6,7 @@
 				<div class="card-header">
 					Tambah Post
 				</div>
-				<form action="<?= base_url('admin/blog/tambah_post') ?>" method="post" enctype="multipart/form-data">
+				<form action="<?= base_url('admin/posts/tambah_post') ?>" method="post" enctype="multipart/form-data">
 				<div class="card-body">
 					<div class="form-group row">
 						<div class="col-sm-6">

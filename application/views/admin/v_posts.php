@@ -11,7 +11,7 @@
 
   <div class="card shadow mb-4">
     <div class="card-header">
-      <a href="<?= base_url('admin/blog/tambah_post') ?>" class="btn btn-sm btn-primary float-right rounded-circle shadow btn-blog" data-toggle="tooltip" data-placement="left" title="Tambah Artikel" style="color:white; cursor: pointer;"><i class="fas fa-plus"></i></a>
+      <a href="<?= base_url('admin/posts/tambah_post') ?>" class="btn btn-sm btn-primary float-right rounded-circle shadow btn-blog" data-toggle="tooltip" data-placement="left" title="Tambah Artikel" style="color:white; cursor: pointer;"><i class="fas fa-plus"></i></a>
       <h6 class="m-0 font-weight-bold text-primary">Data Artikel</h6>
     </div>
     <div class="card-body">
@@ -32,7 +32,7 @@
           </thead>
           <tbody>
             <?php $no=1; ?>
-            <?php foreach ($blog as $b) : ?>
+            <?php foreach ($posts as $b) : ?>
             <tr>
               <td><?= $no++; ?></td>
               <td><?= $b->title; ?></td>

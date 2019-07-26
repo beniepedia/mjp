@@ -51,10 +51,10 @@
 						</li>
 
 						<hr class="sidebar-divider my-0">
-						<li class="nav-item <?php if($this->uri->segment(2)=='blog'){echo 'active';} ?>">
-						<a class="nav-link" href="<?= base_url('admin/blog'); ?>">
+						<li class="nav-item <?php if($this->uri->segment(2)=='posts'){echo 'active';} ?>">
+						<a class="nav-link" href="<?= base_url('admin/posts'); ?>">
 							<i class="fas fa-fw fa-users"></i>
-							<span>Blog</span></a>
+							<span>Posts</span></a>
 						</li>
 						<!-- Divider -->
 						<hr class="sidebar-divider my-0">

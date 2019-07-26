@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Blog extends CI_Controller {
+class Posts extends CI_Controller {
 
 	public function __construct()
 	{
@@ -13,11 +13,11 @@ class Blog extends CI_Controller {
 
 	public function index()
 	{
-		$data['blog']		= $this->Blog_model->getAllPost()->result();
-		$data['title']		= 'Blog - ' . $this->generalset->web()->site_name;
+		$data['posts']		= $this->Blog_model->getAllPost()->result();
+		$data['title']		= 'Posts - ' . $this->generalset->web()->site_name;
 		$this->load->view('template/dashboard_header', $data);
 		$this->load->view('template/dashboard_topbar');
-		$this->load->view('admin/v_blog', $data);
+		$this->load->view('admin/v_posts', $data);
 		$this->load->view('template/dashboard_footer');
 	}
 
@@ -60,7 +60,7 @@ class Blog extends CI_Controller {
 	                $content 	= $post['content'];
 
 	                //Buat slug
-	                $string 	= preg_replace('/[^a-zA-Z0-9 &%|{.}=,?!*()"-_+$@;<>\']/', '', $title); //filter karakter unik dan replace dengan kosong ('')
+	                $string 	= preg_replace('/[^a-zA-Z0-9 &%|{\.}=,?!*()"-_+$@;<>\']/', '', $title); //filter karakter unik dan replace dengan kosong ('')
 	                $trim 		= trim($string); // hilangkan spasi berlebihan dengan fungsi trim
 	                $pre_slug 	= strtolower(str_replace(" ", "-", $trim)); // hilangkan spasi, kemudian ganti spasi dengan tanda strip (-)
 	                $slug 		= $pre_slug.'.html'; // tambahkan ektensi .html pada slug
