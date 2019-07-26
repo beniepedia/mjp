@@ -12,13 +12,13 @@
 		<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 		<!-- Custom styles for this template-->
 		<link href="<?= base_url('assets/backend/') ?>css/sb-admin-2.css" rel="stylesheet">
+		<link href="<?= base_url('assets/backend/') ?>css/mystyle.css" rel="stylesheet">
 		<link href="<?= base_url('assets/backend/vendor/bootstrap-datepicker/') ?>css/bootstrap-datepicker.css" rel="stylesheet">
-		
-		<style>
-			.label-judul{
-				font-weight: bold;
-			}
-		</style>
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">
+		<link href="<?= base_url('assets/backend/vendor/bootstrap-fileinput/') ?>css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
+
+		<link href="<?= base_url('assets/backend/vendor/bootstrap-fileinput/') ?>themes/explorer-fas/theme.css" media="all" rel="stylesheet" type="text/css"/>
+
 	</head>
 	<body id="page-top">
 		<!-- Page Wrapper -->

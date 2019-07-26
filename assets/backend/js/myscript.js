@@ -48,8 +48,22 @@
           autoclose: true
       });
 
-       $('.btn-blog').tooltip();
+      $('.btn-blog').tooltip();
 
-       CKEDITOR.replace( 'contenteditor' );
+      $('#contenteditor').summernote({
+        placeholder: 'Tulis postingan disini.....',
+        tabsize: 2,
+        height: 300
+      });
+
+       $("#imgPost").fileinput({
+            'theme': 'explorer-fas',
+            'uploadUrl': "<?= base_url('email') ?>",
+            overwriteInitial: false,
+            initialPreviewAsData: true,
+            dropZoneEnabled: false,
+            showUpload: false,
+        });
+
 
     });

@@ -32,6 +32,8 @@ class Posts extends CI_Controller {
 			$this->load->view('template/dashboard_footer');
 			# code...
 		} else {
+
+			var_dump($_FILES);die;
 			$post 	= $this->input->post(null, TRUE);
 			$config['upload_path'] = './assets/img/blog_img/'; //path folder
 	        $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp'; //type yang dapat diakses bisa anda sesuaikan

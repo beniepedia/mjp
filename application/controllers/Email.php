@@ -5,7 +5,7 @@ class Email extends CI_Controller {
 
 	public function index()
 	{
-		echo $_SERVER['SCRIPT_NAME'];
+		var_dump($_FILES['files']);
 	}
 
 }
