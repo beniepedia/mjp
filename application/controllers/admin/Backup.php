@@ -54,7 +54,7 @@ class Backup extends CI_Controller {
 		
 		$db_name = 'backup-on-' . date("Y-m-d-H-i-s") . '.zip'; // file name
 		$save  = 'backup/db/' . $db_name; // dir name backup output destination
-			$this->load->helper('file');
+		// $this->load->helper('file');
 		write_file($save, $backup);
 		
 		$this->load->helper('download');

@@ -42,13 +42,11 @@
               <td><img src="<?= base_url('assets/img/blog_img/') . $b->image; ?>" alt="no image" class="img-fluid rounded-circle" width="100"></td>
               <td><?= $b->is_active==1?'Aktif':'NonAktif'; ?></td>
               <td>
-                  <a href="<?= base_url('admin/user/detail/'); ?><?=$b->id_blog;?>" class="badge badge-info">
-                    Detail
-                  </a>
+            
                   <a href="<?= base_url('admin/user/edituser/'); ?><?=$b->id_blog;?>" class="badge badge-warning">
                     Edit
                   </a>
-                  <a href="<?= base_url('admin/user/delete/'); ?><?=$b->id_blog;?>" onclick="return confirm('Yakin ingin menghapus user ini?')" class="badge badge-danger">
+                  <a href="<?= base_url('admin/posts/delete/'); ?><?=$b->id_blog;?>" onclick="return confirm('Yakin ingin menghapus postingan ini?')" class="badge badge-danger">
                     Hapus
                   </a>
               </td>

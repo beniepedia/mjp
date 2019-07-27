@@ -35,7 +35,7 @@ class Blog extends CI_Controller {
 		if( $query->num_rows() > 0 )
 		{	
 			$data['blog'] 		= $query->row();
-			$data['title'] 		= $data['blog']->title . $this->generalset->web()->site_name;
+			$data['title'] 		= $data['blog']->title . ' - ' . $this->generalset->web()->site_name;
 			$this->load->view('template/header.php', $data);
 			$this->load->view('template/navbar_secondary');
 			$this->load->view('v_blog_details', $data);

@@ -71,8 +71,8 @@ body {
 /* Utility */
 
 .tombol {
-  text-transform: uppercase;
-  border-radius: 50px;
+/*  text-transform: uppercase;
+*/  border-radius: 50px;
 }
 
 /* Profile */
@@ -381,6 +381,7 @@ body {
 
 .card-blog {
   transition: .4s;
+  height: 34rem;
 }
 
 
@@ -398,16 +399,16 @@ body {
   color: #6610f2;
 }
 
-.card-blog .card-footer img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border-color: coral;
+.card-blog .card-footer .fas,
+.card-blog .card-footer .far
+ {
+  font-size: 1.1rem;
+  padding-right: 10px;
 }
 
 .card-blog:hover {
-  transform: scale(.9, .9);
-  box-shadow: 0 1rem 2rem rgba(0,0,0,.5)!important;
+/*  transform: scale(.9, .9);
+*/  box-shadow: 0 1rem 2rem rgba(0,0,0,.5)!important;
 }
 
 
