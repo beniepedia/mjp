@@ -87,18 +87,7 @@ crossorigin="anonymous"></script>
 				resetAnimation: true, // reset animation on end (default is true)
 				});
 				wow.init();
-				const notif = $('.errorNotif').data('error');
-		if(notif)
-		{
-			toastr['error'](notif, 'Semua field wajib diisi, Pesan gagal terkirim !</br>',{
-				"closeButton": true,
-				"hideDuration": "1000",
-				"showEasing": "swing",
-				"hideEasing": "linear",
-							"showMethod": "fadeIn",
-							"hideMethod": "fadeOut"
-			})
-		}
+				
 	});
 </script>
 </body>

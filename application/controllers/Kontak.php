@@ -5,7 +5,7 @@ class Kontak extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->library('form_validation');
-		$this->load->model('Inbox_model');
+		$this->load->model('Message_model');
 	}
 
 	public function index()
@@ -30,7 +30,7 @@ class Kontak extends CI_Controller {
 		} else {
 			$post 	= $this->input->post(null, TRUE);
 
-			$insert = $this->Inbox_model->insert($post);
+			$insert = $this->Message_model->insert($post);
 
 			if( $insert )
             {

@@ -5,6 +5,7 @@ class Message_model extends CI_Model {
 
 	public function getInbox()
 	{
+		$this->db->order_by('inbox_status', 'DESC');
 		$this->db->order_by('inbox_created', 'DESC');
 		return $this->db->get('tb_inbox');
 	}
@@ -21,6 +22,17 @@ class Message_model extends CI_Model {
 		$params['inbox_created'] 	= time();
 
 		return $this->db->insert('tb_inbox', $params);
+	}
+
+	public function inboxUpdate($id)
+	{
+		$this->db->where('inbox_id', $id);
+		$this->db->update('tb_inbox', ['inbox_status'=>1]);
+	}
+
+	public function getInboxDetail($id)
+	{
+		return $this->db->get_where('tb_inbox', ['inbox_id'=>$id]);
 	}
 
 }

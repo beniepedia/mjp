@@ -48,58 +48,74 @@
 						<a class="nav-link" href="<?= base_url('admin/user'); ?>">
 							<i class="fas fa-fw fa-users"></i>
 							<span>Data User</span></a>
-						</li>
+					</li>
 
-						<hr class="sidebar-divider my-0">
-						<li class="nav-item <?php if($this->uri->segment(2)=='posts'){echo 'active';} ?>">
-						<a class="nav-link" href="<?= base_url('admin/posts'); ?>">
-							<i class="fas fa-fw fa-users"></i>
-							<span>Posts</span></a>
-						</li>
-						<!-- Divider -->
-						<hr class="sidebar-divider my-0">
-						<!-- Nav Item - Pages Collapse Menu -->
-						<li class="nav-item <?php if($this->uri->segment(2)=='setting'){echo 'active';}?>">
-							<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-								<i class="fas fa-fw fa-cog"></i>
-								<span>Pengaturan</span>
-							</a>
-							<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-								<div class="bg-white py-2 collapse-inner rounded">
-									<h6 class="collapse-header">Pengaturan:</h6>
-									<a class="collapse-item" href="<?= base_url('admin/setting'); ?>">Website</a>
-									<a class="collapse-item" href="<?= base_url('admin/setting/email'); ?>">Email</a>
-									<a class="collapse-item" href="<?= base_url('admin/backup'); ?>">Backup & Restore</a>
-								</div>
+					<hr class="sidebar-divider my-0">
+					<li class="nav-item <?php if($this->uri->segment(2)=='posts'){echo 'active';} ?>">
+					<a class="nav-link" href="<?= base_url('admin/posts'); ?>">
+						<i class="fas fa-fw fa-users"></i>
+						<span>Posts</span></a>
+					</li>
+					<!-- Divider -->
+					<hr class="sidebar-divider my-0">
+
+					<!-- Nav Item - Pages Collapse Menu -->
+					<li class="nav-item <?php if($this->uri->segment(2)=='message'){echo 'active';}?>">
+						<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#message" aria-expanded="true" aria-controls="collapseTwo">
+							<i class="fas fa-fw fa-user"></i>
+							<span>Pesan</span>
+						</a>
+						<div id="message" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+							<div class="bg-white py-2 collapse-inner rounded">
+								<h6 class="collapse-header">Pesan:</h6>
+								<a class="collapse-item" href="<?= base_url('admin/message/inbox') ?>">Inbox</a>
 							</div>
-						</li>
-						<?php endif; ?>
-						<hr class="sidebar-divider my-0">
-						
-						<!-- Nav Item - Pages Collapse Menu -->
-						<li class="nav-item <?php if($this->uri->segment(1)=='profile'){echo 'active';}?>">
-							<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#profile" aria-expanded="true" aria-controls="collapseTwo">
-								<i class="fas fa-fw fa-user"></i>
-								<span>Profil Saya</span>
-							</a>
-							<div id="profile" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-								<div class="bg-white py-2 collapse-inner rounded">
-									<h6 class="collapse-header">Profil Detail:</h6>
-									<a class="collapse-item" href="<?= base_url('profile') ?>">Profile</a>
-									<a class="collapse-item" href="<?= base_url('profile/changepassword') ?>">Ganti Password</a>
-								</div>
-							</div>
-						</li>
-						<!-- Divider -->
-						<hr class="sidebar-divider d-none d-md-block">
-						<!-- Sidebar Toggler (Sidebar) -->
-						<div class="text-center d-none d-md-inline">
-							<button class="rounded-circle border-0" id="sidebarToggle"></button>
 						</div>
-					</ul>
-					<!-- End of Sidebar -->
-					<!-- Content Wrapper -->
-					<div id="content-wrapper" class="d-flex flex-column">
-						<!-- Main Content -->
-						<div id="content">
+					</li>
+					<!-- Divider -->
+					<hr class="sidebar-divider my-0">
+					<!-- Nav Item - Pages Collapse Menu -->
+					<li class="nav-item <?php if($this->uri->segment(2)=='setting'){echo 'active';}?>">
+						<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+							<i class="fas fa-fw fa-cog"></i>
+							<span>Pengaturan</span>
+						</a>
+						<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+							<div class="bg-white py-2 collapse-inner rounded">
+								<h6 class="collapse-header">Pengaturan:</h6>
+								<a class="collapse-item" href="<?= base_url('admin/setting'); ?>">Website</a>
+								<a class="collapse-item" href="<?= base_url('admin/setting/email'); ?>">Email</a>
+								<a class="collapse-item" href="<?= base_url('admin/backup'); ?>">Backup & Restore</a>
+							</div>
+						</div>
+					</li>
+					<?php endif; ?>
+					<hr class="sidebar-divider my-0">
+						
+					<!-- Nav Item - Pages Collapse Menu -->
+					<li class="nav-item <?php if($this->uri->segment(1)=='profile'){echo 'active';}?>">
+						<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#profile" aria-expanded="true" aria-controls="collapseTwo">
+							<i class="fas fa-fw fa-user"></i>
+							<span>Profil Saya</span>
+						</a>
+						<div id="profile" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+							<div class="bg-white py-2 collapse-inner rounded">
+								<h6 class="collapse-header">Profil Detail:</h6>
+								<a class="collapse-item" href="<?= base_url('profile') ?>">Profile</a>
+								<a class="collapse-item" href="<?= base_url('profile/changepassword') ?>">Ganti Password</a>
+							</div>
+						</div>
+					</li>
+					<!-- Divider -->
+					<hr class="sidebar-divider d-none d-md-block">
+					<!-- Sidebar Toggler (Sidebar) -->
+					<div class="text-center d-none d-md-inline">
+						<button class="rounded-circle border-0" id="sidebarToggle"></button>
+					</div>
+			</ul>
+			<!-- End of Sidebar -->
+			<!-- Content Wrapper -->
+			<div id="content-wrapper" class="d-flex flex-column">
+				<!-- Main Content -->
+				<div id="content">
 

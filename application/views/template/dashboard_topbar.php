@@ -44,25 +44,31 @@
             <i class="fas fa-envelope fa-fw"></i>
             <!-- Counter - Messages -->
 			<?php $count = $this->db->get_where('tb_inbox', ['inbox_status'=>'0']); ?>
-            <span class="badge badge-danger badge-counter"><?= $count->num_rows(); ?></span>
+            <span class="badge badge-danger badge-counter"><?= $count->num_rows() > 0 ? $count->num_rows() : null; ?></span>
           </a>
           <!-- Dropdown - Messages -->
           <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
             <h6 class="dropdown-header">
               Message Center
             </h6>
-            <?php foreach ($count->result() as $c) : ?>
-            <a class="dropdown-item d-flex align-items-center" href="<?= base_url('admin/message/inbox') ?>">
-              <div class="dropdown-list-image mr-3">
-                <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
-                <div class="status-indicator bg-success"></div>
-              </div>
-              <div class="font-weight-bold">
-                <div class="text-truncate"><?= $c->inbox_subject; ?></div>
-                <div class="small text-gray-500"><?= $c->inbox_name; ?> · <?= date("d-m-Y, H:i:s", $c->inbox_created); ?></div>
-              </div>
-            </a>
-         	<?php endforeach; ?>
+            <?php if( $count->num_rows() > 0 ) : ?>
+	            <?php foreach ($count->result() as $c) : ?>
+	            <a class="dropdown-item d-flex align-items-center" href="<?= base_url('admin/message/inbox') ?>">
+	              <div class="dropdown-list-image mr-3">
+	                <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
+	                <div class="status-indicator bg-success"></div>
+	              </div>
+	              <div class="font-weight-bold">
+	                <div class="text-truncate"><?= $c->inbox_subject; ?></div>
+	                <div class="small text-gray-500"><?= $c->inbox_name; ?> · <?= date("d-m-Y, H:i:s", $c->inbox_created); ?></div>
+	              </div>
+	            </a>
+	         	<?php endforeach; ?>
+	         	<?php else : ?>
+	         		<div class="font-weight-bold p-3 text-center">
+		                <div class="">Pesan Masuk Kosong</div>
+	              	</div>
+	        	<?php endif; ?>
           </div>
         </li>
 		
@@ -98,3 +104,22 @@
 	</ul>
 </nav>
 <!-- End of Topbar -->
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Yakin ingin logout?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Logout sekarang.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="<?= base_url('auth/logout'); ?>">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
