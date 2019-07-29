@@ -5,6 +5,7 @@ class Kontak extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->library('form_validation');
+		$this->load->model('Inbox_model');
 	}
 
 	public function index()
@@ -12,6 +13,7 @@ class Kontak extends CI_Controller {
 		$data['title'] = $this->generalset->web()->site_name . ' - KONTAK';
 		$this->form_validation->set_rules('nama', 'Nama', 'trim|required');
 		$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
+		$this->form_validation->set_rules('subject', 'Subject', 'trim|required');
 		$this->form_validation->set_rules('telp', 'Handphone', 'trim|required');
 		$this->form_validation->set_rules('pesan', 'Pesan', 'trim|required');
 		$this->form_validation->set_rules('g-recaptcha-response', 'Recaptcha Validasi', 'trim|callback__validate_captcha');
@@ -21,27 +23,16 @@ class Kontak extends CI_Controller {
 
 		if ($this->form_validation->run() == FALSE)
 		{
-			$this->load->view('template/header.php', $data);
+			$this->load->view('template/header', $data);
 			$this->load->view('template/navbar_secondary');
-			$this->load->view('kontak.php');
-			$this->load->view('template/footer.php');
+			$this->load->view('kontak');
+			$this->load->view('template/footer');
 		} else {
 			$post 	= $this->input->post(null, TRUE);
 
-			 // buat data yan gakan dikirim melalui email
-            $params['nama']      = 'Admin' . $this->generalset->web()->site_name;
-            $params['content1']  = '<center><h4>Ada email dari '.$post['nama'].'</h4></br></br>'; 
-            $params['content1'] .= '<h4>Nama 	  = '.$post['nama'] .'</h4>'; 
-            $params['content1'] .= '<h4>Handphone = '.$post['telp'] .'</h4>'; 
-            $params['content1'] .= '<h4>email 	  = '.$post['email'] .'</h4>'; 
-            $params['content1'] .= '<h4>Isi Pesan = '.$post['pesan'] .'</h4>'; 
-         
-            $params['to']        =  $this->config->item('email_gmail');
-            $params['subject']   =  'Pesan Dari'. $post['nama'];
+			$insert = $this->Inbox_model->insert($post);
 
-            $send = sendEmail('kontak', $params);
-
-            if( $send )
+			if( $insert )
             {
 				fMessage('Pesan anda berhasil terkirim !',
 						'success', 'Sukses...!');
@@ -52,6 +43,33 @@ class Kontak extends CI_Controller {
 						'error', 'Gagal...!');
 				redirect('kontak');
             }
+
+
+
+			 // // buat data yan gakan dikirim melalui email
+    //         $params['nama']      = 'Admin' . $this->generalset->web()->site_name;
+    //         $params['content1']  = '<center><h4>Ada email dari '.$post['nama'].'</h4></br></br>'; 
+    //         $params['content1'] .= '<h4>Nama 	  = '.$post['nama'] .'</h4>'; 
+    //         $params['content1'] .= '<h4>Handphone = '.$post['telp'] .'</h4>'; 
+    //         $params['content1'] .= '<h4>email 	  = '.$post['email'] .'</h4>'; 
+    //         $params['content1'] .= '<h4>Isi Pesan = '.$post['pesan'] .'</h4>'; 
+         
+    //         $params['to']        =  $this->config->item('email_gmail');
+    //         $params['subject']   =  'Pesan Dari'. $post['nama'];
+
+    //         $send = sendEmail('kontak', $params);
+
+    //         if( $send )
+    //         {
+				// fMessage('Pesan anda berhasil terkirim !',
+				// 		'success', 'Sukses...!');
+				// redirect('kontak');
+
+    //         } else {
+    //         	fMessage('Kirim pesan gagal, terjadi kesalahan pada sistem kami. Coba lagi!',
+				// 		'error', 'Gagal...!');
+				// redirect('kontak');
+    //         }
 
 		}
 	}

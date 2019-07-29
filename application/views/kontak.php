@@ -42,15 +42,20 @@
 								<input type="text" class="form-control <?= form_error('email')?'is-invalid':null; ?>" name="email" placeholder="Masukan email... " value="<?= set_value('email'); ?>">
 								<?= form_error('email'); ?>
 							</div>
+						</div>
 
+						<div class="form-group row">
+							<div class="col">
+								<input type="text" class="form-control <?= form_error('subject')?'is-invalid':null; ?>" name="subject" placeholder="Subject" value="<?= set_value('subject'); ?>">
+								<?= form_error('subject'); ?>
+							</div>
 						</div>
 						
 						<div class="form-group row">
 							<div class="col">
-								<textarea name="pesan" id="pesan" class="form-control <?= form_error('pesan')?'is-invalid':null; ?>" placeholder="Pesan anda disini..... "></textarea>
+								<textarea name="pesan" id="pesan" rows="5" class="form-control <?= form_error('pesan')?'is-invalid':null; ?>" placeholder="Pesan anda disini..... "></textarea>
 								<?= form_error('pesan'); ?>
 							</div>
-
 						</div>
 
 						<div class="form-group row">
