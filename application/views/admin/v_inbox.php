@@ -1,4 +1,4 @@
-<div class="">
+<div class="" style="margin-bottom: 100%;">
   <!-- Page Heading -->
   <?php if( $this->session->flashdata('msg')) : ?>
       <div class="alert alert-<?= $this->session->flashdata('type'); ?> alert-dismissible fade show text-center" role="alert"><?= $this->session->flashdata('msg'); ?>
@@ -6,14 +6,14 @@
       </div>
   <?php endif; ?>
   <!-- DataTales Example -->
-  <div class="card shadow mb-4">
+  <div class="card shadow mb-4" >
     <div class="card-header py-3">
       <h6 class="m-0 font-weight-bold text-primary">Inbox</h6>
     </div>
-    <div class="card-body">
-      <div class="table-responsive">
-        <table class="table table-sm" id="" width="100%" cellspacing="0">
-          <thead class="thead-dark">
+    <div class="card-body mailbox">
+      <div class="table-responsive ">
+        <table class="table table-hover table-sm  table-borderless text-center" id="" width="100%" cellspacing="0">
+          <thead class="">
             <tr>
               <th>#</th>
               <th>Nama</th>
@@ -28,14 +28,13 @@
           	<?php foreach ($inbox->result() as $i) : ?>
           	<tr class="<?= $i->inbox_status==0?'bg-success text-white':null; ?>">
               <td class="badge badge-warning m-2"><?= $i->inbox_status==0?'Unread':'Read'; ?></td>
-          		<td><?= $i->inbox_name; ?></td>
-          		<td><?= $i->inbox_subject; ?></td>
-          		<td><?= substr($i->inbox_message, 0, 30); ?></td>
-          		<td><?= date_indo(date("Y-m-d", $i->inbox_created)); ?></td>
+          		<td data-inbox_id="<?= $i->inbox_id; ?>"><?= $i->inbox_name; ?></td>
+          		<td data-inbox_id="<?= $i->inbox_id; ?>"><?= $i->inbox_subject; ?></td>
+          		<td data-inbox_id="<?= $i->inbox_id; ?>"><?= substr($i->inbox_message, 0, 30); ?></td>
+          		<td data-inbox_id="<?= $i->inbox_id; ?>"><?= date_indo(date("Y-m-d", $i->inbox_created)); ?></td>
           		<td class="text-center">
-                <a href="<?= base_url('admin/message/detail/').$i->inbox_id; ?>" class="btn btn-primary btn-sm "><i class="fas fa-eye"></i></a>
-                <a href="#" data-toggle="modal" data-target="#deleteMesssageModal" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></i></a>
-              </td>
+                	<a href="#" data-toggle="modal" data-target="#deleteMesssageModal" class="btn btn-danger btn-sm btn-circle"><i class="fas fa-trash"></i></a>
+              	</td>
           	</tr>
           	<?php endforeach; ?>
             <?php else : ?>
@@ -67,3 +66,16 @@
         </div>
   </div>
 </div>
+
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.mailbox table tr td').not(":first-child").on('click', function(e){
+			e.stopPropagation();
+			e.preventDefault();
+			const inbox_id = $(this).data('inbox_id');
+			window.location = "<?= base_url('admin/message/detail/');?>"+inbox_id;
+
+		});
+	});
+</script>

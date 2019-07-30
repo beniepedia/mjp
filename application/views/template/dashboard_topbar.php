@@ -55,7 +55,7 @@
 	            <?php foreach ($count->result() as $c) : ?>
 	            <a class="dropdown-item d-flex align-items-center" href="<?= base_url('admin/message/inbox') ?>">
 	              <div class="dropdown-list-image mr-3">
-	                <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
+	                <img class="rounded-circle" src="<?= base_url('assets/img/user_img/default.jpg') ?>" alt="">
 	                <div class="status-indicator bg-success"></div>
 	              </div>
 	              <div class="font-weight-bold">

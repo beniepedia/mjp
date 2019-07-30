@@ -18,6 +18,7 @@
 		<link href="<?= base_url('assets/backend/vendor/bootstrap-fileinput/') ?>css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
 
 		<link href="<?= base_url('assets/backend/vendor/bootstrap-fileinput/') ?>themes/explorer-fas/theme.css" media="all" rel="stylesheet" type="text/css"/>
+		 <script src="<?= base_url('assets/backend/') ?>vendor/jquery/jquery.min.js"></script>
 
 	</head>
 	<body id="page-top">
@@ -53,7 +54,7 @@
 					<hr class="sidebar-divider my-0">
 					<li class="nav-item <?php if($this->uri->segment(2)=='posts'){echo 'active';} ?>">
 					<a class="nav-link" href="<?= base_url('admin/posts'); ?>">
-						<i class="fas fa-fw fa-users"></i>
+						<i class="fas fa-fw fa-file-signature"></i>
 						<span>Posts</span></a>
 					</li>
 					<!-- Divider -->
@@ -62,7 +63,7 @@
 					<!-- Nav Item - Pages Collapse Menu -->
 					<li class="nav-item <?php if($this->uri->segment(2)=='message'){echo 'active';}?>">
 						<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#message" aria-expanded="true" aria-controls="collapseTwo">
-							<i class="fas fa-fw fa-user"></i>
+							<i class="far fa-fw fa-envelope-open"></i>
 							<span>Pesan</span>
 						</a>
 						<div id="message" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
