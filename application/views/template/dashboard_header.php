@@ -18,6 +18,7 @@
 		<link href="<?= base_url('assets/backend/vendor/bootstrap-fileinput/') ?>css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
 
 		<link href="<?= base_url('assets/backend/vendor/bootstrap-fileinput/') ?>themes/explorer-fas/theme.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="<?= base_url('assets/backend/') ?>css/dropify.min.css" rel="stylesheet">
 		 <script src="<?= base_url('assets/backend/') ?>vendor/jquery/jquery.min.js"></script>
 
 	</head>
