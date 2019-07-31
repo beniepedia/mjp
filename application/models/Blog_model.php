@@ -3,6 +3,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Blog_model extends CI_Model {
 
+	public function getAll()
+	{
+		return $this->db->get('blog');
+	}
+
 	// simpan data artikel ke database
 	public function insertPost($data)
 	{

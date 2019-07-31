@@ -1,4 +1,4 @@
-<div class="" style="margin-bottom: 100%;">
+<div class="" style="margin-bottom: 50vh;">
   <!-- Page Heading -->
   <?php if( $this->session->flashdata('msg')) : ?>
       <div class="alert alert-<?= $this->session->flashdata('type'); ?> alert-dismissible fade show text-center" role="alert"><?= $this->session->flashdata('msg'); ?>
@@ -13,6 +13,7 @@
     <div class="card-body mailbox">
       <div class="table-responsive ">
         <table class="table table-hover table-sm  table-borderless text-center" id="" width="100%" cellspacing="0">
+          <?php if( $inbox->num_rows() > 0 ) : ?>
           <thead class="">
             <tr>
               <th>#</th>
@@ -24,7 +25,6 @@
             </tr>
           </thead>
           <tbody>
-          <?php if( $inbox->num_rows() > 0 ) : ?>
           	<?php foreach ($inbox->result() as $i) : ?>
           	<tr class="<?= $i->inbox_status==0?'bg-success text-white':null; ?>">
               <td class="badge badge-warning m-2"><?= $i->inbox_status==0?'Unread':'Read'; ?></td>

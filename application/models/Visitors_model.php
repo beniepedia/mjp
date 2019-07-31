@@ -38,6 +38,7 @@ class Visitors_model extends CI_Model {
 
 	}
 
+	// get visitor statistic
 	function visitor_statistic()
 	{
 		$query = $this->db->query("SELECT DATE_FORMAT(visit_date,'%d') AS tgl,COUNT(visit_ip) AS jumlah FROM tb_visitors WHERE MONTH(visit_date)=MONTH(CURDATE()) GROUP BY DATE(visit_date)");
@@ -50,6 +51,73 @@ class Visitors_model extends CI_Model {
             return $result; 
 		}
 	}
+
+
+	// get total visitor
+	function get_all_visitor()
+	{
+		return $this->db->get('tb_visitors');
+	}
+
+	// get total visitor per month
+	function count_visitor_this_month()
+	{
+    	$query = $this->db->query("SELECT COUNT(*) tot_visitor FROM tb_visitors WHERE MONTH(visit_date)=MONTH(CURDATE())");
+    	return $query;
+    }
+
+    // get total browser chrome
+    function count_chrome_visitors()
+    {
+    	$query = $this->db->query("SELECT COUNT(*) chrome_visitor FROM tb_visitors WHERE visit_browser='Chrome' AND MONTH(visit_date)=MONTH(CURDATE())");
+    	return $query;
+    }
+
+    // get total browser forefox
+    function count_firefox_visitors()
+    {
+    	$query = $this->db->query("SELECT COUNT(*) firefox_visitor FROM tb_visitors WHERE (visit_browser='Firefox' OR visit_browser='Mozilla') AND MONTH(visit_date)=MONTH(CURDATE())");
+    	return $query;
+    }
+
+    // get total browser internet explorer
+    function count_explorer_visitors()
+    {
+    	$query = $this->db->query("SELECT COUNT(*) explorer_visitor FROM tb_visitors WHERE visit_browser='Internet Explorer' AND MONTH(visit_date)=MONTH(CURDATE())");
+    	return $query;
+    }
+
+    // get total browser safari
+    function count_safari_visitors()
+    {
+    	$query = $this->db->query("SELECT COUNT(*) safari_visitor FROM tb_visitors WHERE visit_browser='Safari' AND MONTH(visit_date)=MONTH(CURDATE())");
+    	return $query;
+    }
+
+    // get total browser opera
+    function count_opera_visitors()
+    {
+    	$query = $this->db->query("SELECT COUNT(*) opera_visitor FROM tb_visitors WHERE visit_browser='Opera' AND MONTH(visit_date)=MONTH(CURDATE())");
+    	return $query;
+    }
+
+    // get total browser robot
+    function count_robot_visitors()
+    {
+    	$query = $this->db->query("SELECT COUNT(*) robot_visitor FROM tb_visitors WHERE (visit_browser='YandexBot' OR visit_browser='Googlebot' OR visit_browser='Yahoo') AND MONTH(visit_date)=MONTH(CURDATE())");
+    	return $query;
+    }
+
+    // get total browser other
+    function count_other_visitors()
+    {
+    	$query = $this->db->query("SELECT COUNT(*) other_visitor FROM tb_visitors WHERE 
+			(NOT visit_browser='YandexBot' AND NOT visit_browser='Googlebot' AND NOT visit_browser='Yahoo' 
+			AND NOT visit_browser='Chrome' AND NOT visit_browser='Firefox' AND NOT visit_browser='Mozilla'
+			AND NOT visit_browser='Internet Explorer' AND NOT visit_browser='Safari' AND NOT visit_browser='Opera') 
+			AND MONTH(visit_date)=MONTH(CURDATE())");
+    	return $query;
+    }
 
 }
 

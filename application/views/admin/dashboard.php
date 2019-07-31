@@ -33,7 +33,7 @@
 							<div class="h5 mb-0 font-weight-bold text-gray-800"><?= $nonaktif ?> Orang</div>
 						</div>
 						<div class="col-auto">
-							<i class="fas fa-users fa-4x text-gray-300"></i>
+							<i class="fas fa-user-slash fa-4x text-gray-300"></i>
 						</div>
 					</div>
 				</div>
@@ -44,21 +44,16 @@
 			<div class="card border-left-info shadow h-100 py-2">
 				<div class="card-body">
 					<div class="row no-gutters align-items-center">
-						<div class="col mr-2">
-							<div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks</div>
+						<div class="col mr-2 ">
+							<div class="text-xs font-weight-bold text-info text-uppercase mb-1 ">Total Visitor</div>
 							<div class="row no-gutters align-items-center">
 								<div class="col-auto">
-									<div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
-								</div>
-								<div class="col">
-									<div class="progress progress-sm mr-2">
-										<div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-									</div>
+									<div class="h5 mb-0 mr-3 font-weight-bold text-gray-800 "><?= $all_visitor->num_rows(); ?> Visitor </div>
 								</div>
 							</div>
 						</div>
 						<div class="col-auto">
-							<i class="fas fa-clipboard-list fa-4x text-gray-300"></i>
+							<i class="far fa-eye fa-4x text-gray-300"></i>
 						</div>
 					</div>
 				</div>
@@ -70,29 +65,106 @@
 				<div class="card-body">
 					<div class="row no-gutters align-items-center">
 						<div class="col mr-2">
-							<div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Pending Requests</div>
-							<div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+							<div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Total Posts</div>
+							<div class="h5 mb-0 font-weight-bold text-gray-800"><?= $posts->num_rows(); ?> Artikel</div>
 						</div>
 						<div class="col-auto">
-							<i class="fas fa-comments fa-4x text-gray-300"></i>
+							<i class="far fa-newspaper fa-4x text-gray-300"></i>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	<hr>
 	<div class="row">
-		<div class="col-lg-8">
-			 <div class="card shadow mb-4">
-			    <div class="card-header py-3">
-			      <h6 class="m-0 font-weight-bold text-primary">Inbox</h6>
-			    </div>
-			    <div class="card-body">
-	            	<canvas id="myAreaChart"></canvas>
-			    </div>
-			  </div>
-		</div>
+			<div class="col-xl-8 col-lg-7">
+				 <div class="card shadow mb-4">
+				    <div class="card-header py-3">
+				      <h6 class="m-0 font-weight-bold text-primary">Visitor Perbulan</h6>
+				    </div>
+				    <div class="card-body">
+		            	<canvas id="myAreaChart"></canvas>
+				    </div>
+				  </div>
+			</div>
+		
+		<!-- Pie Chart -->
+            <div class="col-xl-4 col-lg-5">
+              <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                  <div class="chart-pie pt-4 pb-2">
+                    <canvas id="myPieChart"></canvas>
+                  </div>
+                  <div class="mt-4 text-center small">
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-primary"></i> Direct
+                    </span>
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-success"></i> Social
+                    </span>
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-info"></i> Referral
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
 
+	</div>
+
+	<div class="row">
+		<!-- chart bar -->
+		<div class="col-lg-12">
+			<div class="card shadow mb-4">
+		        <div class="card-header py-3">
+		          <h6 class="m-0 font-weight-bold text-primary">Browser Stats</h6>
+		        </div>
+		        <div class="card-body">
+		          <h4 class="small font-weight-bold">Google Chrome <span class="float-right"><?= number_format($chrome_visitor,2);?>%</span></h4>
+		          <div class="progress mb-4">
+		            <div class="progress-bar bg-primary " role="progressbar" style="width: <?= number_format($chrome_visitor,2);?>%" aria-valuemin="0" aria-valuemax="100"></div>
+		          </div>
+
+		          <h4 class="small font-weight-bold">Firefox <span class="float-right"><?= number_format($firefox_visitor,2);?>%</span></h4>
+		          <div class="progress mb-4">
+		            <div class="progress-bar bg-success" role="progressbar" style="width: <?= number_format($firefox_visitor,2);?>%" aria-valuemin="0" aria-valuemax="100"></div>
+		          </div>
+
+		          <h4 class="small font-weight-bold">Internet Explorer <span class="float-right"><?= number_format($explorer_visitor,2);?>%</span></h4>
+		          <div class="progress mb-4">
+		            <div class="progress-bar bg-warning" role="progressbar" style="width: <?= number_format($explorer_visitor,2);?>%" aria-valuemin="0" aria-valuemax="100"></div>
+		          </div>
+
+		          <h4 class="small font-weight-bold">Safari <span class="float-right"><?= number_format($safari_visitor,2);?>%</span></h4>
+		          <div class="progress mb-4">
+		            <div class="progress-bar bg-info" role="progressbar" style="width: <?= number_format($safari_visitor,2);?>%"  aria-valuemin="0" aria-valuemax="100"></div>
+		          </div>
+
+		          <h4 class="small font-weight-bold">Opera <span class="float-right"><?= number_format($opera_visitor,2);?>%</span></h4>
+		          <div class="progress mb-4">
+		            <div class="progress-bar bg-danger" role="progressbar" style="width: <?= number_format($opera_visitor,2);?>%" aria-valuemin="0" aria-valuemax="100"></div>
+		          </div>
+
+		          <h4 class="small font-weight-bold">Robot <span class="float-right"><?= number_format($robot_visitor,2);?>%</span></h4>
+		          <div class="progress mb-4">
+		            <div class="progress-bar bg-dark" role="progressbar" style="width: <?= number_format($robot_visitor,2);?>%" aria-valuemin="0" aria-valuemax="100"></div>
+		          </div>
+
+		          <h4 class="small font-weight-bold">Other <span class="float-right"><?= number_format($other_visitor,2);?>%</span></h4>
+		          <div class="progress">
+		            <div class="progress-bar bg-dark" role="progressbar" style="width: <?= number_format($other_visitor,2);?>%" aria-valuemin="0" aria-valuemax="100"></div>
+		          </div>
+
+
+		        </div>
+	      	</div>
+		</div>
 	</div>
 	<!-- Content Row -->
 </div>
@@ -101,7 +173,9 @@
 <script src="<?= base_url('assets/backend/vendor/chart.js/Chart.min.js') ?>"></script>
 
 <script>
+
 	$(document).ready(function(){
+
 		var ctx = document.getElementById("myAreaChart");
 		var myLineChart = new Chart(ctx, {
 		  type: 'line',
@@ -115,12 +189,12 @@
 		      pointRadius: 3,
 		      pointBackgroundColor: "rgba(78, 115, 223, 1)",
 		      pointBorderColor: "rgba(78, 115, 223, 1)",
-		      pointHoverRadius: 3,
+		      pointHoverRadius: 5,
 		      pointHoverBackgroundColor: "rgba(78, 115, 223, 1)",
 		      pointHoverBorderColor: "rgba(78, 115, 223, 1)",
 		      pointHitRadius: 10,
 		      pointBorderWidth: 2,
-		      data: [1, 2, 3],
+		      data: <?= $value; ?>,
 		      responsive: true
 		    }],
 		  },
@@ -142,27 +216,17 @@
 		        gridLines: {
 		          display: false,
 		          drawBorder: false
-		        },
-		        ticks: {
-		          maxTicksLimit: 7
 		        }
 		      }],
 		      yAxes: [{
 		        ticks: {
-		          maxTicksLimit: 5,
-		          padding: 10,
-		          // Include a dollar sign in the ticks
-		          // callback: function(value, index, values) {
-		          //   return '$' + number_format(value);
-		          // }
+					beginAtZero: true,
+					callback: function(value, index, values) {
+			           if (Math.floor(value) === value) {
+	                     return value;
+	                 	}
+			        }
 		        },
-		        // gridLines: {
-		        //   color: "rgb(234, 236, 244)",
-		        //   zeroLineColor: "rgb(234, 236, 244)",
-		        //   drawBorder: false,
-		        //   borderDash: [2],
-		        //   zeroLineBorderDash: [2]
-		        // }
 		      }],
 		    },
 		    legend: {
@@ -191,5 +255,44 @@
 		    }
 		  }
 		});
+
+		// Set new default font family and font color to mimic Bootstrap's default styling
+		Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+		Chart.defaults.global.defaultFontColor = '#858796';
+
+		// Pie Chart Example
+		var ctx = document.getElementById("myPieChart");
+		var myPieChart = new Chart(ctx, {
+		  type: 'doughnut',
+		  data: {
+		    labels: ["Direct", "Referral", "Social", "windwos"],
+		    datasets: [{
+		      data: [55, 30, 15, 14],
+		      backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],
+		      hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
+		      hoverBorderColor: "rgba(234, 236, 244, 1)",
+		    }],
+		  },
+		  options: {
+		    maintainAspectRatio: false,
+		    tooltips: {
+		      backgroundColor: "rgb(255,255,255)",
+		      bodyFontColor: "#858796",
+		      borderColor: '#dddfeb',
+		      borderWidth: 1,
+		      xPadding: 15,
+		      yPadding: 15,
+		      displayColors: false,
+		      caretPadding: 10,
+		    },
+		    legend: {
+		      display: false
+		    },
+		    cutoutPercentage: 80,
+		  },
+		});
+
+
+
 });
 </script>

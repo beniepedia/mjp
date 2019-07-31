@@ -1,7 +1,7 @@
   	</div>
       <!-- End of Main Content -->
  			<!-- Footer -->
-      <footer class="sticky-footer bg-white">
+      <footer class="sticky-footer bg-white shadow-lg">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
             <span>Copyright &copy; Created <?= date('Y'); ?> By Ahmad Qomaini</span>
@@ -49,6 +49,8 @@
   <script src="<?= base_url('assets/backend/vendor/bootstrap-fileinput/') ?>themes/fas/theme.js" type="text/javascript"></script>
   <script src="<?= base_url('assets/backend/vendor/bootstrap-fileinput/') ?>themes/explorer-fas/theme.js" type="text/javascript"></script>
   <script src="<?= base_url('assets/backend/vendor/chart.js/Chart.min.js') ?>"></script>
+  <script src="<?= base_url('assets/backend/vendor/waypoints/jquery.waypoints.min.js') ?>"></script>
+  <script src="<?= base_url('assets/backend/vendor/jquery-counterup/jquery.counterup.min.js') ?>"></script>
   <script src="<?= base_url('assets/backend/') ?>js/myscript.js"></script>
 
 </body>

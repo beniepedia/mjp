@@ -1,4 +1,10 @@
   $(document).ready(function(){
+      // $('.counter').counterUp({
+      //       delay: 10,
+      //       time: 1000
+      //   });
+
+      
       const sosial_check = $('#checkbox_sosial');
       const input_id = $('#fbid, #fbkey, #gid, #gkey');
       if($(sosial_check).is(':checked'))
