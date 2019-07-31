@@ -6,6 +6,8 @@ class Home extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('Igphoto_model');
+		$this->load->model('Visitors_model');
+		$this->Visitors_model->count_visitor();
 	}
 
 	public function index()

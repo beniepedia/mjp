@@ -33,7 +33,7 @@
           		<td data-inbox_id="<?= $i->inbox_id; ?>"><?= substr($i->inbox_message, 0, 30); ?></td>
           		<td data-inbox_id="<?= $i->inbox_id; ?>"><?= date_indo(date("Y-m-d", $i->inbox_created)); ?></td>
           		<td class="text-center">
-                	<a href="#" data-toggle="modal" data-target="#deleteMesssageModal" class="btn btn-danger btn-sm btn-circle"><i class="fas fa-trash"></i></a>
+                	<a href="#" id="btn-delete" class="btn btn-danger btn-sm btn-circle"><i class="fas fa-trash"></i></a>
               	</td>
           	</tr>
           	<?php endforeach; ?>
@@ -77,5 +77,11 @@
 			window.location = "<?= base_url('admin/message/detail/');?>"+inbox_id;
 
 		});
+
+    $('#btn-delete').on('click', function(e){
+      e.stopPropagation();
+      e.preventDefault();
+      $('#deleteMesssageModal').modal('show');
+    });
 	});
 </script>

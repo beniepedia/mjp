@@ -30,8 +30,6 @@
 
   <!-- Custom scripts for all pages-->
   <script src="<?= base_url('assets/backend/') ?>js/sb-admin-2.js"></script>
-  <!-- Core plugin JavaScript-->
-  <script src="<?= base_url('assets/backend/') ?>vendor/jquery-easing/jquery.easing.min.js"></script>
 
   <!-- Page level plugins -->
   <script src="<?= base_url('assets/backend/') ?>vendor/datatables/jquery.dataTables.min.js"></script>
@@ -50,6 +48,8 @@
   <script src="<?= base_url('assets/backend/vendor/bootstrap-fileinput/') ?>js/locales/es.js" type="text/javascript"></script>
   <script src="<?= base_url('assets/backend/vendor/bootstrap-fileinput/') ?>themes/fas/theme.js" type="text/javascript"></script>
   <script src="<?= base_url('assets/backend/vendor/bootstrap-fileinput/') ?>themes/explorer-fas/theme.js" type="text/javascript"></script>
+  <script src="<?= base_url('assets/backend/vendor/chart.js/Chart.min.js') ?>"></script>
+<script src="<?= base_url('assets/backend/js/demo/chart-area-demo.js') ?>"></script>
   <script src="<?= base_url('assets/backend/') ?>js/myscript.js"></script>
 
 </body>
