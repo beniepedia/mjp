@@ -49,7 +49,6 @@
   <script src="<?= base_url('assets/backend/vendor/bootstrap-fileinput/') ?>themes/fas/theme.js" type="text/javascript"></script>
   <script src="<?= base_url('assets/backend/vendor/bootstrap-fileinput/') ?>themes/explorer-fas/theme.js" type="text/javascript"></script>
   <script src="<?= base_url('assets/backend/vendor/chart.js/Chart.min.js') ?>"></script>
-<script src="<?= base_url('assets/backend/js/demo/chart-area-demo.js') ?>"></script>
   <script src="<?= base_url('assets/backend/') ?>js/myscript.js"></script>
 
 </body>

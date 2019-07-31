@@ -22,7 +22,7 @@ class Auth extends CI_Controller
         $this->form_validation->set_error_delimiters('<div class="invalid-feedback pl-3">', '</div>');
 
     	if ($this->form_validation->run() == FALSE) {
-        	$data['title'] = 'Login Member - ' . $this->generalset->web()->site_name;
+        	$data['title'] = 'Sign - ' . $this->generalset->web()->site_name;
         	$this->load->view('template/auth_header', $data);
         	$this->load->view('auth/login', $data);
         	$this->load->view('template/auth_footer');

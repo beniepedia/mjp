@@ -11,12 +11,23 @@ class Dashboard extends CI_Controller {
 	     {
 	     	redirect('/','refresh');
 	     }
+
+	     $this->load->model('Visitors_model');
 	}
 
 	public function index()
 	{
+		$visitor 			= $this->Visitors_model->visitor_statistic();
+		foreach ($visitor as $result) {
+			$bulan[] 		= $result->tgl;
+			$value[]		=  (float) $result->jumlah;
+		}
+
+		$data['month']		= json_encode($bulan);
+		$data['value'] 		= json_encode($value);
+
 		$this->load->model('User_model', 'user');
-		$data['aktif']	= $this->user->getTotal(1)->num_rows();
+		$data['aktif']		= $this->user->getTotal(1)->num_rows();
 		$data['nonaktif']	= $this->user->getTotal(0)->num_rows();
 		$data['title'] 		= 'Dashboard - '. $this->generalset->web()->site_name;
 		$this->load->view('template/dashboard_header', $data);

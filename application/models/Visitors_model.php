@@ -2,6 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Visitors_model extends CI_Model {
+
 	// insert visitor
 	function count_visitor()
 	{
@@ -35,6 +36,19 @@ class Visitors_model extends CI_Model {
 		}
 
 
+	}
+
+	function visitor_statistic()
+	{
+		$query = $this->db->query("SELECT DATE_FORMAT(visit_date,'%d') AS tgl,COUNT(visit_ip) AS jumlah FROM tb_visitors WHERE MONTH(visit_date)=MONTH(CURDATE()) GROUP BY DATE(visit_date)");
+
+		if( $query->num_rows() > 0 )
+		{
+			foreach($query->result() as $data){
+                $result[] = $data;
+            }
+            return $result; 
+		}
 	}
 
 }
