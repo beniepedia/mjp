@@ -21,7 +21,7 @@ class Posts extends CI_Controller {
 		$this->load->view('template/dashboard_footer');
 	}
 
-	public function tambah_post()
+	public function add_new_post()
 	{
 		$this->form_validation->set_rules('title', 'Judul', 'trim|required');
 		if ($this->form_validation->run() == FALSE) {
@@ -32,6 +32,8 @@ class Posts extends CI_Controller {
 			$this->load->view('template/dashboard_footer');
 			# code...
 		} else {
+
+			var_dump($_FILES);die;
 
 			$post 	= $this->input->post(null, TRUE);
 			$config['upload_path'] = './assets/img/blog_img/'; //path folder
@@ -89,6 +91,16 @@ class Posts extends CI_Controller {
 	        	echo "gambar kosong";
 	        }
 		}
+	}
+
+
+	public function category_post()
+	{
+		$data['title']		= 'Kategori Post - ' . $this->generalset->web()->site_name;
+		$this->load->view('template/dashboard_header', $data);
+		$this->load->view('template/dashboard_topbar');
+		$this->load->view('admin/v_category_post');
+		$this->load->view('template/dashboard_footer');
 	}
 
 	public function delete($id)

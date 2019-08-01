@@ -53,11 +53,23 @@
 					</li>
 
 					<hr class="sidebar-divider my-0">
-					<li class="nav-item <?php if($this->uri->segment(2)=='posts'){echo 'active';} ?>">
-					<a class="nav-link" href="<?= base_url('admin/posts'); ?>">
-						<i class="fas fa-fw fa-file-signature"></i>
-						<span>Posts</span></a>
+
+					<li class="nav-item <?php if($this->uri->segment(2)=='posts'){echo 'active';}?>">
+						<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#navpost" aria-expanded="true" aria-controls="collapseTwo">
+							<i class="fas fa-clipboard-list fa-fw"></i>
+							<span>Posts</span>
+						</a>
+						<div id="navpost" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+							<div class="bg-white py-2 collapse-inner rounded">
+								<h6 class="collapse-header">Posts:</h6>
+								<a class="collapse-item" href="<?= base_url('admin/posts/add_new_post') ?>">Buat baru</a>
+								<a class="collapse-item" href="<?= base_url('admin/posts') ?>">List</a>
+								<a class="collapse-item" href="<?= base_url('admin/posts/category_post') ?>">Kategori</a>
+								<a class="collapse-item" href="<?= base_url('admin/posts/add_new_post') ?>">Tag</a>
+							</div>
+						</div>
 					</li>
+
 					<!-- Divider -->
 					<hr class="sidebar-divider my-0">
 
@@ -74,6 +86,7 @@
 							</div>
 						</div>
 					</li>
+
 					<!-- Divider -->
 					<hr class="sidebar-divider my-0">
 					<!-- Nav Item - Pages Collapse Menu -->

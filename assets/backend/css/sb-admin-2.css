@@ -11132,7 +11132,7 @@ a:focus {
 .sidebar .nav-item .collapse {
   position: absolute;
   left: calc(6.5rem + 1.5rem / 2);
-  z-index: 1;
+  z-index: 9999;
   top: 2px;
 }
 
@@ -11329,7 +11329,7 @@ a:focus {
   .sidebar.toggled .nav-item .collapse {
     position: absolute;
     left: calc(6.5rem + 1.5rem / 2);
-    z-index: 1;
+    z-index: 999;
     top: 2px;
     -webkit-animation-name: growIn;
     animation-name: growIn;

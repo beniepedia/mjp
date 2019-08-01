@@ -1,11 +1,11 @@
 
+<?= form_open_multipart('admin/posts/add_new_post'); ?>
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-xl-8 col-lg-7 ">
 			<!-- Default Card Example -->
 			<div class="card mb-3 shadow">
 		
-				<form action="<?= base_url('admin/posts/tambah_post') ?>" method="post" enctype="multipart/form-data">
 				<div class="card-body">
 					<div class="form-group">
 						<label for="title" class="label-judul">Judul Post</label>
@@ -29,7 +29,7 @@
 				<div class="card-body">
 					<div class="form-group">
 						<label class="label-judul">Gambar</label>
-						<input type="file" class="dropify" name="fileimage">
+						<input type="file" id="imagepost" name="filefoto">
 					</div>
 
 					<div class="form-group">
@@ -43,15 +43,15 @@
 						<label class="label-judul">Tag</label>
 						 <div style="overflow-y:scroll;height:150px;margin-bottom:30px;">
                             <div class="custom-control custom-checkbox">
-								  <input type="checkbox" class="custom-control-input">
-								  <label class="custom-control-label">Check this custom checkbox</label>
-                            </div>
+							  <input type="checkbox" class="custom-control-input" id="tag" name="tag" value="1">
+							  <label class="custom-control-label" for="tag">Check this custom checkbox</label>
+							</div>
                         </div>
 					</div>
 
 					<div class="form-group">
-						<button type="submit" class="btn btn-primary btn-block btn-sm"> <i class="fas fa-paper-plane"></i> Publish</button>
-						<button type="submit" class="btn btn-secondary btn-block btn-sm"> <i class="fas fa-save"></i> Draft</button>
+						<button type="publish" class="btn btn-primary btn-block btn-sm"> <i class="fas fa-paper-plane"></i> Publish</button>
+						<button type="draft" class="btn btn-secondary btn-block btn-sm"> <i class="fas fa-save"></i> Draft</button>
 					</div>
 
 				</div>
@@ -61,7 +61,7 @@
 				<div class="card-body">
 					<div class="form-group">
 						<label class="label-judul">Meta Description</label>
-						<textarea name="" cols="6" rows="4" class="form-control" placeholder="Meta Description"></textarea>
+						<textarea name="meta" cols="6" rows="4" class="form-control" placeholder="Meta Description"></textarea>
 					</div>
 				</div>
 			</div>
