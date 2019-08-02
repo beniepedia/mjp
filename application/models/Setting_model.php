@@ -5,7 +5,7 @@ class Setting_model extends CI_Model {
 
 	public function getAll()
 	{
-		return $this->db->get('web_config')->row_array();
+		return $this->db->get('web_config');
 	}
 
 	public function update($data)

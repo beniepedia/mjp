@@ -1,8 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
 class Setting extends CI_Controller {
-
 	public function __construct()
 	{
 		parent::__construct();
@@ -15,17 +13,15 @@ class Setting extends CI_Controller {
 			redirect('/','refresh');
 		}
 	}
-
 	public function index()
 	{
-		$data['site'] = $this->Setting_model->getAll();
+		$data['site'] = $this->Setting_model->getAll()->row_array();
 		$data['title'] = 'Pengaturan Website - '. $this->generalset->web()->site_name;
 		$this->load->view('template/dashboard_header', $data);
 		$this->load->view('template/dashboard_topbar');
 		$this->load->view('admin/setting', $data);
 		$this->load->view('template/dashboard_footer');
 	}
-
 	public function update()
 	{
 		if( isset($_POST['save_web']) )
@@ -38,7 +34,6 @@ class Setting extends CI_Controller {
 			// ];
 			var_dump($_FILES);die;
 		}
-
 		else if( isset($_POST['save_sosial']) )
 		{
 			$data = [
@@ -49,7 +44,6 @@ class Setting extends CI_Controller {
 		    'is_active'				=> $this->input->post('is_active')
 			];
 		}
-
 		$update = $this->Setting_model->update($data);
 		if( $update )
 		{
@@ -58,7 +52,6 @@ class Setting extends CI_Controller {
 			redirect('admin/setting','refresh');
 		}
 	}
-
 	public function email()
 	{
 			$data['email']		=	$this->Setting_model->emailset()->row();
@@ -68,7 +61,6 @@ class Setting extends CI_Controller {
 			$this->load->view('admin/email', $data);
 			$this->load->view('template/dashboard_footer');
 	}
-
 	public function editemail()
 	{
 			$this->form_validation->set_rules('admin', 'Admin Email', 'trim|required|valid_email');
@@ -80,9 +72,7 @@ class Setting extends CI_Controller {
 			$this->form_validation->set_rules('port', 'Port', 'trim|required|numeric');
 			$this->form_validation->set_rules('tipe', 'Type', 'trim|required');
 			$this->form_validation->set_rules('chart', 'Chartset', 'trim|required');
-
 			$this->form_validation->set_error_delimiters('<div class="invalid-feedback">', '</div>');
-
 			if ($this->form_validation->run() == FALSE) {
 				$data['email']		=	$this->Setting_model->emailset()->row();
 				$data['title'] 		= 	'Ubah Pengaturan Email - '. $this->generalset->web()->site_name;
@@ -92,7 +82,6 @@ class Setting extends CI_Controller {
 				$this->load->view('template/dashboard_footer');
 				# code...
 			} else {
-
 				$post = $this->input->post(null);
 				if( isset($post['save_email']) )
 				{
@@ -111,9 +100,6 @@ class Setting extends CI_Controller {
 			}
 	} 
 	// end script update email
-
 }
-
-
 /* End of file Setting.php */
 /* Location: ./application/controllers/admin/Setting.php */
