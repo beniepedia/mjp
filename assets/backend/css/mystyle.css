@@ -5,3 +5,7 @@
 .mailbox table tr td {
 	cursor: pointer;
 }
+
+.color-gradiant {
+	background: linear-gradient(to right, #0052d4, #4364f7, #6fb1fc);
+}

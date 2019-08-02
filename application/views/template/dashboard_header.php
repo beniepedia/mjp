@@ -27,11 +27,11 @@
 		<div id="wrapper">
 			
 			<!-- Sidebar -->
-			<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+			<ul class="navbar-nav sidebar sidebar-dark accordion color-gradiant" id="accordionSidebar">
 				<!-- Sidebar - Brand -->
 				<a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
 					<div class="sidebar-brand-icon">
-						<img src="<?= base_url('assets/') ?>img/logo.jpg" class="img-fluid rounded-circle shadow" width="60">
+						<img src="<?= base_url('assets/img/').$this->generalset->web()->site_logo_header; ?>" class="img-fluid rounded-circle shadow" width="50">
 					</div>
 					<div class="sidebar-brand-text mx-3">ID MJP</div>
 				</a>
