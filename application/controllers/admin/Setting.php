@@ -8,20 +8,85 @@ class Setting extends CI_Controller {
 		is_not_login();
 		$this->load->library('form_validation');
 		$this->load->library('encryption');
+		$this->load->library('Comprez_lib');
 		if($this->check->is_admin()->role_id != 1)
 		{
 			redirect('/','refresh');
 		}
 	}
+
 	public function index()
 	{
-		$data['site'] = $this->Setting_model->getAll()->row_array();
-		$data['title'] = 'Pengaturan Website - '. $this->generalset->web()->site_name;
-		$this->load->view('template/dashboard_header', $data);
-		$this->load->view('template/dashboard_topbar');
-		$this->load->view('admin/setting', $data);
-		$this->load->view('template/dashboard_footer');
+		$this->form_validation->set_rules('sitename', 'Nama Website', 'trim|required');
+		$this->form_validation->set_rules('sitealias', 'Alias', 'trim|required');
+		$this->form_validation->set_rules('siteauthor', 'Author', 'trim|required');
+		$this->form_validation->set_rules('sitedesc', 'Deskripsi', 'trim|required');
+		$this->form_validation->set_rules('hp', 'Handphone', 'trim|required|numeric');
+		$this->form_validation->set_rules('wa1', 'Whatsapp', 'trim|required|numeric');
+		$this->form_validation->set_rules('siteaddr', 'Alamat', 'trim|required');
+
+		$this->form_validation->set_error_delimiters('<div class="invalid-feedback">', '</div>');
+
+		if ($this->form_validation->run() == FALSE) {
+			$data['site'] = $this->Setting_model->getAll()->row_array();
+			$data['title'] = 'Pengaturan Website - '. $this->generalset->web()->site_name;
+			$this->load->view('template/dashboard_header', $data);
+			$this->load->view('template/dashboard_topbar');
+			$this->load->view('admin/setting', $data);
+			$this->load->view('template/dashboard_footer');
+		} else {
+
+			// config upload foto
+			$config['upload_path'] 			= './assets/img/';
+			$config['allowed_types'] 		= 'jpg|png|jpeg';
+			$config['max_size']     		= '1024';
+			$config['file_ext_tolower']     = TRUE;
+			$config['file_name']     		= strtolower('logo-'.$this->generalset->web()->site_name).'-'.date("s");
+
+			$old_logo 	= $this->input->post('old_logo');
+			$this->load->library('upload', $config);
+			// cek ada gambar atau tidak
+			if( !empty($_FILES['imgLogo']['name']) )
+			{
+				
+				if( $this->upload->do_upload('imgLogo') )
+				{
+					if( file_exists('./assets/img/'.$old_logo) )
+					{
+						unlink('./assets/img/'.$old_logo);
+					}
+
+					$logo 	= $this->upload->data();
+					$source = './assets/img/' . $logo['file_name'];
+					$this->comprez_lib->img($source, '60%', 172, 172, $source);
+					$this->image_lib->resize();
+
+					
+				} else {
+
+					$error = $this->upload->display_errors();
+					$this->session->set_flashdata('msg', $error);
+					$this->session->set_flashdata('type', 'danger');
+					redirect('admin/setting','refresh');
+					die;
+				}
+
+				$params['logo'] = $logo['file_name'];
+
+			} else {
+				$params['logo'] = $old_logo;
+			}
+
+			// update setting
+			$this->Setting_model->update($params);
+			$this->session->set_flashdata('msg', 'Update pengaturan website berhasil!');
+			$this->session->set_flashdata('type', 'success');
+			redirect('admin/setting','refresh');
+
+		}
+
 	}
+
 	public function update()
 	{
 		if( isset($_POST['save_web']) )
@@ -32,7 +97,7 @@ class Setting extends CI_Controller {
 			// 	'site_description' 	=> htmlspecialchars($this->input->post('sitedesc'), true),
 			// 	'site_author' 		=> htmlspecialchars($this->input->post('siteauthor'),true)
 			// ];
-			var_dump($_FILES);die;
+			var_dump($_POST);die;
 		}
 		else if( isset($_POST['save_sosial']) )
 		{

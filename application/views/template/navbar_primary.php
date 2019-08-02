@@ -1,6 +1,6 @@
 <!-- Navbar Primary -->
 <nav class="navbar navbar-expand-lg navbar-light">
-	<a class="navbar-brand" href="#"><img src="<?= base_url('assets/') ?>img/logo.jpg"><?= $this->generalset->web()->site_name; ?></a>
+	<a class="navbar-brand" href="#"><img src="<?= base_url('assets/img/').$this->generalset->web()->site_logo_header; ?>"><?= $this->generalset->web()->site_name; ?></a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
 	aria-expanded="false" aria-label="Toggle navigation">
 	<span class="navbar-toggler-icon"></span>

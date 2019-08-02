@@ -8,8 +8,21 @@ class Setting_model extends CI_Model {
 		return $this->db->get('web_config');
 	}
 
-	public function update($data)
+	public function update($params)
 	{
+		$data['site_name'] = htmlspecialchars($this->input->post('sitename', TRUE),ENT_QUOTES);
+		$data['site_alias'] = htmlspecialchars($this->input->post('sitealias', TRUE),ENT_QUOTES);
+		$data['site_description'] = htmlspecialchars($this->input->post('sitedesc', TRUE),ENT_QUOTES);
+		$data['site_author'] = htmlspecialchars($this->input->post('siteauthor', TRUE),ENT_QUOTES);
+		$data['site_logo_header'] = $params['logo'];
+		$data['site_handphone'] = htmlspecialchars($this->input->post('hp', TRUE),ENT_QUOTES);
+		$data['site_whatsapp_1'] = htmlspecialchars($this->input->post('wa1', TRUE),ENT_QUOTES);
+		$data['site_whatsapp_2'] = htmlspecialchars($this->input->post('wa2', TRUE),ENT_QUOTES);
+		$data['site_address'] = htmlspecialchars($this->input->post('siteaddr', TRUE),ENT_QUOTES);
+		$data['site_fb'] = htmlspecialchars($this->input->post('fbUrl', TRUE),ENT_QUOTES);
+		$data['site_twitter'] = htmlspecialchars($this->input->post('twUrl', TRUE),ENT_QUOTES);
+		$data['site_instagram'] = htmlspecialchars($this->input->post('igUrl', TRUE),ENT_QUOTES);
+
 		$update = $this->db->update('web_config', $data);
 		return $update;
 	}

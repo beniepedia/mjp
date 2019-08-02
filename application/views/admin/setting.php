@@ -17,53 +17,60 @@
 				<div class="card-body">
 					<div class="row">
 						<div class="col-lg-12">
-							<?= form_open_multipart('admin/setting/update'); ?>
+							<?= form_open_multipart('admin/setting'); ?>
 								<div class="form-group row">
-									<label for="sitename" class="col-sm-3 col-form-label label-judul">Judul Web</label>
+									<label for="sitename" class="col-sm-3 col-form-label label-judul">Nama Website</label>
 									<div class="col-md-9">
-										<input type="text" name="sitename" class="form-control" id="sitename" placeholder="Id-MJParfume" value="<?= $site['site_name']; ?>">
+										<input type="text" name="sitename" class="form-control <?= form_error('sitename')?'is-invalid':null; ?>" id="sitename" placeholder="Id-MJParfume" value="<?= $this->input->post('sitename') ?? $site['site_name']; ?>">
+										<?= form_error('sitename'); ?>
 									</div>
 								</div>
 								<div class="form-group row">
 									<label for="sitealias"  class="col-sm-3 col-form-label label-judul">Alias</label>
 									<div class="col-md-9">
-										<input type="text" name="sitealias" class="form-control" id="sitealias" placeholder="ID-Mjp.com" value="<?= $site['site_alias']; ?>">
+										<input type="text" name="sitealias" class="form-control <?= form_error('sitealias')?'is-invalid':null; ?>" id="sitealias" placeholder="ID-Mjp.com" value="<?= $this->input->post('sitealias') ?? $site['site_alias']; ?>">
+										<?= form_error('sitealias'); ?>
 									</div>
 								</div>
 								<div class="form-group row">
 									<label for="siteauthor" class="col-sm-3 col-form-label label-judul">Pemilik</label>
 									<div class="col-md-9">
-										<input type="text" name="siteauthor" class="form-control" id="siteauthor" placeholder="BeniePedia" value="<?= $site['site_author']; ?>">
+										<input type="text" name="siteauthor" class="form-control <?= form_error('siteauthor')?'is-invalid':null; ?>" id="siteauthor" placeholder="BeniePedia" value="<?= $this->input->post('siteauthor') ?? $site['site_author']; ?>">
+										<?= form_error('siteauthor'); ?>
 									</div>
 								</div>
 
 								<div class="form-group row">
 									<label for="sitedesc" class="col-sm-3 col-form-label label-judul">Deskripsi</label>
 									<div class="col-md-9">
-										<textarea type="text" name="sitedesc" class="form-control" rows="3" id="sitedesc" placeholder="Deskripsi web"><?= $site['site_description']; ?></textarea>
+										<textarea type="text" name="sitedesc" class="form-control <?= form_error('sitedesc')?'is-invalid':null; ?>" rows="3" id="sitedesc" placeholder="Deskripsi web"><?= $this->input->post('sitedesc') ?? $site['site_description']; ?></textarea>
+										<?= form_error('sitedesc'); ?>
 									</div>
 								</div>
 
 								<div class="form-group row">
 									<label for="imgLogo" class="col-sm-3 col-form-label label-judul">Logo</label>
 									<div class="col-md-9">
-										<input type="file" id="imgLogo" name="logo">
-										<img src="<?= base_url('assets/img/logo.jpg') ?>" alt="" class="img-thumbnail mt-2" width="100">
+										<input type="file" id="imgLogo" name="imgLogo">
+										<input type="hidden" id="imgLogo" name="old_logo" value="<?= $site['site_logo_header']; ?>">
+										<img src="<?= base_url('assets/img/').$site['site_logo_header']; ?>" alt="" class="img-thumbnail mt-2" width="100">
 									</div>
 								</div>
 
 								<div class="form-group row">
 									<label for="hp" class="col-sm-3 col-form-label label-judul">Handphone</label>
 									<div class="col-md-9">
-										<input type="text" name="hp" class="form-control" id="hp" placeholder="+6282174xxxx" value="<?= $site['site_handphone']; ?>">
+										<input type="text" name="hp" class="form-control <?= form_error('hp')?'is-invalid':null; ?>" id="hp" placeholder="+6282174xxxx" value="<?= $this->input->post('hp') ?? $site['site_handphone']; ?>">
+										<?= form_error('hp'); ?>
 									</div>
 								</div>
 
 								<div class="form-group row">
 									<label for="wa1" class="col-sm-3 col-form-label label-judul">Whatsapp 1</label>
 									<div class="col-md-9">
-										<input type="text" name="wa1" class="form-control" id="wa1" placeholder="+6282174xxxx" value="<?= $site['site_whatsapp_1']; ?>">
-									<small class="font-italic text-muted">*gunakan +62 untuk nomor whatsapp</small>
+										<input type="text" name="wa1" class="form-control <?= form_error('wa1')?'is-invalid':null; ?>" id="wa1" placeholder="+6282174xxxx" value="<?= $this->input->post('wa1') ?? $site['site_whatsapp_1']; ?>">
+										<?= form_error('wa1'); ?>
+									<small class="font-italic text-muted">(*) gunakan +62 untuk nomor whatsapp</small>
 									</div>
 								</div>
 
@@ -71,14 +78,15 @@
 									<label for="wa2" class="col-sm-3 col-form-label label-judul">Whatsapp 2</label>
 									<div class="col-md-9">
 										<input type="text" name="wa2" class="form-control" id="wa2" placeholder="+6282174xxxx" value="<?= $site['site_whatsapp_2']; ?>">
-									<small class="font-italic text-muted">*gunakan +62 untuk nomor whatsapp</small>
+									<small class="font-italic text-muted">(*) gunakan +62 untuk nomor whatsapp</small>
 									</div>
 								</div>
 
 								<div class="form-group row">
 									<label for="siteaddr" class="col-sm-3 col-form-label label-judul">Alamat</label>
 									<div class="col-md-9">
-										<textarea type="text" name="siteaddr" class="form-control" rows="3" id="siteaddr" placeholder="Alamat usaha"><?= $site['site_address']; ?></textarea>
+										<textarea type="text" name="siteaddr" class="form-control <?= form_error('siteaddr')?'is-invalid':null; ?>" rows="3" id="siteaddr" placeholder="Alamat usaha"><?= $this->input->post('siteaddr') ?? $site['site_address']; ?></textarea>
+										<?= form_error('siteaddr'); ?>
 									</div>
 								</div>
 								
