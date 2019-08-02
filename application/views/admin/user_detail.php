@@ -12,7 +12,7 @@
 		<div class="card-body">
 			<div class="row">
 				<div class="col-lg-12">
-					<table class="table table-striped">
+					<table class="table table-bordered table-hover">
 						<tbody>
 					    <tr>
 					      <td>Nama </td>
@@ -48,11 +48,11 @@
 					    </tr> 
 					    <tr>
 					    	<td>Tanggal Daftar</td>
-					    	<td><?= date("D, d-m-Y - H:i:s", $userDtl->date_created); ?></td>
+					    	<td><?= longdate_indo(date("Y-m-d", $userDtl->date_created)).',  '.date("H:i:s", $userDtl->date_created); ?></td>
 					    </tr>
 					    <tr>
 					    	<td>Login Terakhir</td>
-					    	<td><?= date("D, d/m/Y - H:i:s", $userDtl->last_login); ?></td>
+					    	<td><?= longdate_indo(date("Y-m-d", $userDtl->last_login)).',  '.date("H:i:s", $userDtl->last_login); ?></td>
 					    </tr>
 					  </tbody>
 					</table>

@@ -65,7 +65,7 @@
 								<a class="collapse-item" href="<?= base_url('admin/posts/add_new_post') ?>">Buat baru</a>
 								<a class="collapse-item" href="<?= base_url('admin/posts') ?>">List</a>
 								<a class="collapse-item" href="<?= base_url('admin/posts/category_post') ?>">Kategori</a>
-								<a class="collapse-item" href="<?= base_url('admin/posts/add_new_post') ?>">Tag</a>
+								<a class="collapse-item" href="<?= base_url('admin/posts/tags_post') ?>">Tags</a>
 							</div>
 						</div>
 					</li>

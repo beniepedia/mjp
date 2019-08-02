@@ -30,12 +30,13 @@ class Setting extends CI_Controller {
 	{
 		if( isset($_POST['save_web']) )
 		{
-			$data = [
-				'site_name' 		=> htmlspecialchars($this->input->post('sitename'), true),
-				'site_alias' 		=> htmlspecialchars($this->input->post('sitealias'), true),
-				'site_description' 	=> htmlspecialchars($this->input->post('sitedesc'), true),
-				'site_author' 		=> htmlspecialchars($this->input->post('siteauthor'),true)
-			];
+			// $data = [
+			// 	'site_name' 		=> htmlspecialchars($this->input->post('sitename'), true),
+			// 	'site_alias' 		=> htmlspecialchars($this->input->post('sitealias'), true),
+			// 	'site_description' 	=> htmlspecialchars($this->input->post('sitedesc'), true),
+			// 	'site_author' 		=> htmlspecialchars($this->input->post('siteauthor'),true)
+			// ];
+			var_dump($_FILES);die;
 		}
 
 		else if( isset($_POST['save_sosial']) )

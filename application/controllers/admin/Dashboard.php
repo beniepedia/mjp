@@ -110,6 +110,47 @@ class Dashboard extends CI_Controller {
 			$data['other_visitor'] = 0;
 		}
 
+		// get users platform windows
+		$windows_visitors = $this->Visitors_model->count_windows_visitors();
+		if($windows_visitors->num_rows() > 0){
+			$row = $windows_visitors->row_array();
+			$visitors_windows = $row['windows_visitor'];
+			$data['windows_visitor'] = ($visitors_windows / $visitor_this_month) * 100;
+		}else{
+			$data['windows_visitor'] = 0;
+		}
+
+		// get users platform android
+		$android_visitors = $this->Visitors_model->count_android_visitors();
+		if($android_visitors->num_rows() > 0){
+			$row = $android_visitors->row_array();
+			$visitors_android = $row['android_visitor'];
+			$data['android_visitor'] = ($visitors_android / $visitor_this_month) * 100;
+		}else{
+			$data['android_visitor'] = 0;
+		}
+
+		// get users platform linux
+		$linux_visitors = $this->Visitors_model->count_linux_visitors();
+		if($linux_visitors->num_rows() > 0){
+			$row = $linux_visitors->row_array();
+			$visitors_linux = $row['linux_visitor'];
+			$data['linux_visitor'] = ($visitors_linux / $visitor_this_month) * 100;
+		}else{
+			$data['linux_visitor'] = 0;
+		}
+
+		// get users platform ios
+		$ios_visitors = $this->Visitors_model->count_ios_visitors();
+		if($ios_visitors->num_rows() > 0){
+			$row = $ios_visitors->row_array();
+			$visitors_ios = $row['ios_visitor'];
+			$data['ios_visitor'] = ($visitors_ios / $visitor_this_month) * 100;
+		}else{
+			$data['ios_visitor'] = 0;
+		}
+
+
 		$this->load->model('User_model', 'user');
 		$data['aktif']		= $this->user->getTotal(1)->num_rows();
 		$data['nonaktif']	= $this->user->getTotal(0)->num_rows();

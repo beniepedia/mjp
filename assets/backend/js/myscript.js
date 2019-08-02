@@ -56,7 +56,7 @@
 
       $('.btn-blog').tooltip();
 
-       $("#imgPost").fileinput({
+       $("#imgPost, #imgLogo").fileinput({
             'theme': 'explorer-fas',
             // 'uploadUrl': "upload_image",
             overwriteInitial: false,
@@ -117,4 +117,17 @@
                 error:   'error'
             }
       });
+
+       $('.form-add-post [name="title"]').on('change', function(){
+          const isi = $(this).val();
+          $.ajax({
+            url: 'slug_category',
+            data: {data:isi},
+            dataType: 'text',
+            type: "POST",
+            success: function(response) {
+              $('.form-add-post [name="slug"]').val(response);
+            }
+          })
+       });
 });

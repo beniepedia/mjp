@@ -78,49 +78,21 @@
 	</div>
 	<hr>
 	<div class="row">
-			<div class="col-xl-8 col-lg-7">
-				 <div class="card shadow mb-4">
-				    <div class="card-header py-3">
-				      <h6 class="m-0 font-weight-bold text-primary">Visitor Perbulan</h6>
-				    </div>
-				    <div class="card-body">
-		            	<canvas id="myAreaChart"></canvas>
-				    </div>
-				  </div>
-			</div>
-		
-		<!-- Pie Chart -->
-            <div class="col-xl-4 col-lg-5">
-              <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                  <div class="chart-pie pt-4 pb-2">
-                    <canvas id="myPieChart"></canvas>
-                  </div>
-                  <div class="mt-4 text-center small">
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-primary"></i> Direct
-                    </span>
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-success"></i> Social
-                    </span>
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-info"></i> Referral
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
+		<div class="col-xl-12 col-lg-12">
+			 <div class="card shadow mb-4">
+			    <div class="card-header py-3">
+			      <h6 class="m-0 font-weight-bold text-primary">Visitor Perbulan</h6>
+			    </div>
+			    <div class="card-body">
+	            	<canvas id="myAreaChart"></canvas>
+			    </div>
+			  </div>
+		</div>
 	</div>
 
 	<div class="row">
 		<!-- chart bar -->
-		<div class="col-lg-12">
+		<div class="col-xl-6 col-lg-6">
 			<div class="card shadow mb-4">
 		        <div class="card-header py-3">
 		          <h6 class="m-0 font-weight-bold text-primary">Browser Stats</h6>
@@ -165,134 +137,149 @@
 		        </div>
 	      	</div>
 		</div>
+
+		<!-- Pie Chart -->
+        <div class="col-xl-6 col-lg-6">
+          <div class="card shadow mb-4" style="height: 510px;">
+            <!-- Card Header - Dropdown -->
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+              <h6 class="m-0 font-weight-bold text-primary">Platform Stats</h6>
+            </div>
+            <!-- Card Body -->
+            <div class="card-body">
+              <div class="chart-pie pt-4 pb-2">
+                <div id="chartdiv" style="width: 100%; height: 100%; margin-top: 50px;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
 	</div>
 	<!-- Content Row -->
 </div>
 <!-- /.container-fluid -->
 
 <script src="<?= base_url('assets/backend/vendor/chart.js/Chart.min.js') ?>"></script>
+<!-- Resources -->
+<script src="https://www.amcharts.com/lib/4/core.js"></script>
+<script src="https://www.amcharts.com/lib/4/charts.js"></script>
+<script src="https://www.amcharts.com/lib/4/themes/material.js"></script>
+<script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
 
 <script>
-
-	$(document).ready(function(){
-
-		var ctx = document.getElementById("myAreaChart");
-		var myLineChart = new Chart(ctx, {
-		  type: 'line',
-		  data: {
-		    labels: <?= $month; ?>,
-		    datasets: [{
-		      label: "Visitor",
-		      lineTension: 0.4,
-		      backgroundColor: "rgba(78, 115, 223, 0.05)",
-		      borderColor: "rgba(78, 115, 223, 1)",
-		      pointRadius: 3,
-		      pointBackgroundColor: "rgba(78, 115, 223, 1)",
-		      pointBorderColor: "rgba(78, 115, 223, 1)",
-		      pointHoverRadius: 5,
-		      pointHoverBackgroundColor: "rgba(78, 115, 223, 1)",
-		      pointHoverBorderColor: "rgba(78, 115, 223, 1)",
-		      pointHitRadius: 10,
-		      pointBorderWidth: 2,
-		      data: <?= $value; ?>,
-		      responsive: true
-		    }],
-		  },
-		  options: {
-		    // maintainAspectRatio: false,
-		    // layout: {
-		    //   padding: {
-		    //     left: 10,
-		    //     right: 25,
-		    //     top: 25,
-		    //     bottom: 0
-		    //   }
-		    // },
-		    scales: {
-		      xAxes: [{
-		        time: {
-		          unit: 'date'
-		        },
-		        gridLines: {
-		          display: false,
-		          drawBorder: false
+$(document).ready(function(){
+	var ctx = document.getElementById("myAreaChart");
+	var myLineChart = new Chart(ctx, {
+	  type: 'line',
+	  data: {
+	    labels: <?= $month; ?>,
+	    datasets: [{
+	      label: "Visitor",
+	      lineTension: 0.4,
+	      backgroundColor: "rgba(78, 115, 223, 0.05)",
+	      borderColor: "rgba(78, 115, 223, 1)",
+	      pointRadius: 3,
+	      pointBackgroundColor: "rgba(78, 115, 223, 1)",
+	      pointBorderColor: "rgba(78, 115, 223, 1)",
+	      pointHoverRadius: 5,
+	      pointHoverBackgroundColor: "rgba(78, 115, 223, 1)",
+	      pointHoverBorderColor: "rgba(78, 115, 223, 1)",
+	      pointHitRadius: 10,
+	      pointBorderWidth: 2,
+	      data: <?= $value; ?>,
+	      responsive: true
+	    }],
+	  },
+	  options: {
+	    maintainAspectRatio: true,
+	    layout: {
+	      padding: {
+	        left: 10,
+	        right: 25,
+	        top: 25,
+	        bottom: 0
+	      }
+	    },
+	    scales: {
+	      xAxes: [{
+	        time: {
+	          unit: 'date'
+	        },
+	        gridLines: {
+	          display: false,
+	          drawBorder: false
+	        }
+	      }],
+	      yAxes: [{
+	        ticks: {
+				beginAtZero: true,
+				callback: function(value, index, values) {
+		           if (Math.floor(value) === value) {
+                     return value;
+                 	}
 		        }
-		      }],
-		      yAxes: [{
-		        ticks: {
-					beginAtZero: true,
-					callback: function(value, index, values) {
-			           if (Math.floor(value) === value) {
-	                     return value;
-	                 	}
-			        }
-		        },
-		      }],
-		    },
-		    legend: {
-		      display: false
-		    },
-		    tooltips: {
-		      backgroundColor: "rgb(255,255,255)",
-		      bodyFontColor: "#858796",
-		      titleMarginBottom: 10,
-		      titleFontColor: '#6e707e',
-		      titleFontSize: 14,
-		      borderColor: '#dddfeb',
-		      borderWidth: 1,
-		      xPadding: 15,
-		      yPadding: 15,
-		      displayColors: true,
-		      intersect: false,
-		      mode: 'index',
-		      caretPadding: 10,
-		      // callbacks: {
-		      //   label: function(tooltipItem, chart) {
-		      //     var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
-		      //     return datasetLabel + ': $' + number_format(tooltipItem.yLabel);
-		      //   }
-		      // }
-		    }
-		  }
-		});
+	        },
+	      }],
+	    },
+	    legend: {
+	      display: false
+	    },
+	    tooltips: {
+	      backgroundColor: "rgb(255,255,255)",
+	      bodyFontColor: "#858796",
+	      titleMarginBottom: 10,
+	      titleFontColor: '#6e707e',
+	      titleFontSize: 14,
+	      borderColor: '#dddfeb',
+	      borderWidth: 1,
+	      xPadding: 15,
+	      yPadding: 15,
+	      displayColors: true,
+	      intersect: false,
+	      mode: 'index',
+	      caretPadding: 10,
+	      // callbacks: {
+	      //   label: function(tooltipItem, chart) {
+	      //     var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
+	      //     return datasetLabel + ': $' + number_format(tooltipItem.yLabel);
+	      //   }
+	      // }
+	    }
+	  }
+	});
 
-		// Set new default font family and font color to mimic Bootstrap's default styling
-		Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
-		Chart.defaults.global.defaultFontColor = '#858796';
+	am4core.ready(function() {
+		am4core.useTheme(am4themes_animated);
+		am4core.useTheme(am4themes_material);
 
-		// Pie Chart Example
-		var ctx = document.getElementById("myPieChart");
-		var myPieChart = new Chart(ctx, {
-		  type: 'doughnut',
-		  data: {
-		    labels: ["Direct", "Referral", "Social", "windwos"],
-		    datasets: [{
-		      data: [55, 30, 15, 14],
-		      backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],
-		      hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
-		      hoverBorderColor: "rgba(234, 236, 244, 1)",
-		    }],
-		  },
-		  options: {
-		    maintainAspectRatio: false,
-		    tooltips: {
-		      backgroundColor: "rgb(255,255,255)",
-		      bodyFontColor: "#858796",
-		      borderColor: '#dddfeb',
-		      borderWidth: 1,
-		      xPadding: 15,
-		      yPadding: 15,
-		      displayColors: false,
-		      caretPadding: 10,
-		    },
-		    legend: {
-		      display: false
-		    },
-		    cutoutPercentage: 80,
-		  },
-		});
+		var chart = am4core.create("chartdiv", am4charts.PieChart);
 
+		// Add data
+		chart.data = [ {
+		  "Platform": "Windows",
+		  "Total": <?= number_format($windows_visitor,2);?>
+		}, {
+		  "Platform": "Android",
+		  "Total": <?= number_format($android_visitor,2);?>
+		}, {
+		  "Platform": "Linux",
+		  "Total": <?= number_format($linux_visitor,2);?>
+		}, {
+		  "Platform": "iOS",
+		  "Total": <?= number_format($ios_visitor,2);?>
+		} ];
 
+		var pieSeries = chart.series.push(new am4charts.PieSeries());
+		pieSeries.dataFields.value = "Total";
+		pieSeries.dataFields.category = "Platform";
+		pieSeries.slices.template.stroke = am4core.color("#fff");
+		pieSeries.slices.template.strokeWidth = 2;
+		pieSeries.slices.template.strokeOpacity = 1;
+
+		// This creates initial animation
+		pieSeries.hiddenState.properties.opacity = 1;
+		pieSeries.hiddenState.properties.endAngle = -90;
+		pieSeries.hiddenState.properties.startAngle = -90;
+	}); // end am4core.ready()
 
 });
 </script>

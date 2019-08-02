@@ -119,6 +119,34 @@ class Visitors_model extends CI_Model {
     	return $query;
     }
 
+    // get total platforom windows
+    function count_windows_visitors()
+    {
+        $query = $this->db->query("SELECT COUNT(*) windows_visitor FROM tb_visitors WHERE (visit_platform='Windows 10' OR visit_platform='Windows XP' OR visit_platform='Windows 7' OR visit_platform='Windows 8' OR visit_platform='Windows 8.1') AND MONTH(visit_date)=MONTH(CURDATE())");
+        return $query;
+    }
+
+    // get total platforom android
+    function count_android_visitors()
+    {
+        $query = $this->db->query("SELECT COUNT(*) android_visitor FROM tb_visitors WHERE visit_platform='Android' AND MONTH(visit_date)=MONTH(CURDATE())");
+        return $query;
+    }
+
+    // get total platforom linux
+    function count_linux_visitors()
+    {
+        $query = $this->db->query("SELECT COUNT(*) linux_visitor FROM tb_visitors WHERE visit_platform='Linux' AND MONTH(visit_date)=MONTH(CURDATE())");
+        return $query;
+    }
+
+    // get total platforom ios
+    function count_ios_visitors()
+    {
+        $query = $this->db->query("SELECT COUNT(*) ios_visitor FROM tb_visitors WHERE visit_platform='iOS' AND MONTH(visit_date)=MONTH(CURDATE())");
+        return $query;
+    }
+
 }
 
 /* End of file Visitors_model.php */

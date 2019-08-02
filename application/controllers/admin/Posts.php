@@ -9,6 +9,7 @@ class Posts extends CI_Controller {
 		$this->load->model('Blog_model');
 		$this->load->library('form_validation');
 		$this->load->library('upload');
+		$this->load->model('Posts_model');
 	}
 
 	public function index()
@@ -26,14 +27,16 @@ class Posts extends CI_Controller {
 		$this->form_validation->set_rules('title', 'Judul', 'trim|required');
 		if ($this->form_validation->run() == FALSE) {
 			$data['title']		= 'Tambah Post - ' . $this->generalset->web()->site_name;
+			$data['category'] 	= $this->Posts_model->getAllCategory();
+			$data['tags'] 		= $this->Posts_model->getAlltags();
 			$this->load->view('template/dashboard_header', $data);
 			$this->load->view('template/dashboard_topbar');
-			$this->load->view('admin/v_tambah_post');
+			$this->load->view('admin/v_tambah_post', $data);
 			$this->load->view('template/dashboard_footer');
 			# code...
 		} else {
 
-			var_dump($_FILES);die;
+			var_dump($_POST);die;
 
 			$post 	= $this->input->post(null, TRUE);
 			$config['upload_path'] = './assets/img/blog_img/'; //path folder
@@ -96,11 +99,72 @@ class Posts extends CI_Controller {
 
 	public function category_post()
 	{
-		$data['title']		= 'Kategori Post - ' . $this->generalset->web()->site_name;
-		$this->load->view('template/dashboard_header', $data);
-		$this->load->view('template/dashboard_topbar');
-		$this->load->view('admin/v_category_post');
-		$this->load->view('template/dashboard_footer');
+		$this->form_validation->set_rules('category', 'Nama Kategori', 'trim|required');
+
+		if ($this->form_validation->run() == FALSE) {
+			$data['title']			= 'Kategori Post - ' . $this->generalset->web()->site_name;
+			$data['all_category'] 	= $this->Posts_model->getAllCategory()->result();
+			$this->load->view('template/dashboard_header', $data);
+			$this->load->view('template/dashboard_topbar');
+			$this->load->view('admin/v_category_post', $data);
+			$this->load->view('template/dashboard_footer');
+			
+		} else {
+			$category = strip_tags(htmlspecialchars($this->input->post('category',TRUE),ENT_QUOTES));
+			$string   = preg_replace('/[^a-zA-Z0-9 \&%|{.}=,?!*()"-_+$@;<>\']/', '', $category);
+			$trim     	= trim($string);
+			$slug     	= strtolower(str_replace(" ", "-", $trim));
+
+			$insert = $this->Posts_model->add_category($category, $slug);
+			$this->session->set_flashdata('msg', 'Kategori berhasil ditambah!');
+			$this->session->set_flashdata('type', 'success');
+			redirect('admin/posts/category_post','refresh');
+
+		}
+	}
+
+	public function edit_category_post()
+	{
+		$id 		= $this->input->post('kode', TRUE);
+		$category 	= strip_tags(htmlspecialchars($this->input->post('category2',TRUE),ENT_QUOTES));
+		$string   = preg_replace('/[^a-zA-Z0-9 \&%|{.}=,?!*()"-_+$@;<>\']/', '', $category);
+		$trim     	= trim($string);
+		$slug     	= strtolower(str_replace(" ", "-", $trim));
+
+		$this->Posts_model->editPost($id, $category, $slug);
+		$this->session->set_flashdata('msg', 'Kategori berhasil diedit!');
+		$this->session->set_flashdata('type', 'info');
+		redirect('admin/posts/category_post','refresh');
+
+	}
+
+	public function delete_category_post($id)
+	{
+		$this->db->delete('tb_category_post', ['category_post_id'=>$id]);
+		$this->session->set_flashdata('msg', 'Kategori post berhasil dihapus!');
+		$this->session->set_flashdata('type', 'danger');
+		redirect('admin/posts/category_post','refresh');
+	}
+
+	public function tags_post()
+	{
+		$this->form_validation->set_rules('tags', 'Tags', 'trim|required');
+
+		if ($this->form_validation->run() == FALSE) {
+			$data['title']			= 'Tags Post - ' . $this->generalset->web()->site_name;
+			$data['all_tags'] 	= $this->Posts_model->getAllTags()->result();
+			$this->load->view('template/dashboard_header', $data);
+			$this->load->view('template/dashboard_topbar');
+			$this->load->view('admin/v_tags_post');
+			$this->load->view('template/dashboard_footer');
+		} else {
+			$tags = strip_tags(htmlspecialchars($this->input->post('tags',TRUE),ENT_QUOTES));
+
+			$this->Posts_model->addTags($tags);
+			$this->session->set_flashdata('msg', 'Tags post berhasil ditambah!');
+			$this->session->set_flashdata('type', 'success');
+			redirect('admin/posts/tags_post','refresh');
+		}
 	}
 
 	public function delete($id)
@@ -136,13 +200,24 @@ class Posts extends CI_Controller {
     }
  
     //Delete image summernote
-    function delete_image(){
+    function delete_image()
+    {
         $src = $this->input->post('src');
         $file_name = str_replace(base_url(), FCPATH, $src);
         if(unlink($file_name))
         {
             return true;
         }
+    }
+
+    // ajax slug
+    function slug_category()
+    {
+    	$data = $_POST['data'];
+    	$string   = preg_replace('/[^a-zA-Z0-9 \&%|{.}=,?!*()"-_+$@;<>\']/', '', $data);
+		$trim     	= trim($string);
+		$slug     	= strtolower(str_replace(" ", "-", $trim));
+		echo $slug;	
     }
 
 

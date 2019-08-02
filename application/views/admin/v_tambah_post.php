@@ -6,14 +6,14 @@
 			<!-- Default Card Example -->
 			<div class="card mb-3 shadow">
 		
-				<div class="card-body">
+				<div class="card-body form-add-post">
 					<div class="form-group">
 						<label for="title" class="label-judul">Judul Post</label>
 						<input type="text" class="form-control" name="title" placeholder="Judul post">
 					</div>
 
 					<div class="form-group">
-						<input type="text" class="form-control" name="slug" placeholder="permalink" style="background-color: #F8F8F8;outline-color: none;border:0;color:blue;">
+						<input type="text" class="form-control no-focus" name="slug" placeholder="permalink" style="background-color: #F8F8F8;outline-color: none;border:0;color:blue; font-style: italic;">
 					</div>
 
 					<div class="form-group">
@@ -35,17 +35,22 @@
 					<div class="form-group">
 						<label class="label-judul">Kategori</label>
 						<select name="category" class="form-control">
-							<option value="">Pilih</option>
+							<option disabled selected="true">Pilih Kategori</option>
+							<?php foreach( $category->result() as $c ) : ?>
+								<option value="<?= $c->category_post_id; ?>"><?= $c->category_post_name; ?></option>
+							<?php endforeach; ?>
 						</select>
 					</div>
 
 					<div class="form-group">
-						<label class="label-judul">Tag</label>
-						 <div style="overflow-y:scroll;height:150px;margin-bottom:30px;">
+						<label class="label-judul">Tags</label>
+						 <div style="overflow-y:scroll;height:150px;margin-bottom:30px; padding-left: 20px; line-height: 30px;">
+						 	<?php foreach( $tags->result() as $t ) : ?>
                             <div class="custom-control custom-checkbox">
-							  <input type="checkbox" class="custom-control-input" id="tag" name="tag" value="1">
-							  <label class="custom-control-label" for="tag">Check this custom checkbox</label>
+							  <input type="checkbox" class="custom-control-input" id="<?= $t->tags_post_id; ?>" name="tag[]" value="<?= $t->tags_post_id; ?>">
+							  <label class="custom-control-label" for="<?= $t->tags_post_id; ?>"><?= $t->tags_post_name; ?></label>
 							</div>
+						<?php endforeach; ?>
                         </div>
 					</div>
 
