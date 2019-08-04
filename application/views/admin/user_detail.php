@@ -1,17 +1,18 @@
 <div class="container-fluid">
 <div class="row justify-content-center">
 	
-<div class="col-lg-6">
+<div class="col-xl-8 col-lg-7">
 	<!-- Dropdown Card Example -->
 	<div class="card shadow mb-4">
 		<!-- Card Header - Dropdown -->
-		<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+		<div class="card-header d-flex flex-row align-items-center justify-content-between">
 			<h6 class="m-0 font-weight-bold text-primary">User Detail</h6>
+			<a href="<?= base_url('admin/user'); ?>"><i class="fas fa-arrow-circle-left fa-2x text-dark"></i></a>
 		</div>
 		<!-- Card Body -->
 		<div class="card-body">
 			<div class="row">
-				<div class="col-lg-12">
+				<div class="col-lg-12 table-responsive">
 					<table class="table table-bordered table-hover">
 						<tbody>
 					    <tr>
@@ -62,25 +63,9 @@
 		</div>
 	</div>
 </div>
-<div class="col-lg-6">
+<div class="col-xl-4 col-lg-5">
 	<!-- Dropdown Card Example -->
 	<div class="card shadow mb-4">
-		<!-- Card Header - Dropdown -->
-		<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-			<h6 class="m-0 font-weight-bold text-primary">Photo User</h6>
-			<div class="dropdown no-arrow">
-				<a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					<i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-				</a>
-				<div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-					<div class="dropdown-header">Dropdown Header:</div>
-					<a class="dropdown-item" href="#">Action</a>
-					<a class="dropdown-item" href="#">Another action</a>
-					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="<?= base_url('admin/user'); ?>">Kembali</a>
-				</div>
-			</div>
-		</div>
 		<!-- Card Body -->
 		<div class="card-body">
 			<div class="row">

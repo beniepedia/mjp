@@ -9,3 +9,12 @@
 .color-gradiant {
 	background: linear-gradient(to right, #0052d4, #4364f7, #6fb1fc);
 }
+
+.table-style thead,
+.table-style tbody {
+	border-bottom: 1px solid tomato;s
+}
+
+.table-style tbody tr td {
+	padding: 1.3rem 1.3rem;
+}

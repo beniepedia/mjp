@@ -8,9 +8,10 @@
   <!-- DataTales Example -->
   
   <div class="card shadow mb-4">
-    <div class="card-header">
-      <a href="<?= base_url('admin/posts/add_new_post') ?>" class="btn btn-sm btn-primary float-right rounded-circle shadow btn-blog" data-toggle="tooltip" data-placement="left" title="Tambah Artikel" style="color:white; cursor: pointer;"><i class="fas fa-plus"></i></a>
+    <div class="card-header d-flex flex-row align-items-center justify-content-between">
       <h6 class="m-0 font-weight-bold text-primary">Data Artikel</h6>
+<!--       <div><i class="fas fa-arrow-circle-left fa-2x"></i></div>
+ -->      <a href="<?= base_url('admin/posts/add_new_post') ?>" class="btn btn-sm btn-primary float-right rounded-circle shadow btn-blog" data-toggle="tooltip" data-placement="left" title="Tambah Artikel" style="color:white; cursor: pointer;"><i class="fas fa-plus"></i></a>
     </div>
     <div class="card-body">
       <div class="table-responsive">
