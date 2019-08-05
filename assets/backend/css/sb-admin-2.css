@@ -11454,7 +11454,7 @@ a:focus {
 }
 
 .sidebar-dark .nav-item .nav-link:active, .sidebar-dark .nav-item .nav-link:focus, .sidebar-dark .nav-item .nav-link:hover {
-  color: #fff;
+  background-color: rgba(152, 175, 199, .6);
 }
 
 .sidebar-dark .nav-item .nav-link:active i, .sidebar-dark .nav-item .nav-link:focus i, .sidebar-dark .nav-item .nav-link:hover i {
@@ -11466,7 +11466,7 @@ a:focus {
 }
 
 .sidebar-dark .nav-item.active .nav-link {
-  color: #fff;
+  background-color: rgba(152, 175, 199, .8);
 }
 
 .sidebar-dark .nav-item.active .nav-link i {

@@ -41,19 +41,22 @@
                     <button type="submit" class="btn btn-primary btn-user btn-block">
                       Login
                     </button>
-                    <?php if($this->generalset->web()->is_active == 1) : ?>
                     <hr>
-                    <div class="row justify-content-center">
-                      <a href="index.html" class="btn btn-google btn-user btn-md btn-circle shadow">
-                        <i class="fab fa-google fa-fw" style="font-size: 20px;"></i>
+                    <div class="form-group">
+                      <?php if($this->generalset->sosial_api()->api_google_is_active==1) : ?>
+                      <a href="index.html" class="btn btn-google btn-user btn-md btn-block shadow">
+                        Login With Google
                       </a>
-                      <a href="<?= $authURL; ?>" class="btn btn-facebook btn-user btn-md btn-circle shadow">
-                        <i class="fab fa-facebook-f fa-fw" style="font-size: 20px;"></i>
+                      <?php endif; ?>
+                      <?php if($this->generalset->sosial_api()->api_fb_is_active==1) : ?>
+                      <a href="<?= $authURL; ?>" class="btn btn-facebook btn-user btn-md btn-block shadow">
+                        Login With Facebook
                       </a>
+                      <?php endif; ?>
                     </div>
-                  <?php endif; ?>
+      
                   </form>
-                  <hr>
+             
                   <div class="text-center">
                   <small>Lupa Password ?</small><a class="small" href="<?= base_url('auth/forgotpass'); ?>"> Reset Password</a>
                   </div>

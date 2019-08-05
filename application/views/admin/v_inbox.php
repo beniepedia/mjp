@@ -12,9 +12,9 @@
     </div>
     <div class="card-body mailbox">
       <div class="table-responsive ">
-        <table class="table table-hover table-sm  table-borderless text-center" id="" width="100%" cellspacing="0">
+        <table class="table table-hover table-sm  table-borderless text-center mb-5 " id="dataTable" width="100%" cellspacing="0">
           <?php if( $inbox->num_rows() > 0 ) : ?>
-          <thead class="">
+          <thead class="" style="border-bottom: 1px solid black;">
             <tr>
               <th>#</th>
               <th>Nama</th>
@@ -24,10 +24,10 @@
               <th>Aksi</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody style="border-bottom: 1px solid black;">
           	<?php foreach ($inbox->result() as $i) : ?>
           	<tr class="<?= $i->inbox_status==0?'bg-success text-white':null; ?>">
-              <td class="badge badge-warning m-2"><?= $i->inbox_status==0?'Unread':'Read'; ?></td>
+              <td class="badge <?= $i->inbox_status==0?'badge-warning':'badge-success'; ?> mt-2"><?= $i->inbox_status==0?'Unread':'Read'; ?></td>
           		<td data-inbox_id="<?= $i->inbox_id; ?>"><?= $i->inbox_name; ?></td>
           		<td data-inbox_id="<?= $i->inbox_id; ?>"><?= $i->inbox_subject; ?></td>
           		<td data-inbox_id="<?= $i->inbox_id; ?>"><?= substr($i->inbox_message, 0, 30); ?></td>

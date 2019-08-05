@@ -144,9 +144,31 @@ class Setting extends CI_Controller {
 	// sosial api setting
 	public function sosial_api()
 	{
-		$this->load->view('template/dashboard_header');
+		$data['fbapi'] = $this->Setting_model->getApi()->row();
+		$data['title'] = 'Sosial Api - ' . $this->generalset->web()->site_name;
+		$this->load->view('template/dashboard_header', $data);
 		$this->load->view('template/dashboard_topbar');
-		$this->load->view('admin/v_sosial_api');
+		$this->load->view('admin/v_sosial_api', $data);
+		$this->load->view('template/dashboard_footer');
+	}
+
+	public function update_sosial_api()
+	{
+		if ( isset($_POST['fbapi']) )
+		{
+			$this->Setting_model->update_fb_api();
+			$this->session->set_flashdata('msg', 'Update facebook api berhasil!');
+			$this->session->set_flashdata('type', 'success');
+			redirect('admin/setting/sosial_api','refresh');
+		}
+	}
+
+	public function general_setting()
+	{
+		$data['title'] = 'Pengaturan Umum - ' . $this->generalset->web()->site_name;
+		$this->load->view('template/dashboard_header', $data);
+		$this->load->view('template/dashboard_topbar');
+		$this->load->view('admin/v_general_setting');
 		$this->load->view('template/dashboard_footer');
 	}
 

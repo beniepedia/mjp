@@ -5,23 +5,23 @@
       //   });
 
       
-      const sosial_check = $('#checkbox_sosial');
-      const input_id = $('#fbid, #fbkey, #gid, #gkey');
-      if($(sosial_check).is(':checked'))
-      {
-        $(input_id).attr('readonly', false);
-      } else {
-        $(input_id).attr('readonly', true);
-      }
+      // const sosial_check = $('#checkbox_sosial');
+      // const input_id = $('#fbid, #fbkey, #gid, #gkey');
+      // if($(sosial_check).is(':checked'))
+      // {
+      //   $(input_id).attr('readonly', false);
+      // } else {
+      //   $(input_id).attr('readonly', true);
+      // }
 
-      $(sosial_check).on('click', function(){
-       if($(sosial_check).is(':checked'))
-        {
-          $(input_id).attr('readonly', false);
-        } else {
-          $(input_id).attr('readonly', true);
-        }
-      });
+      // $(sosial_check).on('click', function(){
+      //  if($(sosial_check).is(':checked'))
+      //   {
+      //     $(input_id).attr('readonly', false);
+      //   } else {
+      //     $(input_id).attr('readonly', true);
+      //   }
+      // });
 
       $("#wizard-picture").change(function(){
         readURL(this);

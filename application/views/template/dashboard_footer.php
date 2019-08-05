@@ -51,6 +51,7 @@
   <script src="<?= base_url('assets/backend/vendor/chart.js/Chart.min.js') ?>"></script>
   <script src="<?= base_url('assets/backend/vendor/waypoints/jquery.waypoints.min.js') ?>"></script>
   <script src="<?= base_url('assets/backend/vendor/jquery-counterup/jquery.counterup.min.js') ?>"></script>
+  <script src="<?= base_url('assets/backend/vendor/bootstrap-toggle-master/js/bootstrap-toggle.min.js') ?>"></script>
    <script src="<?= base_url('assets/backend/js/') ?>dropify.min.js" type="text/javascript"></script>
   <script src="<?= base_url('assets/backend/') ?>js/myscript.js"></script>
 

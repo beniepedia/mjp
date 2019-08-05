@@ -11,11 +11,11 @@
       <h6 class="m-0 font-weight-bold text-primary">Data User</h6>
     </div>
     <div class="card-body">
-      <div class="table-responsive">
-        <table class="table table-borderless table-striped table-sm my-5 table-style" id="dataTable" width="100%" cellspacing="0">
-          <thead>
+      <div class="table-responsive ">
+        <table class="table table-borderless table-striped table-sm mt-3 mb-5 table-style text-center" id="dataTable" width="100%" cellspacing="0">
+          <thead class="">
             <tr>
-              <th>No</th>
+              <th style="width: 5px;">No</th>
               <th>Nama</th>
               <th>Email</th>
               <th>Kelamin</th>
@@ -32,8 +32,8 @@
               <td><?= $no++; ?></td>
               <td><?= $data['name']; ?></td>
               <td><?= $data['email']; ?></td>
-              <td><?= $data['gender']==null?'-':''; ?></td>
-              <td><?= $data['address']; ?></td>
+              <td><?= $data['gender']==null?'-':$data['gender']; ?></td>
+              <td><?= $data['address']==null?'-':$data['address']; ?></td>
               <td><?= date("d/m/Y", $data['date_created']); ?></td>
               <td><?= $data['is_active']==1?'Aktif':'NonAktif'; ?></td>
               <td>

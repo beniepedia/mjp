@@ -50,6 +50,21 @@ class Setting_model extends CI_Model {
 			return $this->db->update('email_config', $param);
 	}
 
+	function getApi()
+	{
+		return $this->db->get('tb_sosial_api');
+	}
+
+	function update_fb_api()
+	{
+		$data = array(
+			'api_fb_id' => htmlspecialchars($fbid = $this->input->post('fbid')),
+			'api_fb_key'=> htmlspecialchars($fbkey= $this->input->post('fbkey'))
+		);
+
+		return $this->db->update('tb_sosial_api', $data);
+	}
+
 }
 
 /* End of file Setting_model.php */

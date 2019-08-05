@@ -19,6 +19,7 @@
 
 		<link href="<?= base_url('assets/backend/vendor/bootstrap-fileinput/') ?>themes/explorer-fas/theme.css" media="all" rel="stylesheet" type="text/css"/>
 		<link href="<?= base_url('assets/backend/') ?>css/dropify.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="<?= base_url('assets/backend/') ?>vendor/bootstrap-toggle-master/css/bootstrap-toggle.min.css">
 		 <script src="<?= base_url('assets/backend/') ?>vendor/jquery/jquery.min.js"></script>
 
 	</head>
@@ -31,9 +32,9 @@
 				<!-- Sidebar - Brand -->
 				<a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
 					<div class="sidebar-brand-icon">
-						<img src="<?= base_url('assets/img/').$this->generalset->web()->site_logo_header; ?>" class="img-fluid rounded-circle shadow" width="50">
+						<img src="<?= base_url('assets/img/').$this->generalset->web()->site_logo_header; ?>" class="img-fluid rounded-circle shadow" width="40">
 					</div>
-					<div class="sidebar-brand-text mx-3">ID MJP</div>
+					<div class="sidebar-brand-text mx-3"><?= $this->generalset->web()->site_alias; ?></div>
 				</a>
 				<?php if($this->check->is_admin()->role_id == 1 ) : ?>
 				<!-- Divider -->

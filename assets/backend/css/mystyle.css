@@ -12,9 +12,19 @@
 
 .table-style thead,
 .table-style tbody {
-	border-bottom: 1px solid tomato;s
+	border-bottom: 1px solid black;
 }
 
 .table-style tbody tr td {
 	padding: 1.3rem 1.3rem;
+}
+
+
+@media (min-width: 992px) {
+
+	.dataTables_filter,
+	.pagination {
+		float: right;
+	}
+
 }
