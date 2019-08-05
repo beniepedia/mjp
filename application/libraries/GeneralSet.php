@@ -22,10 +22,10 @@ class GeneralSet
 		return $this->ci->Webconfig_model->emailconfig()->row();
 	}
 
-	public function sosial_api()
+	public function all()
 	{
 		$this->ci->load->model('Setting_model');
-		return $this->ci->Setting_model->getApi()->row();
+		return $this->ci->Setting_model->get_setting()->row();
 	}
 	
 

@@ -19,6 +19,13 @@
 	padding: 1.3rem 1.3rem;
 }
 
+/*
+.checkbox-setting span {
+	position: relative;
+	left: 100%;
+	right: 10%;
+
+}*/
 
 @media (min-width: 992px) {
 

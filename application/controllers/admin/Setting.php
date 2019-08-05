@@ -165,13 +165,19 @@ class Setting extends CI_Controller {
 
 	public function general_setting()
 	{
-		$data['title'] = 'Pengaturan Umum - ' . $this->generalset->web()->site_name;
+		$data['setting']	= $this->Setting_model->get_setting()->row();
+		$data['title'] 		= 'Pengaturan Umum - ' . $this->generalset->web()->site_name;
 		$this->load->view('template/dashboard_header', $data);
 		$this->load->view('template/dashboard_topbar');
-		$this->load->view('admin/v_general_setting');
+		$this->load->view('admin/v_general_setting', $data);
 		$this->load->view('template/dashboard_footer');
 	}
 
+	public function update_general_setting()
+	{
+		$this->Setting_model->update_setting();
+		redirect('admin/setting/general_setting','refresh');
+	}
 
 }
 /* End of file Setting.php */

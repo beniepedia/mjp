@@ -43,12 +43,12 @@
                     </button>
                     <hr>
                     <div class="form-group">
-                      <?php if($this->generalset->sosial_api()->api_google_is_active==1) : ?>
+                      <?php if($this->generalset->all()->general_set_google==1) : ?>
                       <a href="index.html" class="btn btn-google btn-user btn-md btn-block shadow">
                         Login With Google
                       </a>
                       <?php endif; ?>
-                      <?php if($this->generalset->sosial_api()->api_fb_is_active==1) : ?>
+                      <?php if($this->generalset->all()->general_set_fb==1) : ?>
                       <a href="<?= $authURL; ?>" class="btn btn-facebook btn-user btn-md btn-block shadow">
                         Login With Facebook
                       </a>

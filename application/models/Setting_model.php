@@ -65,6 +65,23 @@ class Setting_model extends CI_Model {
 		return $this->db->update('tb_sosial_api', $data);
 	}
 
+	function get_setting()
+	{
+		return $this->db->get('tb_general_set');
+	}
+
+	function update_setting()
+	{
+		$data = array(
+			'general_set_fb' => htmlspecialchars($this->input->post('fblogin')),
+			'general_set_google' => htmlspecialchars($this->input->post('googlelogin'))
+
+			
+		);
+		
+		return	$this->db->update('tb_general_set', $data);
+	}
+
 }
 
 /* End of file Setting_model.php */
