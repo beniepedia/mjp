@@ -2,6 +2,11 @@
 	<div class="row justify-content-center">
 		
 		<div class="col-lg-6">
+			<?php if( $this->session->flashdata('msg')) : ?>
+			<div class="alert alert-<?= $this->session->flashdata('type'); ?> alert-dismissible fade show text-center" role="alert"><?= $this->session->flashdata('msg'); ?>
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			</div>
+			<?php endif; ?>
 			<!-- Dropdown Card Example -->
 			<div class="card shadow mb-4">
 				<!-- Card Header - Dropdown -->
@@ -46,9 +51,9 @@
 								</div>
 								<div class="form-group">
 									<label for="gender" class="label-judul">Kelamin :</label>
-									<select class="custom-select" name="gender" id="gender">
+									<select class="custom-select"  id="gender" name="gender">
 										<?= $gender = $this->input->post('gender') ? $this->input->post('gender') : $userData->gender; ?>
-										<option selected="true" disabled="disabled">Pilih Kelamin...</option>
+										<option selected="true" value="">Pilih Kelamin...</option>
 										<option value="laki-laki" <?= $gender=='laki-laki'?'selected':null; ?> >Laki - Laki</option>
 										<option value="perempuan" <?= $gender=='perempuan'?'selected':null; ?> >Perempuan</option>
 									</select>

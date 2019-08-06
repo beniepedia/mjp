@@ -16,8 +16,10 @@ class Kontak extends CI_Controller {
 		$this->form_validation->set_rules('subject', 'Subject', 'trim|required');
 		$this->form_validation->set_rules('telp', 'Handphone', 'trim|required');
 		$this->form_validation->set_rules('pesan', 'Pesan', 'trim|required');
-		$this->form_validation->set_rules('g-recaptcha-response', 'Recaptcha Validasi', 'trim|callback__validate_captcha');
-		$this->form_validation->set_message('_validate_captcha', 'Ulang kembali captcha !');
+		if($this->generalset->all()->general_set_captcha==1){
+			$this->form_validation->set_rules('g-recaptcha-response', 'Recaptcha Validasi', 'trim|callback__validate_captcha');
+			$this->form_validation->set_message('_validate_captcha', 'Ulang kembali captcha !');		
+		}
 
 		$this->form_validation->set_error_delimiters('<div class="invalid-feedback">', '</div>');
 

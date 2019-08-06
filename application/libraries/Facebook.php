@@ -50,8 +50,8 @@ Class Facebook
         // $this->load->helper('url');
         if (!isset($this->fb)){
             $this->fb = new FB([
-                'app_id'                => $this->generalset->web()->fb_id,
-                'app_secret'            => $this->generalset->web()->fb_key,
+                'app_id'                => $this->generalset->sosial_api()->api_fb_id,
+                'app_secret'            => $this->generalset->sosial_api()->api_fb_key,
                 'default_graph_version' => $this->config->item('facebook_graph_version')
             ]);
         }

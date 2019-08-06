@@ -49,7 +49,7 @@ class User_model extends CI_Model {
 			$param['password'] 	= password_hash($post['password'], PASSWORD_DEFAULT);
 		} 
 		$param['address'] 		= htmlspecialchars($post['addr']);
-		$param['gender'] 			= htmlspecialchars($post['gender']);
+		$param['gender'] 		= htmlspecialchars($post['gender']);
 		$param['is_active'] 	= htmlspecialchars($post['status']);
 		$param['role_id'] 		= htmlspecialchars($post['level']);
 

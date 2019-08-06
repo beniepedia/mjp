@@ -137,6 +137,7 @@
 </div>
 </section>
 <!-- Galery -->
+<?php if($this->generalset->all()->general_set_ig == 1) : ?>
 <section id="Galery">
 <div class="container">
 	<h1 class="judul-head text-center wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.5s">Galeri</h1>
@@ -151,6 +152,7 @@
 	</div>
 </div>
 </section>
+<?php endif; ?>
 <section id="Testimonial">
 <div class="container">
 	<h1 class="judul-head text-center wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.5s">Peluang Usaha</h1>

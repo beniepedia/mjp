@@ -92,51 +92,51 @@ class Setting extends CI_Controller {
 	// email setting
 	public function email()
 	{
-			$data['email']		=	$this->Setting_model->emailset()->row();
-			$data['title'] 		= 	'Pengaturan Email - '. $this->generalset->web()->site_name;
-			$this->load->view('template/dashboard_header', $data);
-			$this->load->view('template/dashboard_topbar');
-			$this->load->view('admin/email', $data);
-			$this->load->view('template/dashboard_footer');
+		$data['email']		=	$this->Setting_model->emailset()->row();
+		$data['title'] 		= 	'Pengaturan Email - '. $this->generalset->web()->site_name;
+		$this->load->view('template/dashboard_header', $data);
+		$this->load->view('template/dashboard_topbar');
+		$this->load->view('admin/email', $data);
+		$this->load->view('template/dashboard_footer');
 	}
 
 	public function editemail()
 	{
-			$this->form_validation->set_rules('admin', 'Admin Email', 'trim|required|valid_email');
-			$this->form_validation->set_rules('sistem', 'Sistem Email', 'trim|required|valid_email');
-			$this->form_validation->set_rules('protocol', 'Protokol', 'trim|required');
-			$this->form_validation->set_rules('host', 'Host', 'trim|required');
-			$this->form_validation->set_rules('uname', 'User Email', 'trim|required|valid_email');
-			$this->form_validation->set_rules('password', 'Password', 'trim');
-			$this->form_validation->set_rules('port', 'Port', 'trim|required|numeric');
-			$this->form_validation->set_rules('tipe', 'Type', 'trim|required');
-			$this->form_validation->set_rules('chart', 'Chartset', 'trim|required');
-			$this->form_validation->set_error_delimiters('<div class="invalid-feedback">', '</div>');
-			if ($this->form_validation->run() == FALSE) {
-				$data['email']		=	$this->Setting_model->emailset()->row();
-				$data['title'] 		= 	'Ubah Pengaturan Email - '. $this->generalset->web()->site_name;
-				$this->load->view('template/dashboard_header', $data);
-				$this->load->view('template/dashboard_topbar');
-				$this->load->view('admin/emailedit', $data);
-				$this->load->view('template/dashboard_footer');
-				# code...
-			} else {
-				$post = $this->input->post(null);
-				if( isset($post['save_email']) )
+		$this->form_validation->set_rules('admin', 'Admin Email', 'trim|required|valid_email');
+		$this->form_validation->set_rules('sistem', 'Sistem Email', 'trim|required|valid_email');
+		$this->form_validation->set_rules('protocol', 'Protokol', 'trim|required');
+		$this->form_validation->set_rules('host', 'Host', 'trim|required');
+		$this->form_validation->set_rules('uname', 'User Email', 'trim|required|valid_email');
+		$this->form_validation->set_rules('password', 'Password', 'trim');
+		$this->form_validation->set_rules('port', 'Port', 'trim|required|numeric');
+		$this->form_validation->set_rules('tipe', 'Type', 'trim|required');
+		$this->form_validation->set_rules('chart', 'Chartset', 'trim|required');
+		$this->form_validation->set_error_delimiters('<div class="invalid-feedback">', '</div>');
+		if ($this->form_validation->run() == FALSE) {
+			$data['email']		=	$this->Setting_model->emailset()->row();
+			$data['title'] 		= 	'Ubah Pengaturan Email - '. $this->generalset->web()->site_name;
+			$this->load->view('template/dashboard_header', $data);
+			$this->load->view('template/dashboard_topbar');
+			$this->load->view('admin/emailedit', $data);
+			$this->load->view('template/dashboard_footer');
+			# code...
+		} else {
+			$post = $this->input->post(null);
+			if( isset($post['save_email']) )
+			{
+				$update	=	$this->Setting_model->emailedit($post);
+				if( $update )
 				{
-					$update	=	$this->Setting_model->emailedit($post);
-					if( $update )
-					{
-							$this->session->set_flashdata('msg', 'Setelan email berhasil di update!');
-							$this->session->set_flashdata('type', 'success');
-							redirect('admin/setting/email','refresh');
-					} else {
-							$this->session->set_flashdata('msg', 'Setelan email gagal di update!');
-							$this->session->set_flashdata('type', 'danger');
-							redirect('admin/setting/email','refresh');
-					}
+					$this->session->set_flashdata('msg', 'Setelan email berhasil di update!');
+					$this->session->set_flashdata('type', 'success');
+					redirect('admin/setting/email','refresh');
+				} else {
+					$this->session->set_flashdata('msg', 'Setelan email gagal di update!');
+					$this->session->set_flashdata('type', 'danger');
+					redirect('admin/setting/email','refresh');
 				}
 			}
+		}
 	} 
 
 	// end email setting
@@ -144,7 +144,7 @@ class Setting extends CI_Controller {
 	// sosial api setting
 	public function sosial_api()
 	{
-		$data['fbapi'] = $this->Setting_model->getApi()->row();
+		$data['api'] = $this->Setting_model->getApi()->row();
 		$data['title'] = 'Sosial Api - ' . $this->generalset->web()->site_name;
 		$this->load->view('template/dashboard_header', $data);
 		$this->load->view('template/dashboard_topbar');
@@ -153,14 +153,11 @@ class Setting extends CI_Controller {
 	}
 
 	public function update_sosial_api()
-	{
-		if ( isset($_POST['fbapi']) )
-		{
-			$this->Setting_model->update_fb_api();
-			$this->session->set_flashdata('msg', 'Update facebook api berhasil!');
-			$this->session->set_flashdata('type', 'success');
-			redirect('admin/setting/sosial_api','refresh');
-		}
+	{	
+		$this->Setting_model->update_sosial_api();
+		$this->session->set_flashdata('msg', 'Update data berhasil!');
+		$this->session->set_flashdata('type', 'success');
+		redirect('admin/setting/sosial_api','refresh');
 	}
 
 	public function general_setting()

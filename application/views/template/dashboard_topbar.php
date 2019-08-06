@@ -51,6 +51,7 @@
             <h6 class="dropdown-header">
               Message Center
             </h6>
+            <div style="overflow-y:scroll;height:150px;margin-bottom:10px; line-height: 30px;">
             <?php if( $count->num_rows() > 0 ) : ?>
 	            <?php foreach ($count->result() as $c) : ?>
 	            <a class="dropdown-item d-flex align-items-center" href="<?= base_url('admin/message/inbox') ?>">
@@ -64,6 +65,7 @@
 	              </div>
 	            </a>
 	         	<?php endforeach; ?>
+	         </div>
 	         	<?php else : ?>
 	         		<div class="font-weight-bold p-3 text-center">
 		                <div class="">Pesan Masuk Kosong</div>

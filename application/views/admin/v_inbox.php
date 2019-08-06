@@ -12,7 +12,7 @@
     </div>
     <div class="card-body mailbox">
       <div class="table-responsive ">
-        <table class="table table-hover table-sm  table-borderless text-center mb-5 " id="dataTable" width="100%" cellspacing="0">
+        <table class="table table-hover table-sm  table-borderless text-center mb-5 " id="" width="100%" cellspacing="0">
           <?php if( $inbox->num_rows() > 0 ) : ?>
           <thead class="" style="border-bottom: 1px solid black;">
             <tr>

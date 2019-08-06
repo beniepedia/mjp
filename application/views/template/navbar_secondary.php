@@ -6,8 +6,10 @@
 		<div class="navbar-nav ml-auto">
 			<a class="nav-item nav-link" href="<?= base_url('/'); ?>"><i
 			class="fas fa-home" aria-hidden="true"></i>Beranda</a>
-
+			
+			<?php if($this->generalset->all()->general_set_blog==1) : ?>
 			<a class="nav-item nav-link" href="<?= base_url('blog'); ?>"><i class="fas fa-blog"></i>Blog</a>
+			<?php endif; ?>
 
 			<a class="nav-item nav-link" href="<?= base_url('kontak'); ?>"><i class="fas fa-address-book"></i>Hubungi Kami</a>
 			<!-- dropdown menu -->

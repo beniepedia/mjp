@@ -55,11 +55,13 @@ class Setting_model extends CI_Model {
 		return $this->db->get('tb_sosial_api');
 	}
 
-	function update_fb_api()
+	function update_sosial_api()
 	{
 		$data = array(
-			'api_fb_id' => htmlspecialchars($fbid = $this->input->post('fbid')),
-			'api_fb_key'=> htmlspecialchars($fbkey= $this->input->post('fbkey'))
+			'api_fb_id' => htmlspecialchars($this->input->post('fbid')),
+			'api_fb_key'=> htmlspecialchars($this->input->post('fbkey')),
+			'api_ig_token'=> htmlspecialchars($this->input->post('igtoken')),
+			'api_ig_count'=> htmlspecialchars($this->input->post('count'))
 		);
 
 		return $this->db->update('tb_sosial_api', $data);
@@ -74,7 +76,10 @@ class Setting_model extends CI_Model {
 	{
 		$data = array(
 			'general_set_fb' => htmlspecialchars($this->input->post('fblogin')),
-			'general_set_google' => htmlspecialchars($this->input->post('googlelogin'))
+			'general_set_google' => htmlspecialchars($this->input->post('googlelogin')),
+			'general_set_blog' => htmlspecialchars($this->input->post('bloger')),
+			'general_set_ig' => htmlspecialchars($this->input->post('iggaleri')),
+			'general_set_captcha' => htmlspecialchars($this->input->post('captcha'))
 
 			
 		);

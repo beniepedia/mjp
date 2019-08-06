@@ -88,7 +88,7 @@ class User extends CI_Controller {
 				$this->session->set_flashdata('msg', 'Data user gagal di update!');
 				$this->session->set_flashdata('type', 'danger');
 			}
-			redirect('admin/user','refresh');
+			redirect('admin/user/edituser','refresh');
 		}
 
 	}

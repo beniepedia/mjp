@@ -20,8 +20,9 @@
 				</div>
 			</li>
 			<a class="nav-item nav-link wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.3s" href="#price-Plan"><i class="fas fa-donate"></i>Harga</a>
+			<?php if($this->generalset->all()->general_set_blog==1) : ?>
 			<a class="nav-item nav-link wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.3s" href="<?= base_url('blog'); ?>"><i class="fas fa-blog"></i>Blog</a>
-			
+			<?php endif; ?>
 			<a class="nav-item nav-link wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.6s" href="<?= base_url('kontak'); ?>"><i class="fas fa-address-book"></i>Hubungi Kami</a>
 			<!-- dropdown menu -->
 			<div class="nav-item dropdown">
@@ -62,8 +63,11 @@
 						</div>
 					</li>
 					<a class="nav-item nav-link" href="#price-Plan"><i class="fas fa-donate"></i>Harga</a>
+
+					<?php if($this->generalset->all()->general_set_blog==1) : ?>
 					<a class="nav-item nav-link" href="<?= base_url('blog'); ?>"><i class="fas fa-blog"></i></i>Blog</a>
-					
+					<?php endif; ?>
+
 					<a class="nav-item nav-link" href="<?= base_url('kontak'); ?>"><i class="fas fa-address-book"></i>Hubungi Kami</a>
 					<!-- dropdown menu -->
 					<div class="nav-item dropdown">

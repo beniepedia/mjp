@@ -35,3 +35,11 @@
 		$words = explode(" ", $string);
 		return implode(" ", array_splice($words, 0, $word_limit));
 	}
+
+	function dump($data)
+	{
+		echo '<pre>';
+		print_r($data);
+		echo '</pre>';
+		die;
+	}

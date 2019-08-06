@@ -10,7 +10,7 @@
 							<div class="col-12 mb-4">
 								<label for="" class="col-10">Blogger </label>
 								<input type="hidden" name="bloger" value="0">
-								<input type="checkbox" name="bloger" value="1" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-size="xs" class="col-2">		
+								<input type="checkbox" <?= $setting->general_set_blog==1?'checked':null; ?> name="bloger" value="1" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-size="xs" class="col-2">		
 							</div>
 
 							<div class="col-12 mb-4">
@@ -27,12 +27,14 @@
 
 							<div class="col-12 mb-4">
 								<label for="" class="col-10">Galery Instagram </label>
-								<input type="checkbox" data-toggle="toggle" data-size="xs" class="col-2">		
+								<input type="hidden" name="iggaleri" value="0">
+								<input type="checkbox" name="iggaleri" value="1" <?= $setting->general_set_ig==1?'checked':null; ?> data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-size="xs" class="col-2">		
 							</div>
 
 							<div class="col-12 mb-4">
 								<label for="" class="col-10">Google Captcha </label>
-								<input type="checkbox" data-toggle="toggle" data-size="xs" class="col-2">		
+								<input type="hidden" name="captcha" value="0">
+								<input type="checkbox" <?= $setting->general_set_captcha==1?'checked':null; ?> name="captcha" value="1" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-size="xs" class="col-2">		
 							</div>
 
 							<div class="col-12 mb-4">

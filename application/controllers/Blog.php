@@ -6,6 +6,10 @@ class Blog extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('Blog_model');
+		if($this->generalset->all()->general_set_blog != 1)
+		{
+			redirect('/','refresh');
+		}
 	}
 
 	public function index()

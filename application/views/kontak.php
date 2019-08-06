@@ -57,7 +57,7 @@
 								<?= form_error('pesan'); ?>
 							</div>
 						</div>
-
+						<?php if($this->generalset->all()->general_set_captcha==1) : ?>
 						<div class="form-group row">
 							<div class="col">
 								<div class="g-recaptcha float-right" name="g-recaptcha-response" data-sitekey="6Levq64UAAAAACuXFOMsLJZ_1l57h8k5ahlUDpaa"></div>
@@ -65,7 +65,7 @@
 							
 						</div>
 						<?= form_error('g-recaptcha-response', '<small class="text-danger">','</small>'); ?>
-
+						<?php endif; ?>
 	
 						<div class="form-group mt-3">
 							<button class="btn btn-primary float-right" type="submit" name="submit">Kirim Pesan  <i class="fas fa-paper-plane"></i></button>

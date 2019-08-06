@@ -99,6 +99,8 @@
 						<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
 							<div class="bg-white py-2 collapse-inner rounded">
 								<h6 class="collapse-header">Pengaturan:</h6>
+								<a class="collapse-item" href="<?= base_url('admin/setting/general_setting/'); ?>">Umum</a>
+								<a class="collapse-item" href="<?= base_url('admin/setting/sosial_api/'); ?>">Sosial Api</a>
 								<a class="collapse-item" href="<?= base_url('admin/setting'); ?>">Website</a>
 								<a class="collapse-item" href="<?= base_url('admin/setting/email'); ?>">Email</a>
 								<a class="collapse-item" href="<?= base_url('admin/backup'); ?>">Backup & Restore</a>
