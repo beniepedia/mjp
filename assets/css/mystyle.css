@@ -412,6 +412,67 @@ body {
 }
 
 
+.cd-top {
+  background-color: rgb(51, 122, 183);
+  bottom: 0px;
+  width: auto;
+/*  right: -358px;
+*/  color: rgb(255, 255, 255);
+  display: inline-block;
+  font-size: 18px;
+  line-height: 24px;
+  position: fixed;
+  opacity: 0;
+  text-align: center;
+  text-decoration: none;
+  -webkit-transform: scale(5) translate(47px,-10px);
+  -moz-transform: scale(5) translate(47px,-10px);
+  -o-transform: scale(5) translate(47px,-10px);
+  -ms-transform: scale(5) translate(47px,-10px);
+  transform: scale(5) translate(47px,-10px);
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  visibility: hidden;
+    white-space: nowrap;
+    width: 100%;
+}
+.cd-top.cd-is-visible, .no-touch .cd-top:hover {
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.cd-top.cd-is-visible {
+  opacity: 0.9;
+  -webkit-transform: scale(1) translate(0px,0px);
+  -moz-transform: scale(1) translate(0px,0px);
+  -o-transform: scale(1) translate(0px,0px);
+  -ms-transform:scale(1) translate(0px,0px);
+  transform: scale(1) translate(0px,0px);
+  visibility: visible;
+}
+.cd-top.cd-is-visible:hover {
+  color: rgb(255, 255, 255);
+  opacity: 1;
+}
+
+.cd-top:hover { 
+  text-decoration: none;
+  right: 0px;
+}
+
+.cd-top .fas {
+  padding: 16px 16px;
+}
+.cd-top span:last-child {
+  padding: 13px 16px;
+}
+
+
 /* Desktop version */
 @media (min-width: 992px) {
 
@@ -491,6 +552,18 @@ body {
 
   #sosmed ul {
     left: 48%;
+  }
+
+  .cd-top {
+    bottom: 90px;
+    width: auto;
+    right: -164px;
+  }
+  .cd-top:hover {
+    right: 0px;
+  }
+  .cd-top .fas {
+    border-right: 1px solid  rgb(71, 142, 203);
   }
 
 }

@@ -38,6 +38,8 @@
 	</footer>
 </section>
 
+
+
 <!-- Footer -->
 <section id="footer">
 	<footer class="bg-dark text-white">
@@ -51,6 +53,9 @@
 	</footer>
 </section>
 
+<!-- Back to top -->
+	<a href="#0" class="back-to-top cd-top"><span class="[ fas fa-chevron-up ]"></span> <span class="[ ]">Back to the Top</span></a>
+	
 <!-- Optional JavaScript -->
 <script src="<?= base_url('assets/') ?>js/jquery-3.3.1.js"></script>
 <!-- lightbox Js -->

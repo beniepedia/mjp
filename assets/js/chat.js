@@ -11,7 +11,7 @@ $(document).ready(function(){
         alwaysUseFloatingButton: true // Use the mobile floating button also on large screens
     };
 
-    const pesan = $('.pesanNotif').data('pesan');     
+        const pesan = $('.pesanNotif').data('pesan');     
         const error = $('.pesanNotif').data('error');    
         const title = $('.pesanNotif').data('title');     
         if(pesan)

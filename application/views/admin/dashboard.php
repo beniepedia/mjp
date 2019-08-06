@@ -3,7 +3,7 @@
 	<!-- Page Heading -->
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
 		<h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-		<a href="<?= base_url('admin/backup'); ?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+		<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" id="tes-btn"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
 	</div>
 	<!-- Content Row -->
 	<div class="row">
@@ -281,5 +281,19 @@ $(document).ready(function(){
 		pieSeries.hiddenState.properties.startAngle = -90;
 	}); // end am4core.ready()
 
+	$('#tes-btn').on('click', function(){
+		 notify({
+                    type: "success", //alert | success | error | warning | info
+                    title: "Success",
+					position: {
+                        x: "right", //right | left | center
+                        y: "top" //top | bottom | center
+                    },
+                    icon: '<img src="images/paper_plane.png" />',
+                    message: "jQuery Notify.js Demo. Super simple Notify plugin."
+                });
+	});
+
 });
 </script>
+<!-- 		 https://www.jqueryscript.net/other/Growl-Style-Message-Toaster-Plugin-For-jQuery-notify.html -->
