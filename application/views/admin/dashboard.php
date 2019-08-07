@@ -289,9 +289,9 @@ $(document).ready(function(){
                         x: "right", //right | left | center
                         y: "top" //top | bottom | center
                     },
-                    icon: '<img src="images/paper_plane.png" />',
+                    icon: '<img src="<?= base_url('assets/backend/vendor/toast/images/paper_plane.png') ?>" />',
                     message: "jQuery Notify.js Demo. Super simple Notify plugin."
-                });
+                }, 2000);
 	});
 
 });

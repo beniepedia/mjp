@@ -19,6 +19,7 @@
 	padding: 1.3rem 1.3rem;
 }
 
+
 /*
 .checkbox-setting span {
 	position: relative;
@@ -27,11 +28,43 @@
 
 }*/
 
+.my-notif:before {
+	content: "\f0f3";
+	font-family: "Font Awesome 5 Free";
+	display: inline-block;
+   	padding-right: 13px;
+   	vertical-align: middle;
+   	font-weight: 900;
+   	font-size: 20px;
+}
+
+.my-notif {
+	position: absolute;
+/*	display: inline-block;
+*/	z-index: 9999;
+	width: 100%;
+	box-shadow: 0px 0px 7px rgba(0,0,0,.3);
+}
+
+.my-notif:hover {
+	opacity: 1;
+}
+
+
+
 @media (min-width: 992px) {
 
 	.dataTables_filter,
 	.pagination {
 		float: right;
 	}
+
+	.my-notif {
+		top: 6rem;
+		width: auto;
+		right: 3rem;
+	}
+
+
 
 }

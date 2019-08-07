@@ -130,4 +130,8 @@
             }
           })
        });
+
+       setTimeout(function() {
+        $(".alert").slideUp('alert');
+      }, 5000);
 });

@@ -43,8 +43,9 @@ class Message extends CI_Controller {
 		}
 	}
 
-	public function delete($id)
+	public function delete()
 	{
+		$id = $this->input->post('id');
 		$delete = $this->db->delete('tb_inbox', ['inbox_id'=>$id]);
 		if( $delete )
 		{

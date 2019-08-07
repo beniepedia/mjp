@@ -1,9 +1,4 @@
 <div class="container-fluid">
-	<?php if( $this->session->flashdata('msg')) : ?>
-	<div class="alert alert-<?= $this->session->flashdata('type'); ?> alert-dismissible fade show text-center" role="alert"><?= $this->session->flashdata('msg'); ?>
-		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	</div>
-	<?php endif; ?>
 	<form action="<?= base_url('profile'); ?>" enctype="multipart/form-data" method="post">
 		<div class="row justify-content-center">
 			<div class="col-lg-4">

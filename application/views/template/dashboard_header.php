@@ -25,6 +25,12 @@
 
 	</head>
 	<body id="page-top">
+	<!-- flash notif -->
+		  <?php if( $this->session->flashdata('msg')) : ?>
+		      <div class="alert alert-<?= $this->session->flashdata('type'); ?> alert-dismissible fade show text-center my-notif" role="alert"><?= $this->session->flashdata('msg'); ?>
+		      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		      </div>
+		  <?php endif; ?>
 		<!-- Page Wrapper -->
 		<div id="wrapper">
 			
@@ -137,4 +143,7 @@
 			<div id="content-wrapper" class="d-flex flex-column">
 				<!-- Main Content -->
 				<div id="content">
+					
+				
+
 

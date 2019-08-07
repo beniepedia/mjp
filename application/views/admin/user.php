@@ -1,10 +1,7 @@
 <div class="">
   <!-- Page Heading -->
-  <?php if( $this->session->flashdata('msg')) : ?>
-      <div class="alert alert-<?= $this->session->flashdata('type'); ?> alert-dismissible fade show text-center" role="alert"><?= $this->session->flashdata('msg'); ?>
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      </div>
-  <?php endif; ?>
+
+
   <!-- DataTales Example -->
   <div class="card mb-4">
     <div class="card-header py-3">

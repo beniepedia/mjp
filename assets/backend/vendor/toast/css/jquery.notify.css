@@ -15,8 +15,8 @@
     max-width: 450px;
     background-color: #fff;
     font-size: 14px;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    color: #494949;
+/*    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+*/    color: #494949;
     border-radius: 4px;
     border: 1px solid #dedede;
     box-shadow: rgba(0, 0, 0, 0.0980392) 0px 2px 4px;
@@ -131,6 +131,7 @@
     color: #006400;
     border-color: #7CDD77;
 }
+
 
 .notify.success .notify-icon,
 .notify.success .notify-close-btn {

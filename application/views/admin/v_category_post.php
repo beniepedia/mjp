@@ -1,10 +1,5 @@
 <div class="container-fluid">
   <!-- Page Heading -->
-  <?php if( $this->session->flashdata('msg')) : ?>
-  <div class="alert alert-<?= $this->session->flashdata('type'); ?> alert-dismissible fade show text-center" role="alert"><?= $this->session->flashdata('msg'); ?>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  </div>
-  <?php endif; ?>
   <?php if( validation_errors() ) : ?>
   <div class="alert alert-danger alert-dismissible fade show text-center" role="alert"><?= validation_errors(); ?>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -34,8 +29,8 @@
               <td><?= $c->category_post_name; ?></td>
               <td><?= $c->category_post_slug; ?></td>
               <td>
-                <a href="javascript:void(0)" class="btn btn-danger btn-sm btn-circle btn-edit-post" data-id="<?= $c->category_post_id; ?>" data-category="<?= $c->category_post_name; ?>"><span class="fas fa-edit"></span></a>
-                <a href="<?= base_url('admin/posts/delete_category_post/') . $c->category_post_id; ?>" onclick="return confirm('Yakin ingin menghapus kategori post?')" class="btn btn-primary btn-sm btn-circle"><i class="fas fa-trash"></i></a>
+                <a href="javascript:void(0)" class="btn btn-warning btn-sm btn-circle btn-edit-post" data-id="<?= $c->category_post_id; ?>" data-category="<?= $c->category_post_name; ?>"><span class="fas fa-edit"></span></a>
+                <a href="<?= base_url('admin/posts/delete_category_post/') . $c->category_post_id; ?>" onclick="return confirm('Yakin ingin menghapus kategori post?')" class="btn btn-danger btn-sm btn-circle"><i class="fas fa-trash"></i></a>
               </td>
             </tr>
             <?php endforeach; ?>

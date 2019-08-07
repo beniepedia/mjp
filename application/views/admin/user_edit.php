@@ -2,11 +2,6 @@
 	<div class="row justify-content-center">
 		
 		<div class="col-lg-6">
-			<?php if( $this->session->flashdata('msg')) : ?>
-			<div class="alert alert-<?= $this->session->flashdata('type'); ?> alert-dismissible fade show text-center" role="alert"><?= $this->session->flashdata('msg'); ?>
-				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			</div>
-			<?php endif; ?>
 			<!-- Dropdown Card Example -->
 			<div class="card shadow mb-4">
 				<!-- Card Header - Dropdown -->
