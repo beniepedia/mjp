@@ -22,8 +22,9 @@
 		<link href="<?= base_url('assets/backend/vendor/bootstrap-fileinput/') ?>themes/explorer-fas/theme.css" media="all" rel="stylesheet" type="text/css"/>
 		<link href="<?= base_url('assets/backend/') ?>css/dropify.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="<?= base_url('assets/backend/') ?>vendor/bootstrap-toggle-master/css/bootstrap-toggle.min.css">
-		<link rel="stylesheet" href="<?= base_url('assets/backend/') ?>vendor/toast/css/jquery.notify.css">
+		<link rel="stylesheet" href="<?= base_url('assets/backend/') ?>vendor/MKnotif/css/mk-notifications.min.css">
 		 <script src="<?= base_url('assets/backend/') ?>vendor/jquery/jquery.min.js"></script>
+		 <script src="https://js.pusher.com/4.4/pusher.min.js"></script>
 
 	</head>
 	<body id="page-top">
@@ -146,7 +147,7 @@
 					<hr class="sidebar-divider my-0">
 
 					<li class="nav-item">
-						<a class="nav-link" href="<?= base_url('/'); ?>" onclick="return confirm('Yakin ingin logout?')">
+						<a class="nav-link" href="<?= base_url('logout'); ?>" onclick="return confirm('Yakin ingin logout?')">
 							<i class="fas fa-sign-out-alt fa-fw"></i>
 							<span>Logout</span></a>
 					</li>

@@ -281,18 +281,6 @@ $(document).ready(function(){
 		pieSeries.hiddenState.properties.startAngle = -90;
 	}); // end am4core.ready()
 
-	$('#tes-btn').on('click', function(){
-		 notify({
-                    type: "success", //alert | success | error | warning | info
-                    title: "Success",
-					position: {
-                        x: "right", //right | left | center
-                        y: "top" //top | bottom | center
-                    },
-                    icon: '<img src="<?= base_url('assets/backend/vendor/toast/images/paper_plane.png') ?>" />',
-                    message: "jQuery Notify.js Demo. Super simple Notify plugin."
-                }, 2000);
-	});
 
 });
 </script>

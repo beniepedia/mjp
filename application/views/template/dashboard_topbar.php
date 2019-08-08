@@ -77,7 +77,7 @@
 	         </div>
 	         	<?php else : ?>
 	         		<div class="font-weight-bold p-3 text-center">
-		                <div class="">Pesan Masuk Kosong</div>
+		                <div class="">Tidak ada pesan masuk!</div>
 	              	</div>
 	        	<?php endif; ?>
           </div>
@@ -88,7 +88,7 @@
 		<!-- Nav Item - User Information -->
 		<li class="nav-item dropdown no-arrow">
 			<a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				<span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $this->session->userdata('name'); ?></span>
+				<span class="mr-2 d-none d-lg-inline text-gray-600 small font-weight-bold"><?= $this->session->userdata('name'); ?></span>
 				<?php if($this->check->is_admin()->oauth_provider=='local') : ?>
 					<img class="img-profile rounded-circle" src="<?= base_url('assets/img/user_img/').$this->check->is_admin()->image; ?>">
 				<?php else : ?>
