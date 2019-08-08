@@ -10,7 +10,7 @@ class Dashboard extends CI_Controller {
 		is_not_login();
 		if($this->check->is_admin()->role_id != 1)
 	     {
-	     	redirect('/','refresh');
+	     	redirect('dashboard','refresh');
 	     }
 
 	     $this->load->model('Visitors_model');

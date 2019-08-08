@@ -5,7 +5,6 @@
 
   <!-- Core plugin JavaScript-->
   <script src="<?= base_url('assets/backend/') ?>vendor/jquery-easing/jquery.easing.min.js"></script>
-  
 
   <!-- Custom scripts for all pages-->
   <script src="<?= base_url('assets/backend/') ?>js/sb-admin-2.min.js"></script>
@@ -23,6 +22,10 @@
               html: pesan   
             }); 
         }
+
+        setTimeout(function() {
+        $(".alert").slideUp('alert');
+        }, 5000);
   	});
   </script>
 

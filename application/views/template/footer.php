@@ -67,7 +67,7 @@ crossorigin="anonymous"></script>
 <script src="<?= base_url('assets/') ?>js/script.js"></script>
 <!-- Wow JS -->
 <script src="<?= base_url('assets/') ?>js/wow.min.js"></script>
-<script src="<?= base_url('assets/') ?>js/toast/toastr.min.js" type="text/javascript"></script>
+
 <script id="intergram" type="text/javascript" src="https://www.intergram.xyz/js/widget.js"></script>
 <script  type="text/javascript" src="<?= base_url('assets/') ?>js/chat.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>

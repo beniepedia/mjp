@@ -12,11 +12,7 @@
                 <h1 class="h4 text-gray-900 font-weight-bold ">Daftar Akun Baru</h1>
                 <small class="font-italic">Gunakan email yang valid, karena kami akan megirmkan link aktivasi ke email anda..</small>
               </div>
-              <?php if( $this->session->flashdata('msg')) : ?>
-              <div class="alert alert-<?= $this->session->flashdata('type'); ?> alert-dismissible fade show text-center" role="alert"><?= $this->session->flashdata('msg'); ?>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              </div>
-              <?php endif; ?>
+      
               <form class="user" method="post" action="<?= base_url('auth/registrasi'); ?>">
                 <div class="form-group">
                   <input type="text" class="form-control form-control-user <?= form_error('nama')?'is-invalid':null; ?>" name="nama" placeholder="Nama Lengkap" value="<?= set_value('nama'); ?>">
@@ -44,10 +40,10 @@
               </form>
               <hr>
               <div class="text-center">
-                <small>Lupa Password ?</small><a class="small" href="<?= base_url('auth/forgotpass'); ?>"> Reset Password</a>
+                <small>Lupa Password ?</small><a class="small" href="<?= base_url('forgot_password'); ?>"> Reset Password</a>
               </div>
               <div class="text-center">
-                <small>Sudah Punya Akun ?</small><a class="small" href="<?= base_url('auth/login'); ?>"> Login</a>
+                <small>Sudah Punya Akun ?</small><a class="small" href="<?= base_url('login'); ?>"> Login</a>
               </div>
               <div class="text-center mt-3">
                 <a class="small" href="<?= base_url('/'); ?>" style="font-size: 1.5rem;"><i class="fas fa-home"></i></a>

@@ -8,7 +8,7 @@ class Backup extends CI_Controller {
 		is_not_login();
 		if($this->check->is_admin()->role_id != 1)
 		{
-			redirect('admin/dashboard','refresh');
+			redirect('dashboard','refresh');
 		}
 	}
 

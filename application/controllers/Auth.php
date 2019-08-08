@@ -104,13 +104,13 @@ class Auth extends CI_Controller
     		$insert = $this->Auth_model->registrasi();
     		if($insert)
     		{
-    			$this->session->set_flashdata('msg', 'Registrasi berhasil, link aktivasi sudah dikirim ke email anda!');
+    			$this->session->set_flashdata('msg', 'Registrasi berhasil, cek folder <strong>INBOX / SPAM</strong> email anda untuk aktivasi!');
                 $this->session->set_flashdata('type', 'success');
-    			redirect('auth/login','refresh');
+    			redirect('login','refresh');
     		}else{
                 $this->session->set_flashdata('msg', 'Terjadi kesalahan saat registrasi, silahkan coba lagi / hubungi kami!');
                 $this->session->set_flashdata('type', 'danger');
-                redirect('auth/registrasi','refresh');
+                redirect('registrasi','refresh');
     		}
     	}	
     }
@@ -164,28 +164,28 @@ class Auth extends CI_Controller
 
                             $this->session->set_flashdata('msg', 'permintaan reset password berhasil. Kami telah mengirimkan instruksi untuk merubah password ke <strong>'.$email.'</strong>');
                             $this->session->set_flashdata('type', 'success');
-                            redirect('auth/login','refresh');
+                            redirect('login','refresh');
 
                         } else {
                             $this->session->set_flashdata('msg', 'permintaan reset password gagal. terjadi kesalahan di sistem kami. silahkan coba lagi / hubungi kami!');
                             $this->session->set_flashdata('type', 'danger');
-                            redirect('auth/forgotpass','refresh');
+                            redirect('forgot_password','refresh');
                         }
 
                     }else{
                         $this->session->set_flashdata('msg', 'Permintaan reset password sudah pernah dilakukan sebelumnya. Silahkan cek kembali inbox email anda!');
                         $this->session->set_flashdata('type', 'danger');
-                        redirect('auth/forgotpass','refresh');
+                        redirect('forgot_password','refresh');
                     }
                 }else{
                     $this->session->set_flashdata('msg', 'Status email anda tidak aktif / belum diverifikasi!');
                     $this->session->set_flashdata('type', 'danger');
-                    redirect('auth/forgotpass','refresh');
+                    redirect('forgot_password','refresh');
                 }
             }else{
                 $this->session->set_flashdata('msg', 'Email yang anda masukkan tidak terdaftar!');
                 $this->session->set_flashdata('type', 'danger');
-                redirect('auth/forgotpass','refresh');
+                redirect('forgot_password','refresh');
             }
         }
     }
@@ -222,7 +222,7 @@ class Auth extends CI_Controller
             if( $query )
             {
                 fMessage('Password berhasil diganti. Silahkan login!', 'success', 'Berhasil');
-                redirect('auth/login','refresh');
+                redirect('login','refresh');
             }
         }
         

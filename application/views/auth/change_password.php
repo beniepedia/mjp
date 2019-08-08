@@ -13,7 +13,6 @@
 									<strong class="text-primary"><?= $this->session->userdata('email_reset'); ?></strong>
 								</small>
 							</div>
-							<?= $this->session->flashdata('message'); ?>
 							<form class="user" method="post" action="<?= base_url('auth/changepass'); ?>">
 								<div class="form-group">
 									<input type="password" class="form-control form-control-user" name="password" placeholder="Masukan Password Baru ...">
@@ -27,10 +26,10 @@
 							</form>
 							<hr>
 							<div class="text-center">
-								<small>Belum Punya Akun ?</small><a class="small" href="<?= base_url('auth/registrasi'); ?>"> Registrasi</a>
+								<small>Belum Punya Akun ?</small><a class="small" href="<?= base_url('registrasi'); ?>"> Registrasi</a>
 							</div>
 							<div class="text-center">
-								<small>Sudah Punya Akun ?</small><a class="small" href="<?= base_url('auth/login'); ?>"> Login</a>
+								<small>Sudah Punya Akun ?</small><a class="small" href="<?= base_url('login'); ?>"> Login</a>
 							</div>
 							<div class="text-center mt-3">
 		                    	<a class="small" href="<?= base_url('/'); ?>" style="font-size: 1.5rem;"><i class="fas fa-home"></i>

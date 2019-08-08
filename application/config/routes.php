@@ -53,3 +53,10 @@ $route['artikel/(:any)'] = 'blog/details/$1';
 $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+$route['login'] = 'auth/login';
+$route['facebook_login'] = 'auth/facebook_login';
+$route['forgot_password'] = 'auth/forgotpass';
+$route['change_password'] = 'auth/changepass';
+$route['registrasi'] = 'auth/registrasi';
+$route['logout'] = 'auth/logout';

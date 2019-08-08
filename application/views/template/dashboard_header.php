@@ -6,6 +6,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta name="description" content="">
 		<meta name="author" content="">
+		<link rel="icon" type="image/png" href="<?= base_url() ?>/favicon-32x32.png" sizes="32x32" />
+		<link rel="icon" type="image/png" href="<?= base_url() ?>/favicon-16x16.png" sizes="16x16" />
 		<title><?= $title; ?></title>
 		<!-- Custom fonts for this template-->
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css" rel="stylesheet" type="text/css">
@@ -35,7 +37,7 @@
 		<div id="wrapper">
 			
 			<!-- Sidebar -->
-			<ul class="navbar-nav sidebar sidebar-dark accordion color-gradiant" id="accordionSidebar">
+			<ul class="navbar-nav sidebar sidebar-dark accordion bg-gradient-primary" id="accordionSidebar">
 				<!-- Sidebar - Brand -->
 				<a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
 					<div class="sidebar-brand-icon">
@@ -43,15 +45,24 @@
 					</div>
 					<div class="sidebar-brand-text mx-3"><?= $this->generalset->web()->site_alias; ?></div>
 				</a>
-				<?php if($this->check->is_admin()->role_id == 1 ) : ?>
 				<!-- Divider -->
 				<hr class="sidebar-divider my-0">
 				<!-- Nav Item - Dashboard -->
-				<li class="nav-item <?php if($this->uri->segment(2)=='dashboard'){echo 'active';} ?>">
+				<?php if($this->check->is_admin()->role_id == 1 ) : ?>
+					<li class="nav-item <?php if($this->uri->segment(2)=='dashboard'){echo 'active';} ?>">
 					<a class="nav-link" href="<?= base_url('admin/dashboard'); ?>">
 						<i class="fas fa-fw fa-tachometer-alt"></i>
 						<span>Dashboard</span></a>
 					</li>
+				<?php else : ?>
+					<li class="nav-item <?php if($this->uri->segment(1)=='dashboard'){echo 'active';} ?>">
+					<a class="nav-link" href="<?= base_url('dashboard'); ?>">
+						<i class="fas fa-fw fa-tachometer-alt"></i>
+						<span>Dashboard</span></a>
+					</li>
+				<?php endif; ?>
+
+				<?php if($this->check->is_admin()->role_id == 1 ) : ?>
 					<!-- Divider -->
 					<hr class="sidebar-divider my-0">
 					<li class="nav-item <?php if($this->uri->segment(2)=='user'){echo 'active';} ?>">
@@ -132,6 +143,14 @@
 						</div>
 					</li>
 					<!-- Divider -->
+					<hr class="sidebar-divider my-0">
+
+					<li class="nav-item">
+						<a class="nav-link" href="<?= base_url('/'); ?>" onclick="return confirm('Yakin ingin logout?')">
+							<i class="fas fa-sign-out-alt fa-fw"></i>
+							<span>Logout</span></a>
+					</li>
+
 					<hr class="sidebar-divider d-none d-md-block">
 					<!-- Sidebar Toggler (Sidebar) -->
 					<div class="text-center d-none d-md-inline">

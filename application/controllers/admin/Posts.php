@@ -6,6 +6,11 @@ class Posts extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+		is_not_login();
+		if($this->check->is_admin()->role_id != 1)
+		{
+			redirect('dashboard','refresh');
+		}
 		$this->load->model('Blog_model');
 		$this->load->library('form_validation');
 		$this->load->library('upload');
@@ -36,12 +41,11 @@ class Posts extends CI_Controller {
 			# code...
 		} else {
 
-			var_dump($_POST);die;
-
+			dump($_POST);
 			$post 	= $this->input->post(null, TRUE);
-			$config['upload_path'] = './assets/img/blog_img/'; //path folder
-	        $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp'; //type yang dapat diakses bisa anda sesuaikan
-	        $config['encrypt_name'] = TRUE; //enkripsi nama file ketika di upload
+			$config['upload_path']		= './assets/img/blog_img/'; //path folder
+	        $config['allowed_types'] 	= 'gif|jpg|png|jpeg|bmp'; //type yang dapat diakses bisa anda sesuaikan
+	        $config['encrypt_name'] 	= TRUE; //enkripsi nama file ketika di upload
 	        $this->upload->initialize($config);
 	        if(!empty($_FILES['image']['name']))
 	        {
@@ -52,7 +56,8 @@ class Posts extends CI_Controller {
 	        		// comprez gambar
 	        		$this->load->library('Comprez_lib');
 	        		$source 	= './assets/img/blog_img/'.$gbr['file_name'];
-	        		$this->comprez_lib->img($source, '60%', 720, 420, $source);
+	        		$to 	= './assets/img/blog_img/large'.$gbr['file_name'];
+	        		$this->comprez_lib->img($source, '60%', 720, 420, $to);
 	                $this->image_lib->resize();
 
 	                //Buat slug
@@ -62,8 +67,8 @@ class Posts extends CI_Controller {
 	                $slug 		= $pre_slug.'.html'; // tambahkan ektensi .html pada slug
 
 	                 $data = array(
-	                	'title'		=> $post['title'],
-	                	'content'	=> htmlspecialchars($post['content']),
+	                	'title'		=> htmlspecialchars($post['title'], ENT_QUOTES),
+	                	'content'	=> htmlspecialchars($post['content'], ENT_QUOTES),
 	                	'date' 		=> time(),
 	                	'slug' 		=> $slug,
 	                	'image' 	=> $gbr['file_name'],

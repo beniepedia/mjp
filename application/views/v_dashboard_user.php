@@ -3,7 +3,7 @@
 		<div class="col-12">
 			<div class="card">
 				<div class="card-body">
-					Tesajdkjaskldklasndklas
+					<h3 class="text-center"> Welcome to <?= $this->generalset->web()->site_name; ?></h3>
 				</div>
 			</div>
 		</div>

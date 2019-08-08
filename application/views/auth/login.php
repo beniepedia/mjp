@@ -1,4 +1,4 @@
-    <div class="pesanNotif" data-title="<?= $this->session->flashdata('title'); ?>" data-pesan="<?= $this->session->flashdata('pesan'); ?>" data-error="<?= $this->session->flashdata('type'); ?>"></div>
+
     <!-- Outer Row -->
     <div class="row justify-content-center mt-5">
 
@@ -17,11 +17,7 @@
                     <h1 class="h4 text-gray-900 font-weight-bold ">Silahkan Login</h1>
                     <small class="font-italic">Gunakan email yang sudah anda daftarkan untuk login.</small>
                   </div>
-                  <?php if( $this->session->flashdata('msg')) : ?>
-                    <div class="alert alert-<?= $this->session->flashdata('type'); ?> alert-dismissible fade show text-center" role="alert"><?= $this->session->flashdata('msg'); ?>
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    </div>
-                  <?php endif; ?>
+
                   <form class="user" action="<?= base_url('auth/login'); ?>" method="post">
                     <div class="form-group">
                       <input type="text" class="form-control form-control-user <?= form_error('email')?'is-invalid':null; ?>"placeholder="Masukan email..." name="email" value="<?= set_value('email'); ?>">
@@ -58,10 +54,10 @@
                   </form>
              
                   <div class="text-center">
-                  <small>Lupa Password ?</small><a class="small" href="<?= base_url('auth/forgotpass'); ?>"> Reset Password</a>
+                  <small>Lupa Password ?</small><a class="small" href="<?= base_url('forgot_password'); ?>"> Reset Password</a>
                   </div>
                   <div class="text-center">
-                  <small>Belum Punya Akun ?</small><a class="small" href="<?= base_url('auth/registrasi'); ?>"> Registrasi</a>
+                  <small>Belum Punya Akun ?</small><a class="small" href="<?= base_url('registrasi'); ?>"> Registrasi</a>
                   </div>
                   <div class="text-center mt-3">
                     <a class="small" href="<?= base_url('/'); ?>" style="font-size: 1.5rem;"><i class="fas fa-home"></i></a>

@@ -31,8 +31,7 @@
 						<div class="card-body">
 							<h5><a href="<?= base_url() . 'artikel/' . $b->slug; ?>"><?= $b->title; ?>
 							</a></h5>
-							<hr>
-							<p class="card-text"><?= limit_words($b->content, 30); ?></p>
+	
 						</div>
 						<div class="card-footer">
 							<small class="d-block text-uppercase"><i class="fas fa-user-tie"></i> <?= $b->author; ?></small>
@@ -47,4 +46,3 @@
 	</div>
 </div>
 </div>
-

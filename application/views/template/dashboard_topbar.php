@@ -37,7 +37,7 @@
 			</div>
 		</li>
 		<!-- Nav Item - Alerts -->
-
+		<?php if($this->check->is_admin()->role_id == 1) : ?>
 		 <!-- Nav Item - Messages -->
         <li class="nav-item dropdown no-arrow mx-1">
           <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -52,12 +52,21 @@
               Message Center
             </h6>
             <div style="overflow-y:scroll;height:150px;margin-bottom:10px; line-height: 30px;">
+            	<!-- cek jumlah pesan masuk -->
             <?php if( $count->num_rows() > 0 ) : ?>
 	            <?php foreach ($count->result() as $c) : ?>
 	            <a class="dropdown-item d-flex align-items-center" href="<?= base_url('admin/message/inbox') ?>">
+	            <!-- cek user sudah pernah daftar apa belum -->
+	            <?php $cek = $this->db->get_where('users', ['email'=>$c->inbox_email]); ?>
 	              <div class="dropdown-list-image mr-3">
-	                <img class="rounded-circle" src="<?= base_url('assets/img/user_img/default.jpg') ?>" alt="">
-	                <div class="status-indicator bg-success"></div>
+	            <?php 
+	            if($cek->num_rows() > 0 ) {
+	            	$img = $cek->row();
+	                echo '<img class="rounded-circle" src="'.base_url('assets/img/user_img/').$img->image.'" alt="">';
+	            } else {
+	             	echo '<img class="rounded-circle" src="'.base_url('assets/img/user_img/').'default.jpg" alt="">';  
+	          	} ?>
+	            <div class="status-indicator bg-success"></div>
 	              </div>
 	              <div class="font-weight-bold">
 	                <div class="text-truncate"><?= $c->inbox_subject; ?></div>
@@ -73,7 +82,8 @@
 	        	<?php endif; ?>
           </div>
         </li>
-		
+		<?php endif; ?>
+
 		<div class="topbar-divider d-none d-sm-block"></div>
 		<!-- Nav Item - User Information -->
 		<li class="nav-item dropdown no-arrow">

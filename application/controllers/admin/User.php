@@ -10,9 +10,9 @@ class User extends CI_Controller {
 		$this->load->library('form_validation');
 		is_not_login();
 		if($this->check->is_admin()->role_id != 1)
-     {
-     	redirect('/','refresh');
-     }
+	     {
+	     	redirect('dashboard','refresh');
+	     }
 
 	}
 

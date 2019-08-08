@@ -381,13 +381,16 @@ body {
 
 .card-blog {
   transition: .4s;
-  height: 34rem;
+  min-height: 25rem;
 }
 
 
 
 .card-blog h5 {
   text-align: center;
+  font-size: 20px;
+  text-transform: uppercase;
+
 }
 
 .card-blog h5 a {

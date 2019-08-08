@@ -82,14 +82,13 @@ class Auth_model extends CI_Model
     				redirect('admin/dashboard','refresh');
           } else {
             $this->session->set_userdata($data);
-            redirect('/','refresh');
+            redirect('dashboard','refresh');
           }
         
 
   			} else {
-  				$this->session->set_flashdata('msg', 'Password yang anda masukan salah, silahkan coba lagi!');
-          $this->session->set_flashdata('type', 'danger');
-  				redirect('auth/login','refresh');
+  				$this->session->set_flashdata(['msg'=>'Password yang anda masukan salah, silahkan coba lagi!','type'=>'danger']);
+  				redirect('login','refresh');
   			}
 
   		} else {
@@ -97,7 +96,7 @@ class Auth_model extends CI_Model
         $user_token = $this->db->get_where('user_token', ['email'=>$email])->row_array();
         if ( time() - $user_token['date_created'] < 7200 )
         {
-            $this->session->set_flashdata('msg', 'Email anda belum diverifikasi, silahkan cek inbox email anda untuk verifikasi email!');
+            $this->session->set_flashdata('msg', 'Email anda belum diverifikasi, silahkan cek folder inbox / spam email anda untuk verifikasi email!');
             $this->session->set_flashdata('type', 'info');
 
         } else {
@@ -111,9 +110,9 @@ class Auth_model extends CI_Model
         redirect('auth/login','refresh');
   		}
   	}else{
-      $this->session->set_flashdata('msg', 'Email tidak terdaftar!');
+      $this->session->set_flashdata('msg', 'Email yang anda masukan tidak terdaftar!');
       $this->session->set_flashdata('type', 'danger');
-      redirect('auth/login','refresh');
+      redirect('login','refresh');
   	}
 	}
 
@@ -144,18 +143,18 @@ class Auth_model extends CI_Model
           $this->db->delete('user_token', ['token'=>$token]);
           fMessage('Aktivasi akun gagal, Token sudah expired, silahkan daftar ulang...!',
           'error','Gagal...!');
-          redirect('auth/login','refresh');
+          redirect('login','refresh');
         }
       }else{
         fMessage('Aktivasi akun gagal, Token tidak valid...!',
           'error','Gagal...!');
-        redirect('auth/login','refresh');
+        redirect('login','refresh');
       }
     }else
     {
       fMessage('Aktivasi akun gagal, Email <strong>'.$email.'</strong> tidak terdaftar...!',
           'error','Gagal...!');
-      redirect('auth/login','refresh');
+      redirect('login','refresh');
     }
   }
 
@@ -180,15 +179,15 @@ class Auth_model extends CI_Model
                 return $this->session->set_userdata( 'email_reset', $email );
             }else{
                 fMessage('Permintaan reset password sudah expired, Silahkan coba lagi!', 'error', 'Expired...!');
-                redirect('auth/login','refresh');
+                redirect('login','refresh');
             }
         } else {
           fMessage('Token tidak valid, Silahkan coba lagi / hubungi kami!', 'error', 'Token Error...!');
-          redirect('auth/login','refresh');
+          redirect('login','refresh');
         }
      }else{
         fMessage('Email tidak terdaftar !', 'error', 'Gagal...!');
-        redirect('auth/login','refresh');
+        redirect('login','refresh');
      }
   }
 
