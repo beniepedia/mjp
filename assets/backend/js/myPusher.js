@@ -2,7 +2,7 @@ $(document).ready(function(){
 	
 
     // Enable pusher logging - don't include this in production
-    // Pusher.logToConsole = true;
+    Pusher.logToConsole = true;
 
     var pusher = new Pusher('64116644fe77e7ebfb2f', {
       cluster: 'ap1',
@@ -19,11 +19,25 @@ $(document).ready(function(){
 
 
     $('#tes-btn').on('click', function(){
-    	 mkNoti(
-		    'MK Web Notifications (Info)',
-		    'Example of generated notification with status Info',
-		    { sound: true }
-		);
+      	 var mkConfig = {
+            positionY: 'bottom',
+            positionX: 'right',
+            max: 5,
+            scrollable: true,
+            sound: true
+          };
+
+          mkNotifications(mkConfig);
+
+          mkNoti(
+            'MK Web Notifications (Info)',
+            'Example of generated notification with status Info',
+            {
+              status:'info',
+
+            }
+          );
+
     });
 
 

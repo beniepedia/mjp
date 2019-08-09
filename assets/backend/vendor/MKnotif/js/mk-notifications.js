@@ -16,8 +16,8 @@ var icons = {
 	purple:  'fa fa-bell'
 };
 
-var defaultSound = './src/sound/notification.mp3',
-	defaultClose = './src/sound/close.mp3';
+var defaultSound = './sound/notification.mp3',
+	defaultClose = './sound/close.mp3';
 
 var uniqueId = 0;
 

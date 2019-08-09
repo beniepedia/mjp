@@ -38,17 +38,56 @@
 		</li>
 
 
-
-		<!-- Nav Item - Alerts -->
 		
+		<!-- Nav Item - Alerts -->
+		<?php if($this->check->is_admin()->role_id == 1) : ?>
 		 <!-- Nav Item - Messages -->
         <li class="nav-item dropdown no-arrow mx-1">
           <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-envelope fa-fw"></i>
             <!-- Counter - Messages -->
-			
-            <span class="badge badge-danger badge-counter"></span>
+			<?php $count = $this->db->get_where('tb_inbox', ['inbox_status'=>'0']); ?>
+            <span class="badge badge-danger badge-counter"><?= $count->num_rows() > 0 ? $count->num_rows() : null; ?></span>
           </a>
+          <!-- Dropdown - Messages -->
+          <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
+            <h6 class="dropdown-header">
+              Message Center
+            </h6>
+            <div style="overflow-y:scroll;height:150px;margin-bottom:10px; line-height: 30px;">
+            	<!-- cek jumlah pesan masuk -->
+            <?php if( $count->num_rows() > 0 ) : ?>
+	            <?php foreach ($count->result() as $c) : ?>
+	            <a class="dropdown-item d-flex align-items-center" href="<?= base_url('admin/message/inbox') ?>">
+	            <!-- cek user sudah pernah daftar apa belum -->
+	            <?php $cek = $this->db->get_where('users', ['email'=>$c->inbox_email]); ?>
+	              <div class="dropdown-list-image mr-3">
+	            <?php 
+	            if($cek->num_rows() > 0 ) {
+	            	$img = $cek->row();
+	                echo '<img class="rounded-circle" src="'.base_url('assets/img/user_img/').$img->image.'" alt="">';
+	            } else {
+	             	echo '<img class="rounded-circle" src="'.base_url('assets/img/user_img/').'default.jpg" alt="">';  
+	          	} ?>
+	            <div class="status-indicator bg-success"></div>
+	              </div>
+	              <div class="font-weight-bold">
+	                <div class="text-truncate"><?= $c->inbox_subject; ?></div>
+	                <div class="small text-gray-500"><?= $c->inbox_name; ?> · <?= date("d-m-Y, H:i:s", $c->inbox_created); ?></div>
+	              </div>
+	            </a>
+	         	<?php endforeach; ?>
+	         </div>
+	         	<?php else : ?>
+	         		<div class="font-weight-bold p-3 text-center">
+		                <div class="">Tidak ada pesan masuk!</div>
+	              	</div>
+	        	<?php endif; ?>
+          </div>
+        </li>
+		<?php endif; ?>
+
+
       
 
 		<div class="topbar-divider d-none d-sm-block"></div>
