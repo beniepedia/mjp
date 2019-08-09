@@ -82,6 +82,10 @@ class Auth_model extends CI_Model
     				redirect('admin/dashboard','refresh');
           } else {
             $this->session->set_userdata($data);
+            // pusher
+            $params['nama'] = $query['name'];
+            $params['pesan'] = $query['name'] . ' Sedang Login ';
+            pusher('ap1', $params);
             redirect('dashboard','refresh');
           }
         

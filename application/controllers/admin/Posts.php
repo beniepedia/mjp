@@ -41,7 +41,7 @@ class Posts extends CI_Controller {
 			# code...
 		} else {
 
-			dump($_POST);
+			dump($_FILES);
 			$post 	= $this->input->post(null, TRUE);
 			$config['upload_path']		= './assets/img/blog_img/'; //path folder
 	        $config['allowed_types'] 	= 'gif|jpg|png|jpeg|bmp'; //type yang dapat diakses bisa anda sesuaikan

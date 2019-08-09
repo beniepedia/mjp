@@ -36,6 +36,9 @@ class Kontak extends CI_Controller {
 
 			if( $insert )
             {
+            	$params['nama'] = $this->input->post('nama');
+            	$params['pesan'] = $this->input->post('pesan');
+            	pusher('ap1', $params);
 				fMessage('Pesan anda berhasil terkirim !',
 						'success', 'Sukses...!');
 				redirect('kontak');

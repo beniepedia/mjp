@@ -2,7 +2,7 @@ $(document).ready(function(){
 	
 
     // Enable pusher logging - don't include this in production
-    Pusher.logToConsole = true;
+    // Pusher.logToConsole = true;
 
     var pusher = new Pusher('64116644fe77e7ebfb2f', {
       cluster: 'ap1',
@@ -11,30 +11,32 @@ $(document).ready(function(){
 
     var channel = pusher.subscribe('my-channel');
     channel.bind('my-event', function(data) {
-      var config = 
-        {
-            max: 6
-        };
+      var config = {max: 6};
 
-        mkNotifications(config);
-        var options = 
-        {
-            status: 'success',
-            sound: true
-        };
+      mkNotifications(config);
+      var options = {
+        status: 'success',
+        link: {
+           url: 'message/inbox'
+        }, 
+        sound: true,
+        duration: 8000
+      };
 
-        mkNoti(
-            "Pesan Baru",
-            "Example of generated notification with Notifications Generator",
-            options
-        );
+      mkNoti(
+          data['nama'],
+          data['pesan'],
+          options
+      );
       // alert(JSON.stringify(data));
     });
 
 
 
-
     $('#tes-btn').on('click', function(){
+        
+        var tes = 'nama ku beni';
+
         var config = 
         {
             max: 6
@@ -44,12 +46,15 @@ $(document).ready(function(){
         var options = 
         {
             status: 'success',
+             link: {
+              url: 'message/inbox'
+            },
             sound: true
         };
 
         mkNoti(
-            "MK Web Notifications",
-            "Example of generated notification with Notifications Generator",
+            tes,
+            "bang, ini bagaimana cara nya",
             options
         );
     });
