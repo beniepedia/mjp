@@ -22,7 +22,7 @@
 		<link href="<?= base_url('assets/backend/vendor/bootstrap-fileinput/') ?>themes/explorer-fas/theme.css" media="all" rel="stylesheet" type="text/css"/>
 		<link href="<?= base_url('assets/backend/') ?>css/dropify.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="<?= base_url('assets/backend/') ?>vendor/bootstrap-toggle-master/css/bootstrap-toggle.min.css">
-		<link rel="stylesheet" href="<?= base_url('assets/backend/') ?>vendor/MKnotif/css/mk-notifications.css">
+		<link rel="stylesheet" href="<?= base_url('assets/backend/') ?>vendor/MKnotif/src/css/mk-notifications.css">
 		 <script src="<?= base_url('assets/backend/') ?>vendor/jquery/jquery.min.js"></script>
 		 <script src="https://js.pusher.com/4.4/pusher.min.js"></script>
 

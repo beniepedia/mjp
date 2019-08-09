@@ -11,33 +11,47 @@ $(document).ready(function(){
 
     var channel = pusher.subscribe('my-channel');
     channel.bind('my-event', function(data) {
+      var config = 
+        {
+            max: 6
+        };
 
-      alert(JSON.stringify(data));
+        mkNotifications(config);
+        var options = 
+        {
+            status: 'success',
+            sound: true
+        };
+
+        mkNoti(
+            "Pesan Baru",
+            "Example of generated notification with Notifications Generator",
+            options
+        );
+      // alert(JSON.stringify(data));
     });
 
 
 
 
     $('#tes-btn').on('click', function(){
-      	 var mkConfig = {
-            positionY: 'bottom',
-            positionX: 'right',
-            max: 5,
-            scrollable: true,
-            sound: true
-          };
+        var config = 
+        {
+            max: 6
+        };
 
-          mkNotifications(mkConfig);
+        mkNotifications(config);
+        var options = 
+        {
+            status: 'success',
+            sound: true
+        };
 
-          mkNoti(
-            'MK Web Notifications (Info)',
-            'Example of generated notification with status Info',
-            {
-              status:'info',
-
-            }
-          );
-
+        mkNoti(
+            "MK Web Notifications",
+            "Example of generated notification with Notifications Generator",
+            options
+        );
     });
 
 
