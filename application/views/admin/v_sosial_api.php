@@ -16,7 +16,7 @@
 							<label for="fbkey"  class="col-sm-3 col-form-label label-judul">App Secret</label>
 							<div class="col-md-9">
 								<input type="text" name="fbkey" class="form-control" id="fbkey" placeholder="facebook app secret" value="<?= $api->api_fb_key; ?>">
-								<small class="font-italic text-grey">Untuk mendapatkan App ID & App Secret Facebook, silahkan kunjungi link ini. <a href="https://developers.facebook.com/" target="_blank">Buat API facebook</a></small>
+								<small class="font-italic text-grey">Untuk mendapatkan App ID & App Secret Facebook, silahkan kunjungi link ini. <a href="https://developers.facebook.com/" target="_blank">Create API Facebook</a></small>
 							</div>
 						</div>
 						<hr>
@@ -32,7 +32,23 @@
 							<label for="gkey"  class="col-sm-3 col-form-label label-judul">App Secret</label>
 							<div class="col-md-9">
 								<input type="text" name="gkey" class="form-control" id="fbkey" placeholder="facebook app secret" value="">
-								<small class="font-italic text-grey">Untuk mendapatkan App ID & App Secret Facebook, silahkan kunjungi link ini. <a href="https://developers.facebook.com/" target="_blank">Buat API facebook</a></small>
+								<small class="font-italic text-grey">Untuk mendapatkan App ID & App Secret Facebook, silahkan kunjungi link ini. <a href="https://developers.facebook.com/" target="_blank">Create Google API</a></small>
+							</div>
+						</div>
+						<hr>
+						<!-- google recaptcha-->
+						<h6 class="text-primary pb-sm-3">Google Recaptcha</h6>
+						<div class="form-group row">
+							<label for="skey" class="col-sm-3 col-form-label label-judul">Site Key</label>
+							<div class="col-md-9">
+								<input type="text" name="sitekey" class="form-control" id="skey" placeholder="Google reCaptcha Site Key" value="<?= $api->api_captcha_sitekey ?>">
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="rkey"  class="col-sm-3 col-form-label label-judul">Secret Key</label>
+							<div class="col-md-9">
+								<input type="text" name="secretkey" class="form-control" id="rkey" placeholder="Google reCaptcha Secret Key" value="<?= $api->api_captcha_serverkey ?>">
+								<small class="font-italic text-grey">Untuk mendapatkan Site Key & Secret Key Google reCaptcha, silahkan kunjungi link ini. <a href="https://www.google.com/recaptcha/" target="_blank">Create API reCaptcha</a></small>
 							</div>
 						</div>
 						<hr>
@@ -41,7 +57,7 @@
 						<div class="form-group row">
 							<label for="igtoken" class="col-sm-3 col-form-label label-judul">Token ID</label>
 							<div class="col-md-9">
-								<input type="text" name="igtoken" class="form-control" id="fbid" placeholder="Instagram Token" value="<?= $api->api_ig_token; ?>">
+								<input type="text" name="igtoken" class="form-control" id="igtoken" placeholder="Instagram Token" value="<?= $api->api_ig_token; ?>">
 							</div>
 						</div>
 						<div class="form-group row">
@@ -53,7 +69,7 @@
 									 <option value="8" <?= $api->api_ig_count==8?'selected':null; ?> >8</option>
 									 <option value="12" <?= $api->api_ig_count==12?'selected':null; ?> >12</option>
 								 </select>
-								<small class="font-italic text-grey">Untuk mendapatkan App ID & App Secret Facebook, silahkan kunjungi link ini. <a href="https://developers.facebook.com/" target="_blank">Buat API facebook</a></small>
+								<small class="font-italic text-grey">Untuk mendapatkan Api Token Instagram, silahkan kunjungi link ini. <a href="https://www.instagram.com/developer/" target="_blank">Create Instagram API</a></small>
 							</div>
 						</div>
 						<button class="btn btn-primary float-right">Simpan</button>

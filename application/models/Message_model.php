@@ -10,7 +10,6 @@ class Message_model extends CI_Model {
 		return $this->db->get('tb_inbox');
 	}
 
-
 	public function insert($post)
 	{
 		$params['inbox_name'] 		= htmlspecialchars($post['nama']);

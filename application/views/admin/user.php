@@ -1,7 +1,5 @@
-<div class="">
+<div class="p-2">
   <!-- Page Heading -->
-
-
   <!-- DataTales Example -->
   <div class="card mb-4">
     <div class="card-header py-3">

@@ -60,7 +60,7 @@
 						<?php if($this->generalset->all()->general_set_captcha==1) : ?>
 						<div class="form-group row">
 							<div class="col">
-								<div class="g-recaptcha float-right" name="g-recaptcha-response" data-sitekey="6Levq64UAAAAACuXFOMsLJZ_1l57h8k5ahlUDpaa"></div>
+								<div class="g-recaptcha float-right" name="g-recaptcha-response" data-sitekey="<?= $this->generalset->sosial_api()->api_captcha_sitekey; ?>"></div>
 							</div>
 							
 						</div>

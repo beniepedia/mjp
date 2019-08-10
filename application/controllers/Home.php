@@ -34,7 +34,7 @@ class Home extends CI_Controller {
 			$params['nama']     = $email;
 		    $params['content1'] = 'Terima kasih telah berlangganan di <a href="'.base_url().'">'.$this->generalset->web()->site_name.'</a>, silahkan klik tombol berlanggan dibawah ini untuk mengaktifkan email anda.'; 
 		    $params['link']     = base_url() . 'home/verify?email=' . $email;
-		    $params['content2'] = 'Link berlaku selama 2 jam, silahkan aktifkan segera. atau abaikan email ini jika anda tidak ingin berlangganan'; 
+		    $params['content2'] = 'abaikan email ini jika anda tidak ingin berlangganan'; 
 		    $params['btn']      = 'Berlangganan';
 		    $params['to']       = $email;
 		    $params['subject']  = 'Berlangganan '.$this->generalset->web()->site_alias;

@@ -8,6 +8,15 @@ class Subscribe_model extends CI_Model {
 		return $this->db->insert('tb_subscribe', $params);
 	}
 
+	public function getAll()
+	{
+		return $this->db->get('tb_subscribe');
+	}
+
+	public function count()
+	{
+		return $this->db->get('tb_subscribe');
+	}
 }
 
 /* End of file Subscribe_model.php */

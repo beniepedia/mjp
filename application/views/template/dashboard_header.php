@@ -25,7 +25,23 @@
 		<link rel="stylesheet" href="<?= base_url('assets/backend/') ?>vendor/MKnotif/src/css/mk-notifications.css">
 		 <script src="<?= base_url('assets/backend/') ?>vendor/jquery/jquery.min.js"></script>
 		 <script src="https://js.pusher.com/4.4/pusher.min.js"></script>
-
+		<style>
+			pre {
+				box-sizing: border-box;
+				width: 100%;
+				padding: 0;
+				margin: 0;
+				overflow: auto;
+				overflow-y: hidden;
+				font-size: 12px;
+				line-height: 20px;
+				background: #efefef;
+				border: 1px solid #777;
+				background: url(lines.png) repeat 0 0;
+				padding: 10px;
+				color: #333;
+			}
+		</style>
 	</head>
 	<body id="page-top">
 	<!-- flash notif -->
@@ -75,7 +91,7 @@
 					<hr class="sidebar-divider my-0">
 
 					<li class="nav-item">
-						<a class="nav-link" href="<?= base_url('admin/subscibe'); ?>">
+						<a class="nav-link" href="<?= base_url('admin/subscribe'); ?>">
 							<i class="fas fa-thumbs-up fa-fw"></i>
 							<span>Subscriber</span></a>
 					</li>
@@ -90,8 +106,8 @@
 						<div id="navpost" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
 							<div class="bg-white py-2 collapse-inner rounded">
 								<h6 class="collapse-header">Posts:</h6>
-								<a class="collapse-item" href="<?= base_url('admin/posts/add_new_post') ?>">Buat baru</a>
-								<a class="collapse-item" href="<?= base_url('admin/posts') ?>">List</a>
+								<a class="collapse-item" href="<?= base_url('admin/posts/add_new_post') ?>">Buat Post</a>
+								<a class="collapse-item" href="<?= base_url('admin/posts') ?>">Post List</a>
 								<a class="collapse-item" href="<?= base_url('admin/posts/category_post') ?>">Kategori</a>
 								<a class="collapse-item" href="<?= base_url('admin/posts/tags_post') ?>">Tags</a>
 							</div>

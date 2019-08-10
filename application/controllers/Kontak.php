@@ -114,7 +114,7 @@ class Kontak extends CI_Controller {
 	{
 		$captcha = $this->input->post('g-recaptcha-response');
 		$url     = 'https://www.google.com/recaptcha/api/siteverify';
-		$secret  = '6Levq64UAAAAAMyElsjvNWuUPLlk-VCHQOPzdvGZ';
+		$secret  = $this->generalset->sosial_api()->api_captcha_serverkey;
 
 		$respon  = file_get_contents($url.'?secret='.$secret.'&response='.$captcha.'&remoteip='.$_SERVER['REMOTE_ADDR']);
 		$data   = json_decode($respon);

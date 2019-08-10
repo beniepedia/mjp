@@ -17,7 +17,7 @@ $(document).ready(function(){
       var options = {
         status: 'success',
         link: {
-           url: 'message/inbox'
+           url: '../message/inbox/'
         }, 
         sound: true,
         duration: 8000

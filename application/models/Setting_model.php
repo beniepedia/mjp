@@ -60,6 +60,8 @@ class Setting_model extends CI_Model {
 		$data = array(
 			'api_fb_id' => htmlspecialchars($this->input->post('fbid')),
 			'api_fb_key'=> htmlspecialchars($this->input->post('fbkey')),
+			'api_captcha_sitekey' => htmlspecialchars($this->input->post('sitekey')),
+			'api_captcha_serverkey' => htmlspecialchars($this->input->post('secretkey')),
 			'api_ig_token'=> htmlspecialchars($this->input->post('igtoken')),
 			'api_ig_count'=> htmlspecialchars($this->input->post('count'))
 		);

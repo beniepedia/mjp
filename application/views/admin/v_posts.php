@@ -1,8 +1,8 @@
-<div class="container-fluid">
+<div class="p-2">
   <!-- Page Heading -->
   <!-- DataTales Example -->
   
-  <div class="card shadow mb-4">
+<div class="card shadow mb-4">
     <div class="card-header d-flex flex-row align-items-center justify-content-between">
       <h6 class="m-0 font-weight-bold text-primary">Data Artikel</h6>
 <!--       <div><i class="fas fa-arrow-circle-left fa-2x"></i></div>
