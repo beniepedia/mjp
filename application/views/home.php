@@ -1,17 +1,3 @@
-<!-- Jumbotron -->
-<!-- <div class="jumbotron jumbotron-fluid">
-	<div class="container">
-		<h1 class="display-4 wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.5s">Welcome to <span>ID-MJ Parfume</span>
-		</h1>
-		<p class="lead d-none d-md-block wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.8s">MJ Perfume adalah
-			produk wewangian/parfum untuk pria dan wanita,
-			dengan
-			kualitas
-			aroma yang fresh
-			dan tahan lebih lama serta memiliki lebih dari 1.700 varian aroma yang diantaranya merupakan aroma favorit
-		anda.</p>
-	</div>
-</div> -->
 
 <div id="demo" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
@@ -194,52 +180,20 @@
 	</div>
 </div>
 </section>
-<section id="contactPerson">
-<h1 class="judul-head text-center wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.5s">Informasi Kontak</h1>
+<section id="subscribe">
+<h1 class="judul-head text-center wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.5s">Berlangganan</h1>
 <div class="container">
 	<div class="row justify-content-center">
-		<div class="col-lg-4 text-center mt-3 wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.5s">
-			<div class="card text-white bg-primary shadow">
-				<div class="card-body">
-					<h5 class="card-title">Detail Kontak</h5>
+		<div class="col-lg-8">
+			<p class="lead text-center">Anda dapat berlangganan untuk mendapatkan info terkini dari kami.</p>
+			<form action="<?= base_url('home/subscribe'); ?>" method="post">
+				<div class="input-group">
+				  <input type="email" class="form-control form-control-lg" placeholder="Masukan alamat email..." name="email" aria-label="Recipient's username" aria-describedby="button-addon2" required>
+				  <div class="input-group-append">
+				    <button class="btn btn-outline-primary" type="submit" id="button-addon2">Berlangganan</button>
+				  </div>
 				</div>
-			</div>
-			<div class="list-group shadow text-left">
-				<a href="#" class="list-group-item list-group-item-action">
-					<i class="fa fa-map-marker"></i>
-					Gg. Keluarga, Tj. Sari, Kec. Medan Selayang, Kota Medan, Sumatera Utara 20135
-				</a>
-				<a href="mailto:admin@id-mjp.com" class="list-group-item list-group-item-action">
-					<i class="fas fa-envelope-open-text"></i>
-					admin@id-mjp.com
-				</a>
-				<a href="#" class="list-group-item list-group-item-action">
-					<i class="fas fa-phone"></i>
-					+62822-8866-9090
-				</a>
-				<a href="https://api.whatsapp.com/send?phone=6282288669090&text=Hallo%20*admin*,%20saya%20mau%20tanya." target="_blank" class="list-group-item list-group-item-action">
-					<i class="fab fa-whatsapp"></i>
-					admin 1 (+62822-8866-9090)
-				</a>
-				<a href="https://api.whatsapp.com/send?phone=6287772360300&text=Hallo%20*admin*,%20saya%20mau%20tanya." target="_blank" class="list-group-item list-group-item-action">
-					<i class="fab fa-whatsapp"></i>
-					admin 2 (+62877-7236-0300)
-				</a>
-				<a href="https://api.whatsapp.com/send?phone=6287772360300&text=Hallo%20*admin*,%20saya%20mau%20tanya." target="_blank" class="list-group-item list-group-item-action">
-					<i class="fab fa-internet-explorer"></i>
-					www.id-mjp.com
-				</a>
-			</div>
-		</div>
-		<div class="col-lg-6 mt-3 wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.9s">
-			<div class="card bg-dark shadow">
-				<div class="card-body text-white text-center">
-					<h5 class="card-title">Lokasi</h5>
-					<!-- <p>Berikut ini lokasi tempat usaha kami.</p> -->
-				</div>
-				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d995.5474188422208!2d98.61869762916581!3d3.5436758998388265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30312f8103eb1219%3A0x19c42d2531a58910!2sGg.+Keluarga%2C+Tj.+Sari%2C+Medan+Selayang%2C+Kota+Medan%2C+Sumatera+Utara+20135!5e0!3m2!1sid!2sid!4v1549825020667"
-				height="368px" frameborder="0" style="border:0" allowfullscreen></iframe>
-			</div>
+			</form>
 		</div>
 	</div>
 </div>

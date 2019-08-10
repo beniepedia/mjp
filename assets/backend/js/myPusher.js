@@ -33,31 +33,31 @@ $(document).ready(function(){
 
 
 
-    $('#tes-btn').on('click', function(){
+    // $('#tes-btn').on('click', function(){
         
-        var tes = 'nama ku beni';
+    //     var tes = 'nama ku beni';
 
-        var config = 
-        {
-            max: 6
-        };
+    //     var config = 
+    //     {
+    //         max: 6
+    //     };
 
-        mkNotifications(config);
-        var options = 
-        {
-            status: 'success',
-             link: {
-              url: 'message/inbox'
-            },
-            sound: true
-        };
+    //     mkNotifications(config);
+    //     var options = 
+    //     {
+    //         status: 'success',
+    //          link: {
+    //           url: 'message/inbox'
+    //         },
+    //         sound: true
+    //     };
 
-        mkNoti(
-            tes,
-            "bang, ini bagaimana cara nya",
-            options
-        );
-    });
+    //     mkNoti(
+    //         tes,
+    //         "bang, ini bagaimana cara nya",
+    //         options
+    //     );
+    // });
 
 
 

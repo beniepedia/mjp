@@ -1,4 +1,4 @@
-<div class="pesanNotif" data-title="<?= $this->session->flashdata('title'); ?>" data-pesan="<?= $this->session->flashdata('pesan'); ?>" data-error="<?= $this->session->flashdata('type'); ?>"></div>
+
 
 <div class="container-fluid" style="margin: 3rem auto;">
 	<div class="row mb-4">

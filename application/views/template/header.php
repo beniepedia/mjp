@@ -21,4 +21,6 @@
 		<title><?= $title; ?></title>
 	</head>
 	<body>
+	<div class="pesanNotif" data-title="<?= $this->session->flashdata('title'); ?>" data-pesan="<?= $this->session->flashdata('pesan'); ?>" data-error="<?= $this->session->flashdata('type'); ?>">
+	</div>
 

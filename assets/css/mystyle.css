@@ -264,14 +264,6 @@ body {
 }
 
 
-
-#contactPerson {
-  background-color: #fff;
-  padding-top: 50px;
-  padding-bottom: 150px;
-
-}
-
 #sosmed {
   background: #555;
 }
@@ -377,6 +369,14 @@ body {
 #footer a {
   text-decoration: none;
   color: tomato;
+}
+
+#subscribe {
+  margin: 3rem auto;
+}
+
+#subscribe form {
+  margin-bottom: 5rem;
 }
 
 .card-blog {
@@ -549,9 +549,6 @@ body {
 
   }
 
-  #contactPerson .btn {
-    margin-left: 192px;
-  }
 
   #sosmed ul {
     left: 48%;

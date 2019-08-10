@@ -74,6 +74,14 @@
 
 					<hr class="sidebar-divider my-0">
 
+					<li class="nav-item">
+						<a class="nav-link" href="<?= base_url('admin/subscibe'); ?>">
+							<i class="fas fa-thumbs-up fa-fw"></i>
+							<span>Subscriber</span></a>
+					</li>
+
+					<hr class="sidebar-divider my-0">
+
 					<li class="nav-item <?php if($this->uri->segment(2)=='posts'){echo 'active';}?>">
 						<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#navpost" aria-expanded="true" aria-controls="collapseTwo">
 							<i class="fas fa-clipboard-list fa-fw"></i>

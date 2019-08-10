@@ -41,15 +41,17 @@
       z-index: 999;
       box-shadow: 1px 1px 17px rgba(0,0,0,.3);
     }
+
   </style>
 
 </head>
 
-<body class="<?= validation_errors()?'bg-gradient-danger':'bg-gradient-primary'; ?>">
+<body class="<?= validation_errors()?'bg-gradient-danger':''; ?>">
   <?php if( $this->session->flashdata('msg')) : ?>
     <div class="alert alert-<?= $this->session->flashdata('type'); ?> alert-dismissible fade show text-center my-notif" role="alert"><?= $this->session->flashdata('msg'); ?>
       <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     </div>
   <?php endif; ?>
-  <div class="container">
+  <section class="<?= validation_errors()?'':'bg-color-gradient'; ?>"></section>
+  <div class="container ">
    

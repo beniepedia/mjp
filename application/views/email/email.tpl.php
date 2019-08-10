@@ -12,8 +12,8 @@
 
 		#head {
 			background: #00c6ff; /* fallback for old browsers */
-		  background: -webkit-linear-gradient(to right, #00c6ff, #0072ff); /* Chrome 10-25, Safari 5.1-6 */
-		  background: linear-gradient(to right, #00c6ff, #0072ff);
+		    background: -webkit-linear-gradient(to right, #00c6ff, #0072ff); /* Chrome 10-25, Safari 5.1-6 */
+		    background: linear-gradient(to right, #00c6ff, #0072ff);
 			text-align: center; 
 			margin-bottom: 3rem;
 			padding-top: 5px;

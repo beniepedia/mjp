@@ -6,10 +6,6 @@
 	cursor: pointer;
 }
 
-.color-gradiant {
-	background: linear-gradient(to right, #0052d4, #4364f7, #6fb1fc);
-}
-
 .table-style thead,
 .table-style tbody {
 	border-bottom: 1px solid black;

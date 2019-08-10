@@ -37,8 +37,14 @@
 			$CI->email->to($params['to']);
 			$CI->email->subject($params['subject']);
 			$CI->email->message($CI->load->view('email/email.tpl.php', $params, TRUE));
+		} 
+		elseif ( $type == 'subs' )
+		{
+			$CI->email->to($params['to']);
+			$CI->email->subject($params['subject']);
+			$CI->email->message($CI->load->view('email/email.tpl.php', $params, TRUE));
 		}
-		
+		 
 
 		if($CI->email->send())
 		{
