@@ -100,7 +100,7 @@ class Auth_model extends CI_Model
         $user_token = $this->db->get_where('user_token', ['email'=>$email])->row_array();
         if ( time() - $user_token['date_created'] < 7200 )
         {
-            $this->session->set_flashdata('msg', 'Email anda belum diverifikasi, silahkan cek folder inbox / spam email anda untuk verifikasi email!');
+            $this->session->set_flashdata('msg', 'Email anda belum diverifikasi, silahkan cek folder INBOX / SPAM email anda untuk verifikasi email!');
             $this->session->set_flashdata('type', 'info');
 
         } else {

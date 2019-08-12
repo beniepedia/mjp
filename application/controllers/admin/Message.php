@@ -16,13 +16,17 @@ class Message extends CI_Controller {
 
 	public function index()
 	{
-
+		$data['title']		= 'Pesan Baru - ' . $this->generalset->web()->site_name;
+		$this->load->view('template/dashboard_header', $data);
+		$this->load->view('template/dashboard_topbar');
+		$this->load->view('admin/v_message', $data);
+		$this->load->view('template/dashboard_footer');
 	}
 
 	public function inbox()
 	{
 		$data['inbox']		= $this->Message_model->getInbox();
-		$data['title']		= 'Inbox - ' . $this->generalset->web()->site_name;
+		$data['title']		= 'Kotak Masuk - ' . $this->generalset->web()->site_name;
 		$this->load->view('template/dashboard_header', $data);
 		$this->load->view('template/dashboard_topbar');
 		$this->load->view('admin/v_inbox', $data);
@@ -37,6 +41,7 @@ class Message extends CI_Controller {
 		{
 			$this->Message_model->inboxUpdate($id);
 			$data['msg'] 	= $result->row();
+			$data['img'] 	= $this->db->get_where('users', ['email'=>$data['msg']->inbox_email]);
 			$data['title']	= 'Pesan Detail - ' . $this->generalset->web()->site_name;
 			$this->load->view('template/dashboard_header', $data);
 			$this->load->view('template/dashboard_topbar');
@@ -88,7 +93,7 @@ class Message extends CI_Controller {
 		    				<div class="font-weight-bold">
 		            			<div class="text-truncate">'.$c->inbox_subject.'
 		            		</div>
-		            		<div class="small text-gray-500">'.$c->inbox_name.' | '.date("Y-m-d H:i:s",$c->inbox_created).'</div>
+		            		<div class="small text-gray-500">'.$c->inbox_name.' <span class="badge badge-info">'.waktu_lalu($c->inbox_created).'</span></div>
 				          	</div>
 				        </a>';
 			    }

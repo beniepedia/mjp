@@ -49,33 +49,6 @@ class Kontak extends CI_Controller {
 				redirect('kontak');
             }
 
-
-
-			 // // buat data yan gakan dikirim melalui email
-    //         $params['nama']      = 'Admin' . $this->generalset->web()->site_name;
-    //         $params['content1']  = '<center><h4>Ada email dari '.$post['nama'].'</h4></br></br>'; 
-    //         $params['content1'] .= '<h4>Nama 	  = '.$post['nama'] .'</h4>'; 
-    //         $params['content1'] .= '<h4>Handphone = '.$post['telp'] .'</h4>'; 
-    //         $params['content1'] .= '<h4>email 	  = '.$post['email'] .'</h4>'; 
-    //         $params['content1'] .= '<h4>Isi Pesan = '.$post['pesan'] .'</h4>'; 
-         
-    //         $params['to']        =  $this->config->item('email_gmail');
-    //         $params['subject']   =  'Pesan Dari'. $post['nama'];
-
-    //         $send = sendEmail('kontak', $params);
-
-    //         if( $send )
-    //         {
-				// fMessage('Pesan anda berhasil terkirim !',
-				// 		'success', 'Sukses...!');
-				// redirect('kontak');
-
-    //         } else {
-    //         	fMessage('Kirim pesan gagal, terjadi kesalahan pada sistem kami. Coba lagi!',
-				// 		'error', 'Gagal...!');
-				// redirect('kontak');
-    //         }
-
 		}
 	}
 

@@ -27,7 +27,7 @@
           		<td data-inbox_id="<?= $i->inbox_id; ?>"><?= $i->inbox_name; ?></td>
           		<td data-inbox_id="<?= $i->inbox_id; ?>"><?= $i->inbox_subject; ?></td>
           		<td data-inbox_id="<?= $i->inbox_id; ?>"><?= substr($i->inbox_message, 0, 30); ?></td>
-          		<td data-inbox_id="<?= $i->inbox_id; ?>"><?= date("d-m-Y, H:i:s", $i->inbox_created); ?></td>
+          		<td data-inbox_id="<?= $i->inbox_id; ?>"><?= date("d-m-Y H:i:s", strtotime($i->inbox_created)); ?></td>
           		<td class="text-center">
                 	<a href="<?= base_url('admin/').$i->inbox_id ?>" data-inbox_id="<?= $i->inbox_id; ?>" class="btn btn-danger btn-sm btn-circle btn-delete"><i class="fas fa-trash"></i></a>
               	</td>

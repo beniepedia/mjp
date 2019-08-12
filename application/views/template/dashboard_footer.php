@@ -89,6 +89,10 @@
             load_notif();
           });
 
+          $('.message-button').on('click', function(){
+              load_notif();
+          });
+
           load_notif();
 
           function load_notif(view = '') {
@@ -103,6 +107,8 @@
                 }
               });
           }
+
+
       });
     </script>
   <?php endif; ?>

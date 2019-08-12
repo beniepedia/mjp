@@ -82,23 +82,28 @@ fieldset legend {
 	box-shadow: 1px 5px 10px rgba(0,0,0,.5);
 }
 
-fieldset .detail-message .form-control {
-	background: no-repeat bottom,50% calc(100% - 1px);
-    background-size: 0 100%,100% 100%;
-    border: 0;
-    height: 36px;
-    transition: background 0s ease-out;
-    padding-left: 0;
-    padding-right: 0;
-    border-radius: 0;
-    font-size: 14px;
+fieldset .title {
+	font-size: 23px;
+	font-weight: bold;
+	margin-bottom: 2rem;
 }
 
-fieldset .detail-message .form-control, 
-fieldset .detail-message .form-control .is_focused .form-control {
-    background-image: linear-gradient(0deg,#9c27b0 2px,rgba(156,39,176,0) 0),linear-gradient(0deg,#d2d2d2 1px,hsla(0,0%,82%,0) 0);
+fieldset .kontak p {
+	font-size: 18px;
 }
 
+fieldset .kontak small {
+	position: relative;
+	top: -8px;
+}
+
+fieldset .msg {
+	height: 17rem;
+	padding: 1rem;
+	background-color: #e3e6f0;
+	border-radius: 5px;
+	font-size: 18px;
+}
 
 @media (min-width: 992px) {
 
@@ -115,6 +120,10 @@ fieldset .detail-message .form-control .is_focused .form-control {
 
 	#wrapper ul .fas {
 		font-size: 18px;
+	}
+
+	fieldset .title {
+		margin-top: -40px;
 	}
 
 

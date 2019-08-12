@@ -24,7 +24,6 @@ class Message_model extends CI_Model {
 		$params['inbox_subject'] 	= htmlspecialchars($post['subject']);
 		$params['inbox_message'] 	= htmlspecialchars($post['pesan']);
 		$params['inbox_message'] 	= htmlspecialchars($post['pesan']);
-		$params['inbox_created'] 	= time();
 
 		return $this->db->insert('tb_inbox', $params);
 	}

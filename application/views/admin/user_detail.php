@@ -6,7 +6,7 @@
 	<div class="card shadow mb-4">
 		<!-- Card Header - Dropdown -->
 		<div class="card-header d-flex flex-row align-items-center justify-content-between">
-			<a href="<?= base_url('admin/user'); ?>"><i class="fas fa-arrow-circle-left fa-2x text-dark"></i></a>
+			<a href="<?= base_url('admin/user'); ?>"><i class="fas fa-arrow-circle-left text-dark"></i></a>
 			<h6 class="m-0 font-weight-bold text-primary">User Detail</h6>
 		</div>
 		<!-- Card Body -->
