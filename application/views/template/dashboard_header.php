@@ -25,23 +25,6 @@
 		<link rel="stylesheet" href="<?= base_url('assets/backend/') ?>vendor/MKnotif/src/css/mk-notifications.css">
 		 <script src="<?= base_url('assets/backend/') ?>vendor/jquery/jquery.min.js"></script>
 		 <script src="https://js.pusher.com/4.4/pusher.min.js"></script>
-		<style>
-			pre {
-				box-sizing: border-box;
-				width: 100%;
-				padding: 0;
-				margin: 0;
-				overflow: auto;
-				overflow-y: hidden;
-				font-size: 12px;
-				line-height: 20px;
-				background: #efefef;
-				border: 1px solid #777;
-				background: url(lines.png) repeat 0 0;
-				padding: 10px;
-				color: #333;
-			}
-		</style>
 	</head>
 	<body id="page-top">
 	<!-- flash notif -->
@@ -120,13 +103,14 @@
 					<!-- Nav Item - Pages Collapse Menu -->
 					<li class="nav-item <?php if($this->uri->segment(2)=='message'){echo 'active';}?>">
 						<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#message" aria-expanded="true" aria-controls="collapseTwo">
-							<i class="far fa-fw fa-envelope-open"></i>
+							<i class="fas fa-fw fa-envelope-open"></i>
 							<span>Pesan</span>
 						</a>
 						<div id="message" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
 							<div class="bg-white py-2 collapse-inner rounded">
 								<h6 class="collapse-header">Pesan:</h6>
-								<a class="collapse-item" href="<?= base_url('admin/message/inbox') ?>">Inbox</a>
+								<a class="collapse-item" href="<?= base_url('admin/message') ?>">Buat Pesan</a>
+								<a class="collapse-item" href="<?= base_url('admin/message/inbox') ?>">Kotak Masuk</a>
 							</div>
 						</div>
 					</li>
