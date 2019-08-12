@@ -10,6 +10,12 @@ class Message_model extends CI_Model {
 		return $this->db->get('tb_inbox');
 	}
 
+	public function getInboxByDate()
+	{
+		$this->db->order_by('inbox_created', 'DESC');
+		return $this->db->get_where('tb_inbox', ['inbox_status'=>'0']);
+	}
+
 	public function insert($post)
 	{
 		$params['inbox_name'] 		= htmlspecialchars($post['nama']);

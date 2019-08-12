@@ -60,7 +60,53 @@
    <script src="<?= base_url('assets/backend/js/') ?>dropify.min.js" type="text/javascript"></script>
   <script src="<?= base_url('assets/backend/') ?>js/myscript.js"></script>
   <?php if($this->check->is_admin()->role_id == 1) : ?>
-  <script src="<?= base_url('assets/backend/') ?>js/myPusher.js"></script>
+
+    <script>
+      $(document).ready(function(){
+          var pusher = new Pusher('64116644fe77e7ebfb2f', {
+            cluster: 'ap1',
+            forceTLS: true
+          });
+
+          var channel = pusher.subscribe('my-channel');
+          channel.bind('my-event', function(data) {
+            var config = {max: 6};
+
+            mkNotifications(config);
+            var options = {
+              status: 'success',
+              link: {
+                 url: '<?php echo base_url('admin/message/inbox'); ?>'
+              }, 
+              sound: true,
+              duration: 8000
+            };
+            mkNoti(
+                data['nama'],
+                data['pesan'],
+                options
+            );
+            load_notif();
+          });
+
+          load_notif();
+
+          function load_notif(view = '') {
+            $.ajax({
+                url: '<?php echo base_url('admin/message/get_message'); ?>',
+                type: 'POST',
+                data: {view:view},
+                dataType: 'json',
+                success: function (data) {
+                  $('.badge-counter').html(data.notif);
+                  $('.message').html(data.message);
+                }
+              });
+          }
+      });
+    </script>
   <?php endif; ?>
+
+
 </body>
 </html>

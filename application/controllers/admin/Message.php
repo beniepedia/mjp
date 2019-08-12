@@ -60,6 +60,52 @@ class Message extends CI_Controller {
 		redirect('admin/message/inbox','refresh');
 	}
 
+	function get_message()
+	{
+		if( isset($_POST['view']))
+		{
+
+			$hasil = $this->Message_model->getInboxByDate();
+
+			$count = $hasil->num_rows();
+
+			if($count > 0 ) 
+			{
+			    foreach ($hasil->result() as $c) 
+			    {
+				    $cek = $this->db->get_where('users', ['email'=>$c->inbox_email]);
+				    $img = $cek->row();
+				    $output[] = '
+				    	<a class="dropdown-item d-flex align-items-center" href="'.base_url('admin/message/detail/').$c->inbox_id.'">
+				  			<div class="dropdown-list-image mr-3">
+				  			'.(($cek->num_rows()>0)?'
+				  				<img class="rounded-circle" src="'.base_url('assets/img/user_img/').$img->image.'" alt="">
+				  			':'
+				  				<img class="rounded-circle" src="'.base_url('assets/img/user_img/').'default.jpg" alt="">
+				  			').'
+							<div class="status-indicator bg-success"></div>
+				    		</div>
+		    				<div class="font-weight-bold">
+		            			<div class="text-truncate">'.$c->inbox_subject.'
+		            		</div>
+		            		<div class="small text-gray-500">'.$c->inbox_name.' | '.date("Y-m-d H:i:s",$c->inbox_created).'</div>
+				          	</div>
+				        </a>';
+			    }
+			    
+			} else {
+				$output = '<div class="font-weight-bold text-center mt-3">Pesan masuk kosong</div>';
+			}
+			
+			$data = array(
+				'notif' => $count,
+				'message' => $output
+			);
+
+			echo json_encode($data);
+		}
+	}
+
 }
 
 /* End of file Message.php */

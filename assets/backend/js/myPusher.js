@@ -28,40 +28,24 @@ $(document).ready(function(){
           data['pesan'],
           options
       );
-      // alert(JSON.stringify(data));
+      load_counter();
     });
 
 
+    function load_counter() {
+      $.ajax({
+        url: '../dashboard/message_counter/',
+        type: 'GET',
+        async: true,
+        dataType: 'text',
+        success: function (data) {
+          $('.badge-counter').html(data);
+        }
 
-    // $('#tes-btn').on('click', function(){
-        
-    //     var tes = 'nama ku beni';
-
-    //     var config = 
-    //     {
-    //         max: 6
-    //     };
-
-    //     mkNotifications(config);
-    //     var options = 
-    //     {
-    //         status: 'success',
-    //          link: {
-    //           url: 'message/inbox'
-    //         },
-    //         sound: true
-    //     };
-
-    //     mkNoti(
-    //         tes,
-    //         "bang, ini bagaimana cara nya",
-    //         options
-    //     );
-    // });
-
-
-
-
+      })
+      // body...
+    }
+ 
 
 
 });
