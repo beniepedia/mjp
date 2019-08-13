@@ -23,8 +23,14 @@
 		<link href="<?= base_url('assets/backend/') ?>css/dropify.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="<?= base_url('assets/backend/') ?>vendor/bootstrap-toggle-master/css/bootstrap-toggle.min.css">
 		<link rel="stylesheet" href="<?= base_url('assets/backend/') ?>vendor/MKnotif/src/css/mk-notifications.css">
-		 <script src="<?= base_url('assets/backend/') ?>vendor/jquery/jquery.min.js"></script>
+		<link rel="stylesheet" href="<?= base_url('assets/backend/') ?>vendor/jquery-ui-1.12.1/jquery-ui.min.css">
+		<link rel="stylesheet" href="<?= base_url('assets/backend/') ?>vendor/jquery-ui-1.12.1/jquery-ui.structure.css">
+		<link rel="stylesheet" href="<?= base_url('assets/backend/') ?>vendor/jquery-ui-1.12.1/jquery-ui.theme.css">
+		<script src="<?= base_url('assets/backend/') ?>vendor/jquery/jquery.min.js"></script>
 		 <script src="https://js.pusher.com/4.4/pusher.min.js"></script>
+		<!--  <script src="<?= base_url('assets/backend/') ?>vendor/jquery-ui-1.12.1/external/jquery/jquery.js"></script> -->
+		 
+		  
 	</head>
 	<body id="page-top">
 	<!-- flash notif -->

@@ -111,6 +111,21 @@ class Message extends CI_Controller {
 		}
 	}
 
+	function get_email_autocomplete()
+	{
+		if(isset($_GET['term']))
+		{
+			$result = $this->Message_model->get_email_address($_GET['term']);
+			if(count($result) > 0 )
+			{
+				foreach ($result as $row) {
+					$arr_result[] = $row->email;
+				}
+				echo json_encode($arr_result); 
+			}
+		}
+	}
+
 }
 
 /* End of file Message.php */

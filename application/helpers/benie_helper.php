@@ -71,7 +71,7 @@
 	    $bulan = round($selisih / 2419200 );
 	    $tahun = round($selisih / 29030400 );
 	    if ($detik <= 60) {
-	        $waktu = $detik.' detik yang lalu';
+	        $waktu = 'baru saja';
 	    } else if ($menit <= 60) {
 	        $waktu = $menit.' menit yang lalu';
 	    } else if ($jam <= 24) {

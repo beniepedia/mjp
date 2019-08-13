@@ -39,6 +39,14 @@ class Message_model extends CI_Model {
 		return $this->db->get_where('tb_inbox', ['inbox_id'=>$id]);
 	}
 
+	public function get_email_address($email)
+	{
+		$this->db->like('email', $email, 'both');
+		$this->db->order_by('email', 'ASC');
+		$this->db->limit(10);
+		return $this->db->get('users')->result();
+	}
+
 }
 
 /* End of file Inbox_model.php */

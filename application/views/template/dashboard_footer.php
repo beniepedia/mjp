@@ -58,6 +58,8 @@
    <script src="<?= base_url('assets/backend/vendor/') ?>MKnotif/src/js/mk-notifications.js" type="text/javascript"></script>
   <script src="<?= base_url('assets/backend/vendor/bootstrap-toggle-master/js/bootstrap-toggle.min.js') ?>"></script>
    <script src="<?= base_url('assets/backend/js/') ?>dropify.min.js" type="text/javascript"></script>
+   <script src="<?= base_url('assets/backend/') ?>vendor/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+  
   <script src="<?= base_url('assets/backend/') ?>js/myscript.js"></script>
   <?php if($this->check->is_admin()->role_id == 1) : ?>
 
@@ -107,6 +109,8 @@
                 }
               });
           }
+
+            
 
 
       });
