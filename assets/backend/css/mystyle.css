@@ -105,6 +105,16 @@ fieldset .msg {
 	font-size: 18px;
 }
 
+.ui-autocomplete-input {
+	color: #6e707e;
+}
+
+.ui-menu-item-wrapper {
+	color: #6e707e;
+	font-size: 15px;
+}
+
+
 @media (min-width: 992px) {
 
 	.dataTables_filter,

@@ -13,24 +13,28 @@
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css" rel="stylesheet" type="text/css">
 		<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 		<!-- Custom styles for this template-->
-		<link href="<?= base_url('assets/backend/') ?>css/sb-admin-2.css" rel="stylesheet">
-		<link href="<?= base_url('assets/backend/') ?>css/mystyle.css" rel="stylesheet">
-		<link href="<?= base_url('assets/backend/vendor/bootstrap-datepicker/') ?>css/bootstrap-datepicker.css" rel="stylesheet">
-		<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">
-		<link href="<?= base_url('assets/backend/vendor/bootstrap-fileinput/') ?>css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="<?= base_url() ?>assets/backend/css/sb-admin-2.css" rel="stylesheet" type="text/css"/>
+		<link href="<?= base_url() ?>assets/backend/css/mystyle.css" rel="stylesheet" type="text/css"/>
+		<link href="<?= base_url() ?>assets/backend/vendor/bootstrap-datepicker/css/bootstrap-datepicker.css" rel="stylesheet">
+		<link href="<?= base_url() ?>assets/backend/vendor/bootstrap-fileinput/css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="<?= base_url() ?>assets/backend/vendor/bootstrap-fileinput/themes/explorer-fas/theme.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="<?= base_url() ?>assets/backend/css/dropify.min.css" rel="stylesheet" type="text/css"/>
 
-		<link href="<?= base_url('assets/backend/vendor/bootstrap-fileinput/') ?>themes/explorer-fas/theme.css" media="all" rel="stylesheet" type="text/css"/>
-		<link href="<?= base_url('assets/backend/') ?>css/dropify.min.css" rel="stylesheet">
-		<link rel="stylesheet" href="<?= base_url('assets/backend/') ?>vendor/bootstrap-toggle-master/css/bootstrap-toggle.min.css">
-		<link rel="stylesheet" href="<?= base_url('assets/backend/') ?>vendor/MKnotif/src/css/mk-notifications.css">
-		<link rel="stylesheet" href="<?= base_url('assets/backend/') ?>vendor/jquery-ui-1.12.1/jquery-ui.min.css">
-		<link rel="stylesheet" href="<?= base_url('assets/backend/') ?>vendor/jquery-ui-1.12.1/jquery-ui.structure.css">
-		<link rel="stylesheet" href="<?= base_url('assets/backend/') ?>vendor/jquery-ui-1.12.1/jquery-ui.theme.css">
+		<link href="<?= base_url() ?>assets/backend/vendor/bootstrap-toggle-master/css/bootstrap-toggle.min.css" rel="stylesheet" type="text/css"/>
+		<link href="<?= base_url() ?>assets/backend/vendor/MKnotif/src/css/mk-notifications.css" rel="stylesheet" type="text/css"/>
+	<!-- 	<link href="<?= base_url() ?>assets/backend/vendor/jquery-ui-1.12.1/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
+		<link href="<?= base_url() ?>assets/backend/vendor/jquery-ui-1.12.1/jquery-ui.structure.css" rel="stylesheet" type="text/css"/>
+		<link href="<?= base_url() ?>assets/backend/vendor/jquery-ui-1.12.1/jquery-ui.theme.css" rel="stylesheet" type="text/css"/> -->
+		<!-- TokenField -->
+		<link href="<?= base_url() ?>assets/backend/vendor/token-field/dist/css/tokenfield-typeahead.min.css" rel="stylesheet" type="text/css"/>
+		<link href="<?= base_url() ?>assets/backend/vendor/token-field/dist/css/bootstrap-tokenfield.min.css" rel="stylesheet" type="text/css"/>
+	
+		<!-- EndTokenField -->
+
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">
 		<script src="<?= base_url('assets/backend/') ?>vendor/jquery/jquery.min.js"></script>
-		 <script src="https://js.pusher.com/4.4/pusher.min.js"></script>
-		<!--  <script src="<?= base_url('assets/backend/') ?>vendor/jquery-ui-1.12.1/external/jquery/jquery.js"></script> -->
-		 
-		  
+		<script src="https://js.pusher.com/4.4/pusher.min.js"></script>
+
 	</head>
 	<body id="page-top">
 	<!-- flash notif -->

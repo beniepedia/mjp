@@ -67,7 +67,6 @@
 </div>
 
 
-
 <script type="text/javascript">
 	$(document).ready(function(){
 		$('.mailbox table tr td').not(":first-child").on('click', function(e){
@@ -76,7 +75,8 @@
 			const inbox_id = $(this).data('inbox_id');
 			window.location = "<?= base_url('admin/message/detail/');?>"+inbox_id;
 
-		});
+		}); 
+
 
     $('.btn-delete').on('click', function(e){
       e.stopPropagation();
