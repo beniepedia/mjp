@@ -43,8 +43,19 @@ class Message_model extends CI_Model {
 	{
 		$this->db->like('email', $email, 'both');
 		$this->db->order_by('email', 'ASC');
+		$this->db->where_not_in('role_id', 1);
 		$this->db->limit(10);
 		return $this->db->get('users')->result();
+	}
+	// Outbox
+	public function insert_outbox()
+	{
+		$params['outbox_sender'] = htmlspecialchars($this->input->post('from', true));
+		$params['outbox_sendto'] = htmlspecialchars($this->input->post('to', true));
+		$params['outbox_subject'] = htmlspecialchars($this->input->post('subject', true));
+		$params['outbox_content'] = htmlspecialchars($this->input->post('content', true));
+		$params['outbox_status'] = htmlspecialchars($this->input->post('1', true));
+		$this->db->insert('tb_outbox', $params);
 	}
 
 }

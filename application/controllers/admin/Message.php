@@ -126,6 +126,40 @@ class Message extends CI_Controller {
 		}
 	}
 
+	function get_email_autocomplete_admin()
+	{
+		if(isset($_GET['term']))
+		{
+			$data_email = array(
+				'email_admin'=> $this->generalset->email()->admin_email,
+				'sistem_email'=> $this->generalset->email()->sistem_email
+			);
+
+			echo json_encode($data_email); 
+		}
+	}
+
+	function create_msg()
+	{
+		if(isset($_POST['from']))
+		{
+			$params['from'] = $this->input->post('from');
+			$params['to'] = $this->input->post('to');
+			$params['subject'] = $this->input->post('subject');
+			$params['content1'] = $this->input->post('content');
+
+			$send = sendEmail('send', $params);
+			if( $send )
+			{
+				// $this->Message_model->insert_outbox();
+				echo 'true';
+			} else {
+				echo 'false';
+			}
+
+		}
+	}
+
 }
 
 /* End of file Message.php */

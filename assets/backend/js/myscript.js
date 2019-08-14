@@ -80,15 +80,7 @@
 
        $('#msg_editor').summernote({
         placeholder: 'Tulis pesan disini.....',
-        height: 300,
-          callbacks: {
-              onImageUpload: function(image) {
-                  uploadImage(image[0]);
-              },
-              onMediaDelete : function(target) {
-                  deleteImage(target[0].src);
-              }
-          }
+        height: 300
         });
 
        // fungsi summernote

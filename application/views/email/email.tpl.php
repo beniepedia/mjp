@@ -95,7 +95,9 @@
 </head>
 <body>
 	<div id="head"><img src="https://id-mjp.com/assets/img/logo.jpg" alt=""><div id="judul">id mj parfume</div></div>
+	<?php if( !empty($nama) ) : ?>
     <p>Hai, <span><?= $nama; ?></span></p>
+	<?php endif; ?>
     <p id="content"><?= $content1; ?></p>
     <?php if( !empty($link) ) : ?>
     <center><a href="<?= $link; ?>" id="link"><?= $btn ?></a></center>

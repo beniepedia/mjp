@@ -22,9 +22,9 @@
 
 		<link href="<?= base_url() ?>assets/backend/vendor/bootstrap-toggle-master/css/bootstrap-toggle.min.css" rel="stylesheet" type="text/css"/>
 		<link href="<?= base_url() ?>assets/backend/vendor/MKnotif/src/css/mk-notifications.css" rel="stylesheet" type="text/css"/>
-	<!-- 	<link href="<?= base_url() ?>assets/backend/vendor/jquery-ui-1.12.1/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
+		<link href="<?= base_url() ?>assets/backend/vendor/jquery-ui-1.12.1/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
 		<link href="<?= base_url() ?>assets/backend/vendor/jquery-ui-1.12.1/jquery-ui.structure.css" rel="stylesheet" type="text/css"/>
-		<link href="<?= base_url() ?>assets/backend/vendor/jquery-ui-1.12.1/jquery-ui.theme.css" rel="stylesheet" type="text/css"/> -->
+		<link href="<?= base_url() ?>assets/backend/vendor/jquery-ui-1.12.1/jquery-ui.theme.css" rel="stylesheet" type="text/css"/>
 		<!-- TokenField -->
 		<link href="<?= base_url() ?>assets/backend/vendor/token-field/dist/css/tokenfield-typeahead.min.css" rel="stylesheet" type="text/css"/>
 		<link href="<?= base_url() ?>assets/backend/vendor/token-field/dist/css/bootstrap-tokenfield.min.css" rel="stylesheet" type="text/css"/>

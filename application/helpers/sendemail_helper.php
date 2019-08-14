@@ -21,11 +21,10 @@
 
 		$CI->email->initialize($config);
 		// Email Send
-		$CI->email->from($CI->config->item('email_gmail'), $CI->generalset->web()->site_alias);
 		
 		if($type == 'auth')
 		{	
-
+			$CI->email->from($CI->config->item('email_gmail'), $CI->generalset->web()->site_alias);
 			$CI->email->to($params['to']);
 			$CI->email->subject($params['subject']);
 			$CI->email->message($CI->load->view('email/email.tpl.php', $params, TRUE));
@@ -34,12 +33,21 @@
 
 		elseif( $type == 'kontak' )
 		{
+			$CI->email->from($CI->config->item('email_gmail'), $CI->generalset->web()->site_alias);
 			$CI->email->to($params['to']);
 			$CI->email->subject($params['subject']);
 			$CI->email->message($CI->load->view('email/email.tpl.php', $params, TRUE));
 		} 
 		elseif ( $type == 'subs' )
 		{
+			$CI->email->from($CI->config->item('email_gmail'), $CI->generalset->web()->site_alias);
+			$CI->email->to($params['to']);
+			$CI->email->subject($params['subject']);
+			$CI->email->message($CI->load->view('email/email.tpl.php', $params, TRUE));
+		}
+		elseif( $type == 'send' )
+		{
+			$CI->email->from($params['from'], $CI->generalset->web()->site_alias);
 			$CI->email->to($params['to']);
 			$CI->email->subject($params['subject']);
 			$CI->email->message($CI->load->view('email/email.tpl.php', $params, TRUE));
