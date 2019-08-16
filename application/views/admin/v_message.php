@@ -3,10 +3,10 @@
 	<div class="row justify-content-center">
 		<div class="col-xl-8 col-lg-7 col-md-12 ">
 			<!-- Default Card Example -->
+			<div class="pesan" style="display: none;"></div>
 			<div class="card mb-3 shadow">
-		
 				<div class="card-body form-add-post">
-					<form id="form">
+				<?= form_open('admin/message/create_msg', ['class'=>'formData']) ?>
 						<div class="form-message">
 							<div class="form-group row">
 								<div class="col-sm-6 mb-3 mb-sm-0">
@@ -31,9 +31,8 @@
 							</div>
 							<hr>
 				
-							<input type="submit" id="submit" name="submit" class="btn btn-primary float-right ml-2" value="Kirim Email">
-							<img src="<?= base_url('assets/images/loading.gif') ?>" class="img-loading" alt="" draggable="false">
-							<input type="submit" id="draft" name="draft" class="btn btn-secondary float-right" value="Simpan Ke Draft">
+							<button type="submit" id="kirim"  class="btn btn-primary float-right ml-2"><i class="fas fa-paper-plane"></i> Kirim Email</button>
+							<button type="submit" id="draft" class="btn btn-secondary float-right"><i class="fas fa-spinner fa-spin"></i> Simpan ke draft</button>
 
 						</div>
 					</form>
@@ -50,72 +49,90 @@
        $('#message-to').tokenfield({
 	       	autocomplete:
 	       	{
-	       		minLength: 3,
+	       		minLength: 2,
 	       		source:"<?php echo base_url('admin/message/get_email_autocomplete')?>"
-	       	}
-	       	
+	       	}	
        });
 
        $('#from').tokenfield({
 	       	autocomplete:
 	       	{
-	       		minLength: 3,
+	       		minLength: 2,
 	       		source:"<?php echo base_url('admin/message/get_email_autocomplete_admin')?>"
-	       	}
+	       	},
+	       	showAutocompleteOnFocus: true
 	       	
        });
 
-       function modif($remove,$add,$html,$draft='none',$img='none')
+		const tombolkirim = $('#kirim');
+		const tombolDraft = $('#draft');
+		const from = $('#form').val();
+		const to = $('#to').val();
+		const subject = $('#subject').val();
+		const content = $('#content').val();
+
+
+       function modif($remove,$add,$html,$draft='none')
        {
-       		const tombolSubmit = $('#submit');
-       		const tombolDraft = $('[name="draft"]');
-       		tombolSubmit.removeClass($remove);
-			tombolSubmit.addClass($add);
-			tombolSubmit.val($html);
+       		tombolkirim.removeClass($remove);
+			tombolkirim.addClass($add);
+			tombolkirim.html($html);
 			tombolDraft.css('display', $draft);
-			$('img').css('display', $img)
        }
-
-       function process() {
-       		const tombolSubmit = $('#submit');
-	   		const form = $('#from,#subject,#message-to');
-	   		
-       		$.ajax({
-       			url: "<?= base_url('admin/message/create_msg') ?>",
-       			data: $('#form').serialize(),
-       			type: "POST",
+ 
+	   $('.formData').submit(function(e){
+	   		e.preventDefault();
+	   		$.ajax({
+       			url: $(this).attr('action'),
+       			data: $(this).serialize(),
+       			type: "post",
+       			dataType: "json",
+       			// cache: false,
        			beforeSend:function(){
-       				tombolSubmit.attr('disabled', true);
-       				modif('btn-primary', 'btn-warning', 'Mengirim pesan...','none','block');
+       				tombolkirim.attr('disabled', true);
+       				modif('btn-primary', 'btn-warning', '<i class="fas fa-spinner fa-spin"></i> Mengirim email...');
        			},
-       			success:function(data){
-       				if(data == 'true')
-       				{
-	       				modif('btn-warning', 'btn-success', 'Pesan terkirim');
-	       				tombolSubmit.attr('disabled', true);
-       					setTimeout(function() {
-			       			modif('btn-success', 'btn-primary', 'Kirim Email','inline-block');
-	       					tombolSubmit.attr('disabled', false);
-       					}, 5000);
+       			success:function(response){
+	       			if( response.success == true ){
+	       				Swal.fire(
+						  'Sukses...!',
+						  'Email berhasil terkirim!',
+						  'success'
+						);
+						$('#msg_editor').summernote('reset');
+						$('#subject').val('');
+						$('#from').tokenfield('setTokens', []);
+						$('#to').tokenfield('setTokens', []);
+	       			} 
+	       			else if(response.failed == true){
+	       				Swal.fire(
+						  'Gagal...!',
+						  'Email tidak terkirim!',
+						  'error'
+						)
+	       			} else {		
+       					const Toast = Swal.mixin({
+						  toast: true,
+						  position: 'top-end',
+						  showConfirmButton: false,
+						  timer: 5000
+							})
 
-		       			$('#message-to').tokenfield('destroy');
-			   			$('#msg_editor').summernote('reset');
-       					form.val('');
-       				} else {
-   						modif('btn-warning', 'btn-danger', 'Email gagal dikirim');
-       					setTimeout(function() {
-	       					tombolSubmit.attr('disabled', false);
-			       			modif('btn-danger', 'btn-primary', 'Kirim Email','block');
-       						// body...
-       					}, 5000);
-       				}
+						Toast.fire({
+						  type: 'error',
+						  title: response.messages
+						});
+	       			}
+					tombolkirim.attr('disabled', false);
+       				modif('btn-warning', 'btn-primary', '<i class="fas fa-paper-plane"></i> Kirim Email', 'block');
        			}
        		});
-       }
-	   
-	   $('#submit').on("click", function(e){
+
+	   });
+
+	    $(tombolDraft).on("click", function(e){
 	   		e.preventDefault(); 
-	   		process();
+	   		alert('draft');
 	   });
 
 	});

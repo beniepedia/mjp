@@ -79,9 +79,22 @@
         });
 
        $('#msg_editor').summernote({
-        placeholder: 'Tulis pesan disini.....',
-        height: 300
-        });
+          lang: 'id-ID',
+          toolbar: [
+            // [groupName, [list of button]]
+            ['style', ['bold', 'italic', 'underline', 'clear']],
+            ['font', ['strikethrough', 'superscript', 'subscript']],
+            ['fontsize', ['fontsize']],
+            ['color', ['color']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['height', ['height']],
+            ['insert', ['link','table','hr']],
+            ['view', ['fullscreen', 'codeview', 'undo', 'redo', 'help']],
+          ],
+          placeholder: 'Tulis pesan disini.....',
+          disableDragAndDrop: true,
+          height: 300
+          });
 
        // fungsi summernote
        function uploadImage(image) {
@@ -138,6 +151,6 @@
        });
 
        setTimeout(function() {
-        $(".alert").slideUp('alert');
-      }, 5000);
+        $(".my-notif").slideUp('alert');
+       }, 8000);
 });

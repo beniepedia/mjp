@@ -42,7 +42,9 @@
 
   <!-- Page level custom scripts -->
   <script src="<?= base_url('') ?>assets/backend/js/demo/datatables-demo.js" type="text/javascript"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js" type="text/javascript"></script>
+  <script src="<?= base_url() ?>assets/backend/vendor/summernote/summernote-bs4.min.js" type="text/javascript"></script>
+  <script src="<?= base_url() ?>assets/backend/vendor/summernote/lang/summernote-id-ID.js" type="text/javascript"></script>
+
   <!-- Jquery File Input -->
   <script src="<?= base_url() ?>assets/backend/vendor/bootstrap-fileinput/js/fileinput.js" type="text/javascript"></script>
   <script src="<?= base_url() ?>assets/backend/vendor/bootstrap-fileinput/js/plugins/piexif.js" type="text/javascript"></script>
@@ -56,6 +58,7 @@
   <script src="<?= base_url() ?>assets/backend/vendor/bootstrap-toggle-master/js/bootstrap-toggle.min.js" type="text/javascript"></script>
   <script src="<?= base_url() ?>assets/backend/js/dropify.min.js" type="text/javascript"></script>
   <script src="<?= base_url() ?>assets/backend/vendor/token-field/dist/bootstrap-tokenfield.min.js" type="text/javascript"></script>
+  <script src="<?= base_url() ?>assets/backend/vendor/sweetalert2/dist/sweetalert2.min.js" type="text/javascript"></script>
   <script src="<?= base_url() ?>assets/backend/js/myscript.js"></script>
 
   <?php if($this->check->is_admin()->role_id == 1) : ?>

@@ -28,8 +28,15 @@
 		<!-- TokenField -->
 		<link href="<?= base_url() ?>assets/backend/vendor/token-field/dist/css/tokenfield-typeahead.min.css" rel="stylesheet" type="text/css"/>
 		<link href="<?= base_url() ?>assets/backend/vendor/token-field/dist/css/bootstrap-tokenfield.min.css" rel="stylesheet" type="text/css"/>
-	
 		<!-- EndTokenField -->
+
+		<!-- sweetlaert -->
+		<!-- <link href="<?= base_url() ?>assets/backend/vendor/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet" type="text/css"/> -->
+		<link href="<?= base_url() ?>assets/backend/vendor/sweetalert2/dist/borderless.css" rel="stylesheet" type="text/css"/>
+
+		<link href="<?= base_url() ?>assets/backend/vendor/summernote/summernote-bs4.css" rel="stylesheet" type="text/css"/>
+
+		<!-- endsweetalert -->
 
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">
 		<script src="<?= base_url('assets/backend/') ?>vendor/jquery/jquery.min.js"></script>

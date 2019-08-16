@@ -12,6 +12,7 @@ class Message extends CI_Controller {
 			redirect('dashboard','refresh');
 		}
 		$this->load->model('Message_model');
+		$this->load->library('form_validation');
 	}
 
 	public function index()
@@ -141,23 +142,39 @@ class Message extends CI_Controller {
 
 	function create_msg()
 	{
-		if(isset($_POST['from']))
-		{
+	
 			$params['from'] = $this->input->post('from');
 			$params['to'] = $this->input->post('to');
 			$params['subject'] = $this->input->post('subject');
 			$params['content1'] = $this->input->post('content');
 
-			$send = sendEmail('send', $params);
-			if( $send )
-			{
-				// $this->Message_model->insert_outbox();
-				echo 'true';
+			$data = array('success'=>false,);
+			$this->form_validation->set_rules('from', 'Email Pengirim', 'trim|required|valid_email');
+			$this->form_validation->set_rules('to', 'Email Penerima', 'trim|required|valid_email');
+			$this->form_validation->set_rules('subject', 'Subject', 'trim|required');
+			$this->form_validation->set_rules('content', 'Isi pesan', 'trim|required');
+		
+
+			if ($this->form_validation->run()) {
+				$send = sendEmail('send', $params);
+				if( $send )
+				{
+					$this->Message_model->insert_outbox();
+					$data['success'] = true;
+				} else {
+					$data['failed'] = true;
+				}
 			} else {
-				echo 'false';
+				$pesan = '<div class="d-block" style="height:-200px">'.validation_errors().'</div>';
+				$data['messages'] = $pesan;
 			}
 
-		}
+			echo json_encode($data);
+
+	
+			// sleep(5);
+
+		
 	}
 
 }
