@@ -139,6 +139,47 @@ class Setting extends CI_Controller {
 		}
 	} 
 
+	public function tes_email_connec()
+	{
+		$this->load->library('email');
+		if(empty($this->input->post('password')))
+		{
+			$password = $this->generalset->email()->password;
+		} else {
+			$password = $this->input->post('password');
+		}
+		$config = [
+			'protocol' 	=> $this->input->post('protocol'),
+			'smtp_host' => $this->input->post('host'),
+			'smtp_user' => $this->input->post('uname'),
+			'smtp_pass' => $password,
+			'smtp_port' => $this->input->post('port'),
+			'mailtype' 	=> $this->input->post('tipe'),
+			'charset' 	=> $this->input->post('chart'),
+			'newline' 	=> "\r\n"
+		];
+
+		$this->email->initialize($config);
+
+		$this->email->from($this->input->post('admin'), 'Email Test ' . $this->generalset->web()->site_alias);
+		$this->email->to($this->input->post('admin'));
+		$this->email->subject('Tes Koneksi Email');
+		$this->email->message('<h3>Setting Email Sudah benar, <br/><br/> Koneksi Berhasil</h3>');
+
+		$tesconn = $this->email->send();
+		if( $tesconn ) {
+			$data['pesan'] = 'Koneksi email berhasil!, Silahkan cek inbox email anda '.$this->input->post('admin');
+			$data['type'] = 'success';
+			$data['title'] = 'Berhasil...!';
+		} else {
+			$data['pesan'] = $this->email->print_debugger();
+			$data['type'] = 'error';
+			$data['title'] = 'Gagal...!';
+		}
+
+		echo json_encode($data);
+	}
+
 	// end email setting
 
 	// sosial api setting

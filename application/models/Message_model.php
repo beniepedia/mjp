@@ -54,8 +54,13 @@ class Message_model extends CI_Model {
 		$params['outbox_sendto'] = htmlspecialchars($this->input->post('to', true));
 		$params['outbox_subject'] = htmlspecialchars($this->input->post('subject', true));
 		$params['outbox_content'] = htmlspecialchars($this->input->post('content', true));
-		$params['outbox_status'] = 1;
-		$this->db->insert('tb_outbox', $params);
+		if (isset($_POST['draft'])) {
+			$params['outbox_status'] = 0;
+		} else {
+			$params['outbox_status'] = 1;	
+		}
+
+		return $this->db->insert('tb_outbox', $params);
 	}
 
 }

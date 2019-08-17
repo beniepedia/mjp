@@ -32,7 +32,8 @@
 							<hr>
 				
 							<button type="submit" id="kirim"  class="btn btn-primary float-right ml-2"><i class="fas fa-paper-plane"></i> Kirim Email</button>
-							<button type="submit" id="draft" class="btn btn-secondary float-right"><i class="fas fa-spinner fa-spin"></i> Simpan ke draft</button>
+							<input type="submit" id="draft" class="btn btn-secondary float-right" name="draft" value="simpan">
+						<!-- 	<i class="fas fa-save"></i> -->
 
 						</div>
 					</form>
@@ -80,11 +81,12 @@
 			tombolDraft.css('display', $draft);
        }
  
-	   $('.formData').submit(function(e){
+	   $(tombolkirim).click(function(e){
+
 	   		e.preventDefault();
 	   		$.ajax({
-       			url: $(this).attr('action'),
-       			data: $(this).serialize(),
+       			url: $('.formData').attr('action'),
+       			data: $('.formData').serialize(),
        			type: "post",
        			dataType: "json",
        			// cache: false,
@@ -128,11 +130,6 @@
        			}
        		});
 
-	   });
-
-	    $(tombolDraft).on("click", function(e){
-	   		e.preventDefault(); 
-	   		alert('draft');
 	   });
 
 	});

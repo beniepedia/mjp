@@ -90,7 +90,7 @@
 
 					<hr class="sidebar-divider my-0">
 
-					<li class="nav-item">
+					<li class="nav-item <?php if($this->uri->segment(2)=='subscribe'){echo 'active';} ?>">
 						<a class="nav-link" href="<?= base_url('admin/subscribe'); ?>">
 							<i class="fas fa-thumbs-up fa-fw"></i>
 							<span>Subscriber</span></a>

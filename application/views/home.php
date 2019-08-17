@@ -43,7 +43,6 @@
     <span class="carousel-control-next-icon"></span>
   </a> -->
 </div>
-<?php var_dump($_SESSION); ?>
 <!-- Profile -->
 <section id="profile">
 	<div class="container">

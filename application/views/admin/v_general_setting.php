@@ -36,11 +36,6 @@
 								<input type="hidden" name="captcha" value="0">
 								<input type="checkbox" <?= $setting->general_set_captcha==1?'checked':null; ?> name="captcha" value="1" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-size="xs" class="col-2">		
 							</div>
-
-							<div class="col-12 mb-4">
-								<label for="" class="col-10">Halaman Blog </label>
-								<input type="checkbox" data-toggle="toggle" data-size="xs" class="col-2">		
-							</div>
 						</div>
 						<button type="submit" class="btn btn-primary btn-sm float-right">Simpan</button>
 					</form>

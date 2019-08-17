@@ -39,7 +39,7 @@ class Setting_model extends CI_Model {
 			$param['username'] = $post['uname'];
 			if ( !empty($post['password']) )
 			{
-			$param['password'] = $this->encryption->encrypt($post['password']);
+			$param['password'] = $post['password'];
 			}	
 			$param['port'] = $post['port'];
 			$param['type'] = $post['tipe'];

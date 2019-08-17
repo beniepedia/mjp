@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="p-2">
 	<div class="row justify-content-between">
 		<!-- Card setingan umum -->
 		<div class="col-lg-7">
@@ -55,7 +55,8 @@
 							</table>
 							</div>
 							<div class="mt-3 float-right">
-					    		<a href="<?= base_url('admin/setting/editemail'); ?>" class="btn btn-primary">Ubah Setelan</a>
+								
+					    		<a href="<?= base_url('admin/setting/editemail'); ?>" class="btn btn-primary btn-sm">Ubah Setelan</a>
 					    </div>
 						</div>
 					</div>

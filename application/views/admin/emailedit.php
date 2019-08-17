@@ -98,18 +98,20 @@
 							      <input type="text" name="line" class="form-control" placeholder="\r\n" value="">
 							    </div>
 							  </div> -->
-
-								<div class="form-group float-right">
-									<a href="<?= base_url('admin/setting/email'); ?>" class="btn btn-light btn-icon-split">
+								<hr>
+								<div class="form-group float-right mt-3">
+									<a href="<?= base_url('admin/setting/email'); ?>" class="btn btn-light btn-icon-split btn-sm">
 										<span class="icon text-gray-600">
 											<i class="fas fa-undo-alt"></i>
 										</span>
 									</a>
-									<button type="submit" name="save_email" class="btn btn-primary btn-icon-split">
-										<span class="icon text-gray-600">
-											<i class="fas fa-save"></i>
-										</span>
-										<span class="text">Simpan</span>
+									
+									<button type="button" id="tes_con" class="btn btn-danger btn-sm">
+										<i class="fas fa-plug"></i> Tes Koneksi
+									</button>
+
+									<button type="submit" name="save_email" class="btn btn-primary  btn-sm">
+										<i class="fas fa-save"></i> Simpan
 									</button>
 								</div>
 							</form>
@@ -132,3 +134,33 @@
 
 	</div>
 </div>
+
+
+<script>
+	$(document).ready(function(){
+		$('#tes_con').on('click', function(){
+			$.ajax({
+				url: '<?= base_url('admin/setting/tes_email_connec') ?>',
+				data: $('form').serialize(),
+				type: 'post',
+				dataType: 'json',
+				cache: false,
+				beforeSend: function(){
+					$('#tes_con').html('<i class="fas fa-spinner fa-spin"></i> Sedang mengetes...')
+				},
+				success: function(response){
+					$('#tes_con').html('<i class="fas fa-plug"></i> Tes Koneksi');
+					Swal.fire({
+					  type: response.type,
+					  title: response.title,
+					  text: response.pesan
+					})
+					console.log(response);
+				}
+			});
+		});
+	});
+	
+
+
+</script>
