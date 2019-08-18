@@ -52,36 +52,36 @@ class Kontak extends CI_Controller {
 		}
 	}
 
-	private function _sendEmail()
-	{
+	// private function _sendEmail()
+	// {
 
-		// config email server
-		$config = [
-		'protocol' => 'smtp',
-		'smtp_host' => 'mail.id-mjp.com',
-		'smtp_user' => 'admin@id-mjp.com',
-		'smtp_pass' => 'Medan2019',
-		'smtp_port' => 587,
-		'mailtype' => 'html',
-		'charset' => 'utf-8',
-		'newline' => "\r\n"
-		];
-		$this->email->initialize($config);
+	// 	// config email server
+	// 	$config = [
+	// 	'protocol' => 'smtp',
+	// 	'smtp_host' => 'mail.id-mjp.com',
+	// 	'smtp_user' => 'admin@id-mjp.com',
+	// 	'smtp_pass' => 'Medan2019',
+	// 	'smtp_port' => 587,
+	// 	'mailtype' => 'html',
+	// 	'charset' => 'utf-8',
+	// 	'newline' => "\r\n"
+	// 	];
+	// 	$this->email->initialize($config);
 
-		$this->email->from($this->input->post('email'));
-		$this->email->to('admin@id-mjp.com', 'Admin MJP');
-		$this->email->subject('Pesan Dari '.$this->input->post('nama'));
-		$this->email->message('NAMA : '. $this->input->post('nama') . '<br>' . 'HP : ' . $this->input->post('telp') . '<br>' . 'PESAN : ' . $this->input->post('pesan')
-		);
+	// 	$this->email->from($this->input->post('email'));
+	// 	$this->email->to('admin@id-mjp.com', 'Admin MJP');
+	// 	$this->email->subject('Pesan Dari '.$this->input->post('nama'));
+	// 	$this->email->message('NAMA : '. $this->input->post('nama') . '<br>' . 'HP : ' . $this->input->post('telp') . '<br>' . 'PESAN : ' . $this->input->post('pesan')
+	// 	);
 
-		if($this->email->send())
-		{
-			return true;
-		} else {
-			echo $this->email->print_debugger();
-			die;
-		}
-	}
+	// 	if($this->email->send())
+	// 	{
+	// 		return true;
+	// 	} else {
+	// 		echo $this->email->print_debugger();
+	// 		die;
+	// 	}
+	// }
 
 	function _validate_captcha()
 	{

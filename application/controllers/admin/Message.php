@@ -150,7 +150,7 @@ class Message extends CI_Controller {
 		$data = array('success'=>false);
 
 		$this->form_validation->set_rules('from', 'Email Pengirim', 'trim|required|valid_email');
-		$this->form_validation->set_rules('to', 'Email Penerima', 'trim|required|valid_email');
+		$this->form_validation->set_rules('to', 'Email Penerima', 'trim|required');
 		$this->form_validation->set_rules('subject', 'Subject', 'trim|required');
 		$this->form_validation->set_rules('content', 'Isi pesan', 'trim|required');
 		
