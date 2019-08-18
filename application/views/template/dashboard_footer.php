@@ -38,8 +38,6 @@
   <script src="<?= base_url('') ?>assets/backend/vendor/datatables/jquery.dataTables.min.js" type="text/javascript"></script>
   <script src="<?= base_url('') ?>assets/backend/vendor/datatables/dataTables.bootstrap4.min.js" type="text/javascript"></script>
 
-  <script src="<?= base_url('') ?>assets/backend/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js" type="text/javascript"></script>
-
   <!-- Page level custom scripts -->
   <script src="<?= base_url('') ?>assets/backend/js/demo/datatables-demo.js" type="text/javascript"></script>
   <script src="<?= base_url() ?>assets/backend/vendor/summernote/summernote-bs4.min.js" type="text/javascript"></script>

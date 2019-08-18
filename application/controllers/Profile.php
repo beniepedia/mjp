@@ -13,6 +13,7 @@ class Profile extends CI_Controller {
 
 	public function index()
 	{
+
 		$this->form_validation->set_rules('name', 'Nama', 'trim|required');
 		$this->form_validation->set_rules('email', 'Email', 'trim|required|callback_emailcheck');
 		$this->form_validation->set_rules('gender', 'Kelamin', 'trim|required');
@@ -35,21 +36,24 @@ class Profile extends CI_Controller {
 				$tgl = formatTgl($this->input->post('tgl'));
 
 				$data = [
-					'id_user' 	=> $this->input->post('id_user'),
-					'name'		=> htmlspecialchars($this->input->post('name', true)),
-					'date'		=> formatTgl($this->input->post('tgl')),
-					'phone'		=> htmlspecialchars($this->input->post('phone', true)),
-					'email'		=> htmlspecialchars($this->input->post('email', true)),
-					'gender'	=> htmlspecialchars($this->input->post('gender', true)),
-					'address'	=> htmlspecialchars($this->input->post('addr', true))
+					'id_user' 		=> $this->input->post('id_user'),
+					'name'			=> htmlspecialchars($this->input->post('name', true)),
+					'date'			=> formatTgl($this->input->post('tgl')),
+					'phone'			=> htmlspecialchars($this->input->post('phone', true)),
+					'email'			=> htmlspecialchars($this->input->post('email', true)),
+					'gender'		=> htmlspecialchars($this->input->post('gender', true)),
+					'address'		=> htmlspecialchars($this->input->post('addr', true)),
+					'facebook_url'	=> htmlspecialchars($this->input->post('fb_url', true)),
+					'twitter_url'	=> htmlspecialchars($this->input->post('tw_url', true)),
+					'instagram_url'	=> htmlspecialchars($this->input->post('ig_url', true))
 				];
 
 				// config upload foto
-				$config['upload_path'] 						= './assets/img/user_img/';
-				$config['allowed_types'] 					= 'jpg|png|jpeg';
-				$config['max_size']     					= '2048';
-				$config['file_ext_tolower']     			= TRUE;
-				$config['file_name']     					= strtolower($this->session->userdata('name')).'-'.time();
+				$config['upload_path'] 		= './assets/img/user_img/';
+				$config['allowed_types'] 	= 'jpg|png|jpeg';
+				$config['max_size']     	= '2048';
+				$config['file_ext_tolower'] = TRUE;
+				$config['file_name']     	= strtolower($this->session->userdata('name')).'-'.time();
 
 				$this->load->library('upload', $config);
 				// jika foto tidak kosong

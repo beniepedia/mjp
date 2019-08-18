@@ -48,10 +48,11 @@
 
       });
 
-      $('#tgl').datepicker({
-          format: "dd/mm/yyyy",
-          language: "id",
-          autoclose: true
+      $('.tgl').datepicker({
+        changeMonth: true,
+        changeYear: true,
+        showAnim: "slideDown",
+        dateFormat: 'dd/mm/yy'
       });
 
       $('.btn-blog').tooltip();
