@@ -187,6 +187,17 @@ class Message extends CI_Controller {
 		return sendEmail('send', $params);
 	}
 
+	public function draft_list()
+	{
+		$data['outbox'] = $this->Message_model->get_outbox();
+		$data['title']	= 'Draft Pesan - ' . $this->generalset->web()->site_name;
+		$this->load->view('template/dashboard_header', $data);
+		$this->load->view('template/dashboard_topbar');
+		$this->load->view('admin/v_draft_message', $data);
+		$this->load->view('template/dashboard_footer');
+
+	}
+
 }
 
 /* End of file Message.php */

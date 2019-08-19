@@ -63,6 +63,12 @@ class Message_model extends CI_Model {
 		return $this->db->insert('tb_outbox', $params);
 	}
 
+	public function get_outbox()
+	{
+		$this->db->order_by('outbox_created', 'DESC');
+		return $this->db->get_where('tb_outbox', ['outbox_status'=>'0']);
+	}
+
 }
 
 /* End of file Inbox_model.php */

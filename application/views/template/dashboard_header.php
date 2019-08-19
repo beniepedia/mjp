@@ -127,6 +127,7 @@
 								<h6 class="collapse-header">Pesan:</h6>
 								<a class="collapse-item" href="<?= base_url('admin/message') ?>">Buat Pesan</a>
 								<a class="collapse-item" href="<?= base_url('admin/message/inbox') ?>">Kotak Masuk</a>
+								<a class="collapse-item" href="<?= base_url('admin/message/draft_list') ?>">Draft</a>
 							</div>
 						</div>
 					</li>
