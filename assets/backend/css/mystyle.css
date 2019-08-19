@@ -52,7 +52,7 @@
 }
 
 .my-notif {
-	position: absolute;
+	position: fixed;
 /*	display: inline-block;
 */	z-index: 9999;
 	width: 100%;

@@ -34,7 +34,7 @@
       </div>
     </div>
   </div>
-
+<?php var_dump($_SESSION); ?>
   <!-- Left and right controls -->
 <!--   <a class="carousel-control-prev" href="#demo" data-slide="prev">
     <span class="carousel-control-prev-icon"></span>

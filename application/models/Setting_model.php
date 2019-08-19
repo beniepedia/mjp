@@ -22,6 +22,7 @@ class Setting_model extends CI_Model {
 		$data['site_fb'] = htmlspecialchars($this->input->post('fbUrl', TRUE),ENT_QUOTES);
 		$data['site_twitter'] = htmlspecialchars($this->input->post('twUrl', TRUE),ENT_QUOTES);
 		$data['site_instagram'] = htmlspecialchars($this->input->post('igUrl', TRUE),ENT_QUOTES);
+		$data['site_login_timeout'] = htmlspecialchars($this->input->post('time', TRUE),ENT_QUOTES);
 
 		$update = $this->db->update('web_config', $data);
 		return $update;
@@ -81,9 +82,8 @@ class Setting_model extends CI_Model {
 			'general_set_google' => htmlspecialchars($this->input->post('googlelogin')),
 			'general_set_blog' => htmlspecialchars($this->input->post('bloger')),
 			'general_set_ig' => htmlspecialchars($this->input->post('iggaleri')),
-			'general_set_captcha' => htmlspecialchars($this->input->post('captcha'))
-
-			
+			'general_set_captcha' => htmlspecialchars($this->input->post('captcha')),		
+			'general_set_autologout' => htmlspecialchars($this->input->post('autologout'))
 		);
 		
 		return	$this->db->update('tb_general_set', $data);

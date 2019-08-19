@@ -1,4 +1,4 @@
-<div class="container-fluid my-5">
+<div class="p-2 my-5">
 	<div class="row justify-content-center">
 		<div class="col-lg-5">
 			<div class="card shadow">
@@ -36,7 +36,14 @@
 								<input type="hidden" name="captcha" value="0">
 								<input type="checkbox" <?= $setting->general_set_captcha==1?'checked':null; ?> name="captcha" value="1" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-size="xs" class="col-2">		
 							</div>
+
+							<div class="col-12 mb-4">
+								<label for="" class="col-10">Auto Logout </label>
+								<input type="hidden" name="captcha" value="0">
+								<input type="checkbox" <?= $setting->general_set_autologout==1?'checked':null; ?> name="autologout" value="1" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-size="xs" class="col-2">		
+							</div>
 						</div>
+						<hr>
 						<button type="submit" class="btn btn-primary btn-sm float-right">Simpan</button>
 					</form>
 				</div>

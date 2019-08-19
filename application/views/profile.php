@@ -26,9 +26,9 @@
 									<h6 class="text-center"><?= longdate_indo(date("Y-m-d",$user->date_created)); ?></h6>
 									<hr>
 									<div class="col">
-										<a href="<?= $user->facebook_url; ?>" style="color:#3b5998;" target="_blank"><i class="fab fa-facebook fa-2x "></i></a>
-										<a href="<?= $user->twitter_url; ?>" style="color:#55acee;" target="_blank"><i class="fab fa-twitter fa-2x pl-4"></i></a>
-										<a href="<?= $user->instagram_url; ?>" style="color: #dd4b39;" target="_blank"><i class="fab fa-instagram fa-2x pl-4"></i></a>
+										<a href="<?= $user->facebook_url==null?'#':$user->facebook_url; ?>" style="color:#3b5998;"><i class="fab fa-facebook fa-2x pl-3"></i></a>
+										<a href="<?= $user->twitter_url==null?'#':$user->twitter_url; ?>" style="color:#55acee;"><i class="fab fa-twitter fa-2x pl-4"></i></a>
+										<a href="<?= $user->instagram_url==null?'#':$user->instagram_url; ?>" style="color: #dd4b39;"><i class="fab fa-instagram fa-2x pl-4"></i></a>
 									</div>
 								</div>
 							</div>
@@ -92,21 +92,21 @@
 								<!-- fb url -->
 								<div class="form-group">
 									<label for="fb_url">Facebook URL</label>
-									<input type="text" class="form-control user-profil <?= form_error('fb_url')?'is-invalid':null ?>" id="fb_url" name="fb_url" style="margin-top: -6px;" value="<?=$this->input->post('fb_url')??$user->facebook_url; ?>" readonly>
+									<input type="text" class="form-control user-profil <?= form_error('fb_url')?'is-invalid':null ?>" id="fb_url" name="fb_url" style="margin-top: -6px;" value="<?=$this->input->post('fb_url')??$user->facebook_url; ?>" placeholder="https://facebook.com/beniepedia" readonly>
 									<?= form_error('fb_url') ?>
 								</div>
 
 								<!-- twitter url -->
 								<div class="form-group">
 									<label for="tw_url">Twitter URL</label>
-									<input type="text" class="form-control user-profil <?= form_error('tw_url')?'is-invalid':null ?>" id="tw_url" name="tw_url" style="margin-top: -6px;" value="<?=$this->input->post('tw_url')??$user->twitter_url; ?>" readonly>
+									<input type="text" class="form-control user-profil <?= form_error('tw_url')?'is-invalid':null ?>" id="tw_url" name="tw_url" style="margin-top: -6px;" value="<?=$this->input->post('tw_url')??$user->twitter_url; ?>" placeholder="https://twitter.com/beniepedia" readonly>
 									<?= form_error('tw_url') ?>
 								</div>
 
 								<!-- ig url -->
 								<div class="form-group">
 									<label for="ig_url">Instagram URL</label>
-									<input type="text" class="form-control user-profil <?= form_error('ig_url')?'is-invalid':null ?>" id="ig_url" name="ig_url" style="margin-top: -6px;" value="<?=$this->input->post('ig_url')??$user->instagram_url; ?>" readonly>
+									<input type="text" class="form-control user-profil <?= form_error('ig_url')?'is-invalid':null ?>" id="ig_url" name="ig_url" style="margin-top: -6px;" value="<?=$this->input->post('ig_url')??$user->instagram_url; ?>" placeholder="https://instagram.com/beniepedia" readonly>
 									<?= form_error('ig_url') ?>
 								</div>
 

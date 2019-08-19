@@ -70,7 +70,7 @@
 							<div class="form-group row">
 								<label for="siteaddr" class="col-sm-3 col-form-label label-judul">Alamat</label>
 								<div class="col-md-9">
-									<textarea type="text" name="siteaddr" class="form-control <?= form_error('siteaddr')?'is-invalid':null; ?>" rows="3" id="siteaddr" placeholder="Alamat usaha" readonly readonly><?= $this->input->post('siteaddr') ?? $site['site_address']; ?></textarea>
+									<textarea type="text" name="siteaddr" class="form-control <?= form_error('siteaddr')?'is-invalid':null; ?>" rows="3" id="siteaddr" placeholder="Alamat usaha" readonly><?= $this->input->post('siteaddr') ?? $site['site_address']; ?></textarea>
 									<?= form_error('siteaddr'); ?>
 								</div>
 							</div>
@@ -78,21 +78,30 @@
 							<div class="form-group row">
 								<label for="fbUrl" class="col-sm-3 col-form-label label-judul">Facebook URL</label>
 								<div class="col-md-9">
-									<input type="text" name="fbUrl" class="form-control" id="fbUrl" placeholder="https://www.facebook.com/beniepedia" value="<?= $site['site_fb']; ?>" readonly readonly>
+									<input type="text" name="fbUrl" class="form-control" id="fbUrl" placeholder="https://www.facebook.com/beniepedia" value="<?= $site['site_fb']; ?>" readonly>
 								</div>
 							</div>
 							<div class="form-group row">
 								<label for="twUrl" class="col-sm-3 col-form-label label-judul">Twitter URL</label>
 								<div class="col-md-9">
-									<input type="text" name="twUrl" class="form-control" id="twUrl" placeholder="https://www.twitter.com/beniepedia" value="<?= $site['site_twitter']; ?>" readonly readonly>
+									<input type="text" name="twUrl" class="form-control" id="twUrl" placeholder="https://www.twitter.com/beniepedia" value="<?= $site['site_twitter']; ?>" readonly>
 								</div>
 							</div>
 							<div class="form-group row">
 								<label for="igUrl" class="col-sm-3 col-form-label label-judul">Instagram URL</label>
 								<div class="col-md-9">
-									<input type="text" name="igUrl" class="form-control" id="igUrl" placeholder="https://www.instagram.com/beniepedia" value="<?= $site['site_instagram']; ?>" readonly readonly>
+									<input type="text" name="igUrl" class="form-control" id="igUrl" placeholder="https://www.instagram.com/beniepedia" value="<?= $site['site_instagram']; ?>" readonly>
 								</div>
 							</div>
+							<div class="form-group row">
+								<label for="time" class="col-sm-3 col-form-label label-judul">Auto Logout</label>
+								<div class="col-md-9">
+									<input type="text" name="time" class="form-control <?= form_error('time')?'is-invalid':null; ?>" id="time" placeholder="60 menit ( 1 jam )" value="<?= $site['site_login_timeout']; ?>" readonly>
+								<small class="font-italic text-muted">(*) masukan waktu dalam menit, contoh: 60 (1 jam)</small>
+								</div>
+								<?= form_error('time'); ?>
+							</div>
+
 							<div class="form-group float-right mt-5">
 								<a href="javascript:void(0)" onclick="window.location.href='setting';" class="btn btn-light btn-icon-split">
 									<span class="icon text-gray-600">

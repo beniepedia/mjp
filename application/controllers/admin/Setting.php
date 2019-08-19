@@ -25,6 +25,7 @@ class Setting extends CI_Controller {
 		$this->form_validation->set_rules('hp', 'Handphone', 'trim|required|numeric');
 		$this->form_validation->set_rules('wa1', 'Whatsapp', 'trim|required|numeric');
 		$this->form_validation->set_rules('siteaddr', 'Alamat', 'trim|required');
+		$this->form_validation->set_rules('time', 'Waktu auto logout', 'trim|required');
 
 		$this->form_validation->set_error_delimiters('<div class="invalid-feedback">', '</div>');
 
@@ -214,6 +215,8 @@ class Setting extends CI_Controller {
 	public function update_general_setting()
 	{
 		$this->Setting_model->update_setting();
+		$this->session->set_flashdata('msg', 'Pengaturan berhasil di update!');
+		$this->session->set_flashdata('type', 'info');
 		redirect('admin/setting/general_setting','refresh');
 	}
 

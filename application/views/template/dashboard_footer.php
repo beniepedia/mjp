@@ -59,10 +59,10 @@
   <script src="<?= base_url() ?>assets/backend/vendor/sweetalert2/dist/sweetalert2.min.js" type="text/javascript"></script>
   <script src="<?= base_url() ?>assets/backend/js/myscript.js"></script>
 
-  <?php if($this->check->is_admin()->role_id == 1) : ?>
 
-    <script>
+  <script>
       $(document).ready(function(){
+        <?php if($this->check->is_admin()->role_id == 1) : ?>
           var pusher = new Pusher('64116644fe77e7ebfb2f', {
             cluster: 'ap1',
             forceTLS: true
@@ -107,11 +107,80 @@
                 }
               });
           }
+    <?php endif; ?>
 
-            
+    <?php if($this->generalset->all()->general_set_autologout == 1) : ?>
+          var time = '<?= $this->generalset->web()->site_login_timeout ?>';
+          var idleMax = 60 * time;
+          var idleTime = 0;
+
+          var idleInterval = setInterval(function() {
+              timerIncrement();
+              $(this).mousemove(function(e) {
+                  idleTime = 0;
+              });
+              $(this).keypress(function(e) {
+                  idleTime = 0;
+              });
+          }, 1000);
+
+          function timerIncrement() {
+              idleTime = idleTime + 1;
+              // console.log(idleTime);
+              if (idleTime >= idleMax) {
+                  $.ajax({
+                      url: '<?= base_url('logout'); ?>',
+                      type: 'POST',
+                      cache: false,
+                      success: function() {
+                          // alert('Sesi anda sudah berakhir, silahkan login kembali!');
+                         
+                          // window.location = '<?= base_url('login') ?>';
+
+                          const swalWithBootstrapButtons = Swal.mixin({
+                            customClass: {
+                              confirmButton: 'btn btn-success ',
+                              cancelButton: 'btn btn-danger mr-2'
+                            },
+                            buttonsStyling: false
+                          })
+
+                          swalWithBootstrapButtons.fire({
+                            title: 'SESI HABIS!',
+                            text: "Sesi anda sudak berakhir, apakah ingin login kembali ?",
+                            type: 'info',
+                            showCancelButton: true,
+                            allowOutsideClick: false,
+                            allowEscapeKey: false,
+                            confirmButtonText: 'Ya, login kembali',
+                            cancelButtonText: 'kembali ke home',
+                            reverseButtons: true
+                          }).then((result) => {
+                            if (result.value) {
+                              window.location = '<?= base_url('login') ?>'
+                            
+                            } else if (
+                              /* Read more about handling dismissals below */
+                              result.dismiss === Swal.DismissReason.cancel
+                            ) {
+                              window.location = '<?= base_url('/') ?>'
+                            }
+                          })
+                      }
+                  })
+              clearInterval(idleInterval);
+              }
+          }
+          <?php endif; ?>  
+
+        var audioUrl = '<?= base_url('assets/sound/click.mp3') ?>';
+        var audio2 = [new Audio(audioUrl), new Audio(audioUrl), new Audio(audioUrl), new Audio(audioUrl), new Audio(audioUrl)];
+        var soundNb = 0;
+        $('a[href]').click( () => audio2[ soundNb++ % audio2.length ].play());
+
+
       });
     </script>
-  <?php endif; ?>
 
 
 </body>
